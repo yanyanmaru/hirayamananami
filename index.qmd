@@ -1,0 +1,17 @@
+---
+title: Hirayama Nanami
+date: last-modified
+toc: true
+---
+
+### [About](/about.html)
+プロフィール
+
+### [Post](/post.html)
+気になったことや気づいたこと・発見などをちょくちょく追記します。
+
+### [Project](/project.html)
+小さなことから大きなことまで作成したものやプロジェクトを追記します。
+
+### [Like](/like.html)
+琴線に触れたものをメモしていきます。
