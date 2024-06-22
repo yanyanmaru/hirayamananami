@@ -1,0 +1,13 @@
+[
+  {
+    "listing": "/post.html",
+    "items": [
+      "/posts/post3/index.html",
+      "/posts/post1/index.html"
+    ]
+  },
+  {
+    "listing": "/project.html",
+    "items": []
+  }
+]

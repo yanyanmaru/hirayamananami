@@ -1,5 +1,8 @@
 ---
 title: "Like"
+description: "琴線に触れたものをメモしていきます。"
+title-block-banner: true
+page-layout: full
 ---
 
 好きなことを書き記していきます。忘れないように。
