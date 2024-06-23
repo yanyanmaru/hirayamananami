@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.47">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-06-23">
+<meta name="description" content="大学の分布とかを可視化してみたい！">
+
+<title>KaggleのJapanese Universityを使ってデータ分析 – Hirayama Nanami</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Hirayama Nanami</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../post.html"> 
+<span class="menu-text">Post</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../like.html"> 
+<span class="menu-text">Like</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#データセットkaggleより" id="toc-データセットkaggleより" class="nav-link active" data-scroll-target="#データセットkaggleより">データセット（Kaggleより）</a></li>
+  <li><a href="#データの外観を眺める" id="toc-データの外観を眺める" class="nav-link" data-scroll-target="#データの外観を眺める">データの外観を眺める</a>
+  <ul class="collapse">
+  <li><a href="#列の意味" id="toc-列の意味" class="nav-link" data-scroll-target="#列の意味">列の意味</a></li>
+  <li><a href="#欠損値" id="toc-欠損値" class="nav-link" data-scroll-target="#欠損値">欠損値</a></li>
+  </ul></li>
+  <li><a href="#様々な疑問を可視化していく" id="toc-様々な疑問を可視化していく" class="nav-link" data-scroll-target="#様々な疑問を可視化していく">様々な疑問を可視化していく！</a>
+  <ul class="collapse">
+  <li><a href="#国立公立私立の数ってどれくらい違うの" id="toc-国立公立私立の数ってどれくらい違うの" class="nav-link" data-scroll-target="#国立公立私立の数ってどれくらい違うの">1.国立・公立・私立の数ってどれくらい違うの？</a>
+  <ul class="collapse">
+  <li><a href="#予想" id="toc-予想" class="nav-link" data-scroll-target="#予想">予想</a></li>
+  <li><a href="#結果" id="toc-結果" class="nav-link" data-scroll-target="#結果">結果</a></li>
+  </ul></li>
+  <li><a href="#各都道県の国立公立私立の分布を知りたい" id="toc-各都道県の国立公立私立の分布を知りたい" class="nav-link" data-scroll-target="#各都道県の国立公立私立の分布を知りたい">2.各都道県の国立・公立・私立の分布を知りたい！</a>
+  <ul class="collapse">
+  <li><a href="#予想-1" id="toc-予想-1" class="nav-link" data-scroll-target="#予想-1">予想</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">KaggleのJapanese Universityを使ってデータ分析</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Kaggle</div>
+    <div class="quarto-category">Analize</div>
+    <div class="quarto-category">Dataset</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    大学の分布とかを可視化してみたい！
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 23, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="データセットkaggleより" class="level1">
+<h1>データセット（Kaggleより）</h1>
+<p>https://www.kaggle.com/datasets/webdevbadger/japanese-universities</p>
+</section>
+<section id="データの外観を眺める" class="level1">
+<h1>データの外観を眺める</h1>
+<div id="b3c7a22d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="396ef752" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"./data/japanese_universities.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="b23255e3" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">code</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">name_jp</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">type_jp</th>
+<th data-quarto-table-cell-role="th">address</th>
+<th data-quarto-table-cell-role="th">postal_code</th>
+<th data-quarto-table-cell-role="th">phone</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">found</th>
+<th data-quarto-table-cell-role="th">faculty_count</th>
+<th data-quarto-table-cell-role="th">department_count</th>
+<th data-quarto-table-cell-role="th">has_grad</th>
+<th data-quarto-table-cell-role="th">has_remote</th>
+<th data-quarto-table-cell-role="th">review_rating</th>
+<th data-quarto-table-cell-role="th">review_count</th>
+<th data-quarto-table-cell-role="th">difficulty_SD</th>
+<th data-quarto-table-cell-role="th">difficulty_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>F101110100010</td>
+<td>Hokkaido University</td>
+<td>北海道大学</td>
+<td>National</td>
+<td>国立</td>
+<td>北海道札幌市北区北8条西5丁目</td>
+<td>060－0808</td>
+<td>011－716－2111</td>
+<td>Hokkai Do</td>
+<td>...</td>
+<td>141.347153</td>
+<td>1876-08</td>
+<td>33</td>
+<td>78</td>
+<td>True</td>
+<td>False</td>
+<td>4.16</td>
+<td>1389.0</td>
+<td>60.4</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+
+<p>1 rows × 22 columns</p>
+</div>
+</div>
+</div>
+<div id="ccc3bd77" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>Index(['Unnamed: 0', 'code', 'name', 'name_jp', 'type', 'type_jp', 'address',
+       'postal_code', 'phone', 'state', 'state_jp', 'latitude', 'longitude',
+       'found', 'faculty_count', 'department_count', 'has_grad', 'has_remote',
+       'review_rating', 'review_count', 'difficulty_SD', 'difficulty_rank'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="extra-space">
+
+</div>
+<div class="extra-space">
+
+</div>
+<div class="extra-space">
+
+</div>
+<p>1つ目の列がUnnamed: 0になっているので、IDに変えておく。</p>
+<p>列名を変える方法を知らなかったけど、renameというメソッドがあるっぽい。（<a href="https://qiita.com/kizataka/items/4d44a3dc8f32f9ca2c59">https://qiita.com/kizataka/items/4d44a3dc8f32f9ca2c59</a>）</p>
+<div id="7d7f2b67" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.rename(columns<span class="op">=</span>{<span class="st">'Unnamed: 0'</span>: <span class="st">'ID'</span>})</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">code</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">name_jp</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">type_jp</th>
+<th data-quarto-table-cell-role="th">address</th>
+<th data-quarto-table-cell-role="th">postal_code</th>
+<th data-quarto-table-cell-role="th">phone</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">found</th>
+<th data-quarto-table-cell-role="th">faculty_count</th>
+<th data-quarto-table-cell-role="th">department_count</th>
+<th data-quarto-table-cell-role="th">has_grad</th>
+<th data-quarto-table-cell-role="th">has_remote</th>
+<th data-quarto-table-cell-role="th">review_rating</th>
+<th data-quarto-table-cell-role="th">review_count</th>
+<th data-quarto-table-cell-role="th">difficulty_SD</th>
+<th data-quarto-table-cell-role="th">difficulty_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>F101110100010</td>
+<td>Hokkaido University</td>
+<td>北海道大学</td>
+<td>National</td>
+<td>国立</td>
+<td>北海道札幌市北区北8条西5丁目</td>
+<td>060－0808</td>
+<td>011－716－2111</td>
+<td>Hokkai Do</td>
+<td>...</td>
+<td>141.347153</td>
+<td>1876-08</td>
+<td>33</td>
+<td>78</td>
+<td>True</td>
+<td>False</td>
+<td>4.16</td>
+<td>1389.0</td>
+<td>60.4</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>F101110100029</td>
+<td>Hokkaido University of Education</td>
+<td>北海道教育大学</td>
+<td>National</td>
+<td>国立</td>
+<td>北海道札幌市北区あいの里5条3－1－3</td>
+<td>002－8501</td>
+<td>011－778－0206</td>
+<td>Hokkai Do</td>
+<td>...</td>
+<td>141.393753</td>
+<td>1943-04</td>
+<td>3</td>
+<td>8</td>
+<td>True</td>
+<td>False</td>
+<td>3.79</td>
+<td>544.0</td>
+<td>47.1</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>F101110100038</td>
+<td>Muroran Institute of Technology</td>
+<td>室蘭工業大学</td>
+<td>National</td>
+<td>国立</td>
+<td>北海道室蘭市水元町27－1</td>
+<td>050－8585</td>
+<td>0143－46－5000</td>
+<td>Hokkai Do</td>
+<td>...</td>
+<td>141.034042</td>
+<td>1897-05</td>
+<td>3</td>
+<td>10</td>
+<td>True</td>
+<td>False</td>
+<td>3.66</td>
+<td>126.0</td>
+<td>39.0</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+
+<p>3 rows × 22 columns</p>
+</div>
+</div>
+</div>
+<div id="9b3a5c4d" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 813 entries, 0 to 812
+Data columns (total 22 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   ID                813 non-null    int64  
+ 1   code              813 non-null    object 
+ 2   name              813 non-null    object 
+ 3   name_jp           813 non-null    object 
+ 4   type              813 non-null    object 
+ 5   type_jp           813 non-null    object 
+ 6   address           813 non-null    object 
+ 7   postal_code       813 non-null    object 
+ 8   phone             810 non-null    object 
+ 9   state             813 non-null    object 
+ 10  state_jp          813 non-null    object 
+ 11  latitude          813 non-null    float64
+ 12  longitude         813 non-null    float64
+ 13  found             813 non-null    object 
+ 14  faculty_count     813 non-null    int64  
+ 15  department_count  813 non-null    int64  
+ 16  has_grad          813 non-null    bool   
+ 17  has_remote        813 non-null    bool   
+ 18  review_rating     798 non-null    float64
+ 19  review_count      798 non-null    float64
+ 20  difficulty_SD     754 non-null    float64
+ 21  difficulty_rank   754 non-null    object 
+dtypes: bool(2), float64(5), int64(3), object(12)
+memory usage: 128.7+ KB</code></pre>
+</div>
+</div>
+<div id="43640227" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">faculty_count</th>
+<th data-quarto-table-cell-role="th">department_count</th>
+<th data-quarto-table-cell-role="th">review_rating</th>
+<th data-quarto-table-cell-role="th">review_count</th>
+<th data-quarto-table-cell-role="th">difficulty_SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>813.000000</td>
+<td>813.000000</td>
+<td>813.000000</td>
+<td>813.000000</td>
+<td>813.000000</td>
+<td>798.000000</td>
+<td>798.000000</td>
+<td>754.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>406.000000</td>
+<td>35.665309</td>
+<td>137.118635</td>
+<td>5.985240</td>
+<td>12.629766</td>
+<td>3.813108</td>
+<td>239.082707</td>
+<td>43.246286</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>234.837178</td>
+<td>2.312571</td>
+<td>3.286785</td>
+<td>6.282533</td>
+<td>16.879957</td>
+<td>0.277132</td>
+<td>410.102565</td>
+<td>7.654845</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.000000</td>
+<td>26.200539</td>
+<td>127.694443</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>2.000000</td>
+<td>1.000000</td>
+<td>35.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>203.000000</td>
+<td>34.707886</td>
+<td>135.462921</td>
+<td>2.000000</td>
+<td>3.000000</td>
+<td>3.670000</td>
+<td>41.000000</td>
+<td>36.600000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>406.000000</td>
+<td>35.467346</td>
+<td>137.737991</td>
+<td>4.000000</td>
+<td>7.000000</td>
+<td>3.820000</td>
+<td>96.500000</td>
+<td>40.750000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>609.000000</td>
+<td>35.862579</td>
+<td>139.713745</td>
+<td>7.000000</td>
+<td>15.000000</td>
+<td>3.950000</td>
+<td>257.750000</td>
+<td>49.250000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>812.000000</td>
+<td>45.383553</td>
+<td>144.393768</td>
+<td>44.000000</td>
+<td>149.000000</td>
+<td>5.000000</td>
+<td>4280.000000</td>
+<td>70.500000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="列の意味" class="level2">
+<h2 class="anchored" data-anchor-id="列の意味">列の意味</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>コード</strong></th>
+<th><strong>説明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>code</strong></td>
+<td>文部科学省が割り当てた識別コード</td>
+</tr>
+<tr class="even">
+<td><strong>name</strong></td>
+<td>大学名の公式英訳</td>
+</tr>
+<tr class="odd">
+<td><strong>name_jp</strong></td>
+<td>大学名の公式日本語名</td>
+</tr>
+<tr class="even">
+<td><strong>type</strong></td>
+<td>大学の種類（国立、公立、私立のいずれか）</td>
+</tr>
+<tr class="odd">
+<td><strong>type_jp</strong></td>
+<td>大学の種類（日本語）</td>
+</tr>
+<tr class="even">
+<td><strong>address</strong></td>
+<td>大学の住所</td>
+</tr>
+<tr class="odd">
+<td><strong>postal_code</strong></td>
+<td>郵便番号</td>
+</tr>
+<tr class="even">
+<td><strong>phone</strong></td>
+<td>電話番号</td>
+</tr>
+<tr class="odd">
+<td><strong>state_code</strong></td>
+<td>都道府県に関連付けられたコード</td>
+</tr>
+<tr class="even">
+<td><strong>state_jp</strong></td>
+<td>都道府県</td>
+</tr>
+<tr class="odd">
+<td><strong>latitude</strong></td>
+<td>大学の位置の緯度</td>
+</tr>
+<tr class="even">
+<td><strong>longitude</strong></td>
+<td>大学の位置の経度</td>
+</tr>
+<tr class="odd">
+<td><strong>found</strong></td>
+<td>大学の設立年月</td>
+</tr>
+<tr class="even">
+<td><strong>faculty_count</strong></td>
+<td>大学の学部数</td>
+</tr>
+<tr class="odd">
+<td><strong>department_count</strong></td>
+<td>大学の学科数</td>
+</tr>
+<tr class="even">
+<td><strong>has_grad</strong></td>
+<td>大学院の有無（True または False）</td>
+</tr>
+<tr class="odd">
+<td><strong>has_remote</strong></td>
+<td>遠隔教育の有無（True または False）</td>
+</tr>
+<tr class="even">
+<td><strong>review_rating</strong></td>
+<td>大学のレビュー評価</td>
+</tr>
+<tr class="odd">
+<td><strong>review_count</strong></td>
+<td>大学のレビュー数</td>
+</tr>
+<tr class="even">
+<td><strong>difficulty_SD</strong></td>
+<td>大学の難易度の標準偏差</td>
+</tr>
+<tr class="odd">
+<td><strong>difficulty_rank</strong></td>
+<td>大学の難易度ランク（最高から最低のランク順は - [S, A, B, C, D, E, F]）</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="欠損値" class="level2">
+<h2 class="anchored" data-anchor-id="欠損値">欠損値</h2>
+<div id="cb017f04" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>ID                   0
+code                 0
+name                 0
+name_jp              0
+type                 0
+type_jp              0
+address              0
+postal_code          0
+phone                3
+state                0
+state_jp             0
+latitude             0
+longitude            0
+found                0
+faculty_count        0
+department_count     0
+has_grad             0
+has_remote           0
+review_rating       15
+review_count        15
+difficulty_SD       59
+difficulty_rank     59
+dtype: int64</code></pre>
+</div>
+</div>
+<p>どうやらちょくちょくあるっぽい。</p>
+</section>
+</section>
+<section id="様々な疑問を可視化していく" class="level1">
+<h1>様々な疑問を可視化していく！</h1>
+<section id="国立公立私立の数ってどれくらい違うの" class="level2">
+<h2 class="anchored" data-anchor-id="国立公立私立の数ってどれくらい違うの">1.国立・公立・私立の数ってどれくらい違うの？</h2>
+<section id="予想" class="level3">
+<h3 class="anchored" data-anchor-id="予想">予想</h3>
+<ol type="1">
+<li>私立の数が一番多い</li>
+<li>国立は１都道府県１つくらい？</li>
+<li>公立は国立よりは多く私立よりは少ない</li>
+</ol>
+</section>
+<section id="結果" class="level3">
+<h3 class="anchored" data-anchor-id="結果">結果</h3>
+<div id="cbb3e796" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data.type_jp.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>type_jp
+私立    626
+公立    101
+国立     86
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<ol type="1">
+<li>私立の数が一番多い　→　◯</li>
+<li>国立は１都道府県１つくらい？　→　×　（１都道府県2つくらいあるっぽい）</li>
+<li>公立は国立よりは多く私立よりは少ない　→　◯</li>
+</ol>
+<section id="棒グラフ" class="level4">
+<h4 class="anchored" data-anchor-id="棒グラフ">棒グラフ</h4>
+<p>https://plotly.com/python/histograms/</p>
+<div id="a0e2a3a8" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig1 <span class="op">=</span> px.histogram(data, x<span class="op">=</span><span class="st">"type_jp"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig1.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>                            <div id="9e45dab8-cf17-446a-8c30-b4e8ce7f58ae" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("9e45dab8-cf17-446a-8c30-b4e8ce7f58ae")) {                    Plotly.newPlot(                        "9e45dab8-cf17-446a-8c30-b4e8ce7f58ae",                        [{"alignmentgroup":"True","bingroup":"x","hovertemplate":"type_jp=%{x}\u003cbr\u003ecount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","offsetgroup":"","orientation":"v","showlegend":false,"x":["\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb"],"xaxis":"x","yaxis":"y","type":"histogram"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"type_jp"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"count"}},"legend":{"tracegroupgap":0},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('9e45dab8-cf17-446a-8c30-b4e8ce7f58ae');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+<section id="円グラフ" class="level4">
+<h4 class="anchored" data-anchor-id="円グラフ">円グラフ</h4>
+<p>https://plotly.com/python/pie-charts/</p>
+<div id="3a895489" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig2 <span class="op">=</span> px.pie(data,  names<span class="op">=</span><span class="st">'type_jp'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig2.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>                            <div id="2d9825e9-f44c-4925-8c48-507a078b2d01" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2d9825e9-f44c-4925-8c48-507a078b2d01")) {                    Plotly.newPlot(                        "2d9825e9-f44c-4925-8c48-507a078b2d01",                        [{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"hovertemplate":"type_jp=%{label}\u003cextra\u003e\u003c\u002fextra\u003e","labels":["\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u56fd\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u516c\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb","\u79c1\u7acb"],"legendgroup":"","name":"","showlegend":true,"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"legend":{"tracegroupgap":0}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('2d9825e9-f44c-4925-8c48-507a078b2d01');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="各都道県の国立公立私立の分布を知りたい" class="level2">
+<h2 class="anchored" data-anchor-id="各都道県の国立公立私立の分布を知りたい">2.各都道県の国立・公立・私立の分布を知りたい！</h2>
+<section id="予想-1" class="level3">
+<h3 class="anchored" data-anchor-id="予想-1">予想</h3>
+<ol type="1">
+<li>首都圏は私立が多いイメージがある</li>
+<li>都会（大阪・名古屋・福岡）などは首都圏と同様に私立が多い</li>
+<li>国立はだいたい平等に各都道府県にある</li>
+<li>公立+国立が平等になるようにできてるかも！補填し合うみたいなイメージで</li>
+<li>予想ではないけど、大学数の合計の違いも気になるかも。東京は大学多そう</li>
+</ol>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

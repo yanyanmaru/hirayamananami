@@ -4,7 +4,7 @@
     "href": "project.html",
     "title": "Project",
     "section": "",
-    "text": "No matching items"
+    "text": "KaggleのJapanese Universityを使ってデータ分析\n\n\n\n\n\n\nKaggle\n\n\nAnalize\n\n\nDataset\n\n\n\n大学の分布とかを可視化してみたい！\n\n\n\n\n\nJun 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nKaggleのJapanese Universityを使ってデータ分析\n\n\n\n\n\n\nKaggle\n\n\nAnalize\n\n\nDataset\n\n\n\n大学の分布とかを可視化してみたい！\n\n\n\n\n\nJun 23, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -33,5 +33,124 @@
     "title": "About",
     "section": "",
     "text": "神戸大学経営学部３回生の平山奈々海です。\n大学では統計を学んでいます。\n統計学、機械学習、計量経済学等に興味があります。 また、データの可視化にも興味があります。\n好きなことをダラダラと追究します。興味は度々変動します。"
+  },
+  {
+    "objectID": "projects/university/index.html",
+    "href": "projects/university/index.html",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "",
+    "text": "https://www.kaggle.com/datasets/webdevbadger/japanese-universities"
+  },
+  {
+    "objectID": "projects/university/index.html#列の意味",
+    "href": "projects/university/index.html#列の意味",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "列の意味",
+    "text": "列の意味\n\n\n\n\n\n\n\nコード\n説明\n\n\n\n\ncode\n文部科学省が割り当てた識別コード\n\n\nname\n大学名の公式英訳\n\n\nname_jp\n大学名の公式日本語名\n\n\ntype\n大学の種類（国立、公立、私立のいずれか）\n\n\ntype_jp\n大学の種類（日本語）\n\n\naddress\n大学の住所\n\n\npostal_code\n郵便番号\n\n\nphone\n電話番号\n\n\nstate_code\n都道府県に関連付けられたコード\n\n\nstate_jp\n都道府県\n\n\nlatitude\n大学の位置の緯度\n\n\nlongitude\n大学の位置の経度\n\n\nfound\n大学の設立年月\n\n\nfaculty_count\n大学の学部数\n\n\ndepartment_count\n大学の学科数\n\n\nhas_grad\n大学院の有無（True または False）\n\n\nhas_remote\n遠隔教育の有無（True または False）\n\n\nreview_rating\n大学のレビュー評価\n\n\nreview_count\n大学のレビュー数\n\n\ndifficulty_SD\n大学の難易度の標準偏差\n\n\ndifficulty_rank\n大学の難易度ランク（最高から最低のランク順は - [S, A, B, C, D, E, F]）"
+  },
+  {
+    "objectID": "projects/university/index.html#国立公立私立の数ってどれくらい違うの",
+    "href": "projects/university/index.html#国立公立私立の数ってどれくらい違うの",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "1.国立・公立・私立の数ってどれくらい違うの？",
+    "text": "1.国立・公立・私立の数ってどれくらい違うの？\n\n予想\n\n私立の数が一番多い\n国立は１都道府県１つくらい？\n公立は国立よりは多く私立よりは少ない\n\n\n\n結果\n\ndata.type_jp.value_counts()\n\ntype_jp\n私立    626\n公立    101\n国立     86\nName: count, dtype: int64\n\n\n\n私立の数が一番多い　→　◯\n国立は１都道府県１つくらい？　→　×　（１都道府県2つくらいあるっぽい）\n公立は国立よりは多く私立よりは少ない　→　◯\n\n\n棒グラフ\nhttps://plotly.com/python/histograms/\n\nfig1 = px.histogram(data, x=\"type_jp\")\nfig1.show()\n\n                                                \n\n\n\n\n円グラフ\nhttps://plotly.com/python/pie-charts/\n\nfig2 = px.pie(data,  names='type_jp')\nfig2.show()"
+  },
+  {
+    "objectID": "projects/university/index.html#欠損値",
+    "href": "projects/university/index.html#欠損値",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "欠損値",
+    "text": "欠損値\n\ndata.isnull().sum()\n\nID                   0\ncode                 0\nname                 0\nname_jp              0\ntype                 0\ntype_jp              0\naddress              0\npostal_code          0\nphone                3\nstate                0\nstate_jp             0\nlatitude             0\nlongitude            0\nfound                0\nfaculty_count        0\ndepartment_count     0\nhas_grad             0\nhas_remote           0\nreview_rating       15\nreview_count        15\ndifficulty_SD       59\ndifficulty_rank     59\ndtype: int64\n\n\nどうやらちょくちょくあるっぽい。"
+  },
+  {
+    "objectID": "projects/university/first.html",
+    "href": "projects/university/first.html",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "",
+    "text": "https://www.kaggle.com/datasets/webdevbadger/japanese-universities"
+  },
+  {
+    "objectID": "projects/university/index.html#各都道県の国立公立私立の分布を知りたい",
+    "href": "projects/university/index.html#各都道県の国立公立私立の分布を知りたい",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "2.各都道県の国立・公立・私立の分布を知りたい！",
+    "text": "2.各都道県の国立・公立・私立の分布を知りたい！\n\n予想\n\n首都圏は私立が多いイメージがある\n都会（大阪・名古屋・福岡）などは首都圏と同様に私立が多い\n国立はだいたい平等に各都道府県にある\n公立+国立が平等になるようにできてるかも！補填し合うみたいなイメージで\n予想ではないけど、大学数の合計の違いも気になるかも。東京は大学多そう\n\n\n\n結果\n\nfig1 = px.bar(data, x='state_jp', color='type_jp', title='都道府県ごとの国公私分類',\n             category_orders={'type_jp': ['国立', '公立', '私立']})\n\ndisplay(fig1)\n\n                                                \n\n\n予想通り、東京の私立大学は並外れて多い。\n大阪・愛知も同様に私立大学は多いが、比較して多いほどではない\n\ndata.head(5)\n\n\n\n\n\n\n\n\nID\ncode\nname\nname_jp\ntype\ntype_jp\naddress\npostal_code\nphone\nstate\n...\nlongitude\nfound\nfaculty_count\ndepartment_count\nhas_grad\nhas_remote\nreview_rating\nreview_count\ndifficulty_SD\ndifficulty_rank\n\n\n\n\n0\n0\nF101110100010\nHokkaido University\n北海道大学\nNational\n国立\n北海道札幌市北区北8条西5丁目\n060－0808\n011－716－2111\nHokkai Do\n...\n141.347153\n1876-08\n33\n78\nTrue\nFalse\n4.16\n1389.0\n60.4\nA\n\n\n1\n1\nF101110100029\nHokkaido University of Education\n北海道教育大学\nNational\n国立\n北海道札幌市北区あいの里5条3－1－3\n002－8501\n011－778－0206\nHokkai Do\n...\n141.393753\n1943-04\n3\n8\nTrue\nFalse\n3.79\n544.0\n47.1\nD\n\n\n2\n2\nF101110100038\nMuroran Institute of Technology\n室蘭工業大学\nNational\n国立\n北海道室蘭市水元町27－1\n050－8585\n0143－46－5000\nHokkai Do\n...\n141.034042\n1897-05\n3\n10\nTrue\nFalse\n3.66\n126.0\n39.0\nF\n\n\n3\n3\nF101110100047\nOtaru University of Commerce\n小樽商科大学\nNational\n国立\n北海道小樽市緑3－5－21\n047－8501\n0134－27－5206\nHokkai Do\n...\n140.979370\n1910-03\n2\n6\nTrue\nFalse\n3.80\n257.0\n50.0\nC\n\n\n4\n4\nF101110100056\nObihiro University of Agriculture And Veterina...\n帯広畜産大学\nNational\n国立\n北海道帯広市稲田町西2線11\n080－8555\n0155－49－5216\nHokkai Do\n...\n143.177979\n1941-04\n3\n5\nTrue\nFalse\n4.20\n87.0\n54.5\nB\n\n\n\n\n5 rows × 22 columns\n\n\n\nデータが冗長なので、必要な列だけ抽出します。\n\ndata2 = data[['name_jp', 'type_jp','state_jp']]\n\n\ndata2.head(10)\n\n\n\n\n\n\n\n\nname_jp\ntype_jp\nstate_jp\n\n\n\n\n0\n北海道大学\n国立\n北海道\n\n\n1\n北海道教育大学\n国立\n北海道\n\n\n2\n室蘭工業大学\n国立\n北海道\n\n\n3\n小樽商科大学\n国立\n北海道\n\n\n4\n帯広畜産大学\n国立\n北海道\n\n\n5\n旭川医科大学\n国立\n北海道\n\n\n6\n北見工業大学\n国立\n北海道\n\n\n7\n弘前大学\n国立\n青森県\n\n\n8\n岩手大学\n国立\n岩手県\n\n\n9\n東北大学\n国立\n宮城県\n\n\n\n\n\n\n\n\ngrouped_type_data = data2.groupby('state_jp').agg(list).reset_index()\n\n\ngrouped_type_data.columns\n\nIndex(['state_jp', 'name_jp', 'type_jp'], dtype='object')\n\n\n\ngrouped_type_data.head(4)\n\n\n\n\n\n\n\n\nstate_jp\nname_jp\ntype_jp\n\n\n\n\n0\n三重県\n[三重大学, 三重県立看護大学, 四日市大学, 皇學館大学, 鈴鹿医療科学大学, 鈴鹿大学,...\n[国立, 公立, 私立, 私立, 私立, 私立, 私立]\n\n\n1\n京都府\n[京都大学, 京都教育大学, 京都工芸繊維大学, 京都市立芸術大学, 京都府立大学, 京都府...\n[国立, 国立, 国立, 公立, 公立, 公立, 公立, 私立, 私立, 私立, 私立, 私...\n\n\n2\n佐賀県\n[佐賀大学, 西九州大学]\n[国立, 私立]\n\n\n3\n兵庫県\n[兵庫教育大学, 神戸大学, 神戸市外国語大学, 神戸市看護大学, 兵庫県立大学, 芸術文化...\n[国立, 国立, 公立, 公立, 公立, 公立, 私立, 私立, 私立, 私立, 私立, 私...\n\n\n\n\n\n\n\n\ngrouped_type_data['kokuritu'] = grouped_type_data['type_jp'].apply(lambda x: x.count('国立'))\ngrouped_type_data['kouritu'] = grouped_type_data['type_jp'].apply(lambda x: x.count('公立'))\ngrouped_type_data['siritsu'] = grouped_type_data['type_jp'].apply(lambda x: x.count('私立'))\n\n\ngrouped_type_data.head(2)\n\n\n\n\n\n\n\n\nstate_jp\nname_jp\ntype_jp\nkokuritu\nkouritu\nsiritsu\n\n\n\n\n0\n三重県\n[三重大学, 三重県立看護大学, 四日市大学, 皇學館大学, 鈴鹿医療科学大学, 鈴鹿大学,...\n[国立, 公立, 私立, 私立, 私立, 私立, 私立]\n1\n1\n5\n\n\n1\n京都府\n[京都大学, 京都教育大学, 京都工芸繊維大学, 京都市立芸術大学, 京都府立大学, 京都府...\n[国立, 国立, 国立, 公立, 公立, 公立, 公立, 私立, 私立, 私立, 私立, 私...\n3\n4\n27\n\n\n\n\n\n\n\n\ngrouped_type_data[\"type_sum\"] = grouped_type_data[\"kokuritu\"] + grouped_type_data[\"kouritu\"] + grouped_type_data[\"siritsu\"]\n\n\ngrouped_type_data.head(2)\n\n\n\n\n\n\n\n\nstate_jp\nname_jp\ntype_jp\nkokuritu\nkouritu\nsiritsu\ntype_sum\n\n\n\n\n0\n三重県\n[三重大学, 三重県立看護大学, 四日市大学, 皇學館大学, 鈴鹿医療科学大学, 鈴鹿大学,...\n[国立, 公立, 私立, 私立, 私立, 私立, 私立]\n1\n1\n5\n7\n\n\n1\n京都府\n[京都大学, 京都教育大学, 京都工芸繊維大学, 京都市立芸術大学, 京都府立大学, 京都府...\n[国立, 国立, 国立, 公立, 公立, 公立, 公立, 私立, 私立, 私立, 私立, 私...\n3\n4\n27\n34\n\n\n\n\n\n\n\n\ngrouped_type_data[\"per_kokuritu\"] = grouped_type_data[\"kokuritu\"] / grouped_type_data[\"type_sum\"]\ngrouped_type_data[\"per_kouritu\"] = grouped_type_data[\"kouritu\"] / grouped_type_data[\"type_sum\"]\ngrouped_type_data[\"per_siritsu\"] = grouped_type_data[\"siritsu\"] / grouped_type_data[\"type_sum\"]\n\n\ngrouped_type_data.head(2)\n\n\n\n\n\n\n\n\nstate_jp\nname_jp\ntype_jp\nkokuritu\nkouritu\nsiritsu\ntype_sum\nper_kokuritu\nper_kouritu\nper_siritsu\n\n\n\n\n0\n三重県\n[三重大学, 三重県立看護大学, 四日市大学, 皇學館大学, 鈴鹿医療科学大学, 鈴鹿大学,...\n[国立, 公立, 私立, 私立, 私立, 私立, 私立]\n1\n1\n5\n7\n0.142857\n0.142857\n0.714286\n\n\n1\n京都府\n[京都大学, 京都教育大学, 京都工芸繊維大学, 京都市立芸術大学, 京都府立大学, 京都府...\n[国立, 国立, 国立, 公立, 公立, 公立, 公立, 私立, 私立, 私立, 私立, 私...\n3\n4\n27\n34\n0.088235\n0.117647\n0.794118"
+  },
+  {
+    "objectID": "projects/university/first.html#データを表示する",
+    "href": "projects/university/first.html#データを表示する",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "データを表示する",
+    "text": "データを表示する\n\ndata = pd.read_csv(\"./data/japanese_universities.csv\")\n\n\ndata.head(5)\n\n\n\n\n\n\n\n\nUnnamed: 0\ncode\nname\nname_jp\ntype\ntype_jp\naddress\npostal_code\nphone\nstate\n...\nlongitude\nfound\nfaculty_count\ndepartment_count\nhas_grad\nhas_remote\nreview_rating\nreview_count\ndifficulty_SD\ndifficulty_rank\n\n\n\n\n0\n0\nF101110100010\nHokkaido University\n北海道大学\nNational\n国立\n北海道札幌市北区北8条西5丁目\n060－0808\n011－716－2111\nHokkai Do\n...\n141.347153\n1876-08\n33\n78\nTrue\nFalse\n4.16\n1389.0\n60.4\nA\n\n\n1\n1\nF101110100029\nHokkaido University of Education\n北海道教育大学\nNational\n国立\n北海道札幌市北区あいの里5条3－1－3\n002－8501\n011－778－0206\nHokkai Do\n...\n141.393753\n1943-04\n3\n8\nTrue\nFalse\n3.79\n544.0\n47.1\nD\n\n\n2\n2\nF101110100038\nMuroran Institute of Technology\n室蘭工業大学\nNational\n国立\n北海道室蘭市水元町27－1\n050－8585\n0143－46－5000\nHokkai Do\n...\n141.034042\n1897-05\n3\n10\nTrue\nFalse\n3.66\n126.0\n39.0\nF\n\n\n3\n3\nF101110100047\nOtaru University of Commerce\n小樽商科大学\nNational\n国立\n北海道小樽市緑3－5－21\n047－8501\n0134－27－5206\nHokkai Do\n...\n140.979370\n1910-03\n2\n6\nTrue\nFalse\n3.80\n257.0\n50.0\nC\n\n\n4\n4\nF101110100056\nObihiro University of Agriculture And Veterina...\n帯広畜産大学\nNational\n国立\n北海道帯広市稲田町西2線11\n080－8555\n0155－49－5216\nHokkai Do\n...\n143.177979\n1941-04\n3\n5\nTrue\nFalse\n4.20\n87.0\n54.5\nB\n\n\n\n\n5 rows × 22 columns"
+  },
+  {
+    "objectID": "projects/university/first.html#ありがとね",
+    "href": "projects/university/first.html#ありがとね",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "ありがとね",
+    "text": "ありがとね\n\ndata.isnull().sum()\n\nUnnamed: 0           0\ncode                 0\nname                 0\nname_jp              0\ntype                 0\ntype_jp              0\naddress              0\npostal_code          0\nphone                3\nstate                0\nstate_jp             0\nlatitude             0\nlongitude            0\nfound                0\nfaculty_count        0\ndepartment_count     0\nhas_grad             0\nhas_remote           0\nreview_rating       15\nreview_count        15\ndifficulty_SD       59\ndifficulty_rank     59\ndtype: int64\n\n\n\ndata[\"code\"].head(5)\n\n0    F101110100010\n1    F101110100029\n2    F101110100038\n3    F101110100047\n4    F101110100056\nName: code, dtype: object\n\n\n\ndata[\"type\"].head(5)\n\n0    National\n1    National\n2    National\n3    National\n4    National\nName: type, dtype: object\n\n\n\ndata[\"address\"].head(5)\n\n0        北海道札幌市北区北8条西5丁目\n1    北海道札幌市北区あいの里5条3－1－3\n2          北海道室蘭市水元町27－1\n3          北海道小樽市緑3－5－21\n4         北海道帯広市稲田町西2線11\nName: address, dtype: object\n\n\n\ndata.postal_code.head(2)\n\n0    060－0808\n1    002－8501\nName: postal_code, dtype: object\n\n\n\ndata.columns\n\nIndex(['Unnamed: 0', 'code', 'name', 'name_jp', 'type', 'type_jp', 'address',\n       'postal_code', 'phone', 'state', 'state_jp', 'latitude', 'longitude',\n       'found', 'faculty_count', 'department_count', 'has_grad', 'has_remote',\n       'review_rating', 'review_count', 'difficulty_SD', 'difficulty_rank'],\n      dtype='object')\n\n\n\ndata.phone.head(2)\n\n0    011－716－2111\n1    011－778－0206\nName: phone, dtype: object\n\n\n\ndata.state.head(3)\n\n0    Hokkai Do\n1    Hokkai Do\n2    Hokkai Do\nName: state, dtype: object\n\n\n\ndata.latitude.head(2)\n\n0    43.070446\n1    43.170498\nName: latitude, dtype: float64\n\n\n\ndata.longitude.head(2)\n\n0    141.347153\n1    141.393753\nName: longitude, dtype: float64\n\n\n\ndata.found.head(10)\n\n0    1876-08\n1    1943-04\n2    1897-05\n3    1910-03\n4    1941-04\n5    1973-09\n6    1960-04\n7    1920-11\n8    1902-03\n9    1886-04\nName: found, dtype: object\n\n\n\ndata.faculty_count.head(10)\n\n0    33\n1     3\n2     3\n3     2\n4     3\n5     2\n6     2\n7    13\n8     9\n9    25\nName: faculty_count, dtype: int64\n\n\n\ndata.columns\n\nIndex(['Unnamed: 0', 'code', 'name', 'name_jp', 'type', 'type_jp', 'address',\n       'postal_code', 'phone', 'state', 'state_jp', 'latitude', 'longitude',\n       'found', 'faculty_count', 'department_count', 'has_grad', 'has_remote',\n       'review_rating', 'review_count', 'difficulty_SD', 'difficulty_rank'],\n      dtype='object')\n\n\n\ndata.department_count.head(5)\n\n0    78\n1     8\n2    10\n3     6\n4     5\nName: department_count, dtype: int64\n\n\n\ndata.has_grad.head(5)\n\n0    True\n1    True\n2    True\n3    True\n4    True\nName: has_grad, dtype: bool\n\n\n\ndata.has_grad.value_counts()\n\nhas_grad\nTrue     661\nFalse    152\nName: count, dtype: int64\n\n\n\ndata.has_remote.value_counts\n\n&lt;bound method IndexOpsMixin.value_counts of 0      False\n1      False\n2      False\n3      False\n4      False\n       ...  \n808    False\n809    False\n810    False\n811    False\n812    False\nName: has_remote, Length: 813, dtype: bool&gt;\n\n\n\ndata.review_rating.head(3)\n\n0    4.16\n1    3.79\n2    3.66\nName: review_rating, dtype: float64\n\n\n\ndata.review_count.head(5)\n\n0    1389.0\n1     544.0\n2     126.0\n3     257.0\n4      87.0\nName: review_count, dtype: float64\n\n\n\ndata.difficulty_SD.head(3)\n\n0    60.4\n1    47.1\n2    39.0\nName: difficulty_SD, dtype: float64\n\n\n\ndata.difficulty_rank.head(5)\n\n0    A\n1    D\n2    F\n3    C\n4    B\nName: difficulty_rank, dtype: object\n\n\n\ndata.type_jp.value_counts()\n\ntype_jp\n私立    626\n公立    101\n国立     86\nName: count, dtype: int64\n\n\n\nimport plotly.express as px\n\nfig1 = px.bar(data, x='state', color='type', title='University Types Across States',\n             labels={'state': 'State', 'type': 'University Type'},\n             category_orders={'type': ['National', 'Public', 'Private']})\n\ndisplay(fig1)\n\n                                                \n\n\n\nimport plotly.express as px\ndf = px.data.tips()\nfig = px.histogram(df, x=\"day\")\nfig.show()\n\n                                                \n\n\n\ndf = px.data.tips()\nfig = px.pie(df, values='tip', names='day')\nfig.show()\n\ndf.head(3)\n\n                                                \n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3"
+  },
+  {
+    "objectID": "projects/demo/index.html",
+    "href": "projects/demo/index.html",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "",
+    "text": "https://www.kaggle.com/datasets/webdevbadger/japanese-universities"
+  },
+  {
+    "objectID": "projects/demo/index.html#列の意味",
+    "href": "projects/demo/index.html#列の意味",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "列の意味",
+    "text": "列の意味\n\n\n\n\n\n\n\nコード\n説明\n\n\n\n\ncode\n文部科学省が割り当てた識別コード\n\n\nname\n大学名の公式英訳\n\n\nname_jp\n大学名の公式日本語名\n\n\ntype\n大学の種類（国立、公立、私立のいずれか）\n\n\ntype_jp\n大学の種類（日本語）\n\n\naddress\n大学の住所\n\n\npostal_code\n郵便番号\n\n\nphone\n電話番号\n\n\nstate_code\n都道府県に関連付けられたコード\n\n\nstate_jp\n都道府県\n\n\nlatitude\n大学の位置の緯度\n\n\nlongitude\n大学の位置の経度\n\n\nfound\n大学の設立年月\n\n\nfaculty_count\n大学の学部数\n\n\ndepartment_count\n大学の学科数\n\n\nhas_grad\n大学院の有無（True または False）\n\n\nhas_remote\n遠隔教育の有無（True または False）\n\n\nreview_rating\n大学のレビュー評価\n\n\nreview_count\n大学のレビュー数\n\n\ndifficulty_SD\n大学の難易度の標準偏差\n\n\ndifficulty_rank\n大学の難易度ランク（最高から最低のランク順は - [S, A, B, C, D, E, F]）"
+  },
+  {
+    "objectID": "projects/demo/index.html#欠損値",
+    "href": "projects/demo/index.html#欠損値",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "欠損値",
+    "text": "欠損値\n\ndata.isnull().sum()\n\nID                   0\ncode                 0\nname                 0\nname_jp              0\ntype                 0\ntype_jp              0\naddress              0\npostal_code          0\nphone                3\nstate                0\nstate_jp             0\nlatitude             0\nlongitude            0\nfound                0\nfaculty_count        0\ndepartment_count     0\nhas_grad             0\nhas_remote           0\nreview_rating       15\nreview_count        15\ndifficulty_SD       59\ndifficulty_rank     59\ndtype: int64\n\n\nどうやらちょくちょくあるっぽい。"
+  },
+  {
+    "objectID": "projects/demo/index.html#国立公立私立の数ってどれくらい違うの",
+    "href": "projects/demo/index.html#国立公立私立の数ってどれくらい違うの",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "1.国立・公立・私立の数ってどれくらい違うの？",
+    "text": "1.国立・公立・私立の数ってどれくらい違うの？\n\n予想\n\n私立の数が一番多い\n国立は１都道府県１つくらい？\n公立は国立よりは多く私立よりは少ない\n\n\n\n結果\n\ndata.type_jp.value_counts()\n\ntype_jp\n私立    626\n公立    101\n国立     86\nName: count, dtype: int64\n\n\n\n私立の数が一番多い　→　◯\n国立は１都道府県１つくらい？　→　×　（１都道府県2つくらいあるっぽい）\n公立は国立よりは多く私立よりは少ない　→　◯\n\n\n棒グラフ\nhttps://plotly.com/python/histograms/\n\nfig1 = px.histogram(data, x=\"type_jp\")\nfig1.show()\n\n                                                \n\n\n\n\n円グラフ\nhttps://plotly.com/python/pie-charts/\n\nfig2 = px.pie(data,  names='type_jp')\nfig2.show()"
+  },
+  {
+    "objectID": "projects/demo/index.html#各都道県の国立公立私立の分布を知りたい",
+    "href": "projects/demo/index.html#各都道県の国立公立私立の分布を知りたい",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "2.各都道県の国立・公立・私立の分布を知りたい！",
+    "text": "2.各都道県の国立・公立・私立の分布を知りたい！\n\n予想\n\n首都圏は私立が多いイメージがある\n都会（大阪・名古屋・福岡）などは首都圏と同様に私立が多い\n国立はだいたい平等に各都道府県にある\n公立+国立が平等になるようにできてるかも！補填し合うみたいなイメージで\n予想ではないけど、大学数の合計の違いも気になるかも。東京は大学多そう"
+  },
+  {
+    "objectID": "projects/university/first.html#列の意味",
+    "href": "projects/university/first.html#列の意味",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "列の意味",
+    "text": "列の意味\n\n\n\n\n\n\n\nコード\n説明\n\n\n\n\ncode\n文部科学省が割り当てた識別コード\n\n\nname\n大学名の公式英訳\n\n\nname_jp\n大学名の公式日本語名\n\n\ntype\n大学の種類（国立、公立、私立のいずれか）\n\n\ntype_jp\n大学の種類（日本語）\n\n\naddress\n大学の住所\n\n\npostal_code\n郵便番号\n\n\nphone\n電話番号\n\n\nstate_code\n都道府県に関連付けられたコード\n\n\nstate_jp\n都道府県\n\n\nlatitude\n大学の位置の緯度\n\n\nlongitude\n大学の位置の経度\n\n\nfound\n大学の設立年月\n\n\nfaculty_count\n大学の学部数\n\n\ndepartment_count\n大学の学科数\n\n\nhas_grad\n大学院の有無（True または False）\n\n\nhas_remote\n遠隔教育の有無（True または False）\n\n\nreview_rating\n大学のレビュー評価\n\n\nreview_count\n大学のレビュー数\n\n\ndifficulty_SD\n大学の難易度の標準偏差\n\n\ndifficulty_rank\n大学の難易度ランク（最高から最低のランク順は - [S, A, B, C, D, E, F]）"
+  },
+  {
+    "objectID": "projects/university/first.html#欠損値",
+    "href": "projects/university/first.html#欠損値",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "欠損値",
+    "text": "欠損値\n\ndata.isnull().sum()\n\nID                   0\ncode                 0\nname                 0\nname_jp              0\ntype                 0\ntype_jp              0\naddress              0\npostal_code          0\nphone                3\nstate                0\nstate_jp             0\nlatitude             0\nlongitude            0\nfound                0\nfaculty_count        0\ndepartment_count     0\nhas_grad             0\nhas_remote           0\nreview_rating       15\nreview_count        15\ndifficulty_SD       59\ndifficulty_rank     59\ndtype: int64\n\n\nどうやらちょくちょくあるっぽい。"
+  },
+  {
+    "objectID": "projects/university/first.html#国立公立私立の数ってどれくらい違うの",
+    "href": "projects/university/first.html#国立公立私立の数ってどれくらい違うの",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "1.国立・公立・私立の数ってどれくらい違うの？",
+    "text": "1.国立・公立・私立の数ってどれくらい違うの？\n\n予想\n\n私立の数が一番多い\n国立は１都道府県１つくらい？\n公立は国立よりは多く私立よりは少ない\n\n\n\n結果\n\ndata.type_jp.value_counts()\n\ntype_jp\n私立    626\n公立    101\n国立     86\nName: count, dtype: int64\n\n\n\n私立の数が一番多い　→　◯\n国立は１都道府県１つくらい？　→　×　（１都道府県2つくらいあるっぽい）\n公立は国立よりは多く私立よりは少ない　→　◯\n\n\n棒グラフ\nhttps://plotly.com/python/histograms/\n\nfig1 = px.histogram(data, x=\"type_jp\")\nfig1.show()\n\n                                                \n\n\n\n\n円グラフ\nhttps://plotly.com/python/pie-charts/\n\nfig2 = px.pie(data,  names='type_jp')\nfig2.show()"
+  },
+  {
+    "objectID": "projects/university/first.html#各都道県の国立公立私立の分布を知りたい",
+    "href": "projects/university/first.html#各都道県の国立公立私立の分布を知りたい",
+    "title": "KaggleのJapanese Universityを使ってデータ分析",
+    "section": "2.各都道県の国立・公立・私立の分布を知りたい！",
+    "text": "2.各都道県の国立・公立・私立の分布を知りたい！\n\n予想\n\n首都圏は私立が多いイメージがある\n都会（大阪・名古屋・福岡）などは首都圏と同様に私立が多い\n国立はだいたい平等に各都道府県にある\n公立+国立が平等になるようにできてるかも！補填し合うみたいなイメージで\n予想ではないけど、大学数の合計の違いも気になるかも。東京は大学多そう"
   }
 ]
