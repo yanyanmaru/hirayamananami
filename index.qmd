@@ -2,6 +2,7 @@
 title: Hirayama Nanami
 date: last-modified
 toc: true
+lang: ja
 ---
 
 ### [About](/about.html)
