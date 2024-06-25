@@ -1,6 +1,7 @@
 ---
 title: "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5"
 format: html
+code-fold: true
 date: last-modified
 toc: true
 lang: ja
@@ -8,6 +9,7 @@ categories:
   - ゼミ
   - 統計
   - データ解析のための数理統計入門
+  - python
 ---
 
 ## 例1.2　誕生日問題

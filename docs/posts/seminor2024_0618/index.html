@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5 – Hirayama Nanami</title>
+<title>6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布 – Hirayama Nanami</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -175,16 +175,18 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#例1.2-誕生日問題" id="toc-例1.2-誕生日問題" class="nav-link active" data-scroll-target="#例1.2-誕生日問題">例1.2　誕生日問題</a>
+  <li><a href="#ポアソン分布とは" id="toc-ポアソン分布とは" class="nav-link active" data-scroll-target="#ポアソン分布とは">ポアソン分布とは</a></li>
+  <li><a href="#ポアソン分布のグラフ" id="toc-ポアソン分布のグラフ" class="nav-link" data-scroll-target="#ポアソン分布のグラフ">ポアソン分布のグラフ</a>
   <ul class="collapse">
-  <li><a href="#誕生日問題とは" id="toc-誕生日問題とは" class="nav-link" data-scroll-target="#誕生日問題とは">誕生日問題とは</a></li>
-  <li><a href="#誕生日問題の確率を計算する" id="toc-誕生日問題の確率を計算する" class="nav-link" data-scroll-target="#誕生日問題の確率を計算する">誕生日問題の確率を計算する</a></li>
-  <li><a href="#例題1.2-誕生日問題-python" id="toc-例題1.2-誕生日問題-python" class="nav-link" data-scroll-target="#例題1.2-誕生日問題-python">例題1.2　誕生日問題　python</a></li>
+  <li><a href="#lambda-が正の整数のとき" id="toc-lambda-が正の整数のとき" class="nav-link" data-scroll-target="#lambda-が正の整数のとき"><span class="math inline">\(\lambda\)</span> が正の整数のとき</a></li>
+  <li><a href="#lambda-が正の実数かつ整数ではない時" id="toc-lambda-が正の実数かつ整数ではない時" class="nav-link" data-scroll-target="#lambda-が正の実数かつ整数ではない時"><span class="math inline">\(\lambda\)</span> が正の実数かつ整数ではない時</a></li>
   </ul></li>
-  <li><a href="#問題5-以下の不等式を示せ" id="toc-問題5-以下の不等式を示せ" class="nav-link" data-scroll-target="#問題5-以下の不等式を示せ">問題5 以下の不等式を示せ</a>
+  <li><a href="#ポアソン分布の具体例" id="toc-ポアソン分布の具体例" class="nav-link" data-scroll-target="#ポアソン分布の具体例">ポアソン分布の具体例</a></li>
+  <li><a href="#ポアソン分布が確率関数である証明" id="toc-ポアソン分布が確率関数である証明" class="nav-link" data-scroll-target="#ポアソン分布が確率関数である証明">ポアソン分布が確率関数である証明</a></li>
+  <li><a href="#命題2.6" id="toc-命題2.6" class="nav-link" data-scroll-target="#命題2.6">命題2.6</a></li>
+  <li><a href="#命題2.7-二項分布のポアソン近似" id="toc-命題2.7-二項分布のポアソン近似" class="nav-link" data-scroll-target="#命題2.7-二項分布のポアソン近似">命題2.7 二項分布のポアソン近似</a>
   <ul class="collapse">
-  <li><a href="#pbigcup_i1n-a_i-leq-sum_i1n-pa_i" id="toc-pbigcup_i1n-a_i-leq-sum_i1n-pa_i" class="nav-link" data-scroll-target="#pbigcup_i1n-a_i-leq-sum_i1n-pa_i">1. <span class="math inline">\(P(\bigcup_{i=1}^n A_i) \leq \sum_{i=1}^n P(A_i)\)</span></a></li>
-  <li><a href="#pa-cap-b-geq-pa-pb---1" id="toc-pa-cap-b-geq-pa-pb---1" class="nav-link" data-scroll-target="#pa-cap-b-geq-pa-pb---1">2. <span class="math inline">\(P(A \cap B) \geq P(A) + P(B) - 1\)</span></a></li>
+  <li><a href="#命題2.7の証明" id="toc-命題2.7の証明" class="nav-link" data-scroll-target="#命題2.7の証明">命題2.7の証明</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -194,7 +196,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5</h1>
+<h1 class="title">6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布</h1>
   <div class="quarto-categories">
     <div class="quarto-category">ゼミ</div>
     <div class="quarto-category">統計</div>
@@ -223,153 +225,211 @@ window.Quarto = {
 </header>
 
 
-<section id="例1.2-誕生日問題" class="level2">
-<h2 class="anchored" data-anchor-id="例1.2-誕生日問題">例1.2　誕生日問題</h2>
-<section id="誕生日問題とは" class="level3">
-<h3 class="anchored" data-anchor-id="誕生日問題とは">誕生日問題とは</h3>
-<p>教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.</p>
+<section id="ポアソン分布とは" class="level2">
+<h2 class="anchored" data-anchor-id="ポアソン分布とは">ポアソン分布とは</h2>
+<p>まれな現象が起こる回数を<span class="math inline">\(X\)</span>とするとき、確率関数が以下の関数である分布をという。<span class="math inline">\(Po(\lambda)\)</span> で表す。 <span class="math display">\[p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots\]</span></p>
+<p><span class="math inline">\(\lambda\)</span>は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 <span class="math inline">\(e\)</span> は自然対数の底である。</p>
 </section>
-<section id="誕生日問題の確率を計算する" class="level3">
-<h3 class="anchored" data-anchor-id="誕生日問題の確率を計算する">誕生日問題の確率を計算する</h3>
-<p>クラスの中に同じ人がいる事象を<span class="math inline">\(A\)</span> とすると、同じ人がいる確率は<span class="math inline">\(P(A)\)</span>である。<span class="math inline">\(A^c\)</span> は同じ人がいない事象であり、<span class="math inline">\(P(A^c)\)</span> を求める。</p>
-<p><span class="math inline">\(n\)</span>人いるとすると,</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;P(A^c) = \frac{365 \times 364 \times 363 \times \cdots \times (365 - n + 1)}{365^n} \\
-    &amp;1 - P(A^c) = 1 - \frac{365 \times 364 \times 363 \times \cdots \times (365 - n + 1)}{365^n}
-\end{align*}\]</span></p>
-<p>よって<span class="math inline">\(n=40\)</span> の時、<span class="math inline">\(P(A)=0.89\)</span> となる.</p>
-</section>
-<section id="例題1.2-誕生日問題-python" class="level3">
-<h3 class="anchored" data-anchor-id="例題1.2-誕生日問題-python">例題1.2　誕生日問題　python</h3>
-<p><span class="math inline">\(t\)</span>が0~10の時,誕生日が同じ人がいない確率をpythonで求める.</p>
-<div id="7ed7094b" class="cell" data-execution_count="1">
+<section id="ポアソン分布のグラフ" class="level2">
+<h2 class="anchored" data-anchor-id="ポアソン分布のグラフ">ポアソン分布のグラフ</h2>
+<div id="4dcc5e5d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t <span class="op">*</span> (<span class="dv">365</span> <span class="op">-</span> x) <span class="op">/</span> <span class="dv">365</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(t)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>1.0
-0.9972602739726028
-0.9917958341152185
-0.9836440875334497
-0.9728644263002063
-0.9595375163508884
-0.9437642969040244
-0.9256647076483308
-0.905376166110833
-0.8830518222889221</code></pre>
-</div>
-</div>
-<p><span class="math inline">\(t\)</span>が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.</p>
-<div id="3ac8c25b" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t <span class="op">*</span> (<span class="dv">365</span> <span class="op">-</span> x) <span class="op">/</span> <span class="dv">365</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>x<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">人の時 </span><span class="sc">{</span><span class="dv">1</span><span class="op">-</span>t<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>1人の時 0.0
-2人の時 0.002739726027397249
-3人の時 0.008204165884781456
-4人の時 0.016355912466550326
-5人の時 0.02713557369979369
-6人の時 0.04046248364911165
-7人の時 0.05623570309597559
-8人の時 0.07433529235166925
-9人の時 0.09462383388916695
-10人の時 0.1169481777110779</code></pre>
-</div>
-</div>
-<p>誕生日が同じ人がいる確率を関数にします.</p>
-<div id="a209cd3e" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exit_birthday(n):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  t <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t <span class="op">*</span> (<span class="dv">365</span> <span class="op">-</span> x) <span class="op">/</span> <span class="dv">365</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> n<span class="op">-</span><span class="dv">1</span>:</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="dv">1</span><span class="op">-</span>t)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="2fdf8925" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>exit_birthday(<span class="dv">40</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.891231809817949</code></pre>
-</div>
-</div>
-<p>教科書でわかった通り,約0.89であることがコードからもわかります.</p>
-<p>では,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.</p>
-<div id="0c7f1156" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exit_birthday_plot(n):</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> []</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        t <span class="op">=</span> t <span class="op">*</span> (<span class="dv">365</span> <span class="op">-</span> x) <span class="op">/</span> <span class="dv">365</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        values.append(<span class="dv">1</span><span class="op">-</span>t)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    plt.plot(<span class="bu">range</span>(n), values, <span class="st">'o-'</span>, label<span class="op">=</span><span class="st">'Probability'</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">'2.png'</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>exit_birthday_plot(<span class="dv">50</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のλ値を定義</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lambdas <span class="op">=</span> [<span class="dv">1</span>, <span class="fl">1.3</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">5.6</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lambda_ <span class="kw">in</span> lambdas:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> poisson.pmf(x, lambda_)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'λ = </span><span class="sc">{</span>lambda_<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'λを変動させたポアソン分布'</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'1.png'</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-6-output-1.png" width="571" height="411" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-2-output-1.png" width="827" height="522" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>すると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります.</p>
+<section id="lambda-が正の整数のとき" class="level3">
+<h3 class="anchored" data-anchor-id="lambda-が正の整数のとき"><span class="math inline">\(\lambda\)</span> が正の整数のとき</h3>
+<div id="65beff68" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のλ値を定義</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>lambdas <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lambda_ <span class="kw">in</span> lambdas:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> poisson.pmf(x, lambda_)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'λ = </span><span class="sc">{</span>lambda_<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'λを変動させたポアソン分布'</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'1.png'</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-3-output-1.png" width="827" height="522" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="問題5-以下の不等式を示せ" class="level2">
-<h2 class="anchored" data-anchor-id="問題5-以下の不等式を示せ">問題5 以下の不等式を示せ</h2>
+<section id="lambda-が正の実数かつ整数ではない時" class="level3">
+<h3 class="anchored" data-anchor-id="lambda-が正の実数かつ整数ではない時"><span class="math inline">\(\lambda\)</span> が正の実数かつ整数ではない時</h3>
+<div id="712b0d16" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のλ値を定義</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>lambdas <span class="op">=</span> [<span class="fl">1.3</span>, <span class="fl">3.6</span>, <span class="fl">5.9</span>, <span class="fl">7.32</span>, <span class="fl">9.333</span>]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lambda_ <span class="kw">in</span> lambdas:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> poisson.pmf(x, lambda_)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'λ = </span><span class="sc">{</span>lambda_<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'λを変動させたポアソン分布'</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'1.png'</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-4-output-1.png" width="827" height="522" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="グラフからわかること" class="level4">
+<h4 class="anchored" data-anchor-id="グラフからわかること">グラフからわかること</h4>
 <ol type="1">
-<li><span class="math inline">\(P(\bigcup_{i=1}^n A_i) \leq \sum_{i=1}^n P(A_i)\)</span></li>
-<li><span class="math inline">\(P(A \cap B) \geq P(A) + P(B) - 1\)</span></li>
+<li><span class="math inline">\(\lambda\)</span> が正の整数のもとで,<span class="math inline">\(P(\lambda)=P(\lambda-1)\)</span>であることがわかる。</li>
 </ol>
-<section id="pbigcup_i1n-a_i-leq-sum_i1n-pa_i" class="level3">
-<h3 class="anchored" data-anchor-id="pbigcup_i1n-a_i-leq-sum_i1n-pa_i">1. <span class="math inline">\(P(\bigcup_{i=1}^n A_i) \leq \sum_{i=1}^n P(A_i)\)</span></h3>
-<p>数学的帰納法で示す。</p>
-<p><span class="math inline">\(n=2\)</span> のときには</p>
-<p><span class="math display">\[\begin{equation*}
-    P(A_1 \cup A_2) = P(A_1) + P(A_2) - P(A_1 \cap A_2) \leq P(A_1) + P(A_2)
-\end{equation*}\]</span></p>
-<p>となり，成立つことがわかる。</p>
-<p><span class="math inline">\(n\)</span> のとき成立つと仮定すると <span class="math inline">\(P(\bigcup_{i=1}^n A_i) \leq \sum_{i=1}^n P(A_i)\)</span> が成立つ。</p>
-<p>そのとき <span class="math inline">\(n+1\)</span> の時に成り立つ事を示す。</p>
 <p><span class="math display">\[\begin{align*}
-    P(\bigcup_{i=1}^{n+1} A_i) &amp;= P((\bigcup_{i=1}^n A_i)   \cup A_{n+1}) \\
-    &amp;\leq P(\bigcup_{i=1}^n A_i) + P(A_{n+1}) \\
-    &amp;\leq \sum_{i=1}^n P(A_i) + P(A_{n+1}) \\
-    &amp;= \sum_{i=1}^{n+1} P(A_i)
-\end{align*}\]</span></p>
-<p>となり，<span class="math inline">\(n+1\)</span> のときにも成立つことがわかる。</p>
+    P(\lambda) &amp;= \frac{\lambda^\lambda}{\lambda!} e^{-\lambda} \\
+    P(\lambda-1) &amp;= \frac{\lambda^{\lambda-1}}{(\lambda-1)!} e^{-\lambda}
+\end{align*}\]</span> <span class="math inline">\(P(\lambda-1)\)</span> の分母分子に<span class="math inline">\(\lambda\)</span> をかけると、<span class="math inline">\(P(\lambda)\)</span> と同じ式になるため,<span class="math inline">\(P(\lambda)=P(\lambda-1)\)</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(\lambda\)</span> が正の整数のもとで,<span class="math inline">\(P(\lambda)=P(\lambda-1)\)</span>が最頻値であることがわかる。</li>
+<li><span class="math inline">\(\lambda\)</span> が正の実数かつ整数ではないときのもとで,<span class="math inline">\(P([\lambda])\)</span>が最頻値であることがわかる。</li>
+</ol>
+<p>2と3は演習問題に続く.</p>
 </section>
-<section id="pa-cap-b-geq-pa-pb---1" class="level3">
-<h3 class="anchored" data-anchor-id="pa-cap-b-geq-pa-pb---1">2. <span class="math inline">\(P(A \cap B) \geq P(A) + P(B) - 1\)</span></h3>
+</section>
+</section>
+<section id="ポアソン分布の具体例" class="level2">
+<h2 class="anchored" data-anchor-id="ポアソン分布の具体例">ポアソン分布の具体例</h2>
+<ol type="1">
+<li>ある都市の１日に起こる交通事故の数</li>
+<li>ある都市で１年間のうちに肺がんで死ぬ数</li>
+</ol>
+<p>確率が極端に少なそうな事柄がポアソン分布を用いることが多い。</p>
+</section>
+<section id="ポアソン分布が確率関数である証明" class="level2">
+<h2 class="anchored" data-anchor-id="ポアソン分布が確率関数である証明">ポアソン分布が確率関数である証明</h2>
+<p>テーラー展開</p>
+<p><span class="math display">\[\begin{align*}
+    e^\lambda &amp;= 1 + x + x^2/ 2! + x^3/ 3! \ldots \\
+    &amp;= \sum_{k=0}^\infty \frac{x^k}{k!}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+    \sum_{k=0}^\infty p(k) &amp;= \sum_{k=0}^\infty \frac{\lambda^k}{k!} e^{-\lambda} = e^{\lambda}e^{-\lambda} = 1
+\end{align*}\]</span> <span class="math inline">\(\sum_{k=0}^\infty p(k)\)</span>が1であるため、<span class="math inline">\(\frac{\lambda^k}{k!} e^{-\lambda}\)</span> が確率関数であることがわかる.</p>
+</section>
+<section id="命題2.6" class="level2">
+<h2 class="anchored" data-anchor-id="命題2.6">命題2.6</h2>
+<p><strong>命題2.6</strong> ポアソン分布<span class="math inline">\(Po(\lambda)\)</span>に従う確率変数をXとすると、Xの平均と分散はともに<span class="math inline">\(\lambda\)</span>である。</p>
+<p><strong><span class="math inline">\(E[X]\)</span>について</strong></p>
+<p><span class="math inline">\(\sum^\infty_{k=0}\frac{\lambda^k}{k!} = e^\lambda\)</span>について両辺を微分します。</p>
 <p><span class="math display">\[\begin{equation*}
-    P(A \cap B) = P(A) + P(B) - P(A \cup B) \geq P(A) + P(B) - 1
+    \frac{d}{d\lambda}(e^\lambda)  = e^\lambda
+\end{equation*}\]</span> <span class="math display">\[\begin{align*}
+    \frac{d}{d\lambda}(\sum^\infty_{k=0}\frac{\lambda^k}{k!}) &amp;= \sum^\infty_{k=0}\frac{k\lambda^{k-1}}{k!}
+    = \sum^\infty_{k=1}\frac{k\lambda^{k-1}}{k!}
+\end{align*}\]</span> 両辺に<span class="math inline">\(\lambda e^{-\lambda}\)</span>をかけます。 <span class="math display">\[\begin{equation*}
+    e^\lambda \lambda e^{-\lambda} = \lambda
+\end{equation*}\]</span> <span class="math display">\[\begin{equation*}
+    \sum^\infty_{k=1}\frac{k\lambda^{k-1}}{k!} \lambda e^{-\lambda} = \sum^\infty_{k=1}\frac{k\lambda^{k}}{k!} e^{-\lambda} = E[X]
 \end{equation*}\]</span></p>
+<p><strong><span class="math inline">\(Var[X]\)</span></strong>について</p>
+<p>同様に求められた式を微分します。 <span class="math display">\[\begin{equation*}
+    \sum_{k=1}^{\infty} k(k-1)\frac{\lambda^{k-2}}{k!} = e^\lambda
+  \end{equation*}\]</span></p>
+<p>両辺に<span class="math inline">\(\lambda^2 e^{-\lambda}\)</span> をかけます <span class="math display">\[\begin{equation*}
+    \sum_{k=1}^{\infty} k(k-1)\frac{\lambda^{k}}{k!} e^{-\lambda} = \lambda^2
+  \end{equation*}\]</span></p>
+<p><span class="math display">\[\begin{equation*}
+    Var(X) = E[X(X-1)] + E[X]-(E[X])^2 = \lambda^2 +\lambda -\lambda^2 = \lambda
+  \end{equation*}\]</span></p>
+</section>
+<section id="命題2.7-二項分布のポアソン近似" class="level2">
+<h2 class="anchored" data-anchor-id="命題2.7-二項分布のポアソン近似">命題2.7 二項分布のポアソン近似</h2>
+<p><span class="math inline">\(np=\lambda\)</span> が一定のもとで、<span class="math inline">\(p \rightarrow 0\)</span>,<span class="math inline">\(n \rightarrow \infty\)</span>とすると、二項分布<span class="math inline">\(Bin(n,p)\)</span> はポアソン分布<span class="math inline">\(Po(\lambda)\)</span> に収束する。</p>
+<section id="命題2.7の証明" class="level3">
+<h3 class="anchored" data-anchor-id="命題2.7の証明">命題2.7の証明</h3>
+<p><span class="math display">\[\begin{align*}
+    \lim_{n \rightarrow \infty} {}_n \mathrm{C}_k p^k (1-p)^{n-k} &amp;= \lim_{n \rightarrow \infty} \frac{n!}{(n-k)!k!} \left(\frac{\lambda}{n}\right)^k \left(1-\frac{\lambda}{n}\right)^{n-k} \\
+    &amp;= \lim_{n \rightarrow \infty} \frac{\lambda^k}{k!} \frac{n!}{(n-k)!n^k} \left(1-\frac{\lambda}{n}\right)^n \left(1-\frac{\lambda}{n}\right)^{-k} \\
+    &amp;= (\frac{k!}{\lambda^k}) e^{-\lambda}
+\end{align*}\]</span></p>
+<p><span class="math inline">\(n\rightarrow \infty\)</span>のとき、<span class="math inline">\(\frac{n!}{(n-k)!n^k}\rightarrow 1, (1-\frac{\lambda}{n})^n \rightarrow e^{-\lambda},(1-\frac{\lambda}{n})^{-k} \rightarrow 1\)</span>より。</p>
 
 
 </section>

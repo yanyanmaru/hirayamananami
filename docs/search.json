@@ -11,7 +11,7 @@
     "href": "post.html",
     "title": "Post",
     "section": "",
-    "text": "数式を含めた表現\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
+    "text": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "like.html",
@@ -81,7 +81,7 @@
     "href": "posts/seminor2024_0611/index.html",
     "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
     "section": "",
-    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\nexit_birthday(40)\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\n\nコード\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\n\n\nコード\nexit_birthday(40)\n\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\n\nコード\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
   },
   {
     "objectID": "posts/seminor2024_0611/index.html#誕生日問題とは",
@@ -123,7 +123,7 @@
     "href": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
     "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
     "section": "",
-    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\nexit_birthday(40)\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\n\nコード\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\n\n\nコード\nexit_birthday(40)\n\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\n\nコード\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
   },
   {
     "objectID": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
@@ -131,5 +131,61 @@
     "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
     "section": "問題5 以下の不等式を示せ",
     "text": "問題5 以下の不等式を示せ\n\n\\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n\\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\n\n1. \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n数学的帰納法で示す。\n\\(n=2\\) のときには\n\\[\\begin{equation*}\n    P(A_1 \\cup A_2) = P(A_1) + P(A_2) - P(A_1 \\cap A_2) \\leq P(A_1) + P(A_2)\n\\end{equation*}\\]\nとなり，成立つことがわかる。\n\\(n\\) のとき成立つと仮定すると \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\) が成立つ。\nそのとき \\(n+1\\) の時に成り立つ事を示す。\n\\[\\begin{align*}\n    P(\\bigcup_{i=1}^{n+1} A_i) &= P((\\bigcup_{i=1}^n A_i)   \\cup A_{n+1}) \\\\\n    &\\leq P(\\bigcup_{i=1}^n A_i) + P(A_{n+1}) \\\\\n    &\\leq \\sum_{i=1}^n P(A_i) + P(A_{n+1}) \\\\\n    &= \\sum_{i=1}^{n+1} P(A_i)\n\\end{align*}\\]\nとなり，\\(n+1\\) のときにも成立つことがわかる。\n\n\n2. \\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\\[\\begin{equation*}\n    P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\geq P(A) + P(B) - 1\n\\end{equation*}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html",
+    "href": "posts/seminor2024_0618/index.html",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "",
+    "text": "まれな現象が起こる回数を\\(X\\)とするとき、確率関数が以下の関数である分布をという。\\(Po(\\lambda)\\) で表す。 \\[p(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\\]\n\\(\\lambda\\)は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 \\(e\\) は自然対数の底である。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布とは",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布とは",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "",
+    "text": "まれな現象が起こる回数を\\(X\\)とするとき、確率関数が以下の関数である分布をという。\\(Po(\\lambda)\\) で表す。 \\[p(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\\]\n\\(\\lambda\\)は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 \\(e\\) は自然対数の底である。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布のグラフ",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布のグラフ",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "ポアソン分布のグラフ",
+    "text": "ポアソン分布のグラフ\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1, 1.3, 3, 5, 5.6, 7, 9]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\) が正の整数のとき\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1, 3, 5, 7, 9]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\) が正の実数かつ整数ではない時\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1.3, 3.6, 5.9, 7.32, 9.333]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフからわかること\n\n\\(\\lambda\\) が正の整数のもとで,\\(P(\\lambda)=P(\\lambda-1)\\)であることがわかる。\n\n\\[\\begin{align*}\n    P(\\lambda) &= \\frac{\\lambda^\\lambda}{\\lambda!} e^{-\\lambda} \\\\\n    P(\\lambda-1) &= \\frac{\\lambda^{\\lambda-1}}{(\\lambda-1)!} e^{-\\lambda}\n\\end{align*}\\] \\(P(\\lambda-1)\\) の分母分子に\\(\\lambda\\) をかけると、\\(P(\\lambda)\\) と同じ式になるため,\\(P(\\lambda)=P(\\lambda-1)\\)\n\n\\(\\lambda\\) が正の整数のもとで,\\(P(\\lambda)=P(\\lambda-1)\\)が最頻値であることがわかる。\n\\(\\lambda\\) が正の実数かつ整数ではないときのもとで,\\(P([\\lambda])\\)が最頻値であることがわかる。\n\n2と3は演習問題に続く."
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布の具体例",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布の具体例",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "ポアソン分布の具体例",
+    "text": "ポアソン分布の具体例\n\nある都市の１日に起こる交通事故の数\nある都市で１年間のうちに肺がんで死ぬ数\n\n確率が極端に少なそうな事柄がポアソン分布を用いることが多い。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布が確率関数である証明",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布が確率関数である証明",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "ポアソン分布が確率関数である証明",
+    "text": "ポアソン分布が確率関数である証明\nテーラー展開\n\\[\\begin{align*}\n    e^\\lambda &= 1 + x + x^2/ 2! + x^3/ 3! \\ldots \\\\\n    &= \\sum_{k=0}^\\infty \\frac{x^k}{k!}\n\\end{align*}\\]\n\\[\\begin{align*}\n    \\sum_{k=0}^\\infty p(k) &= \\sum_{k=0}^\\infty \\frac{\\lambda^k}{k!} e^{-\\lambda} = e^{\\lambda}e^{-\\lambda} = 1\n\\end{align*}\\] \\(\\sum_{k=0}^\\infty p(k)\\)が1であるため、\\(\\frac{\\lambda^k}{k!} e^{-\\lambda}\\) が確率関数であることがわかる."
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#命題2.6",
+    "href": "posts/seminor2024_0618/index.html#命題2.6",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "命題2.6",
+    "text": "命題2.6\n命題2.6 ポアソン分布\\(Po(\\lambda)\\)に従う確率変数をXとすると、Xの平均と分散はともに\\(\\lambda\\)である。\n\\(E[X]\\)について\n\\(\\sum^\\infty_{k=0}\\frac{\\lambda^k}{k!} = e^\\lambda\\)について両辺を微分します。\n\\[\\begin{equation*}\n    \\frac{d}{d\\lambda}(e^\\lambda)  = e^\\lambda\n\\end{equation*}\\] \\[\\begin{align*}\n    \\frac{d}{d\\lambda}(\\sum^\\infty_{k=0}\\frac{\\lambda^k}{k!}) &= \\sum^\\infty_{k=0}\\frac{k\\lambda^{k-1}}{k!}\n    = \\sum^\\infty_{k=1}\\frac{k\\lambda^{k-1}}{k!}\n\\end{align*}\\] 両辺に\\(\\lambda e^{-\\lambda}\\)をかけます。 \\[\\begin{equation*}\n    e^\\lambda \\lambda e^{-\\lambda} = \\lambda\n\\end{equation*}\\] \\[\\begin{equation*}\n    \\sum^\\infty_{k=1}\\frac{k\\lambda^{k-1}}{k!} \\lambda e^{-\\lambda} = \\sum^\\infty_{k=1}\\frac{k\\lambda^{k}}{k!} e^{-\\lambda} = E[X]\n\\end{equation*}\\]\n\\(Var[X]\\)について\n同様に求められた式を微分します。 \\[\\begin{equation*}\n    \\sum_{k=1}^{\\infty} k(k-1)\\frac{\\lambda^{k-2}}{k!} = e^\\lambda\n  \\end{equation*}\\]\n両辺に\\(\\lambda^2 e^{-\\lambda}\\) をかけます \\[\\begin{equation*}\n    \\sum_{k=1}^{\\infty} k(k-1)\\frac{\\lambda^{k}}{k!} e^{-\\lambda} = \\lambda^2\n  \\end{equation*}\\]\n\\[\\begin{equation*}\n    Var(X) = E[X(X-1)] + E[X]-(E[X])^2 = \\lambda^2 +\\lambda -\\lambda^2 = \\lambda\n  \\end{equation*}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#命題2.7",
+    "href": "posts/seminor2024_0618/index.html#命題2.7",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "命題2.7",
+    "text": "命題2.7\n\\(np=\\lambda\\) が一定のもとで、\\(p \\rightarrow 0\\),\\(n \\rightarrow \\infty\\)とすると、二項分布\\(Bin(n,p)\\) はポアソン分布\\(Po(\\lambda)\\) に収束する。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#命題2.7-二項分布のポアソン近似",
+    "href": "posts/seminor2024_0618/index.html#命題2.7-二項分布のポアソン近似",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "命題2.7 二項分布のポアソン近似",
+    "text": "命題2.7 二項分布のポアソン近似\n\\(np=\\lambda\\) が一定のもとで、\\(p \\rightarrow 0\\),\\(n \\rightarrow \\infty\\)とすると、二項分布\\(Bin(n,p)\\) はポアソン分布\\(Po(\\lambda)\\) に収束する。\n\n命題2.7の証明\n\\[\\begin{align*}\n    \\lim_{n \\rightarrow \\infty} {}_n \\mathrm{C}_k p^k (1-p)^{n-k} &= \\lim_{n \\rightarrow \\infty} \\frac{n!}{(n-k)!k!} \\left(\\frac{\\lambda}{n}\\right)^k \\left(1-\\frac{\\lambda}{n}\\right)^{n-k} \\\\\n    &= \\lim_{n \\rightarrow \\infty} \\frac{\\lambda^k}{k!} \\frac{n!}{(n-k)!n^k} \\left(1-\\frac{\\lambda}{n}\\right)^n \\left(1-\\frac{\\lambda}{n}\\right)^{-k} \\\\\n    &= (\\frac{k!}{\\lambda^k}) e^{-\\lambda}\n\\end{align*}\\]\n\\(n\\rightarrow \\infty\\)のとき、\\(\\frac{n!}{(n-k)!n^k}\\rightarrow 1, (1-\\frac{\\lambda}{n})^n \\rightarrow e^{-\\lambda},(1-\\frac{\\lambda}{n})^{-k} \\rightarrow 1\\)より。"
   }
 ]
