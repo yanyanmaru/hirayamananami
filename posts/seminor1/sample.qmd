@@ -1,0 +1,27 @@
+---
+title: "数式を含めた表現"
+format: html
+lang: ja
+---
+
+# Introduction
+
+はじめて
+
+## LaTeX Example
+
+Here is an inline equation: $E = mc^2$.
+
+And here is a displayed equation:
+
+$$ 
+\int_{a}^{b} f(x) \, dx = F(b) - F(a) 
+$$
+
+$$
+\sigma_a^z x+y = z
+$$
+
+\begin{equation}
+ \sigma_a^z x+y = z
+\end{equation}

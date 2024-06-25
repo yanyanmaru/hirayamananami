@@ -6,10 +6,8 @@ website:
   title: "Hirayama Nanami"
   navbar:
     left:
-      - about.qmd
       - post.qmd
       - project.qmd
-      - like.qmd
 
 format:
   html:
