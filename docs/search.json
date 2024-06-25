@@ -11,7 +11,7 @@
     "href": "post.html",
     "title": "Post",
     "section": "",
-    "text": "数式を含めた表現\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n一致なし"
+    "text": "数式を含めた表現\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "like.html",
@@ -75,5 +75,61 @@
     "title": "Hirayama Nanami",
     "section": "",
     "text": "Post\nゼミの勉強・気になったことや気づいたこと・発見などをちょくちょく追記します。\n\n\nProject\n小さなことから大きなことまで作成したものを追記します。"
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html",
+    "href": "posts/seminor2024_0611/index.html",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\nexit_birthday(40)\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#誕生日問題とは",
+    "href": "posts/seminor2024_0611/index.html#誕生日問題とは",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、確率を計算すると80％を超えるのである."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#誕生日問題の確率を計算する",
+    "href": "posts/seminor2024_0611/index.html#誕生日問題の確率を計算する",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "クラスの中に同じ人がいる事象を\\(A\\) とし、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#例題1.2-誕生日問題-python",
+    "href": "posts/seminor2024_0611/index.html#例題1.2-誕生日問題-python",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\nexit_birthday(40)\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#pbigcup_i1n-a_i-leq-sum_i1n-pa_i",
+    "href": "posts/seminor2024_0611/index.html#pbigcup_i1n-a_i-leq-sum_i1n-pa_i",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "1. \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)",
+    "text": "1. \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n数学的帰納法で示す。\n\\(n=2\\) のときには\n\\[\\begin{equation*}\n    P(A_1 \\cup A_2) = P(A_1) + P(A_2) - P(A_1 \\cap A_2) \\leq P(A_1) + P(A_2)\n\\end{equation*}\\]\nとなり，成立つことがわかる。\n\\(n\\) のとき成立つと仮定すると \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\) が成立つ。\nそのとき \\(n+1\\) の時に成り立つ事を示す。\n\\[\\begin{align*}\n    P(\\bigcup_{i=1}^{n+1} A_i) &= P((\\bigcup_{i=1}^n A_i)   \\cup A_{n+1}) \\\\\n    &\\leq P(\\bigcup_{i=1}^n A_i) + P(A_{n+1}) \\\\\n    &\\leq \\sum_{i=1}^n P(A_i) + P(A_{n+1}) \\\\\n    &= \\sum_{i=1}^{n+1} P(A_i)\n\\end{align*}\\]\nとなり，\\(n+1\\) のときにも成立つことがわかる。"
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#pa-cap-b-geq-pa-pb---1",
+    "href": "posts/seminor2024_0611/index.html#pa-cap-b-geq-pa-pb---1",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "2. \\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)",
+    "text": "2. \\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\\[\\begin{equation*}\n    P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\geq P(A) + P(B) - 1\n\\end{equation*}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
+    "href": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\nexit_birthday(40)\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
+    "href": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "問題5 以下の不等式を示せ",
+    "text": "問題5 以下の不等式を示せ\n\n\\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n\\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\n\n1. \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n数学的帰納法で示す。\n\\(n=2\\) のときには\n\\[\\begin{equation*}\n    P(A_1 \\cup A_2) = P(A_1) + P(A_2) - P(A_1 \\cap A_2) \\leq P(A_1) + P(A_2)\n\\end{equation*}\\]\nとなり，成立つことがわかる。\n\\(n\\) のとき成立つと仮定すると \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\) が成立つ。\nそのとき \\(n+1\\) の時に成り立つ事を示す。\n\\[\\begin{align*}\n    P(\\bigcup_{i=1}^{n+1} A_i) &= P((\\bigcup_{i=1}^n A_i)   \\cup A_{n+1}) \\\\\n    &\\leq P(\\bigcup_{i=1}^n A_i) + P(A_{n+1}) \\\\\n    &\\leq \\sum_{i=1}^n P(A_i) + P(A_{n+1}) \\\\\n    &= \\sum_{i=1}^{n+1} P(A_i)\n\\end{align*}\\]\nとなり，\\(n+1\\) のときにも成立つことがわかる。\n\n\n2. \\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\\[\\begin{equation*}\n    P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\geq P(A) + P(B) - 1\n\\end{equation*}\\]"
   }
 ]
