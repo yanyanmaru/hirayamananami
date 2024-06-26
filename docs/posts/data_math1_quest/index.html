@@ -151,6 +151,11 @@ window.Quarto = {
   <li><a href="#問題-1" id="toc-問題-1" class="nav-link" data-scroll-target="#問題-1">問題</a></li>
   <li><a href="#解答-1" id="toc-解答-1" class="nav-link" data-scroll-target="#解答-1">解答</a></li>
   </ul></li>
+  <li><a href="#問目-2" id="toc-問目-2" class="nav-link" data-scroll-target="#問目-2">3問目</a>
+  <ul class="collapse">
+  <li><a href="#問題-2" id="toc-問題-2" class="nav-link" data-scroll-target="#問題-2">問題</a></li>
+  <li><a href="#解答-2" id="toc-解答-2" class="nav-link" data-scroll-target="#解答-2">解答</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -275,6 +280,87 @@ window.Quarto = {
 </div>
 </div>
 <p><span class="math inline">\(P(A \cup B) = P(A)+P(B)-P(A \cap B)\)</span>なので、確率は50%より低くなることが考えられる。</p>
+</section>
+</section>
+<section id="問目-2" class="level2">
+<h2 class="anchored" data-anchor-id="問目-2">3問目</h2>
+<section id="問題-2" class="level3">
+<h3 class="anchored" data-anchor-id="問題-2">問題</h3>
+<p>ある大学のある学部はA学科とB学科の２つからなり、それぞれの志願者数と合格率が男女別に次の表で与えられたとする。学部全体の男女の合格率に関して、シンプソンのパラドクスが生ずるような<span class="math inline">\(a\)</span>の条件を考えよ。</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">A 学科</th>
+<th style="text-align: left;">志願者</th>
+<th style="text-align: left;">合格率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">男性</td>
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">60%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">女性</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">70%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">B 学科</th>
+<th style="text-align: left;">志願者</th>
+<th style="text-align: left;">合格率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">男性</td>
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">10%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">女性</td>
+<td style="text-align: left;">300</td>
+<td style="text-align: left;">a%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="解答-2" class="level3">
+<h3 class="anchored" data-anchor-id="解答-2">解答</h3>
+<p>A学科を見ると女性の方が合格率が高い。</p>
+<p>男女の合格率に関してシンプソンのパラドクスが生じるようにという問題です。つまり、B学科もA学科同様に学科単体では女性の合格率が高いが、A学科とB学科を合計すると男性の合格率のほうが高くなるような<span class="math inline">\(a\)</span>を求める問題です。</p>
+<div class="extra-space2">
+
+</div>
+<p>まず、学科単体では女性の合格率が高くなるので、<span class="math inline">\(a&gt;10\)</span>です。</p>
+<div class="extra-space2">
+
+</div>
+<p>次に、男女別の学科合計の合格率を考えます。</p>
+<p><strong>男性の合格率</strong></p>
+<p><span class="math inline">\(\frac{500 \times 0.6 + 400 \times 0.1}{500+400}=\frac{340}{900}\)</span></p>
+<p><strong>女性の合格率</strong></p>
+<p><span class="math inline">\(\frac{30 \times 0.7 + 300 \times a/100}{500+400} = \frac{21+3a}{330}\)</span></p>
+<p>男性の合格率&gt;女性の合格率となればいいので、以下の式が成り立ちます。</p>
+<p><span class="math inline">\(\frac{340}{900}&gt;\frac{21+3a}{330}\)</span></p>
+<p><span class="math inline">\(a &lt; \frac{340}{900} \times 110 -7\fallingdotseq 34.6\)</span></p>
+<p>よって<span class="math inline">\(a\)</span>の条件とは <span class="math inline">\(10&lt;a&lt;34.6\)</span> である。</p>
 
 
 </section>
