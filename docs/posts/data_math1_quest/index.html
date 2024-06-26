@@ -146,6 +146,11 @@ window.Quarto = {
   <li><a href="#問題" id="toc-問題" class="nav-link" data-scroll-target="#問題">問題</a></li>
   <li><a href="#解答" id="toc-解答" class="nav-link" data-scroll-target="#解答">解答</a></li>
   </ul></li>
+  <li><a href="#問目-1" id="toc-問目-1" class="nav-link" data-scroll-target="#問目-1">2問目</a>
+  <ul class="collapse">
+  <li><a href="#問題-1" id="toc-問題-1" class="nav-link" data-scroll-target="#問題-1">問題</a></li>
+  <li><a href="#解答-1" id="toc-解答-1" class="nav-link" data-scroll-target="#解答-1">解答</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -198,7 +203,8 @@ window.Quarto = {
 </section>
 <section id="解答" class="level3">
 <h3 class="anchored" data-anchor-id="解答">解答</h3>
-<p>⑴</p>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section">⑴</h4>
 <p>ある企業にエントリーした学生全体を<span class="math inline">\(\Omega\)</span>とし、男性である事象を<span class="math inline">\(A\)</span>とする。また男性である確率は<span class="math inline">\(P(A)\)</span>と表します。</p>
 <p>この場合女性である事象は<span class="math inline">\(A^c\)</span>で表され、女性である確率は<span class="math inline">\(P(A)\)</span>となります。</p>
 <p>男性の割合は60%なので、<span class="math inline">\(P(A)=0.6\)</span>である。 女性の割合は、<span class="math inline">\(P(A^c)=1-0.6=0.4\)</span>である。</p>
@@ -219,16 +225,56 @@ window.Quarto = {
 <div class="extra-space2">
 
 </div>
-<p>⑵</p>
+</section>
+<section id="section-1" class="level4">
+<h4 class="anchored" data-anchor-id="section-1">⑵</h4>
 <p>⑵で聞かれているのは、全体の採用内定率つまり<span class="math inline">\(P(B)\)</span>である。</p>
 <p><span class="math inline">\(A+A^c=\Omega\)</span>で、<span class="math inline">\(A\)</span>と<span class="math inline">\(A^c\)</span>は排反より、全確率の公式を用いると、以下の式が成り立つ。</p>
 <p><span class="math inline">\(P(B) = P(B|A) \times P(A) + P(B|A^c) \times P(A^c) = 0.24+0.12=0.36\)</span></p>
 <div class="extra-space2">
 
 </div>
-<p>⑶</p>
+</section>
+<section id="section-2" class="level4">
+<h4 class="anchored" data-anchor-id="section-2">⑶</h4>
 <p>⑶は条件付き確率の問題で、採用内定者のもとで女性である確率つまり<span class="math inline">\(P(A^c|B)\)</span>である。</p>
 <p><span class="math inline">\(P(A^c|B)=\frac{P(A^c \cap B)}{P(B)}= \frac{0.12}{0.36} =\frac{1}{3}\)</span></p>
+<div class="extra-space3">
+
+</div>
+</section>
+</section>
+</section>
+<section id="問目-1" class="level2">
+<h2 class="anchored" data-anchor-id="問目-1">2問目</h2>
+<section id="問題-1" class="level3">
+<h3 class="anchored" data-anchor-id="問題-1">問題</h3>
+<p>週の天気予報によると、土曜日に雨の降る確率は25%、日曜日に雨の降る確率も25%である。 週末の土日のどこかに雨が降る確率は25+25=50%になると考えた。これは正しいかどうか。</p>
+</section>
+<section id="解答-1" class="level3">
+<h3 class="anchored" data-anchor-id="解答-1">解答</h3>
+<p>正しくない。</p>
+<p>土曜日に雨が降る事象を<span class="math inline">\(A\)</span>とし、確率は<span class="math inline">\(P(A)\)</span>で表される。</p>
+<p>日曜日に雨が降る事象を<span class="math inline">\(B\)</span>とし、確率は<span class="math inline">\(P(B)\)</span>で表される。</p>
+<div class="extra-space2">
+
+</div>
+<p>この問題が言っていることは<span class="math inline">\(P(A \cup B) = P(A)+P(B)\)</span>になるということである。しかし、これが成り立つのは、<span class="math inline">\(A\)</span>と<span class="math inline">\(B\)</span>が排反の時である。</p>
+<p>事象<span class="math inline">\(A\)</span>と<span class="math inline">\(B\)</span>はどう考えても排反ではないので、成り立たない。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>事象<span class="math inline">\(A\)</span>と<span class="math inline">\(B\)</span>が排反とは、<span class="math inline">\(A\)</span>と<span class="math inline">\(B\)</span>が同時に起こり得ないということです。</p>
+</div>
+</div>
+<p><span class="math inline">\(P(A \cup B) = P(A)+P(B)-P(A \cap B)\)</span>なので、確率は50%より低くなることが考えられる。</p>
 
 
 </section>
