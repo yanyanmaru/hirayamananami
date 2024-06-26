@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="気になったことや気づいたこと・発見などをちょくちょく追記します。">
 
-<title>Post – Hirayama Nanami</title>
+<title>6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換 – Hirayama Nanami</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +66,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "サーチ"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -129,17 +97,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Hirayama Nanami</span>
     </a>
   </div>
@@ -150,11 +118,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./post.html" aria-current="page"> 
+    <a class="nav-link" href="../../post.html"> 
 <span class="menu-text">Post</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project.html"> 
+    <a class="nav-link" href="../../project.html"> 
 <span class="menu-text">Project</span></a>
   </li>  
 </ul>
@@ -165,198 +133,136 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Post</h1>
-                  <div>
-        <div class="description">
-          気になったことや気づいたこと・発見などをちょくちょく追記します。
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(4)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ゼミ">ゼミ <span class="quarto-category-count">(3)</span></div><div class="category" data-category="データ解析のための数理統計入門">データ解析のための数理統計入門 <span class="quarto-category-count">(4)</span></div><div class="category" data-category="統計">統計 <span class="quarto-category-count">(4)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#確率変数の変数変換の大まかな説明" id="toc-確率変数の変数変換の大まかな説明" class="nav-link active" data-scroll-target="#確率変数の変数変換の大まかな説明">確率変数の変数変換の大まかな説明</a></li>
+  <li><a href="#yaxbの場合の変数変換" id="toc-yaxbの場合の変数変換" class="nav-link" data-scroll-target="#yaxbの場合の変数変換"><span class="math inline">\(Y=aX+b\)</span>の場合の変数変換</a></li>
+  <li><a href="#yaxbの場合の変数変換と正規分布標準正規分布" id="toc-yaxbの場合の変数変換と正規分布標準正規分布" class="nav-link" data-scroll-target="#yaxbの場合の変数変換と正規分布標準正規分布"><span class="math inline">\(Y=aX+b\)</span>の場合の変数変換と正規分布・標準正規分布</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">ゼミ</div>
+    <div class="quarto-category">統計</div>
+    <div class="quarto-category">データ解析のための数理統計入門</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">公開</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024年6月26日</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="確率変数の変数変換の大まかな説明" class="level2">
+<h2 class="anchored" data-anchor-id="確率変数の変数変換の大まかな説明">確率変数の変数変換の大まかな説明</h2>
+<p>連続確率変数<span class="math inline">\(X\)</span>が与えられた時,<span class="math inline">\(Y=g(X)\)</span>となる確率変数<span class="math inline">\(Y\)</span>の確率密度関数や累積分布関数を求めることができる!</p>
+<p>例：<span class="math inline">\(Y=2X+4\)</span>の確率密度関数や累積分布関数を,<span class="math inline">\(X\)</span>の確率密度関数<span class="math inline">\(f(x)\)</span>や累積分布関数<span class="math inline">\(F(x)\)</span>から求める.</p>
+</section>
+<section id="yaxbの場合の変数変換" class="level2">
+<h2 class="anchored" data-anchor-id="yaxbの場合の変数変換"><span class="math inline">\(Y=aX+b\)</span>の場合の変数変換</h2>
+<p><span class="math inline">\(X\)</span>の確率密度関数を<span class="math inline">\(f_X(x)\)</span>,累積分布関数を<span class="math inline">\(F_X(x)\)</span> で表す。 また,<span class="math inline">\(Y=g(X)\)</span> とおき,<span class="math inline">\(Y\)</span>の確率密度関数を<span class="math inline">\(f_Y(y)\)</span>,累積分布関数を<span class="math inline">\(F_Y(y)\)</span> で表す。</p>
+<p>実数<span class="math inline">\(a,b\)</span>に対して<span class="math inline">\(Y=aX+b\)</span> となる変換を考える。</p>
+<p><span class="math inline">\(a &gt; 0\)</span>のとき <span class="math display">\[\begin{align*}
+  F_Y(y)&amp;=P(Y \leq y) = P(aX+b \leq y) = P(X \leq \frac{y-b}{a}) = F_X(\frac{y-b}{a}) \\
+  f_Y(y)&amp;= \frac{d}{dy} F_X (\frac{y-b}{a}) = \frac{1}{a}f_X(\frac{y-b}{a})
+\end{align*}\]</span></p>
+<p><span class="math inline">\(a &lt; 0\)</span>のとき <span class="math display">\[\begin{align*}
+  F_Y(y)&amp;=P(Y \leq y) = P(aX+b \leq y) = P(X \geq \frac{y-b}{a}) =   1-F_X(\frac{y-b}{a}) \\
+  f_Y(y)&amp;= -\frac{d}{dy} F_X (\frac{y-b}{a}) = -\frac{1}{a}f_X(\frac{y-b}{a})
+\end{align*}\]</span></p>
+<p>よって,全ての実数<span class="math inline">\(a\)</span>に対して次の式が成り立つ。 <span class="math display">\[\begin{equation}
+  f_Y(y) = \frac{1}{|a|} f_X(\frac{y-b}{a})
+\end{equation}\]</span></p>
+</section>
+<section id="yaxbの場合の変数変換と正規分布標準正規分布" class="level2">
+<h2 class="anchored" data-anchor-id="yaxbの場合の変数変換と正規分布標準正規分布"><span class="math inline">\(Y=aX+b\)</span>の場合の変数変換と正規分布・標準正規分布</h2>
+<p><strong>正規分布</strong></p>
+<p><span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>とする.</p>
+<p><span class="math display">\[\begin{equation*}
+  f_X(x)= \frac{1}{\sqrt{2\pi}\sigma} exp\lbrace{-\frac{(x-\mu)^2}{2\sigma^2}}\rbrace
+\end{equation*}\]</span></p>
+<p><strong>正規分布を位置尺度変換する</strong></p>
+<p><span class="math inline">\(Y=aX+b\)</span> の確率密度関数は<span class="math inline">\(f_Y(y) = \frac{1}{|a|} f_X(\frac{y-b}{a})\)</span>より</p>
+<p><span class="math display">\[\begin{equation*}
+  f_Y(y)= \frac{1}{\sqrt{2\pi}|a|\sigma} exp\lbrace{-\frac{(y-b-a\mu)^2}{\color{red}
+2\color{black}a^2\sigma^2}}\rbrace
+\end{equation*}\]</span></p>
+<p>と書ける.</p>
+<p>次の命題が成り立つ.</p>
+<p><strong>命題2.1.5</strong> <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>とする.<span class="math inline">\(Y=aX+b\)</span>とおくと,<span class="math inline">\(Y \sim \mathcal{N}(a\mu+b, a^2\sigma^2)\)</span> となる.また,<span class="math inline">\(Z=(X-\mu)/\sigma\)</span> とおくと <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span> となる,</p>
+<p><strong>命題2.1.5を用いて正規分布における確率を求める方法</strong></p>
+<p><span class="math inline">\(X\)</span>が正規分布<span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span>に従うとき,実数<span class="math inline">\(x_1,x_2(x_1 &lt; x_2)\)</span> に対する確率<span class="math inline">\(P(x_1&lt;X&lt;x_2)\)</span> を以下のように求める.</p>
+<p><span class="math display">\[\begin{align*}
+  P(x_1 &lt; X &lt; x_2) &amp;= P(\frac{x_1 - \mu}{\sigma} &lt; Z &lt; \frac{x_2 - \mu}{\sigma} ) \\
+  &amp;= P(Z&lt;\frac{x_2-\mu}{\sigma}) - P(Z&lt;\frac{x_1-\mu}{\sigma}) \\
+  &amp;= \Phi(Z&lt;\frac{x_2-\mu}{\sigma})-\Phi(Z&lt;\frac{x_1-\mu}{\sigma})
+\end{align*}\]</span></p>
+<p>正規分布を標準正規分布に標準化することで,確率を求めることができる!</p>
+<p>(p55の標準化につながる.)</p>
+<p><strong>命題2.1.6</strong> <span class="math inline">\(X\)</span>を確率密度関数<span class="math inline">\(f_X(x)\)</span>をもつ連続確率変数とし,<span class="math inline">\(g(x)\)</span>を,<span class="math inline">\(f_X(x)\neq0\)</span>になる<span class="math inline">\(x\)</span>の範囲で単調増加もしくは単調減少する関数とする.<span class="math inline">\(Y=g(X)\)</span>とおくとき,<span class="math inline">\(Y\)</span>の確率密度関数は,</p>
+<p><span class="math display">\[\begin{equation}\label{second}
+  f_Y(y)=f_X(g^{-1}(y))|\frac{d}{dy}g^{-1}(y)|
+\end{equation}\]</span></p>
+<p>ここで,<span class="math inline">\(g^{-1}(y)\)</span>は<span class="math inline">\(y=g(x)\)</span>の逆関数であり,</p>
+<p><span class="math display">\[\begin{equation}\label{third}
+  \frac{d}{dy}g^{-1}(y) = \frac{1}{g'(g^{-1}(y))}
+\end{equation}\]</span></p>
+<p>という等式が成り立つ.</p>
+<p><span class="math inline">\(g(x)\)</span>が単調増加関数であるとすると,1対1関数になるので逆関数<span class="math inline">\(g^{-1}(y)\)</span>がとれる.</p>
+<p> <span class="math display">\[\begin{equation*}
+F_Y(y)=P(Y \leq y) = P(g(X) \leq y) = P(X \leq g^{-1}(y)) =F_X(g^{-1}(y))
+\end{equation*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+  f_Y(y)&amp;=\frac{d}{dy}F_Y(y) = \frac{d}{dy}F_X(g^{-1}(y)) = \frac{d}{dx}F_X(x)|_{x=g^{-1}(y)}\frac{d}{dy}g^{-1}(y) \\
+  &amp;=f_X(g^{-1}(y)) \frac{d}{dy}g^{-1}(y)
+\end{align*}\]</span></p>
+<p></p>
+<p><span class="math display">\[\begin{align*}
+F_Y(y)&amp;=  P(g{X} \leq y) = P(X \geq g^{-1}(y)) =1-F_X(g^{-1}(y)) \\
+f_Y(y)&amp;=-f_X(g^{-1}(y)) \frac{d}{dy}g^{-1}(y)
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\ref{second}\)</span>が成り立つ?</p>
+<p><span class="math inline">\(\ref{third}\)</span>について,</p>
+<p><span class="math display">\[\begin{align*}
+  y=g(x) \\
+  1 = g'(x)(dx/dy)
+\end{align*}\]</span></p>
+<p><span class="math inline">\(x=g^{-1}(y)\)</span>を代入する. <span class="math display">\[\begin{equation*}
+  1 = g'(g^{-1}(y))\frac{d}{dy} g^{-1}(y)
+\end{equation*}\]</span></p>
+<p><span class="math inline">\(\ref{third}\)</span>が成り立つので,逆関数の微分の計算が可能になる.</p>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719418880000" data-listing-file-modified-sort="1719418880371" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
-<div class="thumbnail">
-<p><a href="./posts/data_math1_quest/index.html" class="no-external"></a></p><a href="./posts/data_math1_quest/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/data_math1_quest/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/data_math1_quest/index.html" class="no-external">「データ解析のための数理統計入門」第1章 演習問題 解答</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/data_math1_quest/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/data_math1_quest/index.html" class="no-external">大学生の就職活動に関して、ある企業にエントリーした学生は男性が60%を占めていたが、採用を内定された割合は、男性は男性応募者の40%、女性は女性応募者の30%であった。</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/data_math1_quest/index.html" class="no-external">
-<div class="listing-date">
-2024/06/27
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719351393000" data-listing-file-modified-sort="1719351393535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0625/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0625/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">連続確率変数<span class="math inline">\(X\)</span>が与えられた時,<span class="math inline">\(Y=g(X)\)</span>となる確率変数<span class="math inline">\(Y\)</span>の確率密度関数や累積分布関数を求めることができる!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">
-<div class="listing-date">
-2024/06/26
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719349323000" data-listing-file-modified-sort="1719349323554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0618/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0618/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/seminor2024_0618/index_files/figure-html/cell-2-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/seminor2024_0618/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0618/index.html" class="no-external">6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0618/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0618/index.html" class="no-external">まれな現象が起こる回数を<span class="math inline">\(X\)</span>とするとき、確率関数が以下の関数である分布をという。<span class="math inline">\(Po(\lambda)\)</span> で表す。 <span class="math display">\[p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots\]</span></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0618/index.html" class="no-external">
-<div class="listing-date">
-2024/06/26
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719348058000" data-listing-file-modified-sort="1719348058115" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0611/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0611/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/seminor2024_0611/index_files/figure-html/cell-6-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/seminor2024_0611/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0611/index.html" class="no-external">6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0611/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0611/index.html" class="no-external">教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0611/index.html" class="no-external">
-<div class="listing-date">
-2024/06/26
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-一致なし
-</div>
-</div></main> <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
