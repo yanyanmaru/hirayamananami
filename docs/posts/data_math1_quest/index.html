@@ -167,6 +167,20 @@ window.Quarto = {
   <li><a href="#問題-4" id="toc-問題-4" class="nav-link" data-scroll-target="#問題-4">問題</a></li>
   <li><a href="#解答-4" id="toc-解答-4" class="nav-link" data-scroll-target="#解答-4">解答</a></li>
   </ul></li>
+  <li><a href="#問目-6" id="toc-問目-6" class="nav-link" data-scroll-target="#問目-6">7問目</a>
+  <ul class="collapse">
+  <li><a href="#問題-5" id="toc-問題-5" class="nav-link" data-scroll-target="#問題-5">問題</a></li>
+  <li><a href="#解答-5" id="toc-解答-5" class="nav-link" data-scroll-target="#解答-5">解答</a></li>
+  </ul></li>
+  <li><a href="#問目-7" id="toc-問目-7" class="nav-link" data-scroll-target="#問目-7">8問目</a>
+  <ul class="collapse">
+  <li><a href="#問題-6" id="toc-問題-6" class="nav-link" data-scroll-target="#問題-6">問題</a></li>
+  <li><a href="#解答-6" id="toc-解答-6" class="nav-link" data-scroll-target="#解答-6">解答</a></li>
+  </ul></li>
+  <li><a href="#問目-8" id="toc-問目-8" class="nav-link" data-scroll-target="#問目-8">9問目</a>
+  <ul class="collapse">
+  <li><a href="#問題-7" id="toc-問題-7" class="nav-link" data-scroll-target="#問題-7">問題</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -415,7 +429,79 @@ window.Quarto = {
 <p>不等式同士を辺々足しても大小関係は変わらないため、以下の式が成り立つ。</p>
 <p><span class="math inline">\(P(A|D)P(D)+P(A|D^c)P(D^c) \geq P(B|D)P(D)+ P(B|D^c)P(D^c)\)</span></p>
 <p>全確率の公式より</p>
-<p><span class="math inline">\(P(A) \geq P(B)\)</span>である</p>
+<p><span class="math inline">\(P(A) \geq P(B)\)</span>である。</p>
+</section>
+</section>
+<section id="問目-6" class="level2">
+<h2 class="anchored" data-anchor-id="問目-6">7問目</h2>
+<section id="問題-5" class="level3">
+<h3 class="anchored" data-anchor-id="問題-5">問題</h3>
+<p>次の多項式の係数を求めよ。</p>
+<p>⑴<span class="math inline">\((x+y)^6\)</span>における<span class="math inline">\(x^3y^3\)</span>の係数</p>
+<p>⑵<span class="math inline">\((x+y+z)^6\)</span>における<span class="math inline">\(x^2y^2z^2\)</span>の係数</p>
+</section>
+<section id="解答-5" class="level3">
+<h3 class="anchored" data-anchor-id="解答-5">解答</h3>
+<p>⑴</p>
+<p><span class="math inline">\(\begin{pmatrix}
+6 \\
+3
+\end{pmatrix} =\frac{6!}{3!3!}=20\)</span></p>
+<p>⑵</p>
+<p><span class="math inline">\(\begin{pmatrix}
+&amp; 6 &amp; \\
+2 &amp; 2 &amp; 2
+\end{pmatrix} =\frac{6!}{2!2!2!}=90\)</span></p>
+</section>
+</section>
+<section id="問目-7" class="level2">
+<h2 class="anchored" data-anchor-id="問目-7">8問目</h2>
+<section id="問題-6" class="level3">
+<h3 class="anchored" data-anchor-id="問題-6">問題</h3>
+<p>正しいコインを３回投げる時次の確率を求めよ</p>
+<p>⑴少なくとも１回は表が出るという条件のもとで２回以上表の出る確率</p>
+<p>⑵少なくとも１回は裏が出るという条件のもとで２回以上表の出る確率</p>
+</section>
+<section id="解答-6" class="level3">
+<h3 class="anchored" data-anchor-id="解答-6">解答</h3>
+<p>正しいコインの意味はおそらく裏表が1/2の確率になるという意味だと思います。</p>
+<p>⑴</p>
+<p>条件付き確率ですね。</p>
+<p>少なくとも１回は表が出るという事象を<span class="math inline">\(A\)</span>として、2回以上表が出る事象を<span class="math inline">\(B\)</span>とする。</p>
+<p>求めるのは<span class="math inline">\(P(B|A)\)</span>である。</p>
+<div class="extra-space2">
+
+</div>
+<p><span class="math inline">\(P(B|A)=\frac{P(A \cap B)}{P(A)}\)</span>となるので、それぞれの確率を求めれば良い。</p>
+<div class="extra-space2">
+
+</div>
+<p><span class="math inline">\(P(A)\)</span>は余事象ですぐ求めることができる。</p>
+<p><span class="math inline">\(P(A)=1-P(A^c)=1-(\frac{1}{2})^3=\frac{7}{8}\)</span></p>
+<div class="extra-space2">
+
+</div>
+<p><span class="math inline">\(P(A \cap B)\)</span> は<span class="math inline">\(B \subset A\)</span>より<span class="math inline">\(P(A \cap B)=P(B)\)</span>である。 また、表が２回出る確率は<span class="math inline">\({}_3 C_1(\frac{1}{2})^3\)</span>です。</p>
+<p><span class="math inline">\(P(A \cap B)=P(B)=\frac{1}{8}+\frac{3}{8}=\frac{1}{2}\)</span></p>
+<div class="extra-space2">
+
+</div>
+<p>よって、</p>
+<p><span class="math inline">\(P(B|A)=\frac{P(A \cap B)}{P(A)}= \frac{P(1/2)}{7/8}=\frac{4}{7}\)</span></p>
+<p>⑵</p>
+<p>⑴と同様に求めます。</p>
+<p>少なくとも１回は裏が出るという事象を<span class="math inline">\(A\)</span>として、2回以上表が出る事象を<span class="math inline">\(B\)</span>とする。</p>
+<p><span class="math inline">\(P(A)=1-P(A^c)=1-(\frac{1}{2})^3=\frac{7}{8}\)</span></p>
+<p>少なくとも１回は裏が出るかつ２回以上表が出る事象は、表が２回（裏が１回）の事象のみである。</p>
+<p><span class="math inline">\(P(A \cap B)={}_3 C_1(\frac{1}{2})^3=\frac{3}{8}\)</span></p>
+<p>よって、</p>
+<p><span class="math inline">\(P(B|A)=\frac{P(A \cap B)}{P(A)}= \frac{P(3/8)}{7/8}=\frac{3}{7}\)</span></p>
+</section>
+</section>
+<section id="問目-8" class="level2">
+<h2 class="anchored" data-anchor-id="問目-8">9問目</h2>
+<section id="問題-7" class="level3">
+<h3 class="anchored" data-anchor-id="問題-7">問題</h3>
 
 
 </section>
