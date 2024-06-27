@@ -1,0 +1,12 @@
+---
+title: "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで"
+format: html
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+---

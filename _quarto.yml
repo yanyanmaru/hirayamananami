@@ -15,6 +15,11 @@ format:
     theme: sandstone
     css: styles.css
     toc: true
+  # revealjs:
+  #   slide-number: true
+  #   toc: true
+  #   transition: fade
+  #   theme: black
 
 
 

@@ -11,7 +11,7 @@
     "href": "post.html",
     "title": "Post",
     "section": "",
-    "text": "並び替え\n       デフォルト\n         \n          題名\n        \n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          作者\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLaTeXの数式　よく使うもの　対応表\n\n\n\n\n\n\nLaTeX\n\n\n\n\n\n\n\n\n\n2024/06/28\n\n\n\n\n\n\n\n\n\n\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/27\n\n\n\n\n\n\n\n\n\n\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n\n\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/27\n\n\n\n\n\n\n\n\n\n\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
+    "text": "並び替え\n       デフォルト\n         \n          題名\n        \n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          作者\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n「データ解析のための数理統計入門」第2章\n\n\n\n\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/28\n\n\n\n\n\n\n\n\n\n\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n\n\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/28\n\n\n\n\n\n\n\n\n\n\n\n\nLaTeXの数式　よく使うもの　対応表\n\n\n\n\n\n\nLaTeX\n\n\n\n\n\n\n\n\n\n2024/06/28\n\n\n\n\n\n\n\n\n\n\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/27\n\n\n\n\n\n\n\n\n\n\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "like.html",
@@ -291,7 +291,7 @@
     "href": "posts/data_math1_quest/index.html#問目-8",
     "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
     "section": "9問目",
-    "text": "9問目\n\n問題\n2人の子供がいる夫婦について、第一子が女の子であるという条件のもとで二人とも女の子であるという確率を求めよ。"
+    "text": "9問目\n\n問題\n2人の子供がいる夫婦について、第一子が女の子であるという条件のもとで二人とも女の子であるという確率を求めよ。また子供の一人が女子であるという条件のもとで二人とも女子である確率を求めよ。\n\n\n解答\nこれも条件付き確率の問題と考えることができます。\n1つ目について。\nA：第一子が女の子である\nB：二人とも女の子である\n一つ目で求められているのは\\(P(B|A)\\)である。\n\\(P(A)=1/2\\)\n\\(P(A \\cap B)=1/2 \\times 1/2 =1/4\\)\n\\(P(B|A)= \\frac{1/4}{1/2} = 1/2\\)\n2つ目について。\nC：子供の一人が女子である\nD：二人とも女子である\n\\(P(C)=1- (\\frac{1}{2})^2 = 3/4\\)\n\\(P(D \\cap C)=1/4\\)\n\\(P(D|C)= \\frac{1/4}{3/4} = 1/3\\)"
   },
   {
     "objectID": "posts/latex_basis/index.html",
@@ -299,5 +299,33 @@
     "title": "LaTeXの数式　よく使うもの　対応表",
     "section": "",
     "text": "等号・不等号など\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(=\\)\n=\n\n\n\n\\(&lt;\\)\n&lt;\n\n\n\n\\(\\le\\)\n\\le\n\n\n\n\\(\\leq\\)\n\\leq\n\n\n\n\\(\\leqq\\)\n\\leqq\n\n\n\n\\(&gt;\\)\n&gt;\n\n\n\n\\(\\ge\\)\n\\ge\n\n\n\n\\(\\geq\\)\n\\geq\n\n\n\n\\(\\geqq\\)\n\\geqq\n\n\n\n\\(\\risingdotseq\\)\n\\risingdotseq\n\n\n\n\\(\\fallingdotseq\\)\n\\fallingdotseq\n\n\n\n\\(\\sim\\)\n\\sim\n従う\n\n\n\n\n\n集合\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(\\cap\\)\n\\cap\n\n\n\n\\(\\cup\\)\n\\cup\n\n\n\n\\(\\emptyset\\)\n\\emptyset\n\n\n\n\\(A^c\\)\nA^c\n\n\n\n\\(\\overline{A}\\)\n\\overline{A}\n\n\n\n\\(\\subset\\)\n\\subset\n部分集合"
+  },
+  {
+    "objectID": "posts/data_math1_quest/index.html#問目-9",
+    "href": "posts/data_math1_quest/index.html#問目-9",
+    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "section": "10問目",
+    "text": "10問目\n\n問題\n独立性に関して次の問いに答えよ ⑴"
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html",
+    "href": "posts/data_math2_me/index.html",
+    "title": "「データ解析のための数理統計入門」第2章",
+    "section": "",
+    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html#離散確率変数",
+    "href": "posts/data_math2_me/index.html#離散確率変数",
+    "title": "「データ解析のための数理統計入門」第2章",
+    "section": "",
+    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
+  },
+  {
+    "objectID": "posts/data_math2_me/page-reveal.html#離散確率変数",
+    "href": "posts/data_math2_me/page-reveal.html#離散確率変数",
+    "title": "「データ解析のための数理統計入門」第2章",
+    "section": "離散確率変数",
+    "text": "離散確率変数\n具体例\n３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。\n離散確率変数とは"
   }
 ]
