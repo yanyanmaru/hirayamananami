@@ -11,6 +11,7 @@ website:
 
 format:
   html:
+    code-tools: true
     theme: sandstone
     css: styles.css
     toc: true

@@ -11,7 +11,7 @@
     "href": "post.html",
     "title": "Post",
     "section": "",
-    "text": "「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n\n\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/27\n\n\n\n\n\n\n\n\n\n\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n\n\n\n\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
+    "text": "並び替え\n       デフォルト\n         \n          題名\n        \n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          作者\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLaTeXの数式　よく使うもの　対応表\n\n\n\n\n\n\nLaTeX\n\n\n\n\n\n\n\n\n\n2024/06/28\n\n\n\n\n\n\n\n\n\n\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/27\n\n\n\n\n\n\n\n\n\n\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n\n\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\n\n\n\n\n\n\n\n2024/06/27\n\n\n\n\n\n\n\n\n\n\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n\n\n\n\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n\n\n\n\nゼミ\n\n\n統計\n\n\nデータ解析のための数理統計入門\n\n\npython\n\n\n\n\n\n\n\n\n\n2024/06/26\n\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "like.html",
@@ -291,6 +291,13 @@
     "href": "posts/data_math1_quest/index.html#問目-8",
     "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
     "section": "9問目",
-    "text": "9問目\n\n問題"
+    "text": "9問目\n\n問題\n2人の子供がいる夫婦について、第一子が女の子であるという条件のもとで二人とも女の子であるという確率を求めよ。"
+  },
+  {
+    "objectID": "posts/latex_basis/index.html",
+    "href": "posts/latex_basis/index.html",
+    "title": "LaTeXの数式　よく使うもの　対応表",
+    "section": "",
+    "text": "等号・不等号など\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(=\\)\n=\n\n\n\n\\(&lt;\\)\n&lt;\n\n\n\n\\(\\le\\)\n\\le\n\n\n\n\\(\\leq\\)\n\\leq\n\n\n\n\\(\\leqq\\)\n\\leqq\n\n\n\n\\(&gt;\\)\n&gt;\n\n\n\n\\(\\ge\\)\n\\ge\n\n\n\n\\(\\geq\\)\n\\geq\n\n\n\n\\(\\geqq\\)\n\\geqq\n\n\n\n\\(\\risingdotseq\\)\n\\risingdotseq\n\n\n\n\\(\\fallingdotseq\\)\n\\fallingdotseq\n\n\n\n\\(\\sim\\)\n\\sim\n従う\n\n\n\n\n\n集合\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(\\cap\\)\n\\cap\n\n\n\n\\(\\cup\\)\n\\cup\n\n\n\n\\(\\emptyset\\)\n\\emptyset\n\n\n\n\\(A^c\\)\nA^c\n\n\n\n\\(\\overline{A}\\)\n\\overline{A}\n\n\n\n\\(\\subset\\)\n\\subset\n部分集合"
   }
 ]

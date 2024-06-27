@@ -1,0 +1,45 @@
+---
+title: "LaTeXの数式　よく使うもの　対応表"
+format: html
+
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - LaTeX
+---
+
+# 等号・不等号など
+
+| 数式 | LaTeXコード |補足 |
+|-----|-----|-----|
+| $=$    | `=`   | |
+| $<$      |`<`   ||
+| $\le$      |`\le`   ||
+| $\leq$      |`\leq`   ||
+| $\leqq$      |`\leqq`   ||
+| $>$      |`>`   ||
+| $\ge$      |`\ge`   ||
+| $\geq$      |`\geq`   ||
+| $\geqq$      |`\geqq`   ||
+| $\risingdotseq$      |`\risingdotseq`   ||
+| $\fallingdotseq$      |`\fallingdotseq`   ||
+| $\sim$    | `\sim`   |従う|
+
+
+# 集合
+
+
+| 数式 | LaTeXコード |補足 |
+|-----|-----|-----|
+| $\cap$    | `\cap`   ||
+| $\cup$     | `\cup` ||
+| $\emptyset$     | `\emptyset`    ||
+| $A^c$     | `A^c`    ||
+| $\overline{A}$     | `\overline{A}`    ||
+| $\subset$     | `\subset`    |部分集合|
+<!-- | $$     | ``    ||
+| $$     | ``    ||
+| $$     | ``    ||
+| $$     | ``    || -->

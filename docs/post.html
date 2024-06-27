@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -168,7 +202,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Post</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Post</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> コード</button></div></div>
                   <div>
         <div class="description">
           気になったことや気づいたこと・発見などをちょくちょく追記します。
@@ -191,7 +225,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(4)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ゼミ">ゼミ <span class="quarto-category-count">(3)</span></div><div class="category" data-category="データ解析のための数理統計入門">データ解析のための数理統計入門 <span class="quarto-category-count">(4)</span></div><div class="category" data-category="統計">統計 <span class="quarto-category-count">(4)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(5)</span></div><div class="category" data-category="LaTeX">LaTeX <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ゼミ">ゼミ <span class="quarto-category-count">(3)</span></div><div class="category" data-category="データ解析のための数理統計入門">データ解析のための数理統計入門 <span class="quarto-category-count">(4)</span></div><div class="category" data-category="統計">統計 <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -202,10 +236,160 @@ window.Quarto = {
 
 
 
+<!-- -->
+
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="並び替え" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">並び替え</option>
+       <option value="index" data-direction="asc">デフォルト</option>
+         <option value="listing-title" data-direction="asc">
+          題名
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          日付 - 日付（昇順）
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          日付 - 日付（降順）
+        </option>
+         <option value="listing-author" data-direction="asc">
+          作者
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="フィルター">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719432109000" data-listing-file-modified-sort="1719432109941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
+<div class="quarto-post image-right" data-index="0" data-categories="LaTeX" data-listing-date-sort="1719506081000" data-listing-file-modified-sort="1719506081955" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="238">
+<div class="thumbnail">
+<p><a href="./posts/latex_basis/index.html" class="no-external"></a></p><a href="./posts/latex_basis/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/latex_basis/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/latex_basis/index.html" class="no-external">LaTeXの数式　よく使うもの　対応表</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/latex_basis/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('LaTeX'); return false;">
+LaTeX
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/latex_basis/index.html" class="no-external">
+
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>数式</th>
+<th>LaTeXコード</th>
+<th>補足</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(=\)</span></td>
+<td><code>=</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(&lt;\)</span></td>
+<td><code>&lt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\le\)</span></td>
+<td><code>\le</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\leq\)</span></td>
+<td><code>\leq</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\leqq\)</span></td>
+<td><code>\leqq</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(&gt;\)</span></td>
+<td><code>&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\ge\)</span></td>
+<td><code>\ge</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\geq\)</span></td>
+<td><code>\geq</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\geqq\)</span></td>
+<td><code>\geqq</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\risingdotseq…</span></td><td><code></code></td><td></td></tr><tr class="odd"><td><span class="math inline"></span></td><td><code></code></td><td></td></tr><tr class="even"><td><span class="math inline"></span></td><td><code></code></td><td></td></tr></tbody></table></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/latex_basis/index.html" class="no-external">
+<div class="listing-date">
+2024/06/28
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719432587000" data-listing-file-modified-sort="1719432587146" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
+<div class="thumbnail">
+<p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0625/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/seminor2024_0625/index.html" class="no-external">6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/seminor2024_0625/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
+ゼミ
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
+統計
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
+データ解析のための数理統計入門
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/seminor2024_0625/index.html" class="no-external">連続確率変数<span class="math inline">\(X\)</span>が与えられた時,<span class="math inline">\(Y=g(X)\)</span>となる確率変数<span class="math inline">\(Y\)</span>の確率密度関数や累積分布関数を求めることができる!</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/seminor2024_0625/index.html" class="no-external">
+<div class="listing-date">
+2024/06/27
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719432555000" data-listing-file-modified-sort="1719432555621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
 <div class="thumbnail">
 <p><a href="./posts/data_math1_quest/index.html" class="no-external"></a></p><a href="./posts/data_math1_quest/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -238,43 +422,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719351393000" data-listing-file-modified-sort="1719351393535" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0625/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0625/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">連続確率変数<span class="math inline">\(X\)</span>が与えられた時,<span class="math inline">\(Y=g(X)\)</span>となる確率変数<span class="math inline">\(Y\)</span>の確率密度関数や累積分布関数を求めることができる!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">
-<div class="listing-date">
-2024/06/26
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719349323000" data-listing-file-modified-sort="1719349323554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369">
+<div class="quarto-post image-right" data-index="3" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719349323000" data-listing-file-modified-sort="1719349323554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369">
 <div class="thumbnail">
 <p><a href="./posts/seminor2024_0618/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0618/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/seminor2024_0618/index_files/figure-html/cell-2-output-1.png"  class="thumbnail-image card-img"/></p>
@@ -313,7 +461,7 @@ python
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719348058000" data-listing-file-modified-sort="1719348058115" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313">
+<div class="quarto-post image-right" data-index="4" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719348058000" data-listing-file-modified-sort="1719348058115" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313">
 <div class="thumbnail">
 <p><a href="./posts/seminor2024_0611/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0611/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/seminor2024_0611/index_files/figure-html/cell-6-output-1.png"  class="thumbnail-image card-img"/></p>
@@ -446,6 +594,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -776,7 +975,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Post"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "気になったことや気づいたこと・発見などをちょくちょく追記します。"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  contents: posts</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  type: default</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: true</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: true</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
