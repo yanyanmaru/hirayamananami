@@ -10,7 +10,6 @@ categories:
   - 統計
   - データ解析のための数理統計入門
   - python
-  - 完了
 status: "完了"
 ---
 
