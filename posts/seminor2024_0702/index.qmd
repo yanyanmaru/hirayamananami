@@ -1,6 +1,12 @@
 ---
 title: "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで"
-format: html
+format:
+  html: default
+  revealjs:
+    output-file: page-reveal.html
+    smaller: true
+    scrollable: true
+    chalkboard: true
 code-fold: true
 date: last-modified
 toc: true
@@ -10,3 +16,126 @@ categories:
   - 統計
   - データ解析のための数理統計入門
 ---
+
+# 3.1離散確率変数
+
+## 同時確率関数と周辺確率関数
+
+<div class="extra-space2"></div>
+
+2つの離散確率変数$X$と$Y$がそれぞれ$\mathcal{X} = \{x_1, x_2, \ldots\}$,$\mathcal{Y} = \{y_1, y_2, \ldots\}$に値を取るものとする。
+
+$(X,Y)$が$(x_i,y_j)$の値を取る**同時確率関数**は
+
+\begin{equation}
+p(x_i,y_j)=P(X=x_i,Y=y_j)
+\end{equation}
+
+で与えられる。
+
+<div class="extra-space2"></div>
+
+::: {.callout-tip}
+## $P(X=x_i,Y=y_j)$とは
+
+$P(X=x_i,Y=y_j)=P(\{X=x_i\} \cap \{Y=y_j\})$を意味する。
+:::
+
+<div class="extra-space3"></div>
+
+$(X,Y)$の**周辺確率関数**は、
+
+\begin{align}
+p_X(x_i) = \Sigma_{j=1}^\infty p(x_i,y_j)\\
+p_Y(y_j) = \Sigma_{i=1}^\infty p(x_i,y_j)
+\end{align}
+
+## 例3.1
+
+コインを３回投げる時を考える。
+
+１回目に投げたコインが、表が出たら$X=1$,裏が出たら$X=0$とする。
+
+３回投げた時、コインの表が出た合計数を$Y$とする。
+
+<div class="extra-space2"></div>
+
+確率分布は以下のようになる。
+
+
+<div class="extra-space2"></div>
+
+<!-- y_jを真ん中にしたいけどうまくできなかった -->
+\begin{array}{c|cccc|c}
+& y_j & & &  \\
+x_i & 0 & 1 & 2 & 3 \\ \hline
+0 & \frac{1}{8} & \frac{1}{4} & \frac{1}{8} & 0 \\
+1 & 0 & \frac{1}{8} & \frac{1}{4} & \frac{1}{8}  \\ 
+
+\end{array}
+
+
+#### 同時確率関数
+例えば
+
+\begin{equation}
+P(X=1,Y=1)=1/8
+\end{equation}
+
+
+\begin{equation}
+P(X=1,Y=2)=1/4
+\end{equation}
+
+#### 周辺確率関数
+
+<div class="extra-space2"></div>
+
+$Y$の周辺分布$p_Y(y_j)=P(Y=y_j)$は以下のようになる。
+
+\begin{equation}
+p_Y(0)=P(Y=0)=P(X=0,Y=0)+P(X=1,Y=0)=1/8+0=1/8
+\end{equation}
+
+\begin{equation}
+p_Y(1)=P(Y=1)=P(X=0,Y=1)+P(X=1,Y=1)=1/4+1/8=3/8
+\end{equation}
+
+\begin{equation}
+p_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8
+\end{equation}
+
+\begin{equation}
+p_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8
+\end{equation}
+
+<div class="extra-space2"></div>
+
+同様に$X$の周辺分布$p_X(x_i)=P(X=x_i)$は以下のようになる。
+
+\begin{equation}
+p_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2
+\end{equation}
+
+\begin{equation}
+p_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2
+\end{equation}
+
+<div class="extra-space3"></div>
+
+周辺分布は下の表のように、下側と右側の合計値になります。
+
+\begin{array}{c|cccc|c}
+& y_j & & & & \\
+x_i & 0 & 1 & 2 & 3 & \text{合計} \\ \hline
+0 & \frac{1}{8} & \frac{1}{4} & \frac{1}{8} & 0 & \frac{1}{2} \\
+1 & 0 & \frac{1}{8} & \frac{1}{4} & \frac{1}{8} & \frac{1}{2} \\ \hline
+\text{合計} & \frac{1}{8} & \frac{3}{8} & \frac{3}{8} & \frac{1}{8} & 1
+\end{array}
+
+## 確率変数が３つのとき
+
+$X_1, \ldots ,X_k$を$k$個の確率変数とする。
+$X_i$の実現値の集合を$\mathcal{X_i}$とする。
+
+#### 同時確率関数
