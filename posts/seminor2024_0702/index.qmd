@@ -9,7 +9,7 @@ format:
     chalkboard: true
     html-math-method: mathjax
 code-fold: true
-date: last-modified
+date: 2024/06/30
 toc: true
 lang: ja
 categories:

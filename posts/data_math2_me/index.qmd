@@ -8,7 +8,7 @@ format:
     scrollable: true
     chalkboard: true
 code-fold: true
-date: last-modified
+date: 2024/06/29
 toc: true
 lang: ja
 categories:

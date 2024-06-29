@@ -2,7 +2,7 @@
 title: "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布"
 format: html
 code-fold: true
-date: last-modified
+date: 2024/06/28
 toc: true
 lang: ja
 categories:
