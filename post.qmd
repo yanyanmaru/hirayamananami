@@ -24,3 +24,32 @@ custom_fields:
         value: "updated"
 
 ---
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByClassName("listing-status");
+    for (var i = 0; i < elements.length; i++) {
+      if (elements[i].textContent.includes("完了")) {
+        elements[i].classList.add("completed");
+      }else if(elements[i].textContent.includes("作成中")) {
+        elements[i].classList.add("inprogress");
+      }else if(elements[i].textContent.includes("都度更新")) {
+        elements[i].classList.add("sometimes");
+      }
+    }
+  });
+</script>
+<style>
+  .completed {
+    border: solid 1px rgb(61, 175, 76);
+    color: rgb(61, 175, 76);
+  }
+  .inprogress {
+    border: solid 1px rgb(175, 61, 61);
+    color: rgb(175, 61, 61);
+  }
+  .sometimes {
+    border: solid 1px rgb(61, 97, 175);
+    color: rgba(61, 97, 175);
+  }
+</style>

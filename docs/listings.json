@@ -8,13 +8,13 @@
   {
     "listing": "/post.html",
     "items": [
-      "/posts/latex_basis/index.html",
       "/posts/seminor2024_0702/index.html",
+      "/posts/latex_basis/index.html",
       "/posts/data_math2_me/index.html",
-      "/posts/seminor2024_0625/index.html",
-      "/posts/seminor2024_0618/index.html",
       "/posts/data_math1_me/index.html",
       "/posts/data_math1_quest/index.html",
+      "/posts/seminor2024_0625/index.html",
+      "/posts/seminor2024_0618/index.html",
       "/posts/seminor2024_0611/index.html"
     ]
   }

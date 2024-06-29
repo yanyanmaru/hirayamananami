@@ -9,7 +9,7 @@ format:
     chalkboard: true
     html-math-method: mathjax
 code-fold: true
-date: 2024/06/30
+date: 2024/07/02
 toc: true
 lang: ja
 categories:
@@ -18,6 +18,8 @@ categories:
   - データ解析のための数理統計入門
 status: "作成中"
 ---
+
+
 
 # 3.1離散確率変数
 
