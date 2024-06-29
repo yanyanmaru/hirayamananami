@@ -7,6 +7,7 @@ format:
     smaller: true
     scrollable: true
     chalkboard: true
+    html-math-method: mathjax
 code-fold: true
 date: last-modified
 toc: true
@@ -15,6 +16,7 @@ categories:
   - ゼミ
   - 統計
   - データ解析のための数理統計入門
+status: "作成中"
 ---
 
 # 3.1離散確率変数

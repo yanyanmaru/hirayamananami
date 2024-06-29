@@ -3,12 +3,24 @@ title: "Post"
 description: "気になったことや気づいたこと・発見などをちょくちょく追記します。"
 listing:
   contents: posts
+  fields: [date, title,status]
   sort: "date desc"
-  type: default
+  type: table
   categories: true
   sort-ui: true
   filter-ui: true
 page-layout: full
 title-block-banner: true
 lang: ja
+custom_fields:
+  status:
+    label: "ステータス"
+    values:
+      - label: "作成中"
+        value: "in-progress"
+      - label: "完了"
+        value: "completed"
+      - label: "更新済み"
+        value: "updated"
+
 ---

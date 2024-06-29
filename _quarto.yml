@@ -14,12 +14,24 @@ format:
     code-tools: true
     theme: sandstone
     css: styles.css
+    # javascript: script.js
     toc: true
   # revealjs:
   #   slide-number: true
   #   toc: true
   #   transition: fade
-  #   theme: black
+  #   theme: sky
 
 
 
+# 気になるテーマ集！
+# zephyr
+# united
+# spacelab
+# simplex
+# pulse
+# materia
+# lumen
+# litera
+# journal
+# flatly

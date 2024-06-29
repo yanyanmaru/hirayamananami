@@ -113,9 +113,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-status',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -225,7 +225,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(7)</span></div><div class="category" data-category="LaTeX">LaTeX <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ゼミ">ゼミ <span class="quarto-category-count">(4)</span></div><div class="category" data-category="データ解析のための数理統計入門">データ解析のための数理統計入門 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="統計">統計 <span class="quarto-category-count">(6)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(8)</span></div><div class="category" data-category="LaTeX">LaTeX <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ゼミ">ゼミ <span class="quarto-category-count">(4)</span></div><div class="category" data-category="データ解析のための数理統計入門">データ解析のための数理統計入門 <span class="quarto-category-count">(7)</span></div><div class="category" data-category="完了">完了 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="統計">統計 <span class="quarto-category-count">(7)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -239,24 +239,21 @@ window.Quarto = {
 <!-- -->
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
      <select id="listing-listing-sort" class="form-select" aria-label="並び替え" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">並び替え</option>
        <option value="index" data-direction="asc">デフォルト</option>
-         <option value="listing-title" data-direction="asc">
-          題名
-        </option>
          <option value="listing-date-sort" data-direction="asc">
           日付 - 日付（昇順）
         </option>
          <option value="listing-date-sort" data-direction="desc">
           日付 - 日付（降順）
         </option>
-         <option value="listing-author" data-direction="asc">
-          作者
+         <option value="listing-title-sort" data-direction="asc">
+          題名
         </option>
      </select>
   </div>
@@ -265,311 +262,111 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="フィルター">
     </div>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719671558000" data-listing-file-modified-sort="1719671558744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="124">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0702/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0702/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/seminor2024_0702/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0702/index.html" class="no-external">7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0702/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0702/index.html" class="no-external">2つの離散確率変数<span class="math inline">\(X\)</span>と<span class="math inline">\(Y\)</span>がそれぞれ<span class="math inline">\(\mathcal{X} = \{x_1, x_2, \ldots\}\)</span>,<span class="math inline">\(\mathcal{Y} = \{y_1, y_2, \ldots\}\)</span>に値を取るものとする。</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0702/index.html" class="no-external">
-<div class="listing-date">
-2024/06/29
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719513414000" data-listing-file-modified-sort="1719513414137" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<div class="thumbnail">
-<p><a href="./posts/data_math2_me/index.html" class="no-external"></a></p><a href="./posts/data_math2_me/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/data_math2_me/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/data_math2_me/index.html" class="no-external">「データ解析のための数理統計入門」第2章</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/data_math2_me/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/data_math2_me/index.html" class="no-external">３回コインを投げる実験の、裏と表の出る結果は８つである。</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/data_math2_me/index.html" class="no-external">
-<div class="listing-date">
-2024/06/28
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719510560000" data-listing-file-modified-sort="1719510560166" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="280">
-<div class="thumbnail">
-<p><a href="./posts/data_math1_quest/index.html" class="no-external"></a></p><a href="./posts/data_math1_quest/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/data_math1_quest/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/data_math1_quest/index.html" class="no-external">「データ解析のための数理統計入門」第1章 演習問題 解答</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/data_math1_quest/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/data_math1_quest/index.html" class="no-external">大学生の就職活動に関して、ある企業にエントリーした学生は男性が60%を占めていたが、採用を内定された割合は、男性は男性応募者の40%、女性は女性応募者の30%であった。</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/data_math1_quest/index.html" class="no-external">
-<div class="listing-date">
-2024/06/28
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LaTeX" data-listing-date-sort="1719506081000" data-listing-file-modified-sort="1719506081955" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="238">
-<div class="thumbnail">
-<p><a href="./posts/latex_basis/index.html" class="no-external"></a></p><a href="./posts/latex_basis/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/latex_basis/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/latex_basis/index.html" class="no-external">LaTeXの数式　よく使うもの　対応表</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/latex_basis/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LaTeX'); return false;">
-LaTeX
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/latex_basis/index.html" class="no-external">
-
-<table class="caption-top table">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th>数式</th>
-<th>LaTeXコード</th>
-<th>補足</th>
+<tr>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">日付</a>
+</th>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">題名</a>
+</th>
+<th>
+status
+</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(=\)</span></td>
-<td><code>=</code></td>
-<td></td>
+<tbody class="list">
+<tr data-index="0" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719677671000" data-listing-file-modified-sort="1719677671970" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="124" data-listing-title-sort="7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/seminor2024_0702/index.html" class="title listing-title">7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで</a>
+</td>
+<td>
+<span class="listing-status">作成中</span>
+</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(&lt;\)</span></td>
-<td><code>&lt;</code></td>
-<td></td>
+<tr data-index="1" data-categories="LaTeX" data-listing-date-sort="1719676602000" data-listing-file-modified-sort="1719676602016" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261" data-listing-title-sort="LaTeXの数式　よく使うもの　対応表" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/latex_basis/index.html" class="title listing-title">LaTeXの数式　よく使うもの　対応表</a>
+</td>
+<td>
+<span class="listing-status">都度更新</span>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\le\)</span></td>
-<td><code>\le</code></td>
-<td></td>
+<tr data-index="2" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719676600000" data-listing-file-modified-sort="1719676600984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14" data-listing-title-sort="「データ解析のための数理統計入門」第2章" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/data_math2_me/index.html" class="title listing-title">「データ解析のための数理統計入門」第2章</a>
+</td>
+<td>
+<span class="listing-status">作成中</span>
+</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\leq\)</span></td>
-<td><code>\leq</code></td>
-<td></td>
+<tr data-index="3" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719676599000" data-listing-file-modified-sort="1719676599424" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="280" data-listing-title-sort="「データ解析のための数理統計入門」第1章 演習問題 解答" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/data_math1_quest/index.html" class="title listing-title">「データ解析のための数理統計入門」第1章 演習問題 解答</a>
+</td>
+<td>
+<span class="listing-status">作成中</span>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\leqq\)</span></td>
-<td><code>\leqq</code></td>
-<td></td>
+<tr data-index="4" data-categories="統計,データ解析のための数理統計入門" data-listing-date-sort="1719676598000" data-listing-file-modified-sort="1719676598367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3" data-listing-title-sort="「データ解析のための数理統計入門」第1章 確率モデル" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/data_math1_me/index.html" class="title listing-title">「データ解析のための数理統計入門」第1章 確率モデル</a>
+</td>
+<td>
+<span class="listing-status">作成中</span>
+</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(&gt;\)</span></td>
-<td><code>&gt;</code></td>
-<td></td>
+<tr data-index="5" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719676595000" data-listing-file-modified-sort="1719676595613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182" data-listing-title-sort="6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/seminor2024_0625/index.html" class="title listing-title">6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換</a>
+</td>
+<td>
+<span class="listing-status">作成中</span>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\ge\)</span></td>
-<td><code>\ge</code></td>
-<td></td>
+<tr data-index="6" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719676594000" data-listing-file-modified-sort="1719676594118" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369" data-listing-title-sort="6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/seminor2024_0618/index.html" class="title listing-title">6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布</a>
+</td>
+<td>
+<span class="listing-status">完了</span>
+</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\geq\)</span></td>
-<td><code>\geq</code></td>
-<td></td>
+<tr data-index="7" data-categories="ゼミ,統計,データ解析のための数理統計入門,python,完了" data-listing-date-sort="1719676592000" data-listing-file-modified-sort="1719676592818" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313" data-listing-title-sort="6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">2024/06/30</span>
+</td>
+<td>
+<a href="./posts/seminor2024_0611/index.html" class="title listing-title">6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5</a>
+</td>
+<td>
+<span class="listing-status">完了</span>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\geqq\)</span></td>
-<td><code>\geqq</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\risingdotseq…</span></td><td><code></code></td><td></td></tr><tr class="odd"><td><span class="math inline"></span></td><td><code></code></td><td></td></tr><tr class="even"><td><span class="math inline"></span></td><td><code></code></td><td></td></tr></tbody></table></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/latex_basis/index.html" class="no-external">
-<div class="listing-date">
-2024/06/28
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="ゼミ,統計,データ解析のための数理統計入門" data-listing-date-sort="1719432587000" data-listing-file-modified-sort="1719432587146" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0625/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/seminor2024_0625/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0625/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">連続確率変数<span class="math inline">\(X\)</span>が与えられた時,<span class="math inline">\(Y=g(X)\)</span>となる確率変数<span class="math inline">\(Y\)</span>の確率密度関数や累積分布関数を求めることができる!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0625/index.html" class="no-external">
-<div class="listing-date">
-2024/06/27
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719349323000" data-listing-file-modified-sort="1719349323554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0618/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0618/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/seminor2024_0618/index_files/figure-html/cell-2-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/seminor2024_0618/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0618/index.html" class="no-external">6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0618/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0618/index.html" class="no-external">まれな現象が起こる回数を<span class="math inline">\(X\)</span>とするとき、確率関数が以下の関数である分布をという。<span class="math inline">\(Po(\lambda)\)</span> で表す。 <span class="math display">\[p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots\]</span></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0618/index.html" class="no-external">
-<div class="listing-date">
-2024/06/26
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="ゼミ,統計,データ解析のための数理統計入門,python" data-listing-date-sort="1719348058000" data-listing-file-modified-sort="1719348058115" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313">
-<div class="thumbnail">
-<p><a href="./posts/seminor2024_0611/index.html" class="no-external"></a></p><a href="./posts/seminor2024_0611/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/seminor2024_0611/index_files/figure-html/cell-6-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/seminor2024_0611/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/seminor2024_0611/index.html" class="no-external">6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/seminor2024_0611/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ゼミ'); return false;">
-ゼミ
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('統計'); return false;">
-統計
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('データ解析のための数理統計入門'); return false;">
-データ解析のための数理統計入門
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/seminor2024_0611/index.html" class="no-external">教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/seminor2024_0611/index.html" class="no-external">
-<div class="listing-date">
-2024/06/26
-</div>
-</a>
-</div>
-</div>
-</div>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 一致なし
 </div>
@@ -1050,15 +847,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "気になったことや気づいたこと・発見などをちょくちょく追記します。"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  contents: posts</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  type: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: true</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: true</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: true</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  fields: [date, title,status]</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  type: table</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: true</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: true</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="an">custom_fields:</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">  status:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    label: "ステータス"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    values:</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">      - label: "作成中"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">        value: "in-progress"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">      - label: "完了"</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">        value: "completed"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">      - label: "更新済み"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">        value: "updated"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

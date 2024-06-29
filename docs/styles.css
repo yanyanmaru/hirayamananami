@@ -10,3 +10,13 @@
 .extra-space3 {
     margin-top: 60px;
 }
+
+.listing-status {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 3px;
+    border: solid 1px rgb(61, 97, 175);
+    color: rgba(61, 97, 175);
+}

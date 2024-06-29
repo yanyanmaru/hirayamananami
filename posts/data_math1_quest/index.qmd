@@ -8,6 +8,7 @@ lang: ja
 categories:
   - 統計
   - データ解析のための数理統計入門
+status: "作成中"
 ---
 
 ## １問目

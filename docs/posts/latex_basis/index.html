@@ -177,6 +177,7 @@ window.Quarto = {
   <ul>
   <li><a href="#等号不等号など" id="toc-等号不等号など" class="nav-link active" data-scroll-target="#等号不等号など">等号・不等号など</a></li>
   <li><a href="#集合" id="toc-集合" class="nav-link" data-scroll-target="#集合">集合</a></li>
+  <li><a href="#その他" id="toc-その他" class="nav-link" data-scroll-target="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -188,6 +189,7 @@ window.Quarto = {
 <div class="quarto-title-block"><div><h1 class="title">LaTeXの数式　よく使うもの　対応表</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> コード</button></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">LaTeX</div>
+    <div class="quarto-category">作成中</div>
   </div>
   </div>
 
@@ -199,7 +201,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024年6月28日</p>
+      <p class="date">2024年6月30日</p>
     </div>
   </div>
   
@@ -332,6 +334,30 @@ window.Quarto = {
 | $$     | ``    ||
 | $$     | ``    ||
 | $$     | ``    || -->
+</section>
+<section id="その他" class="level1">
+<h1>その他</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>数式</th>
+<th>LaTeXコード</th>
+<th>補足</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathcal{X}\)</span></td>
+<td><code>\mathcal{X}</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cup\)</span></td>
+<td><code>\cup</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 <!-- -->
@@ -820,41 +846,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - LaTeX</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># 等号・不等号など</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>| $=$    | <span class="in">`=`</span>   | |</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>| $&lt;$      |<span class="in">`&lt;`</span>   ||</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>| $\le$      |<span class="in">`\le`</span>   ||</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>| $\leq$      |<span class="in">`\leq`</span>   ||</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>| $\leqq$      |<span class="in">`\leqq`</span>   ||</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>| $&gt;$      |<span class="in">`&gt;`</span>   ||</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>| $\ge$      |<span class="in">`\ge`</span>   ||</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>| $\geq$      |<span class="in">`\geq`</span>   ||</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>| $\geqq$      |<span class="in">`\geqq`</span>   ||</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>| $\risingdotseq$      |<span class="in">`\risingdotseq`</span>   ||</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>| $\fallingdotseq$      |<span class="in">`\fallingdotseq`</span>   ||</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>| $\sim$    | <span class="in">`\sim`</span>   |従う|</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "都度更新"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu"># 等号・不等号など</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>| $=$    | <span class="in">`=`</span>   | |</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>| $&lt;$      |<span class="in">`&lt;`</span>   ||</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>| $\le$      |<span class="in">`\le`</span>   ||</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>| $\leq$      |<span class="in">`\leq`</span>   ||</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>| $\leqq$      |<span class="in">`\leqq`</span>   ||</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>| $&gt;$      |<span class="in">`&gt;`</span>   ||</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>| $\ge$      |<span class="in">`\ge`</span>   ||</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>| $\geq$      |<span class="in">`\geq`</span>   ||</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>| $\geqq$      |<span class="in">`\geqq`</span>   ||</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>| $\risingdotseq$      |<span class="in">`\risingdotseq`</span>   ||</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>| $\fallingdotseq$      |<span class="in">`\fallingdotseq`</span>   ||</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>| $\sim$    | <span class="in">`\sim`</span>   |従う|</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># 集合</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># 集合</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>| $\cap$    | <span class="in">`\cap`</span>   ||</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>| $\cup$     | <span class="in">`\cup`</span> ||</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>| $\emptyset$     | <span class="in">`\emptyset`</span>    ||</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>| $A^c$     | <span class="in">`A^c`</span>    ||</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>| $\overline{A}$     | <span class="in">`\overline{A}`</span>    ||</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>| $\subset$     | <span class="in">`\subset`</span>    |部分集合|</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- | $$     | ``    ||</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>| $\cap$    | <span class="in">`\cap`</span>   ||</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>| $\cup$     | <span class="in">`\cup`</span> ||</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>| $\emptyset$     | <span class="in">`\emptyset`</span>    ||</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>| $A^c$     | <span class="in">`A^c`</span>    ||</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>| $\overline{A}$     | <span class="in">`\overline{A}`</span>    ||</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>| $\subset$     | <span class="in">`\subset`</span>    |部分集合|</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- | $$     | ``    ||</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    || --&gt;</span></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    || --&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu"># その他</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>| $\mathcal{X}$    | <span class="in">`\mathcal{X}`</span>   ||</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>| $\cup$     | <span class="in">`\cup`</span> ||</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

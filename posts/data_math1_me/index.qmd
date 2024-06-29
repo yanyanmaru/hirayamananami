@@ -1,0 +1,43 @@
+---
+title: "「データ解析のための数理統計入門」第1章 確率モデル"
+format:
+  html: default
+  revealjs:
+    output-file: page-reveal.html
+    smaller: true
+    scrollable: true
+    chalkboard: true
+    html-math-method: mathjax
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+# 1.1標本空間
+
+試行：結果が生ずるような行為
+
+標本空間($\Omega$)：試行によって起こりうるすべての結果
+
+事象：起こりうる結果($\omega$)の集まり
+
+
+## 具体例
+サイコロを投げる時
+
+標本空間　$\Omega=\{1,2,3,4,5,6\}$
+
+事象　$\{1,2\},\{2,5\}$のような$\Omega$の部分集合
+
+## 事象と集合
+
+上で挙げた通り、試行による結果（$\omega$）は集合の要素または元に対応する。
+
+積事象：２つの事象$A,B$がともに起こる事象
+
+和事象：２つの事象$A,B$の少なくともどちらかが起こる事象

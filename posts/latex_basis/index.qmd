@@ -8,6 +8,7 @@ toc: true
 lang: ja
 categories:
   - LaTeX
+status: "都度更新"
 ---
 
 # 等号・不等号など
@@ -43,3 +44,10 @@ categories:
 | $$     | ``    ||
 | $$     | ``    ||
 | $$     | ``    || -->
+
+# その他
+
+| 数式 | LaTeXコード |補足 |
+|-----|-----|-----|
+| $\mathcal{X}$    | `\mathcal{X}`   ||
+| $\cup$     | `\cup` ||
