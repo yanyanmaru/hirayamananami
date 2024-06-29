@@ -14,172 +14,11 @@
     "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n作成中\n\n\n\n\n2024/06/30\n\n\nLaTeXの数式　よく使うもの　対応表\n\n\n都度更新\n\n\n\n\n2024/06/29\n\n\n「データ解析のための数理統計入門」第2章\n\n\n作成中\n\n\n\n\n2024/06/28\n\n\n「データ解析のための数理統計入門」第1章 確率モデル\n\n\n作成中\n\n\n\n\n2024/06/28\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n作成中\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
   },
   {
-    "objectID": "posts/seminor2024_0625/index.html",
-    "href": "posts/seminor2024_0625/index.html",
-    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
+    "objectID": "projects/monti/index.html",
+    "href": "projects/monti/index.html",
+    "title": "Pythonでモンティ・ホール問題を試行",
     "section": "",
-    "text": "連続確率変数\\(X\\)が与えられた時,\\(Y=g(X)\\)となる確率変数\\(Y\\)の確率密度関数や累積分布関数を求めることができる!\n例：\\(Y=2X+4\\)の確率密度関数や累積分布関数を,\\(X\\)の確率密度関数\\(f(x)\\)や累積分布関数\\(F(x)\\)から求める."
-  },
-  {
-    "objectID": "posts/seminor2024_0625/index.html#確率変数の変数変換の大まかな説明",
-    "href": "posts/seminor2024_0625/index.html#確率変数の変数変換の大まかな説明",
-    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
-    "section": "",
-    "text": "連続確率変数\\(X\\)が与えられた時,\\(Y=g(X)\\)となる確率変数\\(Y\\)の確率密度関数や累積分布関数を求めることができる!\n例：\\(Y=2X+4\\)の確率密度関数や累積分布関数を,\\(X\\)の確率密度関数\\(f(x)\\)や累積分布関数\\(F(x)\\)から求める."
-  },
-  {
-    "objectID": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換",
-    "href": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換",
-    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
-    "section": "\\(Y=aX+b\\)の場合の変数変換",
-    "text": "\\(Y=aX+b\\)の場合の変数変換\n\n\n\n\\(X\\)の確率密度関数を\\(f_X(x)\\),累積分布関数を\\(F_X(x)\\) で表す。 また,\\(Y=g(X)\\) とおき,\\(Y\\)の確率密度関数を\\(f_Y(y)\\),累積分布関数を\\(F_Y(y)\\) で表す。\n\n\n\n実数\\(a,b\\)に対して\\(Y=aX+b\\) となる変換を考える。\n\n\n\n(後でaで割る時に、aが正か負かで不等式の符号が変わるので、先に場合わけしておく)\n\\(a &gt; 0\\)のとき \\[\\begin{align*}\n  F_Y(y)&=P(Y \\leq y) = P(aX+b \\leq y) = P(X \\leq \\frac{y-b}{a}) = F_X(\\frac{y-b}{a}) \\\\\n  f_Y(y)&= \\frac{d}{dy} F_X (\\frac{y-b}{a}) = \\frac{1}{a}f_X(\\frac{y-b}{a})\n\\end{align*}\\]\n\\(a &lt; 0\\)のとき \\[\\begin{align*}\n  F_Y(y)&=P(Y \\leq y) = P(aX+b \\leq y) = P(X \\geq \\frac{y-b}{a}) =   1-F_X(\\frac{y-b}{a}) \\\\\n  f_Y(y)&= -\\frac{d}{dy} F_X (\\frac{y-b}{a}) = -\\frac{1}{a}f_X(\\frac{y-b}{a})\n\\end{align*}\\]\n\n\n\nよって,全ての実数\\(a\\)に対して次の式が成り立つ。\n\\[\n  \\mathbf{f_Y(y) = \\frac{1}{|a|} f_X(\\frac{y-b}{a})}\n\\tag{1}\\]"
-  },
-  {
-    "objectID": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換と正規分布標準正規分布",
-    "href": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換と正規分布標準正規分布",
-    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
-    "section": "\\(Y=aX+b\\)の場合の変数変換と正規分布・標準正規分布",
-    "text": "\\(Y=aX+b\\)の場合の変数変換と正規分布・標準正規分布\n正規分布\n\\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)とする.\n\\[\\begin{equation*}\n  f_X(x)= \\frac{1}{\\sqrt{2\\pi}\\sigma} \\exp\\lbrace{-\\frac{(x-\\mu)^2}{2\\sigma^2}}\\rbrace\n\\end{equation*}\\]\n\n\n\n正規分布を位置尺度変換する\n\\(Y=aX+b\\) の確率密度関数は 式 1 より\n\\[\\begin{equation*}\n  f_Y(y)= \\frac{1}{\\sqrt{2\\pi}|a|\\sigma} \\exp\\lbrace{-\\frac{(y-b-a\\mu)^2}{\\color{red}\n2\\color{black}a^2\\sigma^2}}\\rbrace\n\\end{equation*}\\]\nと書ける.\n\n\n\n次の命題が成り立つ.\n命題2.1.5 \\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)とする.\\(Y=aX+b\\)とおくと,\\(Y \\sim \\mathcal{N}(a\\mu+b, a^2\\sigma^2)\\) となる.また,\\(Z=(X-\\mu)/\\sigma\\) とおくと \\(Z \\sim \\mathcal{N}(0, 1)\\) となる。\n\n\n\n命題2.1.5を用いて正規分布における確率を求める方法\n\\(X\\)が正規分布\\(\\mathcal{N}(\\mu, \\sigma^2)\\)に従うとき,実数\\(x_1,x_2(x_1 &lt; x_2)\\) に対する確率\\(P(x_1&lt;X&lt;x_2)\\) を以下のように求める.\n\\[\\begin{align*}\n  P(x_1 &lt; X &lt; x_2) &= P(\\frac{x_1 - \\mu}{\\sigma} &lt; Z &lt; \\frac{x_2 - \\mu}{\\sigma} ) \\\\\n  &= P(Z&lt;\\frac{x_2-\\mu}{\\sigma}) - P(Z&lt;\\frac{x_1-\\mu}{\\sigma}) \\\\\n  &= \\Phi(Z&lt;\\frac{x_2-\\mu}{\\sigma})-\\Phi(Z&lt;\\frac{x_1-\\mu}{\\sigma})\n\\end{align*}\\]\n正規分布を標準正規分布に標準化することで,確率を求めることができる!\n(p55の標準化につながる.)\n\n\n\n命題2.1.6 \\(X\\)を確率密度関数\\(f_X(x)\\)をもつ連続確率変数とし,\\(g(x)\\)を,\\(f_X(x)\\neq0\\)になる\\(x\\)の範囲で単調増加もしくは単調減少する関数とする.\\(Y=g(X)\\)とおくとき,\\(Y\\)の確率密度関数は,\n\\[\n  f_Y(y)=f_X(g^{-1}(y))|\\frac{d}{dy}g^{-1}(y)|\n\\tag{2}\\]\nここで,\\(g^{-1}(y)\\)は\\(y=g(x)\\)の逆関数であり,\n\\[\n  \\frac{d}{dy}g^{-1}(y) = \\frac{1}{g'(g^{-1}(y))}\n\\tag{3}\\]\nという等式が成り立つ.\n\\(g(x)\\)が単調増加関数であるとすると,1対1関数になるので逆関数\\(g^{-1}(y)\\)がとれる.\n\\(g(x)\\) が単調増加の場合 \\[\\begin{equation*}\nF_Y(y)=P(Y \\leq y) = P(g(X) \\leq y) = P(X \\leq g^{-1}(y)) =F_X(g^{-1}(y))\n\\end{equation*}\\]\n\\[\\begin{align*}\n  f_Y(y)&=\\frac{d}{dy}F_Y(y) = \\frac{d}{dy}F_X(g^{-1}(y)) = \\frac{d}{dx}F_X(x)|_{x=g^{-1}(y)}\\frac{d}{dy}g^{-1}(y) \\\\\n  &=f_X(g^{-1}(y)) \\frac{d}{dy}g^{-1}(y)\n\\end{align*}\\]\n\\(g(x)\\) が単調減少の場合\n\\[\\begin{align*}\nF_Y(y)&=  P(g{X} \\leq y) = P(X \\geq g^{-1}(y)) =1-F_X(g^{-1}(y)) \\\\\nf_Y(y)&=-f_X(g^{-1}(y)) \\frac{d}{dy}g^{-1}(y)=f_X(g^{-1}(y)) |\\frac{d}{dy}g^{-1}(y)|\n\\end{align*}\\]\n単調減少の時,\\(g^{-1}(x)\\)は負になるので、絶対値を取ると一般化できる。\nよって、式 2 が成り立つ。\n式 3 について,\n\\[\\begin{align*}\n  y=g(x) \\\\\n  1 = g'(x)(dx/dy)\n\\end{align*}\\]\n\\(x=g^{-1}(y)\\)を代入する. \\[\\begin{equation*}\n  1 = g'(g^{-1}(y))\\frac{d}{dy} g^{-1}(y)\n\\end{equation*}\\]\n式 3 が成り立つので,逆関数の微分の計算が可能になる."
-  },
-  {
-    "objectID": "posts/data_math2_me/index.html",
-    "href": "posts/data_math2_me/index.html",
-    "title": "「データ解析のための数理統計入門」第2章",
-    "section": "",
-    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
-  },
-  {
-    "objectID": "posts/data_math2_me/index.html#離散確率変数",
-    "href": "posts/data_math2_me/index.html#離散確率変数",
-    "title": "「データ解析のための数理統計入門」第2章",
-    "section": "",
-    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
-  },
-  {
-    "objectID": "posts/data_math1_me/index.html",
-    "href": "posts/data_math1_me/index.html",
-    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
-    "section": "",
-    "text": "試行：結果が生ずるような行為\n標本空間(\\(\\Omega\\))：試行によって起こりうるすべての結果\n事象：起こりうる結果(\\(\\omega\\))の集まり\n\n\nサイコロを投げる時\n標本空間　\\(\\Omega=\\{1,2,3,4,5,6\\}\\)\n事象　\\(\\{1,2\\},\\{2,5\\}\\)のような\\(\\Omega\\)の部分集合\n\n\n\n上で挙げた通り、試行による結果（\\(\\omega\\)）は集合の要素または元に対応する。\n積事象：２つの事象\\(A,B\\)がともに起こる事象\n和事象：２つの事象\\(A,B\\)の少なくともどちらかが起こる事象"
-  },
-  {
-    "objectID": "posts/data_math1_me/index.html#具体例",
-    "href": "posts/data_math1_me/index.html#具体例",
-    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
-    "section": "",
-    "text": "サイコロを投げる時\n標本空間　\\(\\Omega=\\{1,2,3,4,5,6\\}\\)\n事象　\\(\\{1,2\\},\\{2,5\\}\\)のような\\(\\Omega\\)の部分集合"
-  },
-  {
-    "objectID": "posts/data_math1_me/index.html#事象と集合",
-    "href": "posts/data_math1_me/index.html#事象と集合",
-    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
-    "section": "",
-    "text": "上で挙げた通り、試行による結果（\\(\\omega\\)）は集合の要素または元に対応する。\n積事象：２つの事象\\(A,B\\)がともに起こる事象\n和事象：２つの事象\\(A,B\\)の少なくともどちらかが起こる事象"
-  },
-  {
-    "objectID": "posts/seminor2024_0611/index.html",
-    "href": "posts/seminor2024_0611/index.html",
-    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
-    "section": "",
-    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\n\nコード\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\n\n\nコード\nexit_birthday(40)\n\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\n\nコード\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
-  },
-  {
-    "objectID": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
-    "href": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
-    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
-    "section": "",
-    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\n\nコード\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\n\n\nコード\nexit_birthday(40)\n\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\n\nコード\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
-  },
-  {
-    "objectID": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
-    "href": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
-    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
-    "section": "問題5 以下の不等式を示せ",
-    "text": "問題5 以下の不等式を示せ\n\n\\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n\\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\n\n1. \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n数学的帰納法で示す。\n\\(n=2\\) のときには\n\\[\\begin{equation*}\n    P(A_1 \\cup A_2) = P(A_1) + P(A_2) - P(A_1 \\cap A_2) \\leq P(A_1) + P(A_2)\n\\end{equation*}\\]\nとなり，成立つことがわかる。\n\\(n\\) のとき成立つと仮定すると \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\) が成立つ。\nそのとき \\(n+1\\) の時に成り立つ事を示す。\n\\[\\begin{align*}\n    P(\\bigcup_{i=1}^{n+1} A_i) &= P((\\bigcup_{i=1}^n A_i)   \\cup A_{n+1}) \\\\\n    &\\leq P(\\bigcup_{i=1}^n A_i) + P(A_{n+1}) \\\\\n    &\\leq \\sum_{i=1}^n P(A_i) + P(A_{n+1}) \\\\\n    &= \\sum_{i=1}^{n+1} P(A_i)\n\\end{align*}\\]\nとなり，\\(n+1\\) のときにも成立つことがわかる。\n\n\n2. \\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\\[\\begin{equation*}\n    P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\geq P(A) + P(B) - 1\n\\end{equation*}\\]"
-  },
-  {
-    "objectID": "posts/latex_basis/index.html",
-    "href": "posts/latex_basis/index.html",
-    "title": "LaTeXの数式　よく使うもの　対応表",
-    "section": "",
-    "text": "等号・不等号など\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(=\\)\n=\n\n\n\n\\(&lt;\\)\n&lt;\n\n\n\n\\(\\le\\)\n\\le\n\n\n\n\\(\\leq\\)\n\\leq\n\n\n\n\\(\\leqq\\)\n\\leqq\n\n\n\n\\(&gt;\\)\n&gt;\n\n\n\n\\(\\ge\\)\n\\ge\n\n\n\n\\(\\geq\\)\n\\geq\n\n\n\n\\(\\geqq\\)\n\\geqq\n\n\n\n\\(\\risingdotseq\\)\n\\risingdotseq\n\n\n\n\\(\\fallingdotseq\\)\n\\fallingdotseq\n\n\n\n\\(\\sim\\)\n\\sim\n従う\n\n\n\n\n\n集合\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(\\cap\\)\n\\cap\n\n\n\n\\(\\cup\\)\n\\cup\n\n\n\n\\(\\emptyset\\)\n\\emptyset\n\n\n\n\\(A^c\\)\nA^c\n\n\n\n\\(\\overline{A}\\)\n\\overline{A}\n\n\n\n\\(\\subset\\)\n\\subset\n部分集合\n\n\n\n\n\n\nその他\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(\\mathcal{X}\\)\n\\mathcal{X}\n\n\n\n\\(\\cup\\)\n\\cup"
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html",
-    "href": "posts/seminor2024_0618/index.html",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "",
-    "text": "まれな現象が起こる回数を\\(X\\)とするとき、確率関数が以下の関数である分布をという。\\(Po(\\lambda)\\) で表す。 \\[p(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\\]\n\\(\\lambda\\)は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 \\(e\\) は自然対数の底である。"
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布とは",
-    "href": "posts/seminor2024_0618/index.html#ポアソン分布とは",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "",
-    "text": "まれな現象が起こる回数を\\(X\\)とするとき、確率関数が以下の関数である分布をという。\\(Po(\\lambda)\\) で表す。 \\[p(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\\]\n\\(\\lambda\\)は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 \\(e\\) は自然対数の底である。"
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布のグラフ",
-    "href": "posts/seminor2024_0618/index.html#ポアソン分布のグラフ",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "ポアソン分布のグラフ",
-    "text": "ポアソン分布のグラフ\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1, 1.3, 3, 5, 5.6, 7, 9]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\) が正の整数のとき\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1, 3, 5, 7, 9]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\) が正の実数かつ整数ではない時\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1.3, 3.6, 5.9, 7.32, 9.333]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフからわかること\n\n\\(\\lambda\\) が正の整数のもとで,\\(P(\\lambda)=P(\\lambda-1)\\)であることがわかる。\n\n\\[\\begin{align*}\n    P(\\lambda) &= \\frac{\\lambda^\\lambda}{\\lambda!} e^{-\\lambda} \\\\\n    P(\\lambda-1) &= \\frac{\\lambda^{\\lambda-1}}{(\\lambda-1)!} e^{-\\lambda}\n\\end{align*}\\] \\(P(\\lambda-1)\\) の分母分子に\\(\\lambda\\) をかけると、\\(P(\\lambda)\\) と同じ式になるため,\\(P(\\lambda)=P(\\lambda-1)\\)\n\n\\(\\lambda\\) が正の整数のもとで,\\(P(\\lambda)=P(\\lambda-1)\\)が最頻値であることがわかる。\n\\(\\lambda\\) が正の実数かつ整数ではないときのもとで,\\(P([\\lambda])\\)が最頻値であることがわかる。\n\n2と3は演習問題に続く."
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布の具体例",
-    "href": "posts/seminor2024_0618/index.html#ポアソン分布の具体例",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "ポアソン分布の具体例",
-    "text": "ポアソン分布の具体例\n\nある都市の１日に起こる交通事故の数\nある都市で１年間のうちに肺がんで死ぬ数\n\n確率が極端に少なそうな事柄がポアソン分布を用いることが多い。"
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布が確率関数である証明",
-    "href": "posts/seminor2024_0618/index.html#ポアソン分布が確率関数である証明",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "ポアソン分布が確率関数である証明",
-    "text": "ポアソン分布が確率関数である証明\nテーラー展開\n\\[\\begin{align*}\n    e^\\lambda &= 1 + x + x^2/ 2! + x^3/ 3! \\ldots \\\\\n    &= \\sum_{k=0}^\\infty \\frac{x^k}{k!}\n\\end{align*}\\]\n\\[\\begin{align*}\n    \\sum_{k=0}^\\infty p(k) &= \\sum_{k=0}^\\infty \\frac{\\lambda^k}{k!} e^{-\\lambda} = e^{\\lambda}e^{-\\lambda} = 1\n\\end{align*}\\] \\(\\sum_{k=0}^\\infty p(k)\\)が1であるため、\\(\\frac{\\lambda^k}{k!} e^{-\\lambda}\\) が確率関数であることがわかる."
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html#命題2.6",
-    "href": "posts/seminor2024_0618/index.html#命題2.6",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "命題2.6",
-    "text": "命題2.6\n命題2.6 ポアソン分布\\(Po(\\lambda)\\)に従う確率変数をXとすると、Xの平均と分散はともに\\(\\lambda\\)である。\n\\(E[X]\\)について\n\\(\\sum^\\infty_{k=0}\\frac{\\lambda^k}{k!} = e^\\lambda\\)について両辺を微分します。\n\\[\\begin{equation*}\n    \\frac{d}{d\\lambda}(e^\\lambda)  = e^\\lambda\n\\end{equation*}\\] \\[\\begin{align*}\n    \\frac{d}{d\\lambda}(\\sum^\\infty_{k=0}\\frac{\\lambda^k}{k!}) &= \\sum^\\infty_{k=0}\\frac{k\\lambda^{k-1}}{k!}\n    = \\sum^\\infty_{k=1}\\frac{k\\lambda^{k-1}}{k!}\n\\end{align*}\\] 両辺に\\(\\lambda e^{-\\lambda}\\)をかけます。 \\[\\begin{equation*}\n    e^\\lambda \\lambda e^{-\\lambda} = \\lambda\n\\end{equation*}\\] \\[\\begin{equation*}\n    \\sum^\\infty_{k=1}\\frac{k\\lambda^{k-1}}{k!} \\lambda e^{-\\lambda} = \\sum^\\infty_{k=1}\\frac{k\\lambda^{k}}{k!} e^{-\\lambda} = E[X]\n\\end{equation*}\\]\n\\(Var[X]\\)について\n同様に求められた式を微分します。 \\[\\begin{equation*}\n    \\sum_{k=1}^{\\infty} k(k-1)\\frac{\\lambda^{k-2}}{k!} = e^\\lambda\n  \\end{equation*}\\]\n両辺に\\(\\lambda^2 e^{-\\lambda}\\) をかけます \\[\\begin{equation*}\n    \\sum_{k=1}^{\\infty} k(k-1)\\frac{\\lambda^{k}}{k!} e^{-\\lambda} = \\lambda^2\n  \\end{equation*}\\]\n\\[\\begin{equation*}\n    Var(X) = E[X(X-1)] + E[X]-(E[X])^2 = \\lambda^2 +\\lambda -\\lambda^2 = \\lambda\n  \\end{equation*}\\]"
-  },
-  {
-    "objectID": "posts/seminor2024_0618/index.html#命題2.7-二項分布のポアソン近似",
-    "href": "posts/seminor2024_0618/index.html#命題2.7-二項分布のポアソン近似",
-    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
-    "section": "命題2.7 二項分布のポアソン近似",
-    "text": "命題2.7 二項分布のポアソン近似\n\\(np=\\lambda\\) が一定のもとで、\\(p \\rightarrow 0\\),\\(n \\rightarrow \\infty\\)とすると、二項分布\\(Bin(n,p)\\) はポアソン分布\\(Po(\\lambda)\\) に収束する。\n\n命題2.7の証明\n\\[\\begin{align*}\n    \\lim_{n \\rightarrow \\infty} {}_n \\mathrm{C}_k p^k (1-p)^{n-k} &= \\lim_{n \\rightarrow \\infty} \\frac{n!}{(n-k)!k!} \\left(\\frac{\\lambda}{n}\\right)^k \\left(1-\\frac{\\lambda}{n}\\right)^{n-k} \\\\\n    &= \\lim_{n \\rightarrow \\infty} \\frac{\\lambda^k}{k!} \\frac{n!}{(n-k)!n^k} \\left(1-\\frac{\\lambda}{n}\\right)^n \\left(1-\\frac{\\lambda}{n}\\right)^{-k} \\\\\n    &= (\\frac{k!}{\\lambda^k}) e^{-\\lambda}\n\\end{align*}\\]\n\\(n\\rightarrow \\infty\\)のとき、\\(\\frac{n!}{(n-k)!n^k}\\rightarrow 1, (1-\\frac{\\lambda}{n})^n \\rightarrow e^{-\\lambda},(1-\\frac{\\lambda}{n})^{-k} \\rightarrow 1\\)より。"
-  },
-  {
-    "objectID": "posts/seminor2024_0702/index.html",
-    "href": "posts/seminor2024_0702/index.html",
-    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
-    "section": "",
-    "text": "2つの離散確率変数\\(X\\)と\\(Y\\)がそれぞれ\\(\\mathcal{X} = \\{x_1, x_2, \\ldots\\}\\),\\(\\mathcal{Y} = \\{y_1, y_2, \\ldots\\}\\)に値を取るものとする。\n\\((X,Y)\\)が\\((x_i,y_j)\\)の値を取る同時確率関数は\n\\[\\begin{equation}\np(x_i,y_j)=P(X=x_i,Y=y_j)\n\\end{equation}\\]\nで与えられる。\n\n\n\n\n\n\n\n\n\n\\(P(X=x_i,Y=y_j)\\)とは\n\n\n\n\\(P(X=x_i,Y=y_j)=P(\\{X=x_i\\} \\cap \\{Y=y_j\\})\\)を意味する。\n\n\n\n\n\n\\((X,Y)\\)の周辺確率関数は、\n\\[\\begin{align}\np_X(x_i) = \\Sigma_{j=1}^\\infty p(x_i,y_j)\\\\\np_Y(y_j) = \\Sigma_{i=1}^\\infty p(x_i,y_j)\n\\end{align}\\]\n\n\n\nコインを３回投げる時を考える。\n１回目に投げたコインが、表が出たら\\(X=1\\),裏が出たら\\(X=0\\)とする。\n３回投げた時、コインの表が出た合計数を\\(Y\\)とする。\n\n\n\n確率分布は以下のようになる。\n\n\n\n\n\\[\\begin{array}{c|cccc|c}\n& y_j & & &  \\\\\nx_i & 0 & 1 & 2 & 3 \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8}  \\\\\n\n\\end{array}\\]\n\n\n例えば\n\\[\\begin{equation}\nP(X=1,Y=1)=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\nP(X=1,Y=2)=1/4\n\\end{equation}\\]\n\n\n\n\n\n\n\\(Y\\)の周辺分布\\(p_Y(y_j)=P(Y=y_j)\\)は以下のようになる。\n\\[\\begin{equation}\np_Y(0)=P(Y=0)=P(X=0,Y=0)+P(X=1,Y=0)=1/8+0=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(1)=P(Y=1)=P(X=0,Y=1)+P(X=1,Y=1)=1/4+1/8=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8\n\\end{equation}\\]\n\n\n\n同様に\\(X\\)の周辺分布\\(p_X(x_i)=P(X=x_i)\\)は以下のようになる。\n\\[\\begin{equation}\np_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2\n\\end{equation}\\]\n\\[\\begin{equation}\np_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2\n\\end{equation}\\]\n\n\n\n周辺分布は下の表のように、下側と右側の合計値になります。\n\\[\\begin{array}{c|cccc|c}\n& y_j & & & & \\\\\nx_i & 0 & 1 & 2 & 3 & \\text{合計} \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 & \\frac{1}{2} \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & \\frac{1}{2} \\\\ \\hline\n\\text{合計} & \\frac{1}{8} & \\frac{3}{8} & \\frac{3}{8} & \\frac{1}{8} & 1\n\\end{array}\\]\n\n\n\n\n\\(X_1, \\ldots ,X_k\\)を\\(k\\)個の確率変数とする。 \\(X_i\\)の実現値の集合を\\(\\mathcal{X_i}\\)とする。"
-  },
-  {
-    "objectID": "posts/seminor2024_0702/index.html#同時確率関数と周辺確率関数",
-    "href": "posts/seminor2024_0702/index.html#同時確率関数と周辺確率関数",
-    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
-    "section": "",
-    "text": "2つの離散確率変数\\(X\\)と\\(Y\\)がそれぞれ\\(\\mathcal{X} = \\{x_1, x_2, \\ldots\\}\\),\\(\\mathcal{Y} = \\{y_1, y_2, \\ldots\\}\\)に値を取るものとする。\n\\((X,Y)\\)が\\((x_i,y_j)\\)の値を取る同時確率関数は\n\\[\\begin{equation}\np(x_i,y_j)=P(X=x_i,Y=y_j)\n\\end{equation}\\]\nで与えられる。\n\n\n\n\n\n\n\n\n\n\\(P(X=x_i,Y=y_j)\\)とは\n\n\n\n\\(P(X=x_i,Y=y_j)=P(\\{X=x_i\\} \\cap \\{Y=y_j\\})\\)を意味する。\n\n\n\n\n\n\\((X,Y)\\)の周辺確率関数は、\n\\[\\begin{align}\np_X(x_i) = \\Sigma_{j=1}^\\infty p(x_i,y_j)\\\\\np_Y(y_j) = \\Sigma_{i=1}^\\infty p(x_i,y_j)\n\\end{align}\\]"
-  },
-  {
-    "objectID": "posts/seminor2024_0702/index.html#例3.1",
-    "href": "posts/seminor2024_0702/index.html#例3.1",
-    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
-    "section": "",
-    "text": "コインを３回投げる時を考える。\n１回目に投げたコインが、表が出たら\\(X=1\\),裏が出たら\\(X=0\\)とする。\n３回投げた時、コインの表が出た合計数を\\(Y\\)とする。\n\n\n\n確率分布は以下のようになる。\n\n\n\n\n\\[\\begin{array}{c|cccc|c}\n& y_j & & &  \\\\\nx_i & 0 & 1 & 2 & 3 \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8}  \\\\\n\n\\end{array}\\]\n\n\n例えば\n\\[\\begin{equation}\nP(X=1,Y=1)=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\nP(X=1,Y=2)=1/4\n\\end{equation}\\]\n\n\n\n\n\n\n\\(Y\\)の周辺分布\\(p_Y(y_j)=P(Y=y_j)\\)は以下のようになる。\n\\[\\begin{equation}\np_Y(0)=P(Y=0)=P(X=0,Y=0)+P(X=1,Y=0)=1/8+0=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(1)=P(Y=1)=P(X=0,Y=1)+P(X=1,Y=1)=1/4+1/8=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8\n\\end{equation}\\]\n\n\n\n同様に\\(X\\)の周辺分布\\(p_X(x_i)=P(X=x_i)\\)は以下のようになる。\n\\[\\begin{equation}\np_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2\n\\end{equation}\\]\n\\[\\begin{equation}\np_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2\n\\end{equation}\\]\n\n\n\n周辺分布は下の表のように、下側と右側の合計値になります。\n\\[\\begin{array}{c|cccc|c}\n& y_j & & & & \\\\\nx_i & 0 & 1 & 2 & 3 & \\text{合計} \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 & \\frac{1}{2} \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & \\frac{1}{2} \\\\ \\hline\n\\text{合計} & \\frac{1}{8} & \\frac{3}{8} & \\frac{3}{8} & \\frac{1}{8} & 1\n\\end{array}\\]"
-  },
-  {
-    "objectID": "posts/seminor2024_0702/index.html#確率変数が３つのとき",
-    "href": "posts/seminor2024_0702/index.html#確率変数が３つのとき",
-    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
-    "section": "",
-    "text": "\\(X_1, \\ldots ,X_k\\)を\\(k\\)個の確率変数とする。 \\(X_i\\)の実現値の集合を\\(\\mathcal{X_i}\\)とする。"
+    "text": "コードを見る\nimport random\n\ndef simulate_monty_hall(trials):\n    stay_wins = 0\n    switch_wins = 0\n\n    for _ in range(trials):\n        # ランダムに車があるドアを選ぶ\n        car = random.randint(0, 2)\n        # プレイヤーが選ぶドア\n        player_choice = random.randint(0, 2)\n\n        # モンティが開けるドア\n        monty_choice = random.choice([door for door in range(3) if door != car and door != player_choice])\n\n        # プレイヤーがドアを変更する場合の勝敗\n        switch_choice = next(door for door in range(3) if door != player_choice and door != monty_choice)\n        if switch_choice == car:\n            switch_wins += 1\n        else:\n            stay_wins += 1\n\n    return stay_wins, switch_wins\n\n# シミュレーションを行う回数\ntrials = 10000\nstay_wins, switch_wins = simulate_monty_hall(trials)\n\nprint(f\"Stay Wins: {stay_wins} ({stay_wins/trials*100:.2f}%)\")\nprint(f\"Switch Wins: {switch_wins} ({switch_wins/trials*100:.2f}%)\")\n\n\nStay Wins: 3352 (33.52%)\nSwitch Wins: 6648 (66.48%)"
   },
   {
     "objectID": "posts/data_math1_quest/index.html",
@@ -259,6 +98,174 @@
     "text": "10問目\n\n問題\n独立性に関して次の問いに答えよ ⑴"
   },
   {
+    "objectID": "posts/seminor2024_0702/index.html",
+    "href": "posts/seminor2024_0702/index.html",
+    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
+    "section": "",
+    "text": "2つの離散確率変数\\(X\\)と\\(Y\\)がそれぞれ\\(\\mathcal{X} = \\{x_1, x_2, \\ldots\\}\\),\\(\\mathcal{Y} = \\{y_1, y_2, \\ldots\\}\\)に値を取るものとする。\n\\((X,Y)\\)が\\((x_i,y_j)\\)の値を取る同時確率関数は\n\\[\\begin{equation}\np(x_i,y_j)=P(X=x_i,Y=y_j)\n\\end{equation}\\]\nで与えられる。\n\n\n\n\n\n\n\n\n\n\\(P(X=x_i,Y=y_j)\\)とは\n\n\n\n\\(P(X=x_i,Y=y_j)=P(\\{X=x_i\\} \\cap \\{Y=y_j\\})\\)を意味する。\n\n\n\n\n\n\\((X,Y)\\)の周辺確率関数は、\n\\[\\begin{align}\np_X(x_i) = \\Sigma_{j=1}^\\infty p(x_i,y_j)\\\\\np_Y(y_j) = \\Sigma_{i=1}^\\infty p(x_i,y_j)\n\\end{align}\\]\n\n\n\nコインを３回投げる時を考える。\n１回目に投げたコインが、表が出たら\\(X=1\\),裏が出たら\\(X=0\\)とする。\n３回投げた時、コインの表が出た合計数を\\(Y\\)とする。\n\n\n\n確率分布は以下のようになる。\n\n\n\n\n\\[\\begin{array}{c|cccc|c}\n& y_j & & &  \\\\\nx_i & 0 & 1 & 2 & 3 \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8}  \\\\\n\n\\end{array}\\]\n\n\n例えば\n\\[\\begin{equation}\nP(X=1,Y=1)=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\nP(X=1,Y=2)=1/4\n\\end{equation}\\]\n\n\n\n\n\n\n\\(Y\\)の周辺分布\\(p_Y(y_j)=P(Y=y_j)\\)は以下のようになる。\n\\[\\begin{equation}\np_Y(0)=P(Y=0)=P(X=0,Y=0)+P(X=1,Y=0)=1/8+0=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(1)=P(Y=1)=P(X=0,Y=1)+P(X=1,Y=1)=1/4+1/8=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8\n\\end{equation}\\]\n\n\n\n同様に\\(X\\)の周辺分布\\(p_X(x_i)=P(X=x_i)\\)は以下のようになる。\n\\[\\begin{equation}\np_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2\n\\end{equation}\\]\n\\[\\begin{equation}\np_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2\n\\end{equation}\\]\n\n\n\n周辺分布は下の表のように、下側と右側の合計値になります。\n\\[\\begin{array}{c|cccc|c}\n& y_j & & & & \\\\\nx_i & 0 & 1 & 2 & 3 & \\text{合計} \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 & \\frac{1}{2} \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & \\frac{1}{2} \\\\ \\hline\n\\text{合計} & \\frac{1}{8} & \\frac{3}{8} & \\frac{3}{8} & \\frac{1}{8} & 1\n\\end{array}\\]\n\n\n\n\n\\(X_1, \\ldots ,X_k\\)を\\(k\\)個の確率変数とする。 \\(X_i\\)の実現値の集合を\\(\\mathcal{X_i}\\)とする。"
+  },
+  {
+    "objectID": "posts/seminor2024_0702/index.html#同時確率関数と周辺確率関数",
+    "href": "posts/seminor2024_0702/index.html#同時確率関数と周辺確率関数",
+    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
+    "section": "",
+    "text": "2つの離散確率変数\\(X\\)と\\(Y\\)がそれぞれ\\(\\mathcal{X} = \\{x_1, x_2, \\ldots\\}\\),\\(\\mathcal{Y} = \\{y_1, y_2, \\ldots\\}\\)に値を取るものとする。\n\\((X,Y)\\)が\\((x_i,y_j)\\)の値を取る同時確率関数は\n\\[\\begin{equation}\np(x_i,y_j)=P(X=x_i,Y=y_j)\n\\end{equation}\\]\nで与えられる。\n\n\n\n\n\n\n\n\n\n\\(P(X=x_i,Y=y_j)\\)とは\n\n\n\n\\(P(X=x_i,Y=y_j)=P(\\{X=x_i\\} \\cap \\{Y=y_j\\})\\)を意味する。\n\n\n\n\n\n\\((X,Y)\\)の周辺確率関数は、\n\\[\\begin{align}\np_X(x_i) = \\Sigma_{j=1}^\\infty p(x_i,y_j)\\\\\np_Y(y_j) = \\Sigma_{i=1}^\\infty p(x_i,y_j)\n\\end{align}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0702/index.html#例3.1",
+    "href": "posts/seminor2024_0702/index.html#例3.1",
+    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
+    "section": "",
+    "text": "コインを３回投げる時を考える。\n１回目に投げたコインが、表が出たら\\(X=1\\),裏が出たら\\(X=0\\)とする。\n３回投げた時、コインの表が出た合計数を\\(Y\\)とする。\n\n\n\n確率分布は以下のようになる。\n\n\n\n\n\\[\\begin{array}{c|cccc|c}\n& y_j & & &  \\\\\nx_i & 0 & 1 & 2 & 3 \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8}  \\\\\n\n\\end{array}\\]\n\n\n例えば\n\\[\\begin{equation}\nP(X=1,Y=1)=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\nP(X=1,Y=2)=1/4\n\\end{equation}\\]\n\n\n\n\n\n\n\\(Y\\)の周辺分布\\(p_Y(y_j)=P(Y=y_j)\\)は以下のようになる。\n\\[\\begin{equation}\np_Y(0)=P(Y=0)=P(X=0,Y=0)+P(X=1,Y=0)=1/8+0=1/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(1)=P(Y=1)=P(X=0,Y=1)+P(X=1,Y=1)=1/4+1/8=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8\n\\end{equation}\\]\n\\[\\begin{equation}\np_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8\n\\end{equation}\\]\n\n\n\n同様に\\(X\\)の周辺分布\\(p_X(x_i)=P(X=x_i)\\)は以下のようになる。\n\\[\\begin{equation}\np_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2\n\\end{equation}\\]\n\\[\\begin{equation}\np_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2\n\\end{equation}\\]\n\n\n\n周辺分布は下の表のように、下側と右側の合計値になります。\n\\[\\begin{array}{c|cccc|c}\n& y_j & & & & \\\\\nx_i & 0 & 1 & 2 & 3 & \\text{合計} \\\\ \\hline\n0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & 0 & \\frac{1}{2} \\\\\n1 & 0 & \\frac{1}{8} & \\frac{1}{4} & \\frac{1}{8} & \\frac{1}{2} \\\\ \\hline\n\\text{合計} & \\frac{1}{8} & \\frac{3}{8} & \\frac{3}{8} & \\frac{1}{8} & 1\n\\end{array}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0702/index.html#確率変数が３つのとき",
+    "href": "posts/seminor2024_0702/index.html#確率変数が３つのとき",
+    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
+    "section": "",
+    "text": "\\(X_1, \\ldots ,X_k\\)を\\(k\\)個の確率変数とする。 \\(X_i\\)の実現値の集合を\\(\\mathcal{X_i}\\)とする。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html",
+    "href": "posts/seminor2024_0618/index.html",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "",
+    "text": "まれな現象が起こる回数を\\(X\\)とするとき、確率関数が以下の関数である分布をという。\\(Po(\\lambda)\\) で表す。 \\[p(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\\]\n\\(\\lambda\\)は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 \\(e\\) は自然対数の底である。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布とは",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布とは",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "",
+    "text": "まれな現象が起こる回数を\\(X\\)とするとき、確率関数が以下の関数である分布をという。\\(Po(\\lambda)\\) で表す。 \\[p(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\\]\n\\(\\lambda\\)は生起率（強度）と呼ばれるパラメーターであり、単位時間あたりに起こる回数である。 \\(e\\) は自然対数の底である。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布のグラフ",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布のグラフ",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "ポアソン分布のグラフ",
+    "text": "ポアソン分布のグラフ\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1, 1.3, 3, 5, 5.6, 7, 9]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\) が正の整数のとき\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1, 3, 5, 7, 9]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\) が正の実数かつ整数ではない時\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import poisson\nimport japanize_matplotlib\n\n# 複数のλ値を定義\nlambdas = [1.3, 3.6, 5.9, 7.32, 9.333]\n\n# x の範囲を定義\nx = np.arange(0, 20)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor lambda_ in lambdas:\n    pmf = poisson.pmf(x, lambda_)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'λ = {lambda_}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('λを変動させたポアソン分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('1.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフからわかること\n\n\\(\\lambda\\) が正の整数のもとで,\\(P(\\lambda)=P(\\lambda-1)\\)であることがわかる。\n\n\\[\\begin{align*}\n    P(\\lambda) &= \\frac{\\lambda^\\lambda}{\\lambda!} e^{-\\lambda} \\\\\n    P(\\lambda-1) &= \\frac{\\lambda^{\\lambda-1}}{(\\lambda-1)!} e^{-\\lambda}\n\\end{align*}\\] \\(P(\\lambda-1)\\) の分母分子に\\(\\lambda\\) をかけると、\\(P(\\lambda)\\) と同じ式になるため,\\(P(\\lambda)=P(\\lambda-1)\\)\n\n\\(\\lambda\\) が正の整数のもとで,\\(P(\\lambda)=P(\\lambda-1)\\)が最頻値であることがわかる。\n\\(\\lambda\\) が正の実数かつ整数ではないときのもとで,\\(P([\\lambda])\\)が最頻値であることがわかる。\n\n2と3は演習問題に続く."
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布の具体例",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布の具体例",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "ポアソン分布の具体例",
+    "text": "ポアソン分布の具体例\n\nある都市の１日に起こる交通事故の数\nある都市で１年間のうちに肺がんで死ぬ数\n\n確率が極端に少なそうな事柄がポアソン分布を用いることが多い。"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#ポアソン分布が確率関数である証明",
+    "href": "posts/seminor2024_0618/index.html#ポアソン分布が確率関数である証明",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "ポアソン分布が確率関数である証明",
+    "text": "ポアソン分布が確率関数である証明\nテーラー展開\n\\[\\begin{align*}\n    e^\\lambda &= 1 + x + x^2/ 2! + x^3/ 3! \\ldots \\\\\n    &= \\sum_{k=0}^\\infty \\frac{x^k}{k!}\n\\end{align*}\\]\n\\[\\begin{align*}\n    \\sum_{k=0}^\\infty p(k) &= \\sum_{k=0}^\\infty \\frac{\\lambda^k}{k!} e^{-\\lambda} = e^{\\lambda}e^{-\\lambda} = 1\n\\end{align*}\\] \\(\\sum_{k=0}^\\infty p(k)\\)が1であるため、\\(\\frac{\\lambda^k}{k!} e^{-\\lambda}\\) が確率関数であることがわかる."
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#命題2.6",
+    "href": "posts/seminor2024_0618/index.html#命題2.6",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "命題2.6",
+    "text": "命題2.6\n命題2.6 ポアソン分布\\(Po(\\lambda)\\)に従う確率変数をXとすると、Xの平均と分散はともに\\(\\lambda\\)である。\n\\(E[X]\\)について\n\\(\\sum^\\infty_{k=0}\\frac{\\lambda^k}{k!} = e^\\lambda\\)について両辺を微分します。\n\\[\\begin{equation*}\n    \\frac{d}{d\\lambda}(e^\\lambda)  = e^\\lambda\n\\end{equation*}\\] \\[\\begin{align*}\n    \\frac{d}{d\\lambda}(\\sum^\\infty_{k=0}\\frac{\\lambda^k}{k!}) &= \\sum^\\infty_{k=0}\\frac{k\\lambda^{k-1}}{k!}\n    = \\sum^\\infty_{k=1}\\frac{k\\lambda^{k-1}}{k!}\n\\end{align*}\\] 両辺に\\(\\lambda e^{-\\lambda}\\)をかけます。 \\[\\begin{equation*}\n    e^\\lambda \\lambda e^{-\\lambda} = \\lambda\n\\end{equation*}\\] \\[\\begin{equation*}\n    \\sum^\\infty_{k=1}\\frac{k\\lambda^{k-1}}{k!} \\lambda e^{-\\lambda} = \\sum^\\infty_{k=1}\\frac{k\\lambda^{k}}{k!} e^{-\\lambda} = E[X]\n\\end{equation*}\\]\n\\(Var[X]\\)について\n同様に求められた式を微分します。 \\[\\begin{equation*}\n    \\sum_{k=1}^{\\infty} k(k-1)\\frac{\\lambda^{k-2}}{k!} = e^\\lambda\n  \\end{equation*}\\]\n両辺に\\(\\lambda^2 e^{-\\lambda}\\) をかけます \\[\\begin{equation*}\n    \\sum_{k=1}^{\\infty} k(k-1)\\frac{\\lambda^{k}}{k!} e^{-\\lambda} = \\lambda^2\n  \\end{equation*}\\]\n\\[\\begin{equation*}\n    Var(X) = E[X(X-1)] + E[X]-(E[X])^2 = \\lambda^2 +\\lambda -\\lambda^2 = \\lambda\n  \\end{equation*}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0618/index.html#命題2.7-二項分布のポアソン近似",
+    "href": "posts/seminor2024_0618/index.html#命題2.7-二項分布のポアソン近似",
+    "title": "6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布",
+    "section": "命題2.7 二項分布のポアソン近似",
+    "text": "命題2.7 二項分布のポアソン近似\n\\(np=\\lambda\\) が一定のもとで、\\(p \\rightarrow 0\\),\\(n \\rightarrow \\infty\\)とすると、二項分布\\(Bin(n,p)\\) はポアソン分布\\(Po(\\lambda)\\) に収束する。\n\n命題2.7の証明\n\\[\\begin{align*}\n    \\lim_{n \\rightarrow \\infty} {}_n \\mathrm{C}_k p^k (1-p)^{n-k} &= \\lim_{n \\rightarrow \\infty} \\frac{n!}{(n-k)!k!} \\left(\\frac{\\lambda}{n}\\right)^k \\left(1-\\frac{\\lambda}{n}\\right)^{n-k} \\\\\n    &= \\lim_{n \\rightarrow \\infty} \\frac{\\lambda^k}{k!} \\frac{n!}{(n-k)!n^k} \\left(1-\\frac{\\lambda}{n}\\right)^n \\left(1-\\frac{\\lambda}{n}\\right)^{-k} \\\\\n    &= (\\frac{k!}{\\lambda^k}) e^{-\\lambda}\n\\end{align*}\\]\n\\(n\\rightarrow \\infty\\)のとき、\\(\\frac{n!}{(n-k)!n^k}\\rightarrow 1, (1-\\frac{\\lambda}{n})^n \\rightarrow e^{-\\lambda},(1-\\frac{\\lambda}{n})^{-k} \\rightarrow 1\\)より。"
+  },
+  {
+    "objectID": "posts/latex_basis/index.html",
+    "href": "posts/latex_basis/index.html",
+    "title": "LaTeXの数式　よく使うもの　対応表",
+    "section": "",
+    "text": "等号・不等号など\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(=\\)\n=\n\n\n\n\\(&lt;\\)\n&lt;\n\n\n\n\\(\\le\\)\n\\le\n\n\n\n\\(\\leq\\)\n\\leq\n\n\n\n\\(\\leqq\\)\n\\leqq\n\n\n\n\\(&gt;\\)\n&gt;\n\n\n\n\\(\\ge\\)\n\\ge\n\n\n\n\\(\\geq\\)\n\\geq\n\n\n\n\\(\\geqq\\)\n\\geqq\n\n\n\n\\(\\risingdotseq\\)\n\\risingdotseq\n\n\n\n\\(\\fallingdotseq\\)\n\\fallingdotseq\n\n\n\n\\(\\sim\\)\n\\sim\n従う\n\n\n\n\n\n集合\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(\\cap\\)\n\\cap\n\n\n\n\\(\\cup\\)\n\\cup\n\n\n\n\\(\\emptyset\\)\n\\emptyset\n\n\n\n\\(A^c\\)\nA^c\n\n\n\n\\(\\overline{A}\\)\n\\overline{A}\n\n\n\n\\(\\subset\\)\n\\subset\n部分集合\n\n\n\n\n\n\nその他\n\n\n\n数式\nLaTeXコード\n補足\n\n\n\n\n\\(\\mathcal{X}\\)\n\\mathcal{X}\n\n\n\n\\(\\cup\\)\n\\cup"
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html",
+    "href": "posts/seminor2024_0611/index.html",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\n\nコード\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\n\n\nコード\nexit_birthday(40)\n\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\n\nコード\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
+    "href": "posts/seminor2024_0611/index.html#例1.2-誕生日問題",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "",
+    "text": "教室にいる40人の人の中に同じ誕生日の人がいる確率を考える. 感覚的には同じ誕生日の人はあまりいないように思える. しかし、同じ誕生日の人がいる確率を計算すると80％を超えるのである.\n\n\n\nクラスの中に同じ人がいる事象を\\(A\\) とすると、同じ人がいる確率は\\(P(A)\\)である。\\(A^c\\) は同じ人がいない事象であり、\\(P(A^c)\\) を求める。\n\\(n\\)人いるとすると,\n\\[\\begin{align*}\n    &P(A^c) = \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n} \\\\\n    &1 - P(A^c) = 1 - \\frac{365 \\times 364 \\times 363 \\times \\cdots \\times (365 - n + 1)}{365^n}\n\\end{align*}\\]\nよって\\(n=40\\) の時、\\(P(A)=0.89\\) となる.\n\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいない確率をpythonで求める.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(t)\n\n\n1.0\n0.9972602739726028\n0.9917958341152185\n0.9836440875334497\n0.9728644263002063\n0.9595375163508884\n0.9437642969040244\n0.9256647076483308\n0.905376166110833\n0.8830518222889221\n\n\n\\(t\\)が0~10の時,誕生日が同じ人がいる確率は,以下で求めることができる.\n\n\nコード\nt = 1\n\nfor x in range(10):\n    t = t * (365 - x) / 365\n    print(f'{x+1}人の時 {1-t}')\n\n\n1人の時 0.0\n2人の時 0.002739726027397249\n3人の時 0.008204165884781456\n4人の時 0.016355912466550326\n5人の時 0.02713557369979369\n6人の時 0.04046248364911165\n7人の時 0.05623570309597559\n8人の時 0.07433529235166925\n9人の時 0.09462383388916695\n10人の時 0.1169481777110779\n\n\n誕生日が同じ人がいる確率を関数にします.\n\n\nコード\ndef exit_birthday(n):\n  t = 1\n  for x in range(n):\n    t = t * (365 - x) / 365\n    if x == n-1:\n      print(1-t)\n\n\n\n\nコード\nexit_birthday(40)\n\n\n0.891231809817949\n\n\n教科書でわかった通り,約0.89であることがコードからもわかります.\nでは,人数が増えるにつれどのように確率が変化するかをmatplotlibを使って図で示します.\n\n\nコード\nimport matplotlib.pyplot as plt\n\n\ndef exit_birthday_plot(n):\n    t = 1\n    values = []\n\n    for x in range(n):\n        t = t * (365 - x) / 365\n        values.append(1-t)\n    plt.plot(range(n), values, 'o-', label='Probability')\n    plt.savefig('2.png')\n    plt.show()\n\n\nexit_birthday_plot(50)\n\n\n\n\n\n\n\n\n\nすると,50人にもなるとほぼ確率が1であることが図からわかります.つまり,50人もいれば同じ誕生日の人はだいたいいる計算になります."
+  },
+  {
+    "objectID": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
+    "href": "posts/seminor2024_0611/index.html#問題5-以下の不等式を示せ",
+    "title": "6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5",
+    "section": "問題5 以下の不等式を示せ",
+    "text": "問題5 以下の不等式を示せ\n\n\\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n\\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\n\n1. \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\)\n数学的帰納法で示す。\n\\(n=2\\) のときには\n\\[\\begin{equation*}\n    P(A_1 \\cup A_2) = P(A_1) + P(A_2) - P(A_1 \\cap A_2) \\leq P(A_1) + P(A_2)\n\\end{equation*}\\]\nとなり，成立つことがわかる。\n\\(n\\) のとき成立つと仮定すると \\(P(\\bigcup_{i=1}^n A_i) \\leq \\sum_{i=1}^n P(A_i)\\) が成立つ。\nそのとき \\(n+1\\) の時に成り立つ事を示す。\n\\[\\begin{align*}\n    P(\\bigcup_{i=1}^{n+1} A_i) &= P((\\bigcup_{i=1}^n A_i)   \\cup A_{n+1}) \\\\\n    &\\leq P(\\bigcup_{i=1}^n A_i) + P(A_{n+1}) \\\\\n    &\\leq \\sum_{i=1}^n P(A_i) + P(A_{n+1}) \\\\\n    &= \\sum_{i=1}^{n+1} P(A_i)\n\\end{align*}\\]\nとなり，\\(n+1\\) のときにも成立つことがわかる。\n\n\n2. \\(P(A \\cap B) \\geq P(A) + P(B) - 1\\)\n\\[\\begin{equation*}\n    P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\geq P(A) + P(B) - 1\n\\end{equation*}\\]"
+  },
+  {
+    "objectID": "posts/data_math1_me/index.html",
+    "href": "posts/data_math1_me/index.html",
+    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
+    "section": "",
+    "text": "試行：結果が生ずるような行為\n標本空間(\\(\\Omega\\))：試行によって起こりうるすべての結果\n事象：起こりうる結果(\\(\\omega\\))の集まり\n\n\nサイコロを投げる時\n標本空間　\\(\\Omega=\\{1,2,3,4,5,6\\}\\)\n事象　\\(\\{1,2\\},\\{2,5\\}\\)のような\\(\\Omega\\)の部分集合\n\n\n\n上で挙げた通り、試行による結果（\\(\\omega\\)）は集合の要素または元に対応する。\n積事象：２つの事象\\(A,B\\)がともに起こる事象\n和事象：２つの事象\\(A,B\\)の少なくともどちらかが起こる事象"
+  },
+  {
+    "objectID": "posts/data_math1_me/index.html#具体例",
+    "href": "posts/data_math1_me/index.html#具体例",
+    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
+    "section": "",
+    "text": "サイコロを投げる時\n標本空間　\\(\\Omega=\\{1,2,3,4,5,6\\}\\)\n事象　\\(\\{1,2\\},\\{2,5\\}\\)のような\\(\\Omega\\)の部分集合"
+  },
+  {
+    "objectID": "posts/data_math1_me/index.html#事象と集合",
+    "href": "posts/data_math1_me/index.html#事象と集合",
+    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
+    "section": "",
+    "text": "上で挙げた通り、試行による結果（\\(\\omega\\)）は集合の要素または元に対応する。\n積事象：２つの事象\\(A,B\\)がともに起こる事象\n和事象：２つの事象\\(A,B\\)の少なくともどちらかが起こる事象"
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html",
+    "href": "posts/data_math2_me/index.html",
+    "title": "「データ解析のための数理統計入門」第2章",
+    "section": "",
+    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html#離散確率変数",
+    "href": "posts/data_math2_me/index.html#離散確率変数",
+    "title": "「データ解析のための数理統計入門」第2章",
+    "section": "",
+    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
+  },
+  {
+    "objectID": "posts/seminor2024_0625/index.html",
+    "href": "posts/seminor2024_0625/index.html",
+    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
+    "section": "",
+    "text": "連続確率変数\\(X\\)が与えられた時,\\(Y=g(X)\\)となる確率変数\\(Y\\)の確率密度関数や累積分布関数を求めることができる!\n例：\\(Y=2X+4\\)の確率密度関数や累積分布関数を,\\(X\\)の確率密度関数\\(f(x)\\)や累積分布関数\\(F(x)\\)から求める."
+  },
+  {
+    "objectID": "posts/seminor2024_0625/index.html#確率変数の変数変換の大まかな説明",
+    "href": "posts/seminor2024_0625/index.html#確率変数の変数変換の大まかな説明",
+    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
+    "section": "",
+    "text": "連続確率変数\\(X\\)が与えられた時,\\(Y=g(X)\\)となる確率変数\\(Y\\)の確率密度関数や累積分布関数を求めることができる!\n例：\\(Y=2X+4\\)の確率密度関数や累積分布関数を,\\(X\\)の確率密度関数\\(f(x)\\)や累積分布関数\\(F(x)\\)から求める."
+  },
+  {
+    "objectID": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換",
+    "href": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換",
+    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
+    "section": "\\(Y=aX+b\\)の場合の変数変換",
+    "text": "\\(Y=aX+b\\)の場合の変数変換\n\n\n\n\\(X\\)の確率密度関数を\\(f_X(x)\\),累積分布関数を\\(F_X(x)\\) で表す。 また,\\(Y=g(X)\\) とおき,\\(Y\\)の確率密度関数を\\(f_Y(y)\\),累積分布関数を\\(F_Y(y)\\) で表す。\n\n\n\n実数\\(a,b\\)に対して\\(Y=aX+b\\) となる変換を考える。\n\n\n\n(後でaで割る時に、aが正か負かで不等式の符号が変わるので、先に場合わけしておく)\n\\(a &gt; 0\\)のとき \\[\\begin{align*}\n  F_Y(y)&=P(Y \\leq y) = P(aX+b \\leq y) = P(X \\leq \\frac{y-b}{a}) = F_X(\\frac{y-b}{a}) \\\\\n  f_Y(y)&= \\frac{d}{dy} F_X (\\frac{y-b}{a}) = \\frac{1}{a}f_X(\\frac{y-b}{a})\n\\end{align*}\\]\n\\(a &lt; 0\\)のとき \\[\\begin{align*}\n  F_Y(y)&=P(Y \\leq y) = P(aX+b \\leq y) = P(X \\geq \\frac{y-b}{a}) =   1-F_X(\\frac{y-b}{a}) \\\\\n  f_Y(y)&= -\\frac{d}{dy} F_X (\\frac{y-b}{a}) = -\\frac{1}{a}f_X(\\frac{y-b}{a})\n\\end{align*}\\]\n\n\n\nよって,全ての実数\\(a\\)に対して次の式が成り立つ。\n\\[\n  \\mathbf{f_Y(y) = \\frac{1}{|a|} f_X(\\frac{y-b}{a})}\n\\tag{1}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換と正規分布標準正規分布",
+    "href": "posts/seminor2024_0625/index.html#yaxbの場合の変数変換と正規分布標準正規分布",
+    "title": "6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換",
+    "section": "\\(Y=aX+b\\)の場合の変数変換と正規分布・標準正規分布",
+    "text": "\\(Y=aX+b\\)の場合の変数変換と正規分布・標準正規分布\n正規分布\n\\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)とする.\n\\[\\begin{equation*}\n  f_X(x)= \\frac{1}{\\sqrt{2\\pi}\\sigma} \\exp\\lbrace{-\\frac{(x-\\mu)^2}{2\\sigma^2}}\\rbrace\n\\end{equation*}\\]\n\n\n\n正規分布を位置尺度変換する\n\\(Y=aX+b\\) の確率密度関数は 式 1 より\n\\[\\begin{equation*}\n  f_Y(y)= \\frac{1}{\\sqrt{2\\pi}|a|\\sigma} \\exp\\lbrace{-\\frac{(y-b-a\\mu)^2}{\\color{red}\n2\\color{black}a^2\\sigma^2}}\\rbrace\n\\end{equation*}\\]\nと書ける.\n\n\n\n次の命題が成り立つ.\n命題2.1.5 \\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)とする.\\(Y=aX+b\\)とおくと,\\(Y \\sim \\mathcal{N}(a\\mu+b, a^2\\sigma^2)\\) となる.また,\\(Z=(X-\\mu)/\\sigma\\) とおくと \\(Z \\sim \\mathcal{N}(0, 1)\\) となる。\n\n\n\n命題2.1.5を用いて正規分布における確率を求める方法\n\\(X\\)が正規分布\\(\\mathcal{N}(\\mu, \\sigma^2)\\)に従うとき,実数\\(x_1,x_2(x_1 &lt; x_2)\\) に対する確率\\(P(x_1&lt;X&lt;x_2)\\) を以下のように求める.\n\\[\\begin{align*}\n  P(x_1 &lt; X &lt; x_2) &= P(\\frac{x_1 - \\mu}{\\sigma} &lt; Z &lt; \\frac{x_2 - \\mu}{\\sigma} ) \\\\\n  &= P(Z&lt;\\frac{x_2-\\mu}{\\sigma}) - P(Z&lt;\\frac{x_1-\\mu}{\\sigma}) \\\\\n  &= \\Phi(Z&lt;\\frac{x_2-\\mu}{\\sigma})-\\Phi(Z&lt;\\frac{x_1-\\mu}{\\sigma})\n\\end{align*}\\]\n正規分布を標準正規分布に標準化することで,確率を求めることができる!\n(p55の標準化につながる.)\n\n\n\n命題2.1.6 \\(X\\)を確率密度関数\\(f_X(x)\\)をもつ連続確率変数とし,\\(g(x)\\)を,\\(f_X(x)\\neq0\\)になる\\(x\\)の範囲で単調増加もしくは単調減少する関数とする.\\(Y=g(X)\\)とおくとき,\\(Y\\)の確率密度関数は,\n\\[\n  f_Y(y)=f_X(g^{-1}(y))|\\frac{d}{dy}g^{-1}(y)|\n\\tag{2}\\]\nここで,\\(g^{-1}(y)\\)は\\(y=g(x)\\)の逆関数であり,\n\\[\n  \\frac{d}{dy}g^{-1}(y) = \\frac{1}{g'(g^{-1}(y))}\n\\tag{3}\\]\nという等式が成り立つ.\n\\(g(x)\\)が単調増加関数であるとすると,1対1関数になるので逆関数\\(g^{-1}(y)\\)がとれる.\n\\(g(x)\\) が単調増加の場合 \\[\\begin{equation*}\nF_Y(y)=P(Y \\leq y) = P(g(X) \\leq y) = P(X \\leq g^{-1}(y)) =F_X(g^{-1}(y))\n\\end{equation*}\\]\n\\[\\begin{align*}\n  f_Y(y)&=\\frac{d}{dy}F_Y(y) = \\frac{d}{dy}F_X(g^{-1}(y)) = \\frac{d}{dx}F_X(x)|_{x=g^{-1}(y)}\\frac{d}{dy}g^{-1}(y) \\\\\n  &=f_X(g^{-1}(y)) \\frac{d}{dy}g^{-1}(y)\n\\end{align*}\\]\n\\(g(x)\\) が単調減少の場合\n\\[\\begin{align*}\nF_Y(y)&=  P(g{X} \\leq y) = P(X \\geq g^{-1}(y)) =1-F_X(g^{-1}(y)) \\\\\nf_Y(y)&=-f_X(g^{-1}(y)) \\frac{d}{dy}g^{-1}(y)=f_X(g^{-1}(y)) |\\frac{d}{dy}g^{-1}(y)|\n\\end{align*}\\]\n単調減少の時,\\(g^{-1}(x)\\)は負になるので、絶対値を取ると一般化できる。\nよって、式 2 が成り立つ。\n式 3 について,\n\\[\\begin{align*}\n  y=g(x) \\\\\n  1 = g'(x)(dx/dy)\n\\end{align*}\\]\n\\(x=g^{-1}(y)\\)を代入する. \\[\\begin{equation*}\n  1 = g'(g^{-1}(y))\\frac{d}{dy} g^{-1}(y)\n\\end{equation*}\\]\n式 3 が成り立つので,逆関数の微分の計算が可能になる."
+  },
+  {
     "objectID": "projects/university/index.html",
     "href": "projects/university/index.html",
     "title": "KaggleのJapanese Universityを使ってデータ分析",
@@ -298,21 +305,7 @@
     "href": "index.html",
     "title": "Hirayama Nanami",
     "section": "",
-    "text": "Post\nゼミの勉強・気になったことや気づいたこと・発見などをちょくちょく追記します。\n\n\nProject\n小さなことから大きなことまで作成したものを追記します。\n\n\n\nメモ\n\n二項定理と多項定理のところをあまり理解できてない\nモンティ・ホール問題をpythonで試行できるらしいのでやってみたい！→ファイルだけ作ってちょっとだけやった\n独立と排反がごっちゃになりがち\nポアソン分布の演習問題を追加する！"
-  },
-  {
-    "objectID": "posts/seminor2024_0702/index.html#heading",
-    "href": "posts/seminor2024_0702/index.html#heading",
-    "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
-    "section": "",
-    "text": "This is a sample element"
-  },
-  {
-    "objectID": "post.html#heading",
-    "href": "post.html#heading",
-    "title": "Post",
-    "section": "",
-    "text": "完了"
+    "text": "Post\nゼミの勉強・気になったことや気づいたこと・発見などをちょくちょく追記します。\n\n\nProject\n小さなことから大きなことまで作成したものを追記します。\n\n\n\nメモ\n\n二項定理と多項定理のところをあまり理解できてない\nモンティ・ホール問題をpythonで試行できるらしいのでやってみたい！→ファイルだけ作ってちょっとだけやった\n独立と排反がごっちゃになりがち\nポアソン分布の演習問題を追加する！\n単調増加の時,微分は正である。そらそうやけど忘れ気味"
   },
   {
     "objectID": "posts/seminor2024_0702/page-reveal.html#同時確率関数と周辺確率関数",
@@ -334,26 +327,5 @@
     "title": "7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで",
     "section": "確率変数が３つのとき",
     "text": "確率変数が３つのとき\n\\(X_1, \\ldots ,X_k\\)を\\(k\\)個の確率変数とする。 \\(X_i\\)の実現値の集合を\\(\\mathcal{X_i}\\)とする。\n同時確率関数"
-  },
-  {
-    "objectID": "projects/monti/index.html",
-    "href": "projects/monti/index.html",
-    "title": "Pythonでモンティ・ホール問題を試行",
-    "section": "",
-    "text": "コードを見る\nimport random\n\ndef simulate_monty_hall(trials):\n    stay_wins = 0\n    switch_wins = 0\n\n    for _ in range(trials):\n        # ランダムに車があるドアを選ぶ\n        car = random.randint(0, 2)\n        # プレイヤーが選ぶドア\n        player_choice = random.randint(0, 2)\n\n        # モンティが開けるドア\n        monty_choice = random.choice([door for door in range(3) if door != car and door != player_choice])\n\n        # プレイヤーがドアを変更する場合の勝敗\n        switch_choice = next(door for door in range(3) if door != player_choice and door != monty_choice)\n        if switch_choice == car:\n            switch_wins += 1\n        else:\n            stay_wins += 1\n\n    return stay_wins, switch_wins\n\n# シミュレーションを行う回数\ntrials = 10000\nstay_wins, switch_wins = simulate_monty_hall(trials)\n\nprint(f\"Stay Wins: {stay_wins} ({stay_wins/trials*100:.2f}%)\")\nprint(f\"Switch Wins: {switch_wins} ({switch_wins/trials*100:.2f}%)\")\n\n\nStay Wins: 3352 (33.52%)\nSwitch Wins: 6648 (66.48%)"
-  },
-  {
-    "objectID": "posts/data_math1_me/page-reveal.html#具体例",
-    "href": "posts/data_math1_me/page-reveal.html#具体例",
-    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
-    "section": "具体例",
-    "text": "具体例\nサイコロを投げる時\n標本空間　\\(\\Omega=\\{1,2,3,4,5,6\\}\\)\n事象　\\(\\{1,2\\},\\{2,5\\}\\)のような\\(\\Omega\\)の部分集合"
-  },
-  {
-    "objectID": "posts/data_math1_me/page-reveal.html#事象と集合",
-    "href": "posts/data_math1_me/page-reveal.html#事象と集合",
-    "title": "「データ解析のための数理統計入門」第1章 確率モデル",
-    "section": "事象と集合",
-    "text": "事象と集合\n上で挙げた通り、試行による結果（\\(\\omega\\)）は集合の要素または元に対応する。\n積事象：２つの事象\\(A,B\\)がともに起こる事象\n和事象：２つの事象\\(A,B\\)の少なくともどちらかが起こる事象"
   }
 ]
