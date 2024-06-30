@@ -16,10 +16,10 @@ format:
     css: styles.css
     # javascript: script.js
     toc: true
-  revealjs:
-    slide-number: true
-    toc: true
-    transition: fade
+  # revealjs:
+  #   slide-number: true
+  #   toc: true
+  #   transition: fade
     # theme: beige
 
 
