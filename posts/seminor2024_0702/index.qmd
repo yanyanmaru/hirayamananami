@@ -25,7 +25,7 @@ status: "作成中"
 
 ## 同時確率関数と周辺確率関数
 
-<div class="extra-space2"></div>
+::: {.extra-space2}:::
 
 2つの離散確率変数$X$と$Y$がそれぞれ$\mathcal{X} = \{x_1, x_2, \ldots\}$,$\mathcal{Y} = \{y_1, y_2, \ldots\}$に値を取るものとする。
 
@@ -37,7 +37,7 @@ p(x_i,y_j)=P(X=x_i,Y=y_j)
 
 で与えられる。
 
-<div class="extra-space2"></div>
+::: {.extra-space2}:::
 
 ::: {.callout-tip}
 ## $P(X=x_i,Y=y_j)$とは
@@ -45,7 +45,7 @@ p(x_i,y_j)=P(X=x_i,Y=y_j)
 $P(X=x_i,Y=y_j)=P(\{X=x_i\} \cap \{Y=y_j\})$を意味する。
 :::
 
-<div class="extra-space3"></div>
+::: {.extra-space3}:::
 
 $(X,Y)$の**周辺確率関数**は、
 
@@ -53,6 +53,8 @@ $(X,Y)$の**周辺確率関数**は、
 p_X(x_i) = \Sigma_{j=1}^\infty p(x_i,y_j)\\
 p_Y(y_j) = \Sigma_{i=1}^\infty p(x_i,y_j)
 \end{align}
+
+::: {.extra-space2}:::
 
 ## 例3.1
 
@@ -62,12 +64,12 @@ p_Y(y_j) = \Sigma_{i=1}^\infty p(x_i,y_j)
 
 ３回投げた時、コインの表が出た合計数を$Y$とする。
 
-<div class="extra-space2"></div>
+::: {.extra-space2}:::
 
-確率分布は以下のようになる。
+$X,Y$の同時確率分布は以下のようになる。
 
 
-<div class="extra-space2"></div>
+::: {.extra-space2}:::
 
 <!-- y_jを真ん中にしたいけどうまくできなかった -->
 \begin{array}{c|cccc|c}
@@ -78,6 +80,7 @@ x_i & 0 & 1 & 2 & 3 \\ \hline
 
 \end{array}
 
+::: {.extra-space2}:::
 
 #### 同時確率関数
 例えば
@@ -91,9 +94,11 @@ P(X=1,Y=1)=1/8
 P(X=1,Y=2)=1/4
 \end{equation}
 
+::: {.extra-space2}:::
+
 #### 周辺確率関数
 
-<div class="extra-space2"></div>
+::: {.extra-space2}:::
 
 $Y$の周辺分布$p_Y(y_j)=P(Y=y_j)$は以下のようになる。
 
@@ -113,7 +118,7 @@ p_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8
 p_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8
 \end{equation}
 
-<div class="extra-space2"></div>
+::: {.extra-space2}:::
 
 同様に$X$の周辺分布$p_X(x_i)=P(X=x_i)$は以下のようになる。
 
@@ -125,7 +130,7 @@ p_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2
 p_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2
 \end{equation}
 
-<div class="extra-space3"></div>
+::: {.extra-space3}:::
 
 周辺分布は下の表のように、下側と右側の合計値になります。
 
@@ -137,9 +142,147 @@ x_i & 0 & 1 & 2 & 3 & \text{合計} \\ \hline
 \text{合計} & \frac{1}{8} & \frac{3}{8} & \frac{3}{8} & \frac{1}{8} & 1
 \end{array}
 
-## 確率変数が３つのとき
+::: {.extra-space3}:::
+
+## 確率変数が３つ以上のとき
+
+::: {.extra-space2}:::
 
 $X_1, \ldots ,X_k$を$k$個の確率変数とする。
 $X_i$の実現値の集合を$\mathcal{X_i}$とする。
 
+::: {.extra-space2}:::
+
 #### 同時確率関数
+
+$(X_1, \ldots ,X_k)$の同時確率関数は、
+
+$$
+p(x_1,x_2,\ldots,x_k)=P(X_1=x_1,X_2=x_2,\ldots,X_k=x_k)
+$$
+
+で与えられる。
+
+::: {.extra-space2}:::
+
+#### 周辺確率関数
+
+例えば、$X_1$の周辺確率関数は
+
+$$
+p_{X_1}(x_1)=\Sigma_{x_2 \in \mathcal{X_2}} \cdots \Sigma_{x_k \in \mathcal{X_k}} p(x_1,x_2,\ldots,x_k)
+$$
+
+であり、$(X_1,X_2)$の同時確率関数は次のようになる。
+
+$$
+p_{X_1,X_2}(x_1,x_2)=\Sigma_{x_3 \in \mathcal{X_3}} \cdots \Sigma_{x_k \in\mathcal{X_k} } p(x_1,x_2,\ldots,x_k)
+$$
+
+::: {.extra-space2}:::
+
+::: {.callout-tip}
+## $\Sigma_{x_i \in X_i}$とは
+
+$\Sigma_{x_i \in X_i}$は$X_i$に入るすべての$X_i$に関して和を取ることを意味する。
+:::
+
+::: {.extra-space3}:::
+
+### 多項分布
+
+多次元の離散確率変数の代表例が多項分布である。
+
+::: {.extra-space1}:::
+
+これは二項分布を一般化した分布であり、例えば$m$個の面に$1$から$m$の番号が書かれた多面体を$n$回投げて$1$から$m$の面が出る回数を$X_1,\ldots,X_m$とする。
+
+::: {.extra-space1}:::
+
+それぞれの面が出る確率を$p_1,\ldots,p_m$とすると、$p_1+\cdots+p_m=1$であり、$X_1+\cdots+X_m=n$である。
+
+::: {.extra-space2}:::
+
+このとき$(X_1,\ldots,X_m)$の同時確率関数は次で与えられる。
+
+
+
+$$
+p(x_1,\ldots,x_m)=\frac{n!}{x_1! \cdots x_m!} p_1^{x_1} \cdots p_m^{x_m}
+$$
+
+この分布を多項分布と呼び、$Mult_m(n, p_1, \ldots, p_m)$で表す。
+
+::: {.extra-space3}:::
+
+# 3.2 連続確率変数
+
+2つの連続確率変数$X$と$Y$が$x-y$平面$\mathbb{R}^2$上に値をとり、平面上の任意の集合$A$ に対して、
+
+$$
+P((X,Y) \in A) = \int \int_A f(x,y)dxdy
+$$
+
+と表される時、$f(x,y)$を$(X,Y)$の同時確率密度関数と呼ぶ。
+
+::: {.extra-space2}:::
+
+これは$f(x,y) \ge 0,\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x,y)dxdy=1$を満たす。
+
+::: {.extra-space2}:::
+
+$A$として、$A=\{(X,Y) \in \mathbb{R}^2| X \le x,Y \le y\}$とおくと
+
+$$
+F(x,y) =P(X \le x, Y \le y) = \int_{-\infty}^y\int_{-\infty}^x f(u,v)dudv
+$$
+
+と表せる。２次元の累積分布関数と呼ぶ。微積分の基本公式から、
+
+$$
+f(x,y)=\frac{\partial^2}{\partial x \partial y}F(x,y)
+$$
+
+が成り立つ。また、$X,Y$の周辺確率密度関数は次で与えられる。
+
+\begin{align}
+f_X(x)=\int_{-\infty}^\infty f(x,y)dy \\
+f_Y(y)=\int_{-\infty}^\infty f(x,y)dx
+\end{align}
+
+
+例3.2
+
+$0 \le c \le 1$を満たす実数$c$に対して、連続確率変数$(X,Y)$の同時確率密度関数が、
+
+$$
+f(x,y)=1-c+4cxy, 0 \le x \le 1, 0 \le y \le 1
+$$
+
+で与えられるとする。
+分布関数$F(x,y)$は$0 \le x \le 1, 0 \le y \le 1$に対して、
+
+$$
+F(x,y)=\int^y_0 \int^x_0 (1-c+4cuv)dudv = \int^y_0 \{(1-c)x+2cx^2v\}dv
+=xy(1-c+cxy)
+$$
+
+$X,Y$の周辺分布関数は
+
+$$
+F_X(x)=F(x,1)=x(1-c+cx)
+F_Y(y)=F(1,y)=y(1-c+cy)
+$$
+
+隣これを微分することで周辺確率分布関数を求めることができる。
+
+$$
+f_X(x)=1-c+2cx
+f_Y(y)=1-c+2cy
+$$
+
+が得られる。
+
+$$
+P(c < X < 1,0<Y<1-c)=F(1,1-c)-F(1,0)-F(c,1-c)+F(c,0)=(1-c)^2(1-c^3)=(1-c)^3(1+c+c^2)
+$$

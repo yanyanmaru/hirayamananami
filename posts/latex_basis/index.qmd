@@ -40,10 +40,12 @@ status: "都度更新"
 | $A^c$     | `A^c`    ||
 | $\overline{A}$     | `\overline{A}`    ||
 | $\subset$     | `\subset`    |部分集合|
-<!-- | $$     | ``    ||
+| $\in$     | `\in`    ||
+| $\setminus$     | `\setminus`    |差集合|
+<!-- 
 | $$     | ``    ||
 | $$     | ``    ||
-| $$     | ``    || -->
+| $$     | ``    ||  -->
 
 # その他
 
@@ -51,3 +53,5 @@ status: "都度更新"
 |-----|-----|-----|
 | $\mathcal{X}$    | `\mathcal{X}`   ||
 | $\cup$     | `\cup` ||
+| $\ldots$     | `\ldots` ||
+| $\cdots$     | `\cdots` ||

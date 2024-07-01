@@ -327,12 +327,22 @@ window.Quarto = {
 <td><code>\subset</code></td>
 <td>部分集合</td>
 </tr>
+<tr class="odd">
+<td><span class="math inline">\(\in\)</span></td>
+<td><code>\in</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\setminus\)</span></td>
+<td><code>\setminus</code></td>
+<td>差集合</td>
+</tr>
 </tbody>
 </table>
-<!-- | $$     | ``    ||
+<!-- 
 | $$     | ``    ||
 | $$     | ``    ||
-| $$     | ``    || -->
+| $$     | ``    ||  -->
 </section>
 <section id="その他" class="level1">
 <h1>その他</h1>
@@ -353,6 +363,16 @@ window.Quarto = {
 <tr class="even">
 <td><span class="math inline">\(\cup\)</span></td>
 <td><code>\cup</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><code>\ldots</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><code>\cdots</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -877,17 +897,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>| $A^c$     | <span class="in">`A^c`</span>    ||</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>| $\overline{A}$     | <span class="in">`\overline{A}`</span>    ||</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>| $\subset$     | <span class="in">`\subset`</span>    |部分集合|</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- | $$     | ``    ||</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    || --&gt;</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu"># その他</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>| $\in$     | <span class="in">`\in`</span>    ||</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>| $\setminus$     | <span class="in">`\setminus`</span>    |差集合|</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co">| $$     | ``    ||  --&gt;</span></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>| $\mathcal{X}$    | <span class="in">`\mathcal{X}`</span>   ||</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>| $\cup$     | <span class="in">`\cup`</span> ||</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu"># その他</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>| 数式 | LaTeXコード |補足 |</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>|-----|-----|-----|</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>| $\mathcal{X}$    | <span class="in">`\mathcal{X}`</span>   ||</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>| $\cup$     | <span class="in">`\cup`</span> ||</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>| $\ldots$     | <span class="in">`\ldots`</span> ||</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>| $\cdots$     | <span class="in">`\cdots`</span> ||</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
