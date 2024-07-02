@@ -37,7 +37,7 @@ $$
 
 で与えられる。
 
-
+<div class="extra-space2"></div>
 
 
 ::: {.callout-tip}
@@ -45,6 +45,7 @@ $$
 $P(X=x_i,Y=y_j)=P(\{X=x_i\} \cap \{Y=y_j\})$を意味する。
 :::
 
+<div class="extra-space2"></div>
 
 $(X,Y)$の**周辺確率関数**は、
 
@@ -53,22 +54,24 @@ p_X(x_i) = \sum_{j=1}^\infty p(x_i,y_j)\\
 p_Y(y_j) = \sum_{i=1}^\infty p(x_i,y_j)
 \end{align}
 
+<div class="extra-space3"></div>
+
 
 
 ## 例3.1
 
 コインを３回投げる時を考える。
 
+<div class="extra-space1"></div>
+
 １回目に投げたコインが、表が出たら$X=1$,裏が出たら$X=0$とする。
 
 ３回投げた時、コインの表が出た合計数を$Y$とする。
 
+$X,Y$はどちらも確率変数である。$X,Y$の同時確率分布は以下のようになる。
 
 
-$X,Y$の同時確率分布は以下のようになる。
-
-
-
+<div class="extra-space2"></div>
 
 <!-- y_jを真ん中にしたいけどうまくできなかった -->
 \begin{array}{c|cccc|c}
@@ -79,7 +82,7 @@ x_i & 0 & 1 & 2 & 3 \\ \hline
 
 \end{array}
 
-
+<div class="extra-space3"></div>
 
 ### 同時確率関数
 例えば
@@ -88,10 +91,18 @@ x_i & 0 & 1 & 2 & 3 \\ \hline
 P(X=1,Y=1)=1/8
 \end{equation}
 
+$X=1$かつ$Y=1$となるのは、表裏裏の順番で出る時のみである。そのため$(1/2)^3$で計算することができる。
+
+<div class="extra-space2"></div>
 
 \begin{equation}
 P(X=1,Y=2)=1/4
 \end{equation}
+
+$X=1$かつ$Y=2$となるのは、表表裏・表裏表の順番で出る時である。そのため$(1/2)^3 \times 2$で計算することができる。
+
+
+<div class="extra-space3"></div>
 
 
 
@@ -117,7 +128,7 @@ p_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8
 p_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8
 \end{equation}
 
-
+<div class="extra-space2"></div>
 
 同様に$X$の周辺分布$p_X(x_i)=P(X=x_i)$は以下のようになる。
 
@@ -129,7 +140,7 @@ p_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2
 p_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2
 \end{equation}
 
-
+<div class="extra-space2"></div>
 
 周辺分布は下の表のように、下側と右側の合計値になります。
 
@@ -141,6 +152,8 @@ x_i & 0 & 1 & 2 & 3 & \text{合計} \\ \hline
 \text{合計} & \frac{1}{8} & \frac{3}{8} & \frac{3}{8} & \frac{1}{8} & 1
 \end{array}
 
+<div class="extra-space3"></div>
+
 
 
 ## 確率変数が３つ以上のとき
@@ -150,7 +163,7 @@ x_i & 0 & 1 & 2 & 3 & \text{合計} \\ \hline
 $X_1, \ldots ,X_k$を$k$個の確率変数とする。
 $X_i$の実現値の集合を$\mathcal{X_i}$とする。
 
-
+<div class="extra-space2"></div>
 
 ### 同時確率関数
 
@@ -162,7 +175,7 @@ $$
 
 で与えられる。
 
-
+<div class="extra-space3"></div>
 
 ### 周辺確率関数
 
@@ -183,24 +196,28 @@ $$
 ::: {.callout-tip}
 ## $\sum_{x_i \in X_i}$とは
 
+
+
 $\sum_{x_i \in X_i}$は$X_i$に入るすべての$X_i$に関して和を取ることを意味する。
 :::
 
+<div class="extra-space3"></div>
 
 
 ### 多項分布
 
 多次元の離散確率変数の代表例が多項分布である。
 
-
+<div class="extra-space2"></div>
 
 これは二項分布を一般化した分布であり、例えば$m$個の面に$1$から$m$の番号が書かれた多面体を$n$回投げて$1$から$m$の面が出る回数を$X_1,\ldots,X_m$とする。
 
 
 
+
 それぞれの面が出る確率を$p_1,\ldots,p_m$とすると、$p_1+\cdots+p_m=1$であり、$X_1+\cdots+X_m=n$である。
 
-
+<div class="extra-space2"></div>
 
 このとき$(X_1,\ldots,X_m)$の同時確率関数は次で与えられる。
 
@@ -212,15 +229,28 @@ $$
 
 この分布を多項分布と呼び、$Mult_m(n, p_1, \ldots, p_m)$で表す。
 
+<div class="extra-space2"></div>
+
 多項定理において、$1=(p_1+ \cdots +p_m)^n$を考えれば確率分布になることがわかる。
 
+::: {.callout-tip}
+## 多項定理
 $$
 (x_1 + x_2 + \cdots + x_m)^n = \sum_{k_1 + k_2 + \cdots + k_m = n} \frac{n!}{k_1! k_2! \cdots k_m!} x_1^{k_1} x_2^{k_2} \cdots x_m^{k_m}
 $$
+:::
+
+定理の$x$を$p$とし、$k$を$x$として考える。このとき同時確率関数の和が1となる。
+
+
+<div class="extra-space2"></div>
+
 
 $i$の番号の面が出たら成功、残りを失敗と考えると$X_i$の周辺分布は二項分布$Bin(n,p_i)$となる。
 
-同様に考えて、$X_i+X_j \sim Bin(n,p_i+p_j)$となる。
+同様に考えて、$X_i+X_j \sim Bin(n,p_i+p_j)$となる。これは$i,j$のどちらかの番号の面が出たら成功、残りを失敗と考えることができるからである。
+
+<div class="extra-space3"></div>
 
 # 3.2連続確率変数
 
@@ -233,33 +263,38 @@ $$
 
 と表される時、$f(x,y)$を$(X,Y)$の同時確率密度関数と呼ぶ。
 
-
+<div class="extra-space2"></div>
 
 これは$f(x,y) \ge 0,\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x,y)dxdy=1$を満たす。
+
+<div class="extra-space2"></div>
 
 
 $A$として、$A=\{(X,Y) \in \mathbb{R}^2| X \le x,Y \le y\}$とおくと
 
 $$
 F(x,y) =P(X \le x, Y \le y) = \int_{-\infty}^y\int_{-\infty}^x f(u,v)dudv
-$$
+$${#eq-black-one}
 
 と表せる。２次元の累積分布関数と呼ぶ。微積分の基本公式から、
 
 $$
 f(x,y)=\frac{\partial^2}{\partial x \partial y}F(x,y)
-$$
+$$ 
 
 が成り立つ。また、$X,Y$の周辺確率密度関数は次で与えられる。
 
 $$
 f_X(x)=\int_{-\infty}^\infty f(x,y)dy, 
 f_Y(y)=\int_{-\infty}^\infty f(x,y)dx
-$$
+$$ {#eq-black-second}
 
+
+<div class="extra-space3"></div>
 
 ## 例3.2
 
+### 設定
 $0 \le c \le 1$を満たす実数$c$に対して、連続確率変数$(X,Y)$の同時確率密度関数が、
 
 $$
@@ -267,12 +302,43 @@ f(x,y)=1-c+4cxy, 0 \le x \le 1, 0 \le y \le 1
 $$
 
 で与えられるとする。
-分布関数$F(x,y)$は$0 \le x \le 1, 0 \le y \le 1$に対して、
+
+<div class="extra-space2"></div>
+
+### 求めること
+1. 累積分布関数を求める
+2. 周辺確率密度関数を求める
+3. $c \le X \le$かつ$0 \le Y \le c-1$の時の確率をもとめる。
+
+<div class="extra-space2"></div>
+   
+#### 求めること1
+分布関数$F(x,y)$は$0 \le x \le 1, 0 \le y \le 1$に対して、@eq-black-one より
 
 $$
 F(x,y)=\int^y_0 \int^x_0 (1-c+4cuv)dudv = \int^y_0 \{(1-c)x+2cx^2v\}dv
 =xy(1-c+cxy)
 $$
+
+<div class="extra-space3"></div>
+
+#### 求めること2
+
+##### **シンプルな求め方**
+
+@eq-black-second より同時確率密度関数から周辺確率密度関数を求めることができる。
+
+$$
+f_X(x)=\int_{0}^1 (1-c+4cxy)dy = [(1-c)y+2cxy^2]^1_0=1-c+2cx
+$$
+
+$$
+f_Y(y)=\int_{0}^1 (1-c+4cxy)dx = [(1-c)x+2cxy^2]^1_0=1-c+2cy
+$$
+
+<div class="extra-space2"></div>
+
+##### **教科書の求め方**
 
 $X,Y$の周辺分布関数は
 
@@ -289,6 +355,11 @@ f_Y(y)=1-c+2cy
 $$
 
 が得られる。
+
+
+<div class="extra-space3"></div>
+
+#### 求めること3
 
 $$
 P(c < X < 1,0<Y<1-c)=F(1,1-c)-F(1,0)-F(c,1-c)+F(c,0)=(1-c)^2(1-c^3)=(1-c)^3(1+c+c^2)

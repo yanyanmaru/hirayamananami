@@ -375,13 +375,23 @@
 p(x_i,y_j)=P(X=x_i,Y=y_j)
 \]</span></p>
 <p>で与えられる。</p>
-<!-- ::: {.callout-tip}
-$P(X=x_i,Y=y_j)=P(\{X=x_i\} \cap \{Y=y_j\})$を意味する。
-::: -->
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="math inline">\(P(X=x_i,Y=y_j)\)</span>とは</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(P(X=x_i,Y=y_j)=P(\{X=x_i\} \cap \{Y=y_j\})\)</span>を意味する。</p>
+</div>
+</div>
+</div>
 <p><span class="math inline">\((X,Y)\)</span>の<strong>周辺確率関数</strong>は、</p>
 <p><span class="math display">\[\begin{align}
-p_X(x_i) = \Sigma_{j=1}^\infty p(x_i,y_j)\\
-p_Y(y_j) = \Sigma_{i=1}^\infty p(x_i,y_j)
+p_X(x_i) = \sum_{j=1}^\infty p(x_i,y_j)\\
+p_Y(y_j) = \sum_{i=1}^\infty p(x_i,y_j)
 \end{align}\]</span></p>
 </section>
 <section id="例3.1" class="slide level2">
@@ -448,11 +458,11 @@ p(x_1,x_2,\ldots,x_k)=P(X_1=x_1,X_2=x_2,\ldots,X_k=x_k)
 <h3 id="周辺確率関数-1">周辺確率関数</h3>
 <p>例えば、<span class="math inline">\(X_1\)</span>の周辺確率関数は</p>
 <p><span class="math display">\[
-p_{X_1}(x_1)=\Sigma_{x_2 \in \mathcal{X_2}} \cdots \Sigma_{x_k \in \mathcal{X_k}} p(x_1,x_2,\ldots,x_k)
+p_{X_1}(x_1)=\sum_{x_2 \in \mathcal{X_2}} \cdots \sum_{x_k \in \mathcal{X_k}} p(x_1,x_2,\ldots,x_k)
 \]</span></p>
 <p>であり、<span class="math inline">\((X_1,X_2)\)</span>の同時確率関数は次のようになる。</p>
 <p><span class="math display">\[
-p_{X_1,X_2}(x_1,x_2)=\Sigma_{x_3 \in \mathcal{X_3}} \cdots \Sigma_{x_k \in\mathcal{X_k} } p(x_1,x_2,\ldots,x_k)
+p_{X_1,X_2}(x_1,x_2)=\sum_{x_3 \in \mathcal{X_3}} \cdots \sum_{x_k \in\mathcal{X_k} } p(x_1,x_2,\ldots,x_k)
 \]</span></p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -460,10 +470,10 @@ p_{X_1,X_2}(x_1,x_2)=\Sigma_{x_3 \in \mathcal{X_3}} \cdots \Sigma_{x_k \in\mathc
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong><span class="math inline">\(\Sigma_{x_i \in X_i}\)</span>とは</strong></p>
+<p><strong><span class="math inline">\(\sum_{x_i \in X_i}\)</span>とは</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="math inline">\(\Sigma_{x_i \in X_i}\)</span>は<span class="math inline">\(X_i\)</span>に入るすべての<span class="math inline">\(X_i\)</span>に関して和を取ることを意味する。</p>
+<p><span class="math inline">\(\sum_{x_i \in X_i}\)</span>は<span class="math inline">\(X_i\)</span>に入るすべての<span class="math inline">\(X_i\)</span>に関して和を取ることを意味する。</p>
 </div>
 </div>
 </div>
@@ -476,6 +486,12 @@ p_{X_1,X_2}(x_1,x_2)=\Sigma_{x_3 \in \mathcal{X_3}} \cdots \Sigma_{x_k \in\mathc
 p(x_1,\ldots,x_m)=\frac{n!}{x_1! \cdots x_m!} p_1^{x_1} \cdots p_m^{x_m}
 \]</span></p>
 <p>この分布を多項分布と呼び、<span class="math inline">\(Mult_m(n, p_1, \ldots, p_m)\)</span>で表す。</p>
+<p>多項定理において、<span class="math inline">\(1=(p_1+ \cdots +p_m)^n\)</span>を考えれば確率分布になることがわかる。</p>
+<p><span class="math display">\[
+(x_1 + x_2 + \cdots + x_m)^n = \sum_{k_1 + k_2 + \cdots + k_m = n} \frac{n!}{k_1! k_2! \cdots k_m!} x_1^{k_1} x_2^{k_2} \cdots x_m^{k_m}
+\]</span></p>
+<p><span class="math inline">\(i\)</span>の番号の面が出たら成功、残りを失敗と考えると<span class="math inline">\(X_i\)</span>の周辺分布は二項分布<span class="math inline">\(Bin(n,p_i)\)</span>となる。</p>
+<p>同様に考えて、<span class="math inline">\(X_i+X_j \sim Bin(n,p_i+p_j)\)</span>となる。</p>
 </section></section>
 <section>
 <section id="連続確率変数" class="title-slide slide level1 center">
@@ -500,7 +516,7 @@ f(x,y)=\frac{\partial^2}{\partial x \partial y}F(x,y)
 \]</span></p>
 <p>が成り立つ。また、<span class="math inline">\(X,Y\)</span>の周辺確率密度関数は次で与えられる。</p>
 <p><span class="math display">\[
-f_X(x)=\int_{-\infty}^\infty f(x,y)dy
+f_X(x)=\int_{-\infty}^\infty f(x,y)dy,
 f_Y(y)=\int_{-\infty}^\infty f(x,y)dx
 \]</span></p>
 </section>
@@ -517,12 +533,12 @@ F(x,y)=\int^y_0 \int^x_0 (1-c+4cuv)dudv = \int^y_0 \{(1-c)x+2cx^2v\}dv
 \]</span></p>
 <p><span class="math inline">\(X,Y\)</span>の周辺分布関数は</p>
 <p><span class="math display">\[
-F_X(x)=F(x,1)=x(1-c+cx)
+F_X(x)=F(x,1)=x(1-c+cx),
 F_Y(y)=F(1,y)=y(1-c+cy)
 \]</span></p>
-<p>隣これを微分することで周辺確率分布関数を求めることができる。</p>
+<p>となり、これを微分することで周辺確率密度関数を求めることができる。</p>
 <p><span class="math display">\[
-f_X(x)=1-c+2cx
+f_X(x)=1-c+2cx,
 f_Y(y)=1-c+2cy
 \]</span></p>
 <p>が得られる。</p>
