@@ -1,0 +1,180 @@
+---
+title: "「データ解析のための数理統計入門」第1章 確率モデル 1.2確率"
+format:
+  html: default
+  revealjs:
+    output-file: page-reveal.html
+    smaller: true
+    scrollable: true
+    chalkboard: true
+    html-math-method: mathjax
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - 統計
+  - データ解析のための数理統計入門
+status: "完了"
+---
+
+# 1.2 確率
+
+## 確率の定義
+
+$\Omega$上の確率$P(\cdot)$は$\Omega$の部分集合から区間$[0,1]$上の実数への関数で、3つの性質を満たす。
+
+:::{.extra-space2}:::
+
+::: {#thm-line1}
+
+$$
+A \subset \Omega ならP(A) \ge 0
+$$
+:::
+
+
+::: {#thm-line2}
+
+$$
+P(\Omega)=1
+$$
+:::
+
+::: {#thm-line3}
+
+$$
+A_1とA_2が排反なら、P(A_1 \cup A_2)=P(A_1)+P(A_2)
+$$
+:::
+
+:::{.extra-space2}:::
+
+@thm-line3 については無限大まで扱えるそうです。
+
+## 確率の基本的な4つの性質
+
+:::{#lem-one}
+### 性質A 
+
+$$
+P(A^c)=1-P(A),P(\emptyset)=0
+$$
+
+:::
+:::{.extra-space2}:::
+
+
+:::{#lem-second}
+### 性質B
+
+$$
+A \subset B ならばP(A) \le P(B)
+$$ 
+
+:::
+
+
+:::{.extra-space2}:::
+
+:::{#lem-third}
+### 性質C
+
+$$
+P(A \cap B) \le min\{P(A),P(B)\}
+$$ 
+
+:::
+
+:::{.extra-space2}:::
+
+:::{#lem-four}
+### 性質D
+
+$$
+P(A \cup B) = P(A)+P(B)+P(A \cap B)
+$$
+
+:::
+
+
+:::{.extra-space3}:::
+
+
+:::{.proof}
+
+@lem-one が成り立つことを示す。
+
+$P(A)+P(A^c)=1$であることを示せば良い。また$P(\Omega)=1$より、$P(A)+P(A^c)=P(\Omega)$を示せばいいことがわかる。
+
+$A$と$A^c$は排反より、@thm-line3 を用いて$P(A \cup A^c) = P(A)+P(A^c)$ となる。
+
+$\Omega = A \cup A^c$より$P(A)+P(A^c)=P(\Omega)$が成り立つ。
+
+よって$P(A)+P(A^c)=1$が成り立つ。
+
+$A$に$\Omega$を代入すると、$P(\Omega)+P(\Omega^c)=1$。よって$P(\emptyset) = 1- P(\Omega)=0$
+
+:::
+
+:::{.extra-space3}:::
+
+
+:::{.proof}
+
+@lem-second が成り立つことを示す。
+
+確率は0より大きいことを利用して、確率の大小関係を示すことができる。
+
+つまり、$P(B)=P(A)+なにか$のような形で示せればよい。また @thm-line3 により$B$ が$A$ と $A \cup なにか$ で表すことができ、その２つの事象が排反になれば、求めるような形にできる。
+
+差集合を使う。包含関係より
+
+$$
+B=A \cup (B \setminus A)=A \cup (B \cap A^c)
+$$
+
+となる。また、$A$ と$(B \setminus A)$は排反であるため、@thm-line3 @thm-line1 より以下のようになる。
+
+$$
+P(B)=P(A \cup (B \cap A^c))=P(A)+P((B \cap A^c)) \ge P(A)
+$$
+
+:::
+
+:::{.extra-space3}:::
+
+:::{.proof}
+@lem-third が成り立つことを示す。
+
+@lem-second と同じように確率の大小関係を示す。
+
+$(A \cap B) \subset A$ より$P(A \cap B) \le P(A)$
+
+$B$についても同様である。
+
+:::
+
+:::{.extra-space3}:::
+
+:::{.proof}
+@lem-four が成り立つことを示す。
+
+$A$を$(A \cap B) \cup (A \cap B^c)$と分割することで、排反なので、@thm-line3 を使うことができる。
+$$
+P(A)=P((A \cap B) \cup (A \cap B^c))=P(A \cap B)+P(A \cap B^c)
+$$
+
+$$
+P(B)=P((A \cap B) \cup (B \cap A^c))=P(A \cap B)+P(B \cap A^c)
+$$
+
+$A \cup B = (A \cap B^c) \cup (A \cap B) \cup (B \cap A^c)$であり、それぞれ排反なので、@thm-line3 を拡張したものより $P(A \cup B) = P(A \cap B^c) \cup P(A \cap B) \cup P(B \cap A^c)$である。
+
+$P(A)+P(B)$すると
+$$
+P(A)+P(B)=P(A \cap B)+P(A \cap B^c)+P(A \cap B)+P(B \cap A^c)=P(A \cap B)+P(A \cup B)
+$$
+
+
+:::

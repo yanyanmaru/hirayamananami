@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>「データ解析のための数理統計入門」第1章 確率モデル – Hirayama Nanami</title>
+<title>「データ解析のための数理統計入門」第1章 確率モデル 1.1標本空間 – Hirayama Nanami</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -190,7 +190,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">「データ解析のための数理統計入門」第1章 確率モデル</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> コード</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">すべてのコードを表示</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">すべてのコードを非表示</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">ソースコードを表示</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">「データ解析のための数理統計入門」第1章 確率モデル 1.1標本空間</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> コード</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">すべてのコードを表示</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">すべてのコードを非表示</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">ソースコードを表示</a></li></ul></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">統計</div>
     <div class="quarto-category">データ解析のための数理統計入門</div>
@@ -249,7 +249,7 @@ window.Quarto = {
 </div>
 <div class="extra-space2">
 <p><strong>積事象</strong>：２つの事象<span class="math inline">\(A,B\)</span>がともに起こる事象</p>
-<div id="eae2a6a7" class="cell" data-execution_count="1">
+<div id="fa2d8922" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -289,7 +289,7 @@ window.Quarto = {
 </div>
 <div class="extra-space3">
 <p><strong>和事象</strong>：２つの事象<span class="math inline">\(A,B\)</span>の少なくともどちらかが起こる事象</p>
-<div id="80049ac4" class="cell" data-execution_count="2">
+<div id="513d5c82" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -335,7 +335,7 @@ window.Quarto = {
 <div class="extra-space2">
 <p><strong>補集合</strong>：<span class="math inline">\(A\)</span>の補集合とは、<span class="math inline">\(A\)</span>に属さない元の集合で、<span class="math inline">\(A^c\)</span>と表す。</p>
 <p><strong>差集合</strong>：<span class="math inline">\(AとB\)</span>の差集合とは、<span class="math inline">\(A\)</span>に属するが<span class="math inline">\(B\)</span>に属さない元の集合で、<span class="math inline">\(A\setminus B\)</span>と表す。また<span class="math inline">\(A\setminus B=A\cap B^c\)</span>となる。補集合は<span class="math inline">\(A^c=\Omega \setminus A\)</span>と表すこともできる。</p>
-<div id="1acd5d82" class="cell" data-execution_count="3">
+<div id="f051271b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -378,7 +378,7 @@ window.Quarto = {
 <div class="extra-space2">
 <p><strong>排反</strong>：空集合を<span class="math inline">\(\emptyset\)</span>とする。<span class="math inline">\(A \cap B=\emptyset\)</span>のときAとBは互いに排反であるという。</p>
 <p>事象同士に共通部分がないってことですかね。</p>
-<div id="1b0db4eb" class="cell" data-execution_count="4">
+<div id="c2e4c36d" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -918,7 +918,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "「データ解析のための数理統計入門」第1章 確率モデル"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "「データ解析のための数理統計入門」第1章 確率モデル 1.1標本空間"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
@@ -934,7 +934,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - 統計</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">  - データ解析のための数理統計入門</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "完了"</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1.1標本空間</span></span>
