@@ -181,7 +181,27 @@ window.Quarto = {
   <li><a href="#解答" id="toc-解答" class="nav-link" data-scroll-target="#解答">解答</a>
   <ul class="collapse">
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">⑴</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">⑵</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#問2" id="toc-問2" class="nav-link" data-scroll-target="#問2">問2</a>
+  <ul class="collapse">
+  <li><a href="#問題-1" id="toc-問題-1" class="nav-link" data-scroll-target="#問題-1">問題</a></li>
+  <li><a href="#解答-1" id="toc-解答-1" class="nav-link" data-scroll-target="#解答-1">解答</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">⑴</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">⑵</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#問3" id="toc-問3" class="nav-link" data-scroll-target="#問3">問3</a>
+  <ul class="collapse">
+  <li><a href="#問題-2" id="toc-問題-2" class="nav-link" data-scroll-target="#問題-2">問題</a></li>
+  <li><a href="#解答-2" id="toc-解答-2" class="nav-link" data-scroll-target="#解答-2">解答</a></li>
+  </ul></li>
+  <li><a href="#問4" id="toc-問4" class="nav-link" data-scroll-target="#問4">問4</a>
+  <ul class="collapse">
+  <li><a href="#問題-3" id="toc-問題-3" class="nav-link" data-scroll-target="#問題-3">問題</a></li>
+  <li><a href="#解答-3" id="toc-解答-3" class="nav-link" data-scroll-target="#解答-3">解答</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -245,7 +265,7 @@ p(k)=\binom{n}{k}p^k q^{n-k}
 </div>
 </div>
 <section id="section" class="level3">
-<h3 class="anchored">⑴</h3>
+<h3 class="anchored" data-anchor-id="section">⑴</h3>
 <p><span class="math inline">\(p_k=\binom{n}{k}p^k q^{n-k}\)</span>と<span class="math inline">\(p_{k-1}=\binom{n}{k-1}p^{k-1} q^{n-(k-1)}\)</span>の関係を示したいです。</p>
 <p>カッコのままだとわかりにくかったので、階乗に直します。</p>
 <p><span class="math inline">\(p_k=\frac{n!}{k!(n-k)!} p^k q^{n-k}\)</span> を　<span class="math inline">\(p_{k-1}=\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\)</span>の関係を示す問題です。</p>
@@ -313,8 +333,10 @@ p(n+1)-1 \le k \le p(n+1)
 <p><span class="math inline">\(p(n+1)\)</span>が整数のとき、<span class="math inline">\(k=p(n+1),p(n+1)-1\)</span>である。</p>
 <p><span class="math inline">\(p(n+1)\)</span>が整数ではないとき、<span class="math inline">\(k=[p(n+1)]\)</span>となる。</p>
 <div class="extra-space3">
+
+</div>
 <p><span class="math inline">\(p(n+1)\)</span>が整数の時のグラフ！</p>
-<div id="51f61cf8" class="cell" data-execution_count="1">
+<div id="f2772c57" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -355,7 +377,7 @@ p(n+1)-1 \le k \le p(n+1)
 </div>
 </div>
 <p><span class="math inline">\(p(n+1)\)</span>が整数の時のグラフ！</p>
-<div id="15d64693" class="cell" data-execution_count="2">
+<div id="7b153eaf" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -396,6 +418,7 @@ p(n+1)-1 \le k \le p(n+1)
 </div>
 </div>
 <p>グラフで見てみるとわかりやすいですね！</p>
+</section>
 <section id="section-1" class="level3">
 <h3 class="anchored" data-anchor-id="section-1">⑵</h3>
 <p><span class="math inline">\(n=10,k=9\)</span>のとき <a href="#nte-one" class="quarto-xref">Note&nbsp;2</a>　より</p>
@@ -411,6 +434,8 @@ p_{18}=\binom{20}{18} (\frac{1}{2})^{20}
 \]</span></p>
 <p>よって　<span class="math inline">\(p_9=\binom{10}{9} (\frac{1}{2})^{10} &gt; p_{18}=\binom{20}{18} (\frac{1}{2})^{20}\)</span></p>
 <p><span class="math inline">\(p_{9}\)</span>の方が確率は大きい。</p>
+</section>
+</section>
 </section>
 <section id="問2" class="level1">
 <h1>問2</h1>
@@ -472,15 +497,72 @@ e^{-\lambda} \le 0.1
 <p><span class="math display">\[
 \lambda \ge \log 10
 \]</span></p>
+</section>
+</section>
+</section>
+<section id="問3" class="level1">
+<h1>問3</h1>
+<section id="問題-2" class="level2">
+<h2 class="anchored" data-anchor-id="問題-2">問題</h2>
+<p>３個の正しいコインを同時に投げ、３枚とも表か３枚とも裏が出るまで投げ続ける実験を行い、投げ続けた回数を<span class="math inline">\(X+1\)</span>で表すことにする。このとき、<span class="math inline">\(X\)</span>の確率分布を求めよ。また<span class="math inline">\(P(X \le k) \ge 0.9\)</span>を満たす最小の<span class="math inline">\(k\)</span>を求めよ。</p>
+</section>
+<section id="解答-2" class="level2">
+<h2 class="anchored" data-anchor-id="解答-2">解答</h2>
+<p>求めているものが出るまでやり続ける回数は幾何分布に従う。</p>
+<p>注意する点として失敗する回数が幾何分布に従うことである。なのでこの問題で成功した時を<span class="math inline">\(X+1\)</span>としているのは、<span class="math inline">\(X\)</span>が幾何分布に従うことを意味する。</p>
+<div class="extra-space2">
+
+</div>
+<div id="nte-three" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;3: 幾何分布(<span class="math inline">\(Geo(p)\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>確率変数<span class="math inline">\(X\)</span>が幾何分布に従う時、<span class="math inline">\(p\)</span>を成功確率、<span class="math inline">\(k\)</span>を失敗確率として、<span class="math inline">\(k\)</span>回失敗した時の$Xの確率関数は</p>
+<p><span class="math display">\[
+p(k)=q^k p, k=0,1,2 \ldots
+\]</span></p>
+</div>
+</div>
+<p>成功確率<span class="math inline">\(p=(1/2)^3 \times 2 = 1/4\)</span>,<span class="math inline">\(q=3/4\)</span></p>
+<p>よって確率変数<span class="math inline">\(X\)</span>は<span class="math inline">\(Geo(3/4)\)</span>の幾何分布に従う。←確率分布を求めよの答えかなあ</p>
+<p><span class="math inline">\(X\)</span>の確率関数は</p>
+<p><span class="math display">\[
+p(k)=(3/4)^k (1/4)
+\]</span></p>
+<p>となる。</p>
+<p>累積分布関数が0.9を越す最小の<span class="math inline">\(k\)</span>を求めます。</p>
+<p><span class="math display">\[
+F(k)=P(X \le k) = \sum_{x=0}^k p(x) = \sum_{x=0}^k (3/4)^x (1/4)=1/4+\sum_{x=1}^k (3/4)^{x-1} (3/4)(1/4)=1/4+\frac{3/16(1-(3/4)^{k})}{1-3/4}=1-(3/4)^{k+1} \ge 0.9
+\]</span></p>
+<p><span class="math display">\[
+1-(3/4)^{k+1} \ge 0.9
+\]</span></p>
+<p><span class="math display">\[
+(k+1) \log (3/4) \le - \log 10
+\]</span></p>
+<p><span class="math display">\[
+k \le -1 -  \frac{\log 10}{\log (3/4)}
+\]</span></p>
+<p>である。</p>
+</section>
+</section>
+<section id="問4" class="level1">
+<h1>問4</h1>
+<section id="問題-3" class="level2">
+<h2 class="anchored" data-anchor-id="問題-3">問題</h2>
+</section>
+<section id="解答-3" class="level2">
+<h2 class="anchored" data-anchor-id="解答-3">解答</h2>
 
 
 <!-- -->
 
-</section>
-</section>
-</section>
-</div>
-</section>
 </section>
 </section>
 
@@ -1082,166 +1164,236 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>$p(n+1)$が整数ではないとき、$k=<span class="co">[</span><span class="ot">p(n+1)</span><span class="co">]</span>$となる。</span>
 <span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>:::{.extra-space3}:::</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>::: {.extra-space3}</span>
 <span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>$p(n+1)$が整数の時のグラフ！</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のn, p値を定義</span></span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [(<span class="dv">9</span>, <span class="fl">0.2</span>), (<span class="dv">9</span>, <span class="fl">0.5</span>), (<span class="dv">19</span>, <span class="fl">0.7</span>), (<span class="dv">19</span>, <span class="fl">0.5</span>), (<span class="dv">19</span>, <span class="fl">0.7</span>)]</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
-<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>)</span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, p <span class="kw">in</span> params:</span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> binom.pmf(x, n, p)</span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'n = </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
-<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
-<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
-<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'nとpを変動させた二項分布'</span>)</span>
-<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'binom_distribution.png'</span>)</span>
-<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>$p(n+1)$が整数の時のグラフ！</span>
-<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
-<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
-<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のn, p値を定義</span></span>
-<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [(<span class="dv">10</span>, <span class="fl">0.2</span>), (<span class="dv">10</span>, <span class="fl">0.5</span>), (<span class="dv">10</span>, <span class="fl">0.7</span>), (<span class="dv">20</span>, <span class="fl">0.5</span>), (<span class="dv">20</span>, <span class="fl">0.7</span>)]</span>
-<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
-<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>)</span>
-<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
-<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, p <span class="kw">in</span> params:</span>
-<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> binom.pmf(x, n, p)</span>
-<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'n = </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
-<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
-<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'nとpを変動させた二項分布'</span>)</span>
-<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'binom_distribution.png'</span>)</span>
-<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>グラフで見てみるとわかりやすいですね！</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>$p(n+1)$が整数の時のグラフ！</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のn, p値を定義</span></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [(<span class="dv">9</span>, <span class="fl">0.2</span>), (<span class="dv">9</span>, <span class="fl">0.5</span>), (<span class="dv">19</span>, <span class="fl">0.7</span>), (<span class="dv">19</span>, <span class="fl">0.5</span>), (<span class="dv">19</span>, <span class="fl">0.7</span>)]</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>)</span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, p <span class="kw">in</span> params:</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> binom.pmf(x, n, p)</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'n = </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'nとpを変動させた二項分布'</span>)</span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'binom_distribution.png'</span>)</span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>$p(n+1)$が整数の時のグラフ！</span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数のn, p値を定義</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> [(<span class="dv">10</span>, <span class="fl">0.2</span>), (<span class="dv">10</span>, <span class="fl">0.5</span>), (<span class="dv">10</span>, <span class="fl">0.7</span>), (<span class="dv">20</span>, <span class="fl">0.5</span>), (<span class="dv">20</span>, <span class="fl">0.7</span>)]</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a><span class="co"># x の範囲を定義</span></span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>)</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフのプロット</span></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, p <span class="kw">in</span> params:</span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>    pmf <span class="op">=</span> binom.pmf(x, n, p)</span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pmf, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="ss">f'n = </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の目盛りを整数に設定</span></span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">1</span>))</span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'確率'</span>)</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'nとpを変動させた二項分布'</span>)</span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'binom_distribution.png'</span>)</span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⑵</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>グラフで見てみるとわかりやすいですね！</span>
 <span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>$n=10,k=9$のとき @nte-one　より</span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⑵</span></span>
 <span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>p_9=\binom{10}{9} (\frac{1}{2})^{10}</span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>$n=10,k=9$のとき @nte-one　より</span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>p_9=\binom{10}{9} (\frac{1}{2})^{10}</span>
 <span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>p_{18}=\binom{20}{18} (\frac{1}{2})^{20}</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>p_{18}=\binom{20}{18} (\frac{1}{2})^{20}</span>
 <span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>\binom{10}{9}={}_{10} C_9={}_{10} C_1=10,  </span>
-<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>\binom{20}{18}={}_{20} C_{18}={}_{20} C_2=190</span>
-<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>よって　$p_9=\binom{10}{9} (\frac{1}{2})^{10} &gt; p_{18}=\binom{20}{18} (\frac{1}{2})^{20}$</span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>\binom{10}{9}={}_{10} C_9={}_{10} C_1=10,  </span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a>\binom{20}{18}={}_{20} C_{18}={}_{20} C_2=190</span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>$p_{9}$の方が確率は大きい。</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>よって　$p_9=\binom{10}{9} (\frac{1}{2})^{10} &gt; p_{18}=\binom{20}{18} (\frac{1}{2})^{20}$</span>
 <span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a><span class="fu"># 問2</span></span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>$p_{9}$の方が確率は大きい。</span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## 問題</span></span>
-<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>ポアソン分布$Po(\lambda)$の確率関数を$p_k=P(X=k)$,$k=0, \ldots,$とする。</span>
-<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>⑴$p_k$を$p_{k-1}$を用いて表せ。$<span class="sc">\{</span>p_0,\ldots,<span class="sc">\}</span>$の中で最大を与える$k$を求めよ</span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a><span class="fu"># 問2</span></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## 問題</span></span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>ポアソン分布$Po(\lambda)$の確率関数を$p_k=P(X=k)$,$k=0, \ldots,$とする。</span>
 <span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>⑵少なくとも１回以上起こる確率が90%以上になる$\lambda$の条件を求めよ</span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>⑴$p_k$を$p_{k-1}$を用いて表せ。$<span class="sc">\{</span>p_0,\ldots,<span class="sc">\}</span>$の中で最大を与える$k$を求めよ</span>
 <span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## 解答</span></span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>⑵少なくとも１回以上起こる確率が90%以上になる$\lambda$の条件を求めよ</span>
 <span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⑴</span></span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## 解答</span></span>
 <span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a>問１と同じですね。</span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⑴</span></span>
 <span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>::: {#nte-one .callout-note}</span>
-<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>確率変数$X$ポアソン分布$Po(\lambda)$に従う時、$X=k$となる確率は下のようになる。</span>
-<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">ここ</span><span class="co">](/posts/seminor2024_0618/)</span>に詳しく書いてある。</span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>問１と同じですね。</span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a>::: {#nte-one .callout-note}</span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>確率変数$X$ポアソン分布$Po(\lambda)$に従う時、$X=k$となる確率は下のようになる。</span>
 <span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots</span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">ここ</span><span class="co">](/posts/seminor2024_0618/)</span>に詳しく書いてある。</span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots</span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a>$p_k= \frac{\lambda^k}{k!}e^{-\lambda}$ を、$p_{k-1}= \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda}$ を用いて表す。</span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>p(k) = \frac{\lambda^k}{k!}e^{-\lambda} = \frac{\lambda \lambda^{k-1} }{k(k-1)!}e^{-\lambda} =\frac{\lambda}{k}p_{k-1}</span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>$p_k= \frac{\lambda^k}{k!}e^{-\lambda}$ を、$p_{k-1}= \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda}$ を用いて表す。</span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>$p_k \ge p_{k-1}$かつ$p_k \ge p_{k+1}$となるような$k$の確率が最大となります。</span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a>p(k) = \frac{\lambda^k}{k!}e^{-\lambda} = \frac{\lambda \lambda^{k-1} }{k(k-1)!}e^{-\lambda} =\frac{\lambda}{k}p_{k-1}</span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a>p_k = \frac{\lambda}{k}p_{k-1} \ge p_{k-1} \Longleftrightarrow \lambda \ge k</span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>$p_k \ge p_{k-1}$かつ$p_k \ge p_{k+1}$となるような$k$の確率が最大となります。</span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>p_k = \frac{\lambda}{k}p_{k-1} \ge p_{k-1} \Longleftrightarrow \lambda \ge k</span>
 <span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>p_{k+1} = \frac{\lambda}{k+1}p_{k} \le p_{k} \Longleftrightarrow \lambda \le k+1</span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>よって$\lambda-1 \le k \le \lambda$ となります。</span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>p_{k+1} = \frac{\lambda}{k+1}p_{k} \le p_{k} \Longleftrightarrow \lambda \le k+1</span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>$\lambda$が整数の時、$k=\lambda-1,\lambda$。</span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>よって$\lambda-1 \le k \le \lambda$ となります。</span>
 <span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>$\lambda$が整数ではない時、$k=<span class="co">[</span><span class="ot">\lambda</span><span class="co">]</span>$となります。</span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>$\lambda$が整数の時、$k=\lambda-1,\lambda$。</span>
 <span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⑵</span></span>
-<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>少なくとも１回以上起こる確率は</span>
-<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>P(X \le 1)=1-P(X=0)=1-\frac{\lambda^0}{0!}e^{-\lambda}=1-e^{-\lambda} \ge 0.9</span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>$\lambda$が整数ではない時、$k=<span class="co">[</span><span class="ot">\lambda</span><span class="co">]</span>$となります。</span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⑵</span></span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>少なくとも１回以上起こる確率は</span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>P(X \le 1)=1-P(X=0)=1-\frac{\lambda^0}{0!}e^{-\lambda}=1-e^{-\lambda} \ge 0.9</span>
 <span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>e^{-\lambda} \le 0.1</span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>両辺$e$を底数とする対数を取ると、</span>
-<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>-\lambda \le \log 0.1 = - \log 10</span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>e^{-\lambda} \le 0.1</span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>両辺$e$を底数とする対数を取ると、</span>
 <span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>-\lambda \le \log 0.1 = - \log 10</span>
 <span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a>\lambda \ge \log 10</span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>\lambda \ge \log 10</span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a><span class="fu"># 問3</span></span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a><span class="fu">## 問題</span></span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>３個の正しいコインを同時に投げ、３枚とも表か３枚とも裏が出るまで投げ続ける実験を行い、投げ続けた回数を$X+1$で表すことにする。このとき、$X$の確率分布を求めよ。また$P(X \le k) \ge 0.9$を満たす最小の$k$を求めよ。</span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a><span class="fu">## 解答</span></span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>求めているものが出るまでやり続ける回数は幾何分布に従う。</span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a>注意する点として失敗する回数が幾何分布に従うことである。なのでこの問題で成功した時を$X+1$としているのは、$X$が幾何分布に従うことを意味する。</span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a>::: {.extra-space2}</span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>::: {#nte-three .callout-note}</span>
+<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## 幾何分布($Geo(p)$)</span></span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>確率変数$X$が幾何分布に従う時、$p$を成功確率、$k$を失敗確率として、$k$回失敗した時の$Xの確率関数は</span>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-315"><a href="#cb3-315" aria-hidden="true" tabindex="-1"></a>p(k)=q^k p, k=0,1,2 \ldots</span>
+<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a>成功確率$p=(1/2)^3 \times 2 = 1/4$,$q=3/4$</span>
+<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a>よって確率変数$X$は$Geo(3/4)$の幾何分布に従う。←確率分布を求めよの答えかなあ</span>
+<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>$X$の確率関数は</span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>p(k)=(3/4)^k (1/4)</span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>となる。</span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>累積分布関数が0.9を越す最小の$k$を求めます。</span>
+<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>F(k)=P(X \le k) = \sum_{x=0}^k p(x) = \sum_{x=0}^k (3/4)^x (1/4)=1/4+\sum_{x=1}^k (3/4)^{x-1} (3/4)(1/4)=1/4+\frac{3/16(1-(3/4)^{k})}{1-3/4}=1-(3/4)^{k+1} \ge 0.9</span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>1-(3/4)^{k+1} \ge 0.9</span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>(k+1) \log (3/4) \le - \log 10</span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>k \le -1 -  \frac{\log 10}{\log (3/4)}</span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>である。</span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a><span class="fu"># 問4</span></span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a><span class="fu">## 問題</span></span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## 解答</span></span>
 </code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -20,10 +20,63 @@ status: "作成中"
 
 # 第二章　確率変数と確率分布
 
-## 離散確率分布
+## 用語系
 
-::: {#tip-example .callout-tip icon=false}
-## 離散確率変数の確率
+::: {#nte-one .callout-note}
+## 離散確率変数の期待値
 
+$$
+E[g(X)]= \sum_{i=1}^\infty g(x_i)p(x_i)
+$$
+
+:::
+
+
+
+::: {#nte-one .callout-note}
+## ベルヌーイ分布($Ber(p)$)
+
+$0$と$1$しかとらない確率変数を**ベルヌーイ確率変数**という。
+
+$X$をベルヌーイ確率変数とし、$P(X=1)=p$とすると、
+
+$$
+p(x)=p^x (1-p)^{1-x}, x=0,1
+$$
+
+::: {.extra-space2}
+
+:::
+
+
+平均:
+
+$$
+\mu = E[X]= \sum_{i=1}^2 g(x_i)p(x_i)= 0 \times (1-p) + 1 \times p = p
+$$
+
+分散：
+
+$$
+Var(X)=E[X^2]-E[X]^2= \sum_{i=1}^2 g(x_i^2)p(x_i) -p^2=0^2 \times (1-p) + 1^2 \times p-p^2=p(1-p)
+$$
+
+:::
+
+### 具体例
+
+表と裏が出るコインはベルヌーイ分布に従う。
+
+表が出たら$0$,裏が出たら$1$とする確率変数とし、表が出る確率$p=1/2$とすると、$P(X=1)$は表が出る確率となる。
+
+$$
+P(X=1)=(1/2)^1 (1/2)^{1-1}=1/2
+$$
+
+シンプルですね。
+
+![イメージ！](https://mathlandscape.com/wp-content/uploads/2021/05/bernoulli-distrib.png){width=50%}
+
+::: {.extra-space3}
 
 :::
