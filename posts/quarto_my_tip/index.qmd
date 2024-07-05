@@ -1,0 +1,30 @@
+---
+title: "Quarto 自分用のTips!"
+format: html
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - Quarto
+status: "都度更新"
+---
+
+# コード以外も折りたたみ
+
+## コード 
+
+```html
+<details>
+  <summary>見えるところ</summary>
+  隠れるところ
+</details>
+```
+
+## 結果
+
+<details>
+  <summary>見えるところ</summary>
+  隠れるところ
+</details>
+

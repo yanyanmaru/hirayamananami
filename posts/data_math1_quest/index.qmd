@@ -2,7 +2,7 @@
 title: "「データ解析のための数理統計入門」第1章 演習問題 解答"
 format: html
 code-fold: true
-date: 2024/06/28
+date: last-modified
 toc: true
 lang: ja
 categories:

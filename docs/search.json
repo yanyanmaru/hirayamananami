@@ -11,7 +11,7 @@
     "href": "post.html",
     "title": "Post",
     "section": "",
-    "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/07/05\n\n\n「データ解析のための数理統計入門」第1章 確率モデル 1.3初等的な確率計算\n\n\nやめた\n\n\n\n\n2024/07/03\n\n\n「データ解析のための数理統計入門」第1章 確率モデル 1.2確率\n\n\n完了\n\n\n\n\n2024/07/03\n\n\n「データ解析のための数理統計入門」第1章 確率モデル 1.1標本空間\n\n\n完了\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n作成中\n\n\n\n\n2024/06/30\n\n\nLaTeXの数式　よく使うもの　対応表\n\n\n都度更新\n\n\n\n\n2024/06/29\n\n\n「データ解析のための数理統計入門」第2章\n\n\n作成中\n\n\n\n\n2024/06/28\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n完了\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
+    "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/07/06\n\n\n「データ解析のための数理統計入門」第2章 演習問題 解答\n\n\n作成中\n\n\n\n\n2024/07/06\n\n\nQuarto 自分用のTips!\n\n\n都度更新\n\n\n\n\n2024/07/05\n\n\n「データ解析のための数理統計入門」第2章 詰まったところ集\n\n\n作成中\n\n\n\n\n2024/07/05\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n完了\n\n\n\n\n2024/07/05\n\n\n「データ解析のための数理統計入門」第1章 確率モデル 1.3初等的な確率計算\n\n\nやめた\n\n\n\n\n2024/07/03\n\n\n「データ解析のための数理統計入門」第1章 確率モデル 1.2確率\n\n\n完了\n\n\n\n\n2024/07/03\n\n\n「データ解析のための数理統計入門」第1章 確率モデル 1.1標本空間\n\n\n完了\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n作成中\n\n\n\n\n2024/06/30\n\n\nLaTeXの数式　よく使うもの　対応表\n\n\n都度更新\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "projects/monti/index.html",
@@ -226,9 +226,9 @@
   {
     "objectID": "posts/data_math2_me/index.html",
     "href": "posts/data_math2_me/index.html",
-    "title": "「データ解析のための数理統計入門」第2章",
+    "title": "「データ解析のための数理統計入門」第2章 詰まったところ集",
     "section": "",
-    "text": "３回コインを投げる実験の、裏と表の出る結果は８つである。\n例えば表の出る回数に焦点を当てると、表の出る回数は0,1,2,3でる。表の出る回数の事象は確率的に起こり、0,1,2,3のような対応する数値も確率的に変動する。\nこのような確率的に変動する数値を確率変数という。この例なら表の出る回数である。\n\n\n\n表の出る回数（確率変数）\n0\n1\n2\n3\n\n\n\n\n\n確率\n1/8\n1/3\n1/3\n1/3\n\n\n\n\n確率変数っていう言葉を聞くととっつきにくいですが、確率を持ったただの変数って認識です。"
+    "text": "Tip 1: 離散確率変数の確率"
   },
   {
     "objectID": "posts/data_math2_me/index.html#離散確率変数",
@@ -579,5 +579,68 @@
     "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
     "section": "14問目",
     "text": "14問目\n\n問題\n２項係数の関係式を示し、これを用いて２項定理を証明せよ。 また、パスカルの３角形が成り立つことを証明せよ。\n\n\n解答\n一つ目は\n\\[\n\\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right)\n=\n\\left(\n\\begin{matrix}\nn-1 \\\\\nk-1\n\\end{matrix}\n\\right) +\n\\left(\n\\begin{matrix}\nn-1 \\\\\nk\n\\end{matrix}\n\\right)\n\\]\n\\[\\begin{align}\n\\left(\n\\begin{matrix}\nn-1 \\\\\nk-1\n\\end{matrix}\n\\right)\n+\\left(\n\\begin{matrix}\nn-1 \\\\\nk\n\\end{matrix}\n\\right) &=\\frac{(n-1)!}{(k-1)!(n-1-(k-1))!}+\\frac{(n-1)!}{k!(n-1-k)!} \\\\\n&= \\frac{(n-1)! \\cdot k}{(k)!(n-k)!}+\\frac{(n-1)! \\cdot (n-k)}{k!(n-k)!} \\\\\n&=\\frac{(n-1)! \\cdot (k+n-k)}{(k)!(n-k)!} \\\\\n&=\\frac{(n)!}{(k)!(n-k)!} \\\\\n&=\\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right)\n\n\n\\end{align}\\]\n二つ目は\n\\[\n(a+b)^n = \\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^k b^{n-k}\n\\tag{1}\\]\nこの二項定理が成り立つことを示せということです。\n感覚的に(a+b)がたくさんある中で\\(a^kb^{n-k}\\)の組み合わせは何個だからみたいな方法もわかりやすくていいと思うんですが、帰納法で示します。\n\\(n=1\\)のとき、\n\\[\na+b=\\sum_{k=0}^1 \\left(\n\\begin{matrix}\n1 \\\\\nk\n\\end{matrix}\n\\right) a^k b^{1-k}\n=\\left(\n\\begin{matrix}\n1 \\\\\n0\n\\end{matrix}\n\\right) a^0 b^{1}+\\left(\n\\begin{matrix}\n1 \\\\\n1\n\\end{matrix}\n\\right) a^1 b^{0}\n=a+b\n\\]\nよって\\(n=1\\)の時成り立つ。\n\\(n=k\\)のとき 式 1 が成り立つと仮定する。\n\\(n=k+1\\)のとき\n\\[\\begin{align}\n(a+b)^{k+1} &= (a+b)\\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^k b^{n-k}\\\\\n&=  \\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k+1} b^{n-k}\n+\\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n\\\\\n\n\n\n&=a^{n+1} +\\sum_{k=0}^{n-1} \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k+1} b^{n-k}\n+\\sum_{k=1}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n\n\n&=a^{n+1} +\\sum_{k=1}^{n} \\left(\n\\begin{matrix}\nn \\\\\nk-1\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n+\\sum_{k=1}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n\n\n&=a^{n+1} +\\sum_{k=1}^{n} (\\left(\n\\begin{matrix}\nn \\\\\nk-1\n\\end{matrix}\n\\right)+\\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right)) a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n&=a^{n+1} +\\sum_{k=1}^{n} \\left(\n\\begin{matrix}\nn+1 \\\\\nk\n\\end{matrix}\n\\right)a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n&=\\sum_{k=1}^{n+1} \\left(\n\\begin{matrix}\nn+1 \\\\\nk\n\\end{matrix}\n\\right)a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n&=\\sum_{k=0}^{n+1} \\left(\n\\begin{matrix}\nn+1 \\\\\nk\n\\end{matrix}\n\\right)a^{k} b^{n-k+1}\n\\end{align}\\]\n\\(n=k+1\\)の時 式 1 が成り立つので、二項定理が示された。\n三つ目\nパスカルの三角形が成り立つことを証明せよ。\n問題の意味がわからなかったのですが、おそらく「パスカルの三角形が二項定理の係数に相当することを示せ」ということだと解釈しました。\n\n\\(n\\)列目の\\(k\\)行目の数を\\({}_n C_k\\)とすると、\\({}_n C_k={}_{n-1}+ C_{k-1}{}_{n-1} C_{k}\\)が成り立つことを示せという問題なんですかね。\nこれは一つ目で示したものと同じになります。"
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html#sec-introduction",
+    "href": "posts/data_math2_me/index.html#sec-introduction",
+    "title": "「データ解析のための数理統計入門」第2章 詰まったところ集",
+    "section": "Introduction",
+    "text": "Introduction\nSee セクション 1 for additional context."
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html#離散確率分布",
+    "href": "posts/data_math2_me/index.html#離散確率分布",
+    "title": "「データ解析のための数理統計入門」第2章 詰まったところ集",
+    "section": "",
+    "text": "Tip 1: 離散確率変数の確率"
+  },
+  {
+    "objectID": "posts/data_math2_me/index.html#cross-referencing-a-tip",
+    "href": "posts/data_math2_me/index.html#cross-referencing-a-tip",
+    "title": "「データ解析のための数理統計入門」第2章 詰まったところ集",
+    "section": "",
+    "text": "Add an ID starting with #tip- to reference a tip."
+  },
+  {
+    "objectID": "posts/data_math2_quest/index.html",
+    "href": "posts/data_math2_quest/index.html",
+    "title": "「データ解析のための数理統計入門」第2章 演習問題 解答",
+    "section": "",
+    "text": "二項分布\\(Bin(n,p)\\)の確率関数を\\(p_k=P(X=k)\\),\\(k=0, \\ldots, n\\)とする。\n⑴\\(p_k\\)を\\(p_{k-1}\\)を用いて表せ。\\(\\{p_0,\\ldots,p_n\\}\\)の中で最大を与える\\(k\\)を求めよ\n⑵\\(p=1/2\\)のとき、\\(n=10,k=9\\)の時の確率と\\(n=20,k=18\\)の時の確率ではどちらが大きいか。\n\n\n\n\n\n\n\n\n\nNote 1\n\n\n\n確率変数\\(X\\)が二項分布\\(Bin(n,p)\\)に従う時、\\(X=k\\)となる確率は\\(q=1-p\\)に対して次のようになる。\n\\[\np(k)=\\binom{n}{k}p^k q^{n-k}\n\\]\n\n\n\n\n\\(p_k=\\binom{n}{k}p^k q^{n-k}\\)と\\(p_{k-1}=\\binom{n}{k-1}p^{k-1} q^{n-(k-1)}\\)の関係を示したいです。\nカッコのままだとわかりにくかったので、階乗に直します。\n\\(p_k=\\frac{n!}{k!(n-k)!} p^k q^{n-k}\\) を　\\(p_{k-1}=\\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\\)の関係を示す問題です。\n式変形していきます。\n\\[\\begin{align}\np_{k}\n&=\n\\binom{n}{k}p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!}{k!(n-k)!} p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!(n-(k-1))}{k(k-1)! \\cdot (n-(k-1))!} p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!(n-(k-1))}{k(k-1)! \\cdot (n-(k-1))!} p^{k-1} q^{n-(k-1)} \\frac{p}{q}\n\\\\\n\n&=\n\\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\\frac{p(n-(k-1))}{kq}\n\\\\\n&=\n\\frac{p(n-(k-1))}{kq} p_{k-1}\n\\\\\n&=\n\\frac{p(n-(k-1))}{k(1-p)} p_{k-1}\n\n\\end{align}\\]\nきれいに治すと、 \\[\np_k=\\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1}\n\\tag{1}\\]\nとなります。\n\\(\\{p_0,\\ldots,p_n\\}\\)の中で最大を与える\\(k\\)を求める問題です。\\(p_k \\ge p_{k-1}\\)かつ\\(p_k \\ge p_{k+1}\\)となるような\\(k\\)の確率が最大となります。式 1 が誘導になってることがわかりますね。\n\\[\np_k = \\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1} \\ge p_{k-1}\n\\]\nかつ\n\\[\np_{k+1} = \\frac{p}{1-p} \\frac{n-k}{k+1} p_{k} \\le p_{k}\n\\]\nが成り立つことである。\n1つ目の式は確率は0以上であるため、下のように変形できる。\n\\[\\begin{align}\np_k = \\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1} &\\ge p_{k-1}　 \\\\\n\\Longleftrightarrow p(n-k+1) &\\ge (1-p)k \\\\\n\\Longleftrightarrow p(n+1) \\ge k\n\\end{align}\\]\n2つ目の式も同様に変形できる。\n\n\\[\\begin{align}\np_{k+1} = \\frac{p}{1-p} \\frac{n-k}{k+1} p_{k} &\\le p_{k} \\\\\n\\Longleftrightarrow p(n-k) &\\le (1-p)(k+1) \\\\\n\\Longleftrightarrow pn \\le k-p+1 \\\\\n\\Longleftrightarrow p(n+1) \\le k+1\n\\end{align}\\]\nよって\\(k\\)について以下の不等式を解くと確率が最大になる時の\\(k\\)がもとまる。\n\\[\np(n+1)-1 \\le k \\le p(n+1)\n\\]\nこれを満たす整数\\(k\\)は\\(p(n+1)\\)が整数かどうかで変わる。\n\\(p(n+1)\\)が整数のとき、\\(k=p(n+1),p(n+1)-1\\)である。\n\\(p(n+1)\\)が整数ではないとき、\\(k=[p(n+1)]\\)となる。\n\n\\(p(n+1)\\)が整数の時のグラフ！\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import binom\nimport japanize_matplotlib\n\n# 複数のn, p値を定義\nparams = [(9, 0.2), (9, 0.5), (19, 0.7), (19, 0.5), (19, 0.7)]\n\n# x の範囲を定義\nx = np.arange(0, 21)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor n, p in params:\n    pmf = binom.pmf(x, n, p)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('nとpを変動させた二項分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('binom_distribution.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\\(p(n+1)\\)が整数の時のグラフ！\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import binom\nimport japanize_matplotlib\n\n# 複数のn, p値を定義\nparams = [(10, 0.2), (10, 0.5), (10, 0.7), (20, 0.5), (20, 0.7)]\n\n# x の範囲を定義\nx = np.arange(0, 21)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor n, p in params:\n    pmf = binom.pmf(x, n, p)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('nとpを変動させた二項分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('binom_distribution.png')\nplt.show()\n\n\n\n\n\n\n\n\n\nグラフで見てみるとわかりやすいですね！\n\n\n\\(n=10,k=9\\)のとき Note 1　より\n\\[\np_9=\\binom{10}{9} (\\frac{1}{2})^{10}\n\\]\n\\[\np_{18}=\\binom{20}{18} (\\frac{1}{2})^{20}\n\\]\n\\[\n\\binom{10}{9}={}_{10} C_9={}_{10} C_1=10,  \n\\binom{20}{18}={}_{20} C_{18}={}_{20} C_2=190\n\\]\nよって　\\(p_9=\\binom{10}{9} (\\frac{1}{2})^{10} &gt; p_{18}=\\binom{20}{18} (\\frac{1}{2})^{20}\\)\n\\(p_{9}\\)の方が確率は大きい。"
+  },
+  {
+    "objectID": "posts/data_math2_quest/index.html#問題",
+    "href": "posts/data_math2_quest/index.html#問題",
+    "title": "「データ解析のための数理統計入門」第2章 演習問題 解答",
+    "section": "",
+    "text": "二項分布\\(Bin(n,p)\\)の確率関数を\\(p_k=P(X=k)\\),\\(k=0, \\ldots, n\\)とする。\n⑴\\(p_k\\)を\\(p_{k-1}\\)を用いて表せ。\\(\\{p_0,\\ldots,p_n\\}\\)の中で最大を与える\\(k\\)を求めよ\n⑵\\(p=1/2\\)のとき、\\(n=10,k=9\\)の時の確率と\\(n=20,k=18\\)の時の確率ではどちらが大きいか。"
+  },
+  {
+    "objectID": "posts/data_math2_quest/index.html#解答",
+    "href": "posts/data_math2_quest/index.html#解答",
+    "title": "「データ解析のための数理統計入門」第2章 演習問題 解答",
+    "section": "",
+    "text": "Note 1\n\n\n\n確率変数\\(X\\)が二項分布\\(Bin(n,p)\\)に従う時、\\(X=k\\)となる確率は\\(q=1-p\\)に対して次のようになる。\n\\[\np(k)=\\binom{n}{k}p^k q^{n-k}\n\\]\n\n\n\n\n\\(p_k=\\binom{n}{k}p^k q^{n-k}\\)と\\(p_{k-1}=\\binom{n}{k-1}p^{k-1} q^{n-(k-1)}\\)の関係を示したいです。\nカッコのままだとわかりにくかったので、階乗に直します。\n\\(p_k=\\frac{n!}{k!(n-k)!} p^k q^{n-k}\\) を　\\(p_{k-1}=\\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\\)の関係を示す問題です。\n式変形していきます。\n\\[\\begin{align}\np_{k}\n&=\n\\binom{n}{k}p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!}{k!(n-k)!} p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!(n-(k-1))}{k(k-1)! \\cdot (n-(k-1))!} p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!(n-(k-1))}{k(k-1)! \\cdot (n-(k-1))!} p^{k-1} q^{n-(k-1)} \\frac{p}{q}\n\\\\\n\n&=\n\\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\\frac{p(n-(k-1))}{kq}\n\\\\\n&=\n\\frac{p(n-(k-1))}{kq} p_{k-1}\n\\\\\n&=\n\\frac{p(n-(k-1))}{k(1-p)} p_{k-1}\n\n\\end{align}\\]\nきれいに治すと、 \\[\np_k=\\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1}\n\\tag{1}\\]\nとなります。\n\\(\\{p_0,\\ldots,p_n\\}\\)の中で最大を与える\\(k\\)を求める問題です。\\(p_k \\ge p_{k-1}\\)かつ\\(p_k \\ge p_{k+1}\\)となるような\\(k\\)の確率が最大となります。式 1 が誘導になってることがわかりますね。\n\\[\np_k = \\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1} \\ge p_{k-1}\n\\]\nかつ\n\\[\np_{k+1} = \\frac{p}{1-p} \\frac{n-k}{k+1} p_{k} \\le p_{k}\n\\]\nが成り立つことである。\n1つ目の式は確率は0以上であるため、下のように変形できる。\n\\[\\begin{align}\np_k = \\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1} &\\ge p_{k-1}　 \\\\\n\\Longleftrightarrow p(n-k+1) &\\ge (1-p)k \\\\\n\\Longleftrightarrow p(n+1) \\ge k\n\\end{align}\\]\n2つ目の式も同様に変形できる。\n\n\\[\\begin{align}\np_{k+1} = \\frac{p}{1-p} \\frac{n-k}{k+1} p_{k} &\\le p_{k} \\\\\n\\Longleftrightarrow p(n-k) &\\le (1-p)(k+1) \\\\\n\\Longleftrightarrow pn \\le k-p+1 \\\\\n\\Longleftrightarrow p(n+1) \\le k+1\n\\end{align}\\]\nよって\\(k\\)について以下の不等式を解くと確率が最大になる時の\\(k\\)がもとまる。\n\\[\np(n+1)-1 \\le k \\le p(n+1)\n\\]\nこれを満たす整数\\(k\\)は\\(p(n+1)\\)が整数かどうかで変わる。\n\\(p(n+1)\\)が整数のとき、\\(k=p(n+1),p(n+1)-1\\)である。\n\\(p(n+1)\\)が整数ではないとき、\\(k=[p(n+1)]\\)となる。\n\n\\(p(n+1)\\)が整数の時のグラフ！\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import binom\nimport japanize_matplotlib\n\n# 複数のn, p値を定義\nparams = [(9, 0.2), (9, 0.5), (19, 0.7), (19, 0.5), (19, 0.7)]\n\n# x の範囲を定義\nx = np.arange(0, 21)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor n, p in params:\n    pmf = binom.pmf(x, n, p)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('nとpを変動させた二項分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('binom_distribution.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\\(p(n+1)\\)が整数の時のグラフ！\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import binom\nimport japanize_matplotlib\n\n# 複数のn, p値を定義\nparams = [(10, 0.2), (10, 0.5), (10, 0.7), (20, 0.5), (20, 0.7)]\n\n# x の範囲を定義\nx = np.arange(0, 21)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor n, p in params:\n    pmf = binom.pmf(x, n, p)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('nとpを変動させた二項分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('binom_distribution.png')\nplt.show()\n\n\n\n\n\n\n\n\n\nグラフで見てみるとわかりやすいですね！\n\n\n\\(n=10,k=9\\)のとき Note 1　より\n\\[\np_9=\\binom{10}{9} (\\frac{1}{2})^{10}\n\\]\n\\[\np_{18}=\\binom{20}{18} (\\frac{1}{2})^{20}\n\\]\n\\[\n\\binom{10}{9}={}_{10} C_9={}_{10} C_1=10,  \n\\binom{20}{18}={}_{20} C_{18}={}_{20} C_2=190\n\\]\nよって　\\(p_9=\\binom{10}{9} (\\frac{1}{2})^{10} &gt; p_{18}=\\binom{20}{18} (\\frac{1}{2})^{20}\\)\n\\(p_{9}\\)の方が確率は大きい。"
+  },
+  {
+    "objectID": "posts/quarto_my_tip/index.html",
+    "href": "posts/quarto_my_tip/index.html",
+    "title": "Quarto 自分用のTips!",
+    "section": "",
+    "text": "&lt;details&gt;\n  &lt;summary&gt;見えるところ&lt;/summary&gt;\n  隠れるところ\n&lt;/details&gt;\n\n\n\n\n\n見えるところ\n\n隠れるところ"
+  },
+  {
+    "objectID": "posts/quarto_my_tip/index.html#コード",
+    "href": "posts/quarto_my_tip/index.html#コード",
+    "title": "Quarto 自分用のTips!",
+    "section": "",
+    "text": "&lt;details&gt;\n  &lt;summary&gt;見えるところ&lt;/summary&gt;\n  隠れるところ\n&lt;/details&gt;"
+  },
+  {
+    "objectID": "posts/quarto_my_tip/index.html#結果",
+    "href": "posts/quarto_my_tip/index.html#結果",
+    "title": "Quarto 自分用のTips!",
+    "section": "",
+    "text": "見えるところ\n\n隠れるところ"
   }
 ]
