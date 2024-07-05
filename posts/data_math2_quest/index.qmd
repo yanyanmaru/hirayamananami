@@ -215,3 +215,72 @@ $$
 
 $p_{9}$の方が確率は大きい。
 
+
+# 問2
+
+## 問題
+ポアソン分布$Po(\lambda)$の確率関数を$p_k=P(X=k)$,$k=0, \ldots,$とする。
+
+⑴$p_k$を$p_{k-1}$を用いて表せ。$\{p_0,\ldots,\}$の中で最大を与える$k$を求めよ
+
+⑵少なくとも１回以上起こる確率が90%以上になる$\lambda$の条件を求めよ
+
+## 解答
+
+### ⑴
+
+問１と同じですね。
+
+::: {#nte-one .callout-note}
+確率変数$X$ポアソン分布$Po(\lambda)$に従う時、$X=k$となる確率は下のようになる。
+
+[ここ](/posts/seminor2024_0618/)に詳しく書いてある。
+
+
+$$
+p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots
+$$
+
+:::
+
+$p_k= \frac{\lambda^k}{k!}e^{-\lambda}$ を、$p_{k-1}= \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda}$ を用いて表す。
+
+$$
+p(k) = \frac{\lambda^k}{k!}e^{-\lambda} = \frac{\lambda \lambda^{k-1} }{k(k-1)!}e^{-\lambda} =\frac{\lambda}{k}p_{k-1}
+$$
+
+$p_k \ge p_{k-1}$かつ$p_k \ge p_{k+1}$となるような$k$の確率が最大となります。
+
+$$
+p_k = \frac{\lambda}{k}p_{k-1} \ge p_{k-1} \Longleftrightarrow \lambda \ge k
+$$
+
+$$
+p_{k+1} = \frac{\lambda}{k+1}p_{k} \le p_{k} \Longleftrightarrow \lambda \le k+1
+$$
+
+よって$\lambda-1 \le k \le \lambda$ となります。
+
+$\lambda$が整数の時、$k=\lambda-1,\lambda$。
+
+$\lambda$が整数ではない時、$k=[\lambda]$となります。
+
+### ⑵
+少なくとも１回以上起こる確率は
+
+$$
+P(X \le 1)=1-P(X=0)=1-\frac{\lambda^0}{0!}e^{-\lambda}=1-e^{-\lambda} \ge 0.9
+$$
+
+$$
+e^{-\lambda} \le 0.1
+$$
+
+両辺$e$を底数とする対数を取ると、
+$$
+-\lambda \le \log 0.1 = - \log 10
+$$
+
+$$
+\lambda \ge \log 10
+$$

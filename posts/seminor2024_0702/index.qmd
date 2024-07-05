@@ -16,7 +16,7 @@ categories:
   - ゼミ
   - 統計
   - データ解析のための数理統計入門
-status: "作成中"
+status: "完了"
 ---
 
 
@@ -233,7 +233,7 @@ $$
 
 多項定理において、$1=(p_1+ \cdots +p_m)^n$を考えれば確率分布になることがわかる。
 
-::: {.callout-tip}
+::: {.callout-note}
 ## 多項定理
 $$
 (x_1 + x_2 + \cdots + x_m)^n = \sum_{k_1 + k_2 + \cdots + k_m = n} \frac{n!}{k_1! k_2! \cdots k_m!} x_1^{k_1} x_2^{k_2} \cdots x_m^{k_m}
