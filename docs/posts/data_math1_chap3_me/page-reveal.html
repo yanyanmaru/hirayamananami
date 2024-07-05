@@ -339,12 +339,40 @@
 <nav role="doc-toc"> 
 <h2 id="toc-title">目次</h2>
 <ul>
-<li><a href="#/初等的な確率計算" id="/toc-初等的な確率計算">1.3初等的な確率計算</a></li>
+<li><a href="#/初等的な確率計算" id="/toc-初等的な確率計算">1.3初等的な確率計算</a>
+<ul>
+<li><a href="#/シンプソンのパラドクス" id="/toc-シンプソンのパラドクス">シンプソンのパラドクス</a></li>
+</ul></li>
 </ul>
 </nav>
 </section>
+<section>
 <section id="初等的な確率計算" class="title-slide slide level1 center">
 <h1>1.3初等的な確率計算</h1>
+
+</section>
+<section id="シンプソンのパラドクス" class="slide level2">
+<h2>シンプソンのパラドクス</h2>
+<p><span class="math inline">\(A,B\)</span>はそれぞれ赤箱と白箱があり、それぞれの箱に入っているくじのあたりの数とハズレの数が下の表のようになっている。</p>
+<div class="extra-space2">
+<span class="math display">\[\begin{array}{|c|cc|cc|cc|}
+&amp; A &amp;&amp; B &amp;&amp; A+B \\
+&amp; 赤箱 &amp; 白箱&amp; 赤箱 &amp; 白箱 &amp; 赤箱 &amp; 白箱\\ \hline
+当たり&amp; 6 &amp; 4&amp; 11 &amp; 14 &amp; 17 &amp; 18 \\
+ハズレ&amp; 7 &amp; 5&amp; 3 &amp; 5 &amp; 10 &amp; 10 \\ \hline
+当たりの確率&amp; 6/13 &amp; 4/9&amp; 11/14 &amp; 14/19 &amp; 17/27 &amp; 18/28 \\
+\end{array}\]</span>
+<div class="extra-space2">
+<p><span class="math inline">\(A\)</span>の箱も<span class="math inline">\(B\)</span>の箱もどちらも赤箱の方が当たりの確率が高い。</p>
+<p>しかし、<span class="math inline">\(A\)</span>と<span class="math inline">\(B\)</span>の箱を足し合わせると白箱の方が確率が高くなります。</p>
+<p>このように、個々には確率が低くても合算すると確率が高くなる現象のことを<strong>シンプソンのパラドクス</strong>と言います。</p>
+<div class="extra-space3">
+<p>全体で考えるべきか、個々で考えるべきかは人によっても場合によっても違うようで、どちらにしろこのようなことが起こりうることに注意する必要があるそうです。</p>
+<section id="復元抽出と非復元抽出" class="slide level2">
+<h2>復元抽出と非復元抽出</h2>
+<p>1からnまでの番号の書かれたカードからm枚引く時を考える。</p>
+<p>復元抽出：引くたびにカードを戻す。</p>
+<p>非復元抽出：カードを戻さない。</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -352,6 +380,10 @@
 </div>
 </div>
 </section>
+</div>
+</div>
+</div>
+</section></section>
     </div>
   </div>
 

@@ -22,6 +22,8 @@ format:
   #   transition: fade
     # theme: beige
 
+# filters:
+#   - whitphx/stlite
 
 
 # 気になるテーマ集！
