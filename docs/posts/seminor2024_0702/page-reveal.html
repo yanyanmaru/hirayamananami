@@ -357,7 +357,11 @@
 <li><a href="#/連続確率変数" id="/toc-連続確率変数">3.2連続確率変数</a>
 <ul>
 <li><a href="#/連続確率変数の同時確率密度関数と周辺確率密度関数" id="/toc-連続確率変数の同時確率密度関数と周辺確率密度関数">連続確率変数の同時確率密度関数と周辺確率密度関数</a></li>
-<li><a href="#/例3.2" id="/toc-例3.2">例3.2</a></li>
+<li><a href="#/例3.2" id="/toc-例3.2">例3.2</a>
+<ul>
+<li><a href="#/例3.2" id="/toc-設定">設定</a></li>
+<li><a href="#/例3.2" id="/toc-求めること">求めること</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -375,6 +379,9 @@
 p(x_i,y_j)=P(X=x_i,Y=y_j)
 \]</span></p>
 <p>で与えられる。</p>
+<div class="extra-space2">
+
+</div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -388,18 +395,30 @@ p(x_i,y_j)=P(X=x_i,Y=y_j)
 </div>
 </div>
 </div>
+<div class="extra-space2">
+
+</div>
 <p><span class="math inline">\((X,Y)\)</span>の<strong>周辺確率関数</strong>は、</p>
 <p><span class="math display">\[\begin{align}
 p_X(x_i) = \sum_{j=1}^\infty p(x_i,y_j)\\
 p_Y(y_j) = \sum_{i=1}^\infty p(x_i,y_j)
 \end{align}\]</span></p>
+<div class="extra-space3">
+
+</div>
 </section>
 <section id="例3.1" class="slide level2">
 <h2>例3.1</h2>
 <p>コインを３回投げる時を考える。</p>
+<div class="extra-space1">
+
+</div>
 <p>１回目に投げたコインが、表が出たら<span class="math inline">\(X=1\)</span>,裏が出たら<span class="math inline">\(X=0\)</span>とする。</p>
 <p>３回投げた時、コインの表が出た合計数を<span class="math inline">\(Y\)</span>とする。</p>
-<p><span class="math inline">\(X,Y\)</span>の同時確率分布は以下のようになる。</p>
+<p><span class="math inline">\(X,Y\)</span>はどちらも確率変数である。<span class="math inline">\(X,Y\)</span>の同時確率分布は以下のようになる。</p>
+<div class="extra-space2">
+
+</div>
 <!-- y_jを真ん中にしたいけどうまくできなかった -->
 <span class="math display">\[\begin{array}{c|cccc|c}
 &amp; y_j &amp; &amp; &amp;  \\
@@ -408,14 +427,25 @@ x_i &amp; 0 &amp; 1 &amp; 2 &amp; 3 \\ \hline
 1 &amp; 0 &amp; \frac{1}{8} &amp; \frac{1}{4} &amp; \frac{1}{8}  \\
 
 \end{array}\]</span>
+<div class="extra-space3">
+
+</div>
 <h3 id="同時確率関数">同時確率関数</h3>
 <p>例えば</p>
 <p><span class="math display">\[\begin{equation}
 P(X=1,Y=1)=1/8
 \end{equation}\]</span></p>
+<p><span class="math inline">\(X=1\)</span>かつ<span class="math inline">\(Y=1\)</span>となるのは、表裏裏の順番で出る時のみである。そのため<span class="math inline">\((1/2)^3\)</span>で計算することができる。</p>
+<div class="extra-space2">
+
+</div>
 <p><span class="math display">\[\begin{equation}
 P(X=1,Y=2)=1/4
 \end{equation}\]</span></p>
+<p><span class="math inline">\(X=1\)</span>かつ<span class="math inline">\(Y=2\)</span>となるのは、表表裏・表裏表の順番で出る時である。そのため<span class="math inline">\((1/2)^3 \times 2\)</span>で計算することができる。</p>
+<div class="extra-space3">
+
+</div>
 <h3 id="周辺確率関数">周辺確率関数</h3>
 <p><span class="math inline">\(Y\)</span>の周辺分布<span class="math inline">\(p_Y(y_j)=P(Y=y_j)\)</span>は以下のようになる。</p>
 <p><span class="math display">\[\begin{equation}
@@ -430,6 +460,9 @@ p_Y(2)=P(Y=2)=P(X=0,Y=2)+P(X=1,Y=2)=1/8+1/4=3/8
 <p><span class="math display">\[\begin{equation}
 p_Y(3)=P(Y=3)=P(X=0,Y=3)+P(X=1,Y=3)=0+1/8=1/8
 \end{equation}\]</span></p>
+<div class="extra-space2">
+
+</div>
 <p>同様に<span class="math inline">\(X\)</span>の周辺分布<span class="math inline">\(p_X(x_i)=P(X=x_i)\)</span>は以下のようになる。</p>
 <p><span class="math display">\[\begin{equation}
 p_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2
@@ -437,6 +470,9 @@ p_X(0)=P(X=0)=P(X=0,Y=0)+P(X=0,Y=1)+P(X=0,Y=2)+P(X=0,Y=3)=1/8+1/4+1/8+0=1/2
 <p><span class="math display">\[\begin{equation}
 p_X(1)=P(X=1)=P(X=1,Y=0)+P(X=1,Y=1)+P(X=1,Y=2)+P(X=1,Y=3)=0+1/8+1/4+1/8=1/2
 \end{equation}\]</span></p>
+<div class="extra-space2">
+
+</div>
 <p>周辺分布は下の表のように、下側と右側の合計値になります。</p>
 <span class="math display">\[\begin{array}{c|cccc|c}
 &amp; y_j &amp; &amp; &amp; &amp; \\
@@ -445,16 +481,25 @@ x_i &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; \text{合計} \\ \hline
 1 &amp; 0 &amp; \frac{1}{8} &amp; \frac{1}{4} &amp; \frac{1}{8} &amp; \frac{1}{2} \\ \hline
 \text{合計} &amp; \frac{1}{8} &amp; \frac{3}{8} &amp; \frac{3}{8} &amp; \frac{1}{8} &amp; 1
 \end{array}\]</span>
+<div class="extra-space3">
+
+</div>
 </section>
 <section id="確率変数が３つ以上のとき" class="slide level2">
 <h2>確率変数が３つ以上のとき</h2>
 <p><span class="math inline">\(X_1, \ldots ,X_k\)</span>を<span class="math inline">\(k\)</span>個の確率変数とする。 <span class="math inline">\(X_i\)</span>の実現値の集合を<span class="math inline">\(\mathcal{X_i}\)</span>とする。</p>
+<div class="extra-space2">
+
+</div>
 <h3 id="同時確率関数-1">同時確率関数</h3>
 <p><span class="math inline">\((X_1, \ldots ,X_k)\)</span>の同時確率関数は、</p>
 <p><span class="math display">\[
 p(x_1,x_2,\ldots,x_k)=P(X_1=x_1,X_2=x_2,\ldots,X_k=x_k)
 \]</span></p>
 <p>で与えられる。</p>
+<div class="extra-space3">
+
+</div>
 <h3 id="周辺確率関数-1">周辺確率関数</h3>
 <p>例えば、<span class="math inline">\(X_1\)</span>の周辺確率関数は</p>
 <p><span class="math display">\[
@@ -477,21 +522,52 @@ p_{X_1,X_2}(x_1,x_2)=\sum_{x_3 \in \mathcal{X_3}} \cdots \sum_{x_k \in\mathcal{X
 </div>
 </div>
 </div>
+<div class="extra-space3">
+
+</div>
 <h3 id="多項分布">多項分布</h3>
 <p>多次元の離散確率変数の代表例が多項分布である。</p>
+<div class="extra-space2">
+
+</div>
 <p>これは二項分布を一般化した分布であり、例えば<span class="math inline">\(m\)</span>個の面に<span class="math inline">\(1\)</span>から<span class="math inline">\(m\)</span>の番号が書かれた多面体を<span class="math inline">\(n\)</span>回投げて<span class="math inline">\(1\)</span>から<span class="math inline">\(m\)</span>の面が出る回数を<span class="math inline">\(X_1,\ldots,X_m\)</span>とする。</p>
 <p>それぞれの面が出る確率を<span class="math inline">\(p_1,\ldots,p_m\)</span>とすると、<span class="math inline">\(p_1+\cdots+p_m=1\)</span>であり、<span class="math inline">\(X_1+\cdots+X_m=n\)</span>である。</p>
+<div class="extra-space2">
+
+</div>
 <p>このとき<span class="math inline">\((X_1,\ldots,X_m)\)</span>の同時確率関数は次で与えられる。</p>
 <p><span class="math display">\[
 p(x_1,\ldots,x_m)=\frac{n!}{x_1! \cdots x_m!} p_1^{x_1} \cdots p_m^{x_m}
 \]</span></p>
 <p>この分布を多項分布と呼び、<span class="math inline">\(Mult_m(n, p_1, \ldots, p_m)\)</span>で表す。</p>
+<div class="extra-space2">
+
+</div>
 <p>多項定理において、<span class="math inline">\(1=(p_1+ \cdots +p_m)^n\)</span>を考えれば確率分布になることがわかる。</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>多項定理</strong></p>
+</div>
+<div class="callout-content">
 <p><span class="math display">\[
 (x_1 + x_2 + \cdots + x_m)^n = \sum_{k_1 + k_2 + \cdots + k_m = n} \frac{n!}{k_1! k_2! \cdots k_m!} x_1^{k_1} x_2^{k_2} \cdots x_m^{k_m}
 \]</span></p>
+</div>
+</div>
+</div>
+<p>定理の<span class="math inline">\(x\)</span>を<span class="math inline">\(p\)</span>とし、<span class="math inline">\(k\)</span>を<span class="math inline">\(x\)</span>として考える。このとき同時確率関数の和が1となる。</p>
+<div class="extra-space2">
+
+</div>
 <p><span class="math inline">\(i\)</span>の番号の面が出たら成功、残りを失敗と考えると<span class="math inline">\(X_i\)</span>の周辺分布は二項分布<span class="math inline">\(Bin(n,p_i)\)</span>となる。</p>
-<p>同様に考えて、<span class="math inline">\(X_i+X_j \sim Bin(n,p_i+p_j)\)</span>となる。</p>
+<p>同様に考えて、<span class="math inline">\(X_i+X_j \sim Bin(n,p_i+p_j)\)</span>となる。これは<span class="math inline">\(i,j\)</span>のどちらかの番号の面が出たら成功、残りを失敗と考えることができるからである。</p>
+<div class="extra-space3">
+
+</div>
 </section></section>
 <section>
 <section id="連続確率変数" class="title-slide slide level1 center">
@@ -505,32 +581,72 @@ p(x_1,\ldots,x_m)=\frac{n!}{x_1! \cdots x_m!} p_1^{x_1} \cdots p_m^{x_m}
 P((X,Y) \in A) = \int \int_A f(x,y)dxdy
 \]</span></p>
 <p>と表される時、<span class="math inline">\(f(x,y)\)</span>を<span class="math inline">\((X,Y)\)</span>の同時確率密度関数と呼ぶ。</p>
+<div class="extra-space2">
+
+</div>
 <p>これは<span class="math inline">\(f(x,y) \ge 0,\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x,y)dxdy=1\)</span>を満たす。</p>
+<div class="extra-space2">
+
+</div>
 <p><span class="math inline">\(A\)</span>として、<span class="math inline">\(A=\{(X,Y) \in \mathbb{R}^2| X \le x,Y \le y\}\)</span>とおくと</p>
-<p><span class="math display">\[
+<p><span id="eq-black-one"><span class="math display">\[
 F(x,y) =P(X \le x, Y \le y) = \int_{-\infty}^y\int_{-\infty}^x f(u,v)dudv
-\]</span></p>
+\tag{1}\]</span></span></p>
 <p>と表せる。２次元の累積分布関数と呼ぶ。微積分の基本公式から、</p>
 <p><span class="math display">\[
 f(x,y)=\frac{\partial^2}{\partial x \partial y}F(x,y)
 \]</span></p>
 <p>が成り立つ。また、<span class="math inline">\(X,Y\)</span>の周辺確率密度関数は次で与えられる。</p>
-<p><span class="math display">\[
+<p><span id="eq-black-second"><span class="math display">\[
 f_X(x)=\int_{-\infty}^\infty f(x,y)dy,
 f_Y(y)=\int_{-\infty}^\infty f(x,y)dx
-\]</span></p>
+\tag{2}\]</span></span></p>
+<div class="extra-space3">
+
+</div>
 </section>
-<section id="例3.2" class="slide level2">
+<section id="例3.2" class="slide level2 scrollable">
 <h2>例3.2</h2>
+<h3 id="設定">設定</h3>
 <p><span class="math inline">\(0 \le c \le 1\)</span>を満たす実数<span class="math inline">\(c\)</span>に対して、連続確率変数<span class="math inline">\((X,Y)\)</span>の同時確率密度関数が、</p>
 <p><span class="math display">\[
 f(x,y)=1-c+4cxy, 0 \le x \le 1, 0 \le y \le 1
 \]</span></p>
-<p>で与えられるとする。 分布関数<span class="math inline">\(F(x,y)\)</span>は<span class="math inline">\(0 \le x \le 1, 0 \le y \le 1\)</span>に対して、</p>
+<p>で与えられるとする。</p>
+<div class="extra-space2">
+
+</div>
+<h3 id="求めること">求めること</h3>
+<ol type="1">
+<li>累積分布関数を求める</li>
+<li>周辺確率密度関数を求める</li>
+<li><span class="math inline">\(c \le X \le\)</span>かつ<span class="math inline">\(0 \le Y \le c-1\)</span>の時の確率をもとめる。</li>
+</ol>
+<div class="extra-space2">
+
+</div>
+<h4 id="求めること1">求めること1</h4>
+<p>分布関数<span class="math inline">\(F(x,y)\)</span>は<span class="math inline">\(0 \le x \le 1, 0 \le y \le 1\)</span>に対して、<a href="#/連続確率変数の同時確率密度関数と周辺確率密度関数" class="quarto-xref">式&nbsp;1</a> より</p>
 <p><span class="math display">\[
 F(x,y)=\int^y_0 \int^x_0 (1-c+4cuv)dudv = \int^y_0 \{(1-c)x+2cx^2v\}dv
 =xy(1-c+cxy)
 \]</span></p>
+<div class="extra-space3">
+
+</div>
+<h4 id="求めること2">求めること2</h4>
+<h5 id="シンプルな求め方"><strong>シンプルな求め方</strong></h5>
+<p><a href="#/連続確率変数の同時確率密度関数と周辺確率密度関数" class="quarto-xref">式&nbsp;2</a> より同時確率密度関数から周辺確率密度関数を求めることができる。</p>
+<p><span class="math display">\[
+f_X(x)=\int_{0}^1 (1-c+4cxy)dy = [(1-c)y+2cxy^2]^1_0=1-c+2cx
+\]</span></p>
+<p><span class="math display">\[
+f_Y(y)=\int_{0}^1 (1-c+4cxy)dx = [(1-c)x+2cxy^2]^1_0=1-c+2cy
+\]</span></p>
+<div class="extra-space2">
+
+</div>
+<h5 id="教科書の求め方"><strong>教科書の求め方</strong></h5>
 <p><span class="math inline">\(X,Y\)</span>の周辺分布関数は</p>
 <p><span class="math display">\[
 F_X(x)=F(x,1)=x(1-c+cx),
@@ -542,6 +658,10 @@ f_X(x)=1-c+2cx,
 f_Y(y)=1-c+2cy
 \]</span></p>
 <p>が得られる。</p>
+<div class="extra-space3">
+
+</div>
+<h4 id="求めること3">求めること3</h4>
 <p><span class="math display">\[
 P(c &lt; X &lt; 1,0&lt;Y&lt;1-c)=F(1,1-c)-F(1,0)-F(c,1-c)+F(c,0)=(1-c)^2(1-c^3)=(1-c)^3(1+c+c^2)
 \]</span></p>
