@@ -1,0 +1,197 @@
+---
+title: "7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目"
+format:
+  html: default
+  revealjs:
+    output-file: page-reveal.html
+    smaller: true
+    scrollable: true
+    chalkboard: true
+    html-math-method: mathjax
+code-fold: true
+date: 2024/07/09
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+# 問7
+
+## 問題
+
+確率変数$X,Y,Z$の同時確率密度関数が
+
+$$
+f(x,y,z)=\frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)}x^{a-1}y^{b-1}z^{c-1}
+$${#eq-one}
+
+で与えられる分布をディリクレ分布といい、$Dir(a,b,c)$で表す。
+
+ただし、$0 < x,y,z < 1$、 $x+y+z=1$であり、$a,b,c$は正の実数です。
+
+::: {.extra-space2}
+
+:::
+
+1. $V=X+Y$の分布を求めよ。
+2. $T=Y,W=X/(1-Y)$とおくとき、それぞれの周辺分布を与えよ。$T$と$W$は独立か？
+
+::: {.extra-space3}
+
+:::
+
+## 解答
+
+
+### 1. $V=X+Y$の分布を求めよ。
+
+:::{.callout-note}
+
+#### 手順
+
+::: {.extra-space2}
+
+:::
+
+1. @eq-one より$x,y$の同時確率密度関数を求める。
+2. $V=X+Y,W=Y$とした時に、$V,W$の同時確率密度関数に変数変換する。
+3. 同時確率密度関数から$V$の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。
+   
+:::
+
+::: {.extra-space3}
+
+:::
+
+
+#### **1. @eq-one より$x,y$の同時確率密度関数を求める。**
+
+::: {.extra-space2}
+
+:::
+
+簡略化のため、$C=\frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)}$とする。
+
+$z=1-x-y$ を @eq-one に代入する。
+
+$$
+f(x,y)=C x^{a-1}y^{b-1}(1-x-y)^{c-1}
+$${#eq-two}
+
+
+
+この代入した式は$x,y$の同時確率密度関数となる。
+
+::: {.extra-space3}
+
+:::
+
+#### **2. $V=X+Y,W=Y$とした時に、$V,W$の同時確率密度関数に変数変換する。**
+
+$V=X+Y,W=Y$とすると、$x=v-w,y=w$となる。
+
+よってヤコビアンを求めると、
+
+$$
+J = \frac{\partial (x, y)}{\partial (v, w)}=
+\begin{pmatrix}
+\frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+\frac{\partial y}{\partial v} & \frac{\partial y}{\partial w}
+\end{pmatrix}=
+\begin{pmatrix}
+1 & -1 \\
+0 & 1
+\end{pmatrix}=1
+$$
+
+となる。
+
+::: {.extra-space2}
+
+:::
+
+@eq-two に$x=v-w,y=w$ を代入しヤコビアンが1より、$V,W$の同時確率密度関数に変数変換する。
+
+
+
+$$
+f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}
+$${#eq-three}
+
+
+::: {.extra-space3}
+
+:::
+
+#### **3. 同時確率密度関数から$V$の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。**
+
+@eq-three の$V,W$の同時確率密度関数から、$V$の周辺分布がもとまる。
+
+\begin{align}
+f_V(v)&=\int_0^v f_{V,W}(v,w)dw\\
+&= C (1-v)^{c-1} \int_0^v (v-w)^{a-1}w^{b-1} dw
+\end{align}
+
+この周辺分布から確率分布を求めていく。
+
+::: {.extra-space3}
+
+:::
+
+そこで、$vs=w,\quad dw=vds$ で変換します。$w$を消していく感じですかね。
+
+
+
+(おそらく、$\int_0^v (v-w)^{a-1}w^{b-1} dw$がベータ関数に近くて変換できそうなので、$vs=w$にすることで積分範囲を$[0,v]$ から$[0,1]$ に変換している？)
+
+\begin{align}
+f_V(v)
+&= C (1-v)^{c-1} \int_0^1 (v-vs)^{a-1}(vs)^{b-1} vds\\
+&= C (1-v)^{c-1} v^{a+b-1}\int_0^1 (1-s)^{a-1}s^{b-1} ds\\
+&= CB(a,b)(1-v)^{c-1} v^{a+b-1}\\
+&= \frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)} \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}(1-v)^{c-1} v^{a+b-1} \\
+&= \frac{\Gamma(a+b+c)}{\Gamma(c)\Gamma(a+b)}(1-v)^{c-1} v^{a+b-1} \\
+&= \frac{1}{B(a+b,c)}(1-v)^{c-1} v^{a+b-1} \\
+
+
+\end{align}
+
+これはベータ分布の確率密度関数の式になるので、$X+Y \sim Beta(a+b,c)$
+
+
+### 2. $T=Y,W=X/(1-Y)$とおくとき、それぞれの周辺分布を与えよ。$T$と$W$は独立か？
+
+$T=Y,W=X/(1-Y)$とおくと、$Y=T,X=(1-T)W$となる。ヤコビアンは
+
+$$
+J = \frac{\partial (x, y)}{\partial (w, t)}=
+\begin{pmatrix}
+\frac{\partial x}{\partial w} & \frac{\partial x}{\partial t} \\
+\frac{\partial y}{\partial w} & \frac{\partial y}{\partial t}
+\end{pmatrix}=
+\begin{pmatrix}
+1-t & -w \\
+0 & 1
+\end{pmatrix}=1-t
+$$
+
+となる。
+
+@eq-two より
+
+
+\begin{align}
+f_{T,W}(t,w)&=C((1-t)w)^{a-1} t^{b-1} (1-w(1-t)-t)^{c-1} (1-t) \\
+&= C w^{a-1} (1-t)^a t^{b-1} (1-w(1-t)-t)^{c-1} \\
+&= C w^{a-1} (1-t)^a t^{b-1} ((1-t)(1-w))^{c-1} \\
+&= C w^{a-1} (1-t)^{a+c-1} t^{b-1} (1-w)^{c-1} \\
+&= C w^{a-1} (1-w)^{c-1} t^{b-1}  (1-t)^{a+c-1} \\
+&= \frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)} w^{a-1} (1-w)^{c-1} t^{b-1}  (1-t)^{a+c-1} \\
+&= \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} 
+\end{align}
+
+この式により$T,W$は独立で、$W \sim Beta(a,c), T \sim Beta(a+c,b)$に従う。
