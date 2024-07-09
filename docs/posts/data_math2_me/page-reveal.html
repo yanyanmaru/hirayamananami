@@ -10,8 +10,8 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.47">
 
-  <meta name="dcterms.date" content="2024-07-09">
-  <title>Hirayama Nanami – 7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目</title>
+  <meta name="dcterms.date" content="2024-07-06">
+  <title>Hirayama Nanami – 「データ解析のための数理統計入門」第2章 詰まったところ集</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -329,165 +329,91 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目</h1>
+  <h1 class="title">「データ解析のための数理統計入門」第2章 詰まったところ集</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-07-09</p>
+  <p class="date">2024-07-06</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">目次</h2>
 <ul>
-<li><a href="#/問7" id="/toc-問7">問7</a>
+<li><a href="#/第二章-確率変数と確率分布" id="/toc-第二章-確率変数と確率分布">第二章　確率変数と確率分布</a>
 <ul>
-<li><a href="#/問題" id="/toc-問題">問題</a></li>
-<li><a href="#/解答" id="/toc-解答">解答</a>
+<li><a href="#/用語系" id="/toc-用語系">用語系</a>
 <ul>
-<li><a href="#/解答" id="/toc-vxyの分布を求めよ">1. <span class="math inline">\(V=X+Y\)</span>の分布を求めよ。</a></li>
-<li><a href="#/解答" id="/toc-tywx1-yとおくときそれぞれの周辺分布を与えよtとwは独立か">2. <span class="math inline">\(T=Y,W=X/(1-Y)\)</span>とおくとき、それぞれの周辺分布を与えよ。<span class="math inline">\(T\)</span>と<span class="math inline">\(W\)</span>は独立か？</a></li>
+<li><a href="#/用語系" id="/toc-具体例">具体例</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="問7" class="title-slide slide level1 center">
-<h1>問7</h1>
+<section id="第二章-確率変数と確率分布" class="title-slide slide level1 center">
+<h1>第二章　確率変数と確率分布</h1>
 
 </section>
-<section id="問題" class="slide level2 scrollable">
-<h2>問題</h2>
-<p>確率変数<span class="math inline">\(X,Y,Z\)</span>の同時確率密度関数が</p>
-<p><span id="eq-one"><span class="math display">\[
-f(x,y,z)=\frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)}x^{a-1}y^{b-1}z^{c-1}
-\tag{1}\]</span></span></p>
-<p>で与えられる分布をディリクレ分布といい、<span class="math inline">\(Dir(a,b,c)\)</span>で表す。</p>
-<p>ただし、<span class="math inline">\(0 &lt; x,y,z &lt; 1\)</span>、 <span class="math inline">\(x+y+z=1\)</span>であり、<span class="math inline">\(a,b,c\)</span>は正の実数です。</p>
-<div class="extra-space2">
-
-</div>
-<ol type="1">
-<li><span class="math inline">\(V=X+Y\)</span>の分布を求めよ。</li>
-<li><span class="math inline">\(T=Y,W=X/(1-Y)\)</span>とおくとき、それぞれの周辺分布を与えよ。<span class="math inline">\(T\)</span>と<span class="math inline">\(W\)</span>は独立か？</li>
-</ol>
-<div class="extra-space3">
-
-</div>
-</section>
-<section id="解答" class="slide level2 scrollable">
-<h2>解答</h2>
-<h3 id="vxyの分布を求めよ">1. <span class="math inline">\(V=X+Y\)</span>の分布を求めよ。</h3>
-<div class="callout callout-note callout-titled callout-style-default">
+<section id="用語系" class="slide level2">
+<h2>用語系</h2>
+<div id="nte-one">
+<div id="nte-one" class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>手順</strong></p>
+<p><strong>離散確率変数の期待値</strong></p>
 </div>
 <div class="callout-content">
-<div class="extra-space2">
-
-</div>
-<ol type="1">
-<li><a href="#/問題" class="quarto-xref">式&nbsp;1</a> より<span class="math inline">\(x,y\)</span>の同時確率密度関数を求める。</li>
-<li><span class="math inline">\(V=X+Y,W=Y\)</span>とした時に、<span class="math inline">\(V,W\)</span>の同時確率密度関数に変数変換する。</li>
-<li>同時確率密度関数から<span class="math inline">\(V\)</span>の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="extra-space3">
-
-</div>
-<h4 id="eq-one-よりxyの同時確率密度関数を求める"><strong>1. <a href="#/問題" class="quarto-xref">式&nbsp;1</a> より<span class="math inline">\(x,y\)</span>の同時確率密度関数を求める。</strong></h4>
-<div class="extra-space2">
-
-</div>
-<p>簡略化のため、<span class="math inline">\(C=\frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)}\)</span>とする。</p>
-<p><span class="math inline">\(z=1-x-y\)</span> を <a href="#/問題" class="quarto-xref">式&nbsp;1</a> に代入する。</p>
-<p><span id="eq-two"><span class="math display">\[
-f(x,y)=C x^{a-1}y^{b-1}(1-x-y)^{c-1}
-\tag{2}\]</span></span></p>
-<p>この代入した式は<span class="math inline">\(x,y\)</span>の同時確率密度関数となる。</p>
-<div class="extra-space3">
-
-</div>
-<h4 id="vxywyとした時にvwの同時確率密度関数に変数変換する"><strong>2. <span class="math inline">\(V=X+Y,W=Y\)</span>とした時に、<span class="math inline">\(V,W\)</span>の同時確率密度関数に変数変換する。</strong></h4>
-<p><span class="math inline">\(V=X+Y,W=Y\)</span>とすると、<span class="math inline">\(x=v-w,y=w\)</span>となる。</p>
-<p>よってヤコビアンを求めると、</p>
 <p><span class="math display">\[
-J = \frac{\partial (x, y)}{\partial (v, w)}=
-\begin{pmatrix}
-\frac{\partial x}{\partial v} &amp; \frac{\partial x}{\partial w} \\
-\frac{\partial y}{\partial v} &amp; \frac{\partial y}{\partial w}
-\end{pmatrix}=
-\begin{pmatrix}
-1 &amp; -1 \\
-0 &amp; 1
-\end{pmatrix}=1
+E[g(X)]= \sum_{i=1}^\infty g(x_i)p(x_i)
 \]</span></p>
-<p>となる。</p>
+</div>
+</div>
+</div>
+</div>
+<div id="nte-one">
+<div id="nte-one" class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>ベルヌーイ分布(<span class="math inline">\(Ber(p)\)</span>)</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(0\)</span>と<span class="math inline">\(1\)</span>しかとらない確率変数を<strong>ベルヌーイ確率変数</strong>という。</p>
+<p><span class="math inline">\(X\)</span>をベルヌーイ確率変数とし、<span class="math inline">\(P(X=1)=p\)</span>とすると、</p>
+<p><span class="math display">\[
+p(x)=p^x (1-p)^{1-x}, x=0,1
+\]</span></p>
 <div class="extra-space2">
 
 </div>
-<p><a href="#/解答" class="quarto-xref">式&nbsp;2</a> に<span class="math inline">\(x=v-w,y=w\)</span> を代入しヤコビアンが1より、<span class="math inline">\(V,W\)</span>の同時確率密度関数に変数変換する。</p>
-<p><span id="eq-three"><span class="math display">\[
-f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}
-\tag{3}\]</span></span></p>
-<div class="extra-space3">
-
-</div>
-<h4 id="同時確率密度関数からvの周辺分布がもとまりこれはxyの確率密度関数となるので分布がもとまる"><strong>3. 同時確率密度関数から<span class="math inline">\(V\)</span>の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</strong></h4>
-<p><a href="#/解答" class="quarto-xref">式&nbsp;3</a> の<span class="math inline">\(V,W\)</span>の同時確率密度関数から、<span class="math inline">\(V\)</span>の周辺分布がもとまる。</p>
-<p><span class="math display">\[\begin{align}
-f_V(v)&amp;=\int_0^v f_{V,W}(v,w)dw\\
-&amp;= C (1-v)^{c-1} \int_0^v (v-w)^{a-1}w^{b-1} dw
-\end{align}\]</span></p>
-<p>この周辺分布から確率分布を求めていく。</p>
-<div class="extra-space3">
-
-</div>
-<p>そこで、<span class="math inline">\(vs=w,\quad dw=vds\)</span> で変換します。<span class="math inline">\(w\)</span>を消していく感じですかね。</p>
-<p>(おそらく、<span class="math inline">\(\int_0^v (v-w)^{a-1}w^{b-1} dw\)</span>がベータ関数に近くて変換できそうなので、<span class="math inline">\(vs=w\)</span>にすることで積分範囲を<span class="math inline">\([0,v]\)</span> から<span class="math inline">\([0,1]\)</span> に変換している？)</p>
-<p><span class="math display">\[\begin{align}
-f_V(v)
-&amp;= C (1-v)^{c-1} \int_0^1 (v-vs)^{a-1}(vs)^{b-1} vds\\
-&amp;= C (1-v)^{c-1} v^{a+b-1}\int_0^1 (1-s)^{a-1}s^{b-1} ds\\
-&amp;= CB(a,b)(1-v)^{c-1} v^{a+b-1}\\
-&amp;= \frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)} \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}(1-v)^{c-1} v^{a+b-1} \\
-&amp;= \frac{\Gamma(a+b+c)}{\Gamma(c)\Gamma(a+b)}(1-v)^{c-1} v^{a+b-1} \\
-&amp;= \frac{1}{B(a+b,c)}(1-v)^{c-1} v^{a+b-1} \\
-
-
-\end{align}\]</span></p>
-<p>これはベータ分布の確率密度関数の式になるので、<span class="math inline">\(X+Y \sim Beta(a+b,c)\)</span></p>
-<h3 id="tywx1-yとおくときそれぞれの周辺分布を与えよtとwは独立か">2. <span class="math inline">\(T=Y,W=X/(1-Y)\)</span>とおくとき、それぞれの周辺分布を与えよ。<span class="math inline">\(T\)</span>と<span class="math inline">\(W\)</span>は独立か？</h3>
-<p><span class="math inline">\(T=Y,W=X/(1-Y)\)</span>とおくと、<span class="math inline">\(Y=T,X=(1-T)W\)</span>となる。ヤコビアンは</p>
+<p>平均:</p>
 <p><span class="math display">\[
-J = \frac{\partial (x, y)}{\partial (w, t)}=
-\begin{pmatrix}
-\frac{\partial x}{\partial w} &amp; \frac{\partial x}{\partial t} \\
-\frac{\partial y}{\partial w} &amp; \frac{\partial y}{\partial t}
-\end{pmatrix}=
-\begin{pmatrix}
-1-t &amp; -w \\
-0 &amp; 1
-\end{pmatrix}=1-t
+\mu = E[X]= \sum_{i=1}^2 g(x_i)p(x_i)= 0 \times (1-p) + 1 \times p = p
 \]</span></p>
-<p>となる。</p>
-<p><a href="#/解答" class="quarto-xref">式&nbsp;2</a> より</p>
-<p><span class="math display">\[\begin{align}
-f_{T,W}(t,w)&amp;=C((1-t)w)^{a-1} t^{b-1} (1-w(1-t)-t)^{c-1} (1-t) \\
-&amp;= C w^{a-1} (1-t)^a t^{b-1} (1-w(1-t)-t)^{c-1} \\
-&amp;= C w^{a-1} (1-t)^a t^{b-1} ((1-t)(1-w))^{c-1} \\
-&amp;= C w^{a-1} (1-t)^{a+c-1} t^{b-1} (1-w)^{c-1} \\
-&amp;= C w^{a-1} (1-w)^{c-1} t^{b-1}  (1-t)^{a+c-1} \\
-&amp;= \frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)} w^{a-1} (1-w)^{c-1} t^{b-1}  (1-t)^{a+c-1} \\
-&amp;= \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}
-\end{align}\]</span></p>
-<p>この式により<span class="math inline">\(T,W\)</span>は独立で、<span class="math inline">\(W \sim Beta(a,c), T \sim Beta(a+c,b)\)</span>に従う。</p>
+<p>分散：</p>
+<p><span class="math display">\[
+Var(X)=E[X^2]-E[X]^2= \sum_{i=1}^2 g(x_i^2)p(x_i) -p^2=0^2 \times (1-p) + 1^2 \times p-p^2=p(1-p)
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="具体例">具体例</h3>
+<p>表と裏が出るコインはベルヌーイ分布に従う。</p>
+<p>表が出たら<span class="math inline">\(0\)</span>,裏が出たら<span class="math inline">\(1\)</span>とする確率変数とし、表が出る確率<span class="math inline">\(p=1/2\)</span>とすると、<span class="math inline">\(P(X=1)\)</span>は表が出る確率となる。</p>
+<p><span class="math display">\[
+P(X=1)=(1/2)^1 (1/2)^{1-1}=1/2
+\]</span></p>
+<p>シンプルですね。</p>
+
+<img data-src="https://mathlandscape.com/wp-content/uploads/2021/05/bernoulli-distrib.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">イメージ！</p><div class="extra-space3">
+
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -681,7 +607,7 @@ f_{T,W}(t,w)&amp;=C((1-t)w)^{a-1} t^{b-1} (1-w(1-t)-t)^{c-1} (1-t) \\
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
