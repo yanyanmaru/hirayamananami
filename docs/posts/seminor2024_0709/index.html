@@ -261,7 +261,7 @@ f(x,y,z)=\frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)}x^{a-1}y^{b-1}z^{c-1}
 <ol type="1">
 <li><a href="#eq-one" class="quarto-xref">式&nbsp;1</a> より<span class="math inline">\(x,y\)</span>の同時確率密度関数を求める。</li>
 <li><span class="math inline">\(V=X+Y,W=Y\)</span>とした時に、<span class="math inline">\(V,W\)</span>の同時確率密度関数に変数変換する。</li>
-<li>同時確率密度関数から<span class="math inline">\(V\)</span>の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</li>
+<li>同時確率密度関数から<span class="math inline">\(V\)</span>の周辺確率密度関数がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</li>
 </ol>
 </div>
 </div>
@@ -285,19 +285,19 @@ f(x,y)=C x^{a-1}y^{b-1}(1-x-y)^{c-1}
 </section>
 <section id="vxywyとした時にvwの同時確率密度関数に変数変換する" class="level4">
 <h4 class="anchored" data-anchor-id="vxywyとした時にvwの同時確率密度関数に変数変換する"><strong>2. <span class="math inline">\(V=X+Y,W=Y\)</span>とした時に、<span class="math inline">\(V,W\)</span>の同時確率密度関数に変数変換する。</strong></h4>
-<p><span class="math inline">\(V=X+Y,W=Y\)</span>とする。（おそらくあとで<span class="math inline">\(V\)</span>の周辺分布を求める時に<span class="math inline">\(W=Y\)</span>やと微分しやすいから？）</p>
+<p><span class="math inline">\(V=X+Y,W=Y\)</span>とする。（おそらくあとで<span class="math inline">\(V\)</span>の周辺確率密度関数を求める時に<span class="math inline">\(W=Y\)</span>やと微分しやすいから？）</p>
 <p><span class="math inline">\(x=v-w,y=w\)</span>となる。</p>
 <p>よってヤコビアンを求めると、</p>
 <p><span class="math display">\[
-J = \frac{\partial (x, y)}{\partial (v, w)}=
-\begin{pmatrix}
+J((v, w) \rightarrow (x, y)) =
+\begin{vmatrix}
 \frac{\partial x}{\partial v} &amp; \frac{\partial x}{\partial w} \\
 \frac{\partial y}{\partial v} &amp; \frac{\partial y}{\partial w}
-\end{pmatrix}=
-\begin{pmatrix}
+\end{vmatrix}=
+\begin{vmatrix}
 1 &amp; -1 \\
 0 &amp; 1
-\end{pmatrix}=1
+\end{vmatrix}=1
 \]</span></p>
 <p>となる。</p>
 <div class="extra-space2">
@@ -305,20 +305,20 @@ J = \frac{\partial (x, y)}{\partial (v, w)}=
 </div>
 <p><a href="#eq-two" class="quarto-xref">式&nbsp;2</a> に<span class="math inline">\(x=v-w,y=w\)</span> を代入しヤコビアンが1より、<span class="math inline">\(V,W\)</span>の同時確率密度関数に変数変換する。</p>
 <p><span id="eq-three"><span class="math display">\[
-f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}
+f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}, \quad 0 &lt; w &lt; v
 \tag{3}\]</span></span></p>
 <div class="extra-space3">
 
 </div>
 </section>
-<section id="同時確率密度関数からvの周辺分布がもとまりこれはxyの確率密度関数となるので分布がもとまる" class="level4">
-<h4 class="anchored" data-anchor-id="同時確率密度関数からvの周辺分布がもとまりこれはxyの確率密度関数となるので分布がもとまる"><strong>3. 同時確率密度関数から<span class="math inline">\(V\)</span>の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</strong></h4>
-<p><a href="#eq-three" class="quarto-xref">式&nbsp;3</a> の<span class="math inline">\(V,W\)</span>の同時確率密度関数から、<span class="math inline">\(V\)</span>の周辺分布がもとまる。</p>
+<section id="同時確率密度関数からvの周辺確率密度関数がもとまりこれはxyの確率密度関数となるので分布がもとまる" class="level4">
+<h4 class="anchored" data-anchor-id="同時確率密度関数からvの周辺確率密度関数がもとまりこれはxyの確率密度関数となるので分布がもとまる"><strong>3. 同時確率密度関数から<span class="math inline">\(V\)</span>の周辺確率密度関数がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</strong></h4>
+<p><a href="#eq-three" class="quarto-xref">式&nbsp;3</a> の<span class="math inline">\(V,W\)</span>の同時確率密度関数から、<span class="math inline">\(V\)</span>の周辺確率密度関数がもとまる。</p>
 <p><span class="math display">\[\begin{align}
 f_V(v)&amp;=\int_0^v f_{V,W}(v,w)dw\\
 &amp;= C (1-v)^{c-1} \int_0^v (v-w)^{a-1}w^{b-1} dw
 \end{align}\]</span></p>
-<p>この周辺分布から確率分布を求めていく。</p>
+<p>この周辺確率密度関数から確率分布を求めていく。</p>
 <div class="extra-space3">
 
 </div>
@@ -342,15 +342,15 @@ f_V(v)
 <h3 class="anchored" data-anchor-id="tywx1-yとおくときそれぞれの周辺分布を与えよtとwは独立か">2. <span class="math inline">\(T=Y,W=X/(1-Y)\)</span>とおくとき、それぞれの周辺分布を与えよ。<span class="math inline">\(T\)</span>と<span class="math inline">\(W\)</span>は独立か？</h3>
 <p><span class="math inline">\(T=Y,W=X/(1-Y)\)</span>とおくと、<span class="math inline">\(Y=T,X=(1-T)W\)</span>となる。ヤコビアンは</p>
 <p><span class="math display">\[
-J = \frac{\partial (x, y)}{\partial (w, t)}=
-\begin{pmatrix}
+J((w, t) \rightarrow (x, y))
+\begin{vmatrix}
 \frac{\partial x}{\partial w} &amp; \frac{\partial x}{\partial t} \\
 \frac{\partial y}{\partial w} &amp; \frac{\partial y}{\partial t}
-\end{pmatrix}=
-\begin{pmatrix}
+\end{vmatrix}=
+\begin{vmatrix}
 1-t &amp; -w \\
 0 &amp; 1
-\end{pmatrix}=1-t
+\end{vmatrix}=1-t
 \]</span></p>
 <p>となる。</p>
 <p><a href="#eq-two" class="quarto-xref">式&nbsp;2</a> より</p>
@@ -363,11 +363,11 @@ f_{T,W}(t,w)&amp;=C((1-t)w)^{a-1} t^{b-1} (1-w(1-t)-t)^{c-1} (1-t) \\
 &amp;= \frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)} w^{a-1} (1-w)^{c-1} t^{b-1}  (1-t)^{a+c-1} \\
 &amp;= \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}
 \end{align}\]</span></p>
-<p>それぞれの周辺分布を求めます。</p>
+<p>それぞれの周辺確率密度関数を求めます。<span class="math inline">\(0&lt;t &lt;1, 0&lt;w&lt;1\)</span> であることに注意する。</p>
 <p><span class="math display">\[\begin{align}
 f_{T}(t)&amp;= \int_{-\infty}^{\infty} f_{T,W}(t,w)dw\\
-&amp;=\int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\
-&amp;=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\
+&amp;=\int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\
+&amp;=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\
 &amp;= \frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}
 \end{align}\]</span></p>
 <p>同様に</p>
@@ -916,7 +916,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>@eq-one より$x,y$の同時確率密度関数を求める。</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$V=X+Y,W=Y$とした時に、$V,W$の同時確率密度関数に変数変換する。</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>同時確率密度関数から$V$の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>同時確率密度関数から$V$の周辺確率密度関数がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
@@ -949,22 +949,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **2. $V=X+Y,W=Y$とした時に、$V,W$の同時確率密度関数に変数変換する。**</span></span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>$V=X+Y,W=Y$とする。（おそらくあとで$V$の周辺分布を求める時に$W=Y$やと微分しやすいから？）</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>$V=X+Y,W=Y$とする。（おそらくあとで$V$の周辺確率密度関数を求める時に$W=Y$やと微分しやすいから？）</span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>$x=v-w,y=w$となる。</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>よってヤコビアンを求めると、</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>J = \frac{\partial (x, y)}{\partial (v, w)}=</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>J((v, w) \rightarrow (x, y)) =</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>\begin{vmatrix}</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>\frac{\partial x}{\partial v} &amp; \frac{\partial x}{\partial w} <span class="sc">\\</span></span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>\frac{\partial y}{\partial v} &amp; \frac{\partial y}{\partial w}</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}=</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>\end{vmatrix}=</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>\begin{vmatrix}</span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>1 &amp; -1 <span class="sc">\\</span></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>0 &amp; 1</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}=1</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>\end{vmatrix}=1</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>となる。</span>
@@ -978,7 +978,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}, \quad 0 &lt; w &lt; v</span>
 <span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>$${#eq-three}</span>
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
@@ -986,16 +986,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **3. 同時確率密度関数から$V$の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。**</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **3. 同時確率密度関数から$V$の周辺確率密度関数がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。**</span></span>
 <span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>@eq-three の$V,W$の同時確率密度関数から、$V$の周辺分布がもとまる。</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>@eq-three の$V,W$の同時確率密度関数から、$V$の周辺確率密度関数がもとまる。</span>
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
 <span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>f_V(v)&amp;=\int_0^v f_{V,W}(v,w)dw<span class="sc">\\</span></span>
 <span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>&amp;= C (1-v)^{c-1} \int_0^v (v-w)^{a-1}w^{b-1} dw</span>
 <span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>この周辺分布から確率分布を求めていく。</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>この周辺確率密度関数から確率分布を求めていく。</span>
 <span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>::: {.extra-space3}</span>
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
@@ -1027,15 +1027,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>$T=Y,W=X/(1-Y)$とおくと、$Y=T,X=(1-T)W$となる。ヤコビアンは</span>
 <span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>J = \frac{\partial (x, y)}{\partial (w, t)}=</span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>J((w, t) \rightarrow (x, y))</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>\begin{vmatrix}</span>
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>\frac{\partial x}{\partial w} &amp; \frac{\partial x}{\partial t} <span class="sc">\\</span></span>
 <span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>\frac{\partial y}{\partial w} &amp; \frac{\partial y}{\partial t}</span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}=</span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>\end{vmatrix}=</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>\begin{vmatrix}</span>
 <span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>1-t &amp; -w <span class="sc">\\</span></span>
 <span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>0 &amp; 1</span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}=1-t</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>\end{vmatrix}=1-t</span>
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>となる。</span>
@@ -1053,12 +1053,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} </span>
 <span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
 <span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>それぞれの周辺分布を求めます。</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>それぞれの周辺確率密度関数を求めます。$0&lt;t &lt;1, 0&lt;w&lt;1$ であることに注意する。</span>
 <span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>f_{T}(t)&amp;= \int_{-\infty}^{\infty} f_{T,W}(t,w)dw<span class="sc">\\</span></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>&amp;=\int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw<span class="sc">\\</span></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>&amp;=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw<span class="sc">\\</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>f_{T}(t)&amp;= \int_{-\infty}^{\infty} f_{T,W}(t,w)dw\\</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>&amp;=\int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>&amp;=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\</span>
 <span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}</span>
 <span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
 <span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
@@ -1068,9 +1068,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>f_{W}(w) = \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}</span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>よって、$f_{T,W}(t,w)=f_{T}(t)f_{W}(w)$により$T,W$は独立で、$T \sim Beta(a+c,b), W \sim Beta(a,c)$に従う。</span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>よって、$f_{T,W}(t,w)=f_{T}(t)f_{W}(w)$により$T,W$は独立で、$T \sim Beta(a+c,b), W \sim Beta(a,c)$に従う。</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

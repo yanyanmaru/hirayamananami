@@ -59,7 +59,7 @@ $${#eq-one}
 
 1. @eq-one より$x,y$の同時確率密度関数を求める。
 2. $V=X+Y,W=Y$とした時に、$V,W$の同時確率密度関数に変数変換する。
-3. 同時確率密度関数から$V$の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。
+3. 同時確率密度関数から$V$の周辺確率密度関数がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。
    
 :::
 
@@ -92,22 +92,22 @@ $${#eq-two}
 
 #### **2. $V=X+Y,W=Y$とした時に、$V,W$の同時確率密度関数に変数変換する。**
 
-$V=X+Y,W=Y$とする。（おそらくあとで$V$の周辺分布を求める時に$W=Y$やと微分しやすいから？）
+$V=X+Y,W=Y$とする。（おそらくあとで$V$の周辺確率密度関数を求める時に$W=Y$やと微分しやすいから？）
 
 $x=v-w,y=w$となる。
 
 よってヤコビアンを求めると、
 
 $$
-J = \frac{\partial (x, y)}{\partial (v, w)}=
-\begin{pmatrix}
+J((v, w) \rightarrow (x, y)) =
+\begin{vmatrix}
 \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
 \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w}
-\end{pmatrix}=
-\begin{pmatrix}
+\end{vmatrix}=
+\begin{vmatrix}
 1 & -1 \\
 0 & 1
-\end{pmatrix}=1
+\end{vmatrix}=1
 $$
 
 となる。
@@ -121,7 +121,7 @@ $$
 
 
 $$
-f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}
+f_{V,W}(v,w)=C (v-w)^{a-1}w^{b-1}(1-v)^{c-1}, \quad 0 < w < v
 $${#eq-three}
 
 
@@ -129,16 +129,16 @@ $${#eq-three}
 
 :::
 
-#### **3. 同時確率密度関数から$V$の周辺分布がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。**
+#### **3. 同時確率密度関数から$V$の周辺確率密度関数がもとまり、これはX+Yの確率密度関数となるので分布がもとまる。**
 
-@eq-three の$V,W$の同時確率密度関数から、$V$の周辺分布がもとまる。
+@eq-three の$V,W$の同時確率密度関数から、$V$の周辺確率密度関数がもとまる。
 
 \begin{align}
 f_V(v)&=\int_0^v f_{V,W}(v,w)dw\\
 &= C (1-v)^{c-1} \int_0^v (v-w)^{a-1}w^{b-1} dw
 \end{align}
 
-この周辺分布から確率分布を求めていく。
+この周辺確率密度関数から確率分布を求めていく。
 
 ::: {.extra-space3}
 
@@ -170,15 +170,15 @@ f_V(v)
 $T=Y,W=X/(1-Y)$とおくと、$Y=T,X=(1-T)W$となる。ヤコビアンは
 
 $$
-J = \frac{\partial (x, y)}{\partial (w, t)}=
-\begin{pmatrix}
+J((w, t) \rightarrow (x, y))
+\begin{vmatrix}
 \frac{\partial x}{\partial w} & \frac{\partial x}{\partial t} \\
 \frac{\partial y}{\partial w} & \frac{\partial y}{\partial t}
-\end{pmatrix}=
-\begin{pmatrix}
+\end{vmatrix}=
+\begin{vmatrix}
 1-t & -w \\
 0 & 1
-\end{pmatrix}=1-t
+\end{vmatrix}=1-t
 $$
 
 となる。
@@ -196,12 +196,12 @@ f_{T,W}(t,w)&=C((1-t)w)^{a-1} t^{b-1} (1-w(1-t)-t)^{c-1} (1-t) \\
 &= \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} 
 \end{align}
 
-それぞれの周辺分布を求めます。
+それぞれの周辺確率密度関数を求めます。$0<t <1, 0<w<1$ であることに注意する。
 
 \begin{align}
 f_{T}(t)&= \int_{-\infty}^{\infty} f_{T,W}(t,w)dw\\
-&=\int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\
-&=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\
+&=\int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\
+&=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\
 &= \frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}
 \end{align}
 
@@ -212,6 +212,4 @@ f_{W}(w) = \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}
 $$
 
 よって、$f_{T,W}(t,w)=f_{T}(t)f_{W}(w)$により$T,W$は独立で、$T \sim Beta(a+c,b), W \sim Beta(a,c)$に従う。
-
-
 
