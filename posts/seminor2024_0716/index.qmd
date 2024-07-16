@@ -1,0 +1,169 @@
+---
+title: "7月16日「データ解析のための数理統計入門」第4章 4の例18から"
+format:
+  html: default
+  revealjs:
+    output-file: page-reveal.html
+    smaller: true
+    scrollable: true
+    chalkboard: true
+    html-math-method: mathjax
+code-fold: true
+reference-location: margin
+citation-location: margin
+date: 2024/07/16
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+# 例4.18　ガンマ分布
+
+$Ga(\alpha, \beta)$ について積率母関数を求める。
+
+## ガンマ分布の積率母関数
+$M_X(t)$ 積率母関数を求める。
+
+\begin{align}
+M_X(t)=E[e^{tX}]&=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
+&=\int^{\infty}_0 e^{tx} \frac{x^{\alpha-1} e^{-x/\beta}}{\Gamma(\alpha) \beta^{\alpha}} dx \\
+&= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) \beta^{\alpha}} dx \\
+&= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} (1-\beta t)^{\alpha}} dx \\
+&=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx 
+\end{align}
+
+$(1-\beta t)>0$のとき、確率密度関数の無限大までの和と考えることができるので、積分部分は1になる。
+
+よって積率母関数は $(1-\beta t)^{-\alpha}$ である。
+
+::: {.extra-space3}
+
+:::
+
+
+$$
+M^{\prime}_X(t)= (-\alpha)(-\beta)  (1-\beta t)^{-\alpha-1}=\alpha \beta  (1-\beta t)^{-\alpha-1}
+$$
+
+$$
+M^{\prime \prime}_X(t)= (-\alpha-1)(-\beta) \alpha \beta  (1-\beta t)^{-\alpha-2}=\alpha (\alpha+1)\beta^2 (1-\beta t)^{-\alpha-2}
+$$
+
+::: {.extra-space3}
+
+:::
+
+$$
+E[X]= M^{\prime}_X(0)=\alpha \beta
+$$
+
+$$
+E[X^2]=M^{\prime \prime}_X(0)= \alpha (\alpha+1)\beta^2 
+$$
+
+$$
+Var[X]=E[X^2]-E[X]^2= \alpha (\alpha+1)\beta^2 - \alpha^2 \beta^2= \alpha\beta^2
+$$
+
+
+
+# 例4.19 正規分布
+
+正規分布$N(\mu, \sigma^2)$の積率母関数を求める。
+
+\begin{align}
+M_X(t)=E[e^{tX}]&=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
+&=\int^{\infty}_{-\infty} e^{tx} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{- \frac{(x-\mu)^2}{2\sigma^2}\right\} dx \\
+&=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{tx- \frac{(x-\mu)^2}{2\sigma^2}\right\} dx \\
+&=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{-\frac{x^2-2\mu x +\mu^2-2\sigma^2tx}{2\sigma^2}\right\} dx \\
+&=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma } \exp\left\{-\frac{(x-(\mu+\sigma^2t))^2-2\mu\sigma^2t-\sigma^4t^2}{2\sigma^2}\right\} dx \\
+&=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{-\frac{(x-(\mu+\sigma^2t))^2}{2\sigma^2} +\mu t +\frac{\sigma^2 t^2}{2}\right\} dx \\
+&=\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{-\frac{(x-(\mu+\sigma^2t))^2}{2\sigma^2} \right\} dx \\
+&=\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)
+\end{align}
+
+$$
+M^{\prime}_X(t)=  (\mu +\sigma^2 t)\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)
+$$
+
+\begin{align}
+M^{\prime \prime}_X(t)&=  (\mu +\sigma^2 t)^{\prime} \exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)+(\mu +\sigma^2 t)\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)^{\prime} \\
+&=\sigma^2 \exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)+(\mu +\sigma^2 t)^2\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)^{\prime} \\
+&=(\sigma^2+(\mu +\sigma^2 t)^2)\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)
+\end{align}
+
+$$
+E[X]= M^{\prime}_X(0)=\mu
+$$
+
+$$
+E[X^2]=M^{\prime \prime}_X(0)= \sigma^2+\mu^2
+$$
+
+$$
+Var[X]=E[X^2]-E[X]^2= \sigma^2+\mu^2 - \mu^2= \sigma^2
+$$
+
+# 分布の再生性
+
+確率変数の和の分布を求めるのに畳み込みの方法を例 3.7 で説明した。多くの連続確率分布に利用可能ではあるが，一般に積分を計算するのが大変である。上の例で扱った確率分布については，積率母関数を用いることによって和の分布を容易に求めることができる。 $X$ と $Y$ が独立に分布し，それぞれの積率母関数を $M_X(t), M_Y(t)$ とする。このとき， $X + Y$ の積率母関数は
+$$
+M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX}]E[e^{tY}] = M_X(t) M_Y(t) \tag{4.9}
+$$
+
+と表される。したがって積率母関数が $M_X(t) M_Y(t)$ になるような分布を見つけることができれば，命題 4.14 より分布を特定することができる。 $X + Y$ の分布が $X, Y$ と同じ分布族に入ることを分布の再生性と呼ぶ。（4.9）を用いると，このことを示すことができる。
+
+# 命題4.20(分布の再生性)　
+
+確率変数 $X$ と $Y$ が独立に分布する。
+
+\begin{align*}
+(1) \quad & X \sim Bin(m, p), \quad Y \sim Bin(n, p) \implies X + Y \sim Bin(m+n, p) \\
+(2) \quad & X \sim Po(\lambda_1), \quad Y \sim Po(\lambda_2) \implies X + Y \sim Po(\lambda_1 + \lambda_2) \\
+(3) \quad & X \sim NBin(r_1, p), \quad Y \sim NBin(r_2, p) \implies X + Y \sim NBin(r_1 + r_2, p) \\
+(4) \quad & X \sim \mathcal{N}(\mu_1, \sigma_1^2), \quad Y \sim \mathcal{N}(\mu_2, \sigma_2^2) \implies X + Y \sim \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \\
+(5) \quad & X \sim Ga(\alpha_1, \beta), \quad Y \sim Ga(\alpha_2, \beta) \implies X + Y \sim Ga(\alpha_1 + \alpha_2, \beta)
+\end{align*}
+
+⑴
+
+\begin{align}
+M_X(t)M_Y(t) &= (pe^t+1-p)^n(pe^t+1-p)^m \\
+&=(pe^t+1-p)^{n+m}
+\end{align}
+
+よって$M_{X+Y}(t)=M_X(t)M_Y(t)=(pe^t+1-p)^{n+m}$になるため、和の分布は二項分布に従うことがわかる。また、和の分布は再生性を持つ。
+
+⑵
+
+
+\begin{align}
+M_X(t)M_Y(t) &= \exp \left\{ \left( e^t - 1 \right) \lambda_1 \right\} \exp \left\{ \left( e^t - 1 \right) \lambda_2 \right\} \\
+&= \exp \left\{ \left( e^t - 1 \right) (\lambda_1 + \lambda_2 )\right\} 
+\end{align}
+
+⑶
+
+負の二項分布はとーばそ
+
+⑷
+
+\begin{align}
+    M_X(t)M_Y(t) &= \exp\left( \mu_1 t + \frac{\sigma_1^2 t^2}{2} \right) \exp\left( \mu_2 t + \frac{\sigma_2^2 t^2}{2} \right) \\
+    &= \exp\left\{ (\mu_1 + \mu_2) t + \frac{\sigma_1^2 + \sigma_2^2}{2} t^2 \right\}
+\end{align}
+
+⑸
+
+\begin{align}
+M_X(t)M_Y(t) &= (1-\beta t)^{-\alpha_1}(1-\beta t)^{-\alpha_2} \\
+&=(1-\beta t)^{-(\alpha_1+\alpha_2)}
+\end{align}
+
+
+
+

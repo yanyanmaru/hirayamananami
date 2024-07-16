@@ -2,7 +2,6 @@
   {
     "listing": "/project.html",
     "items": [
-      "/projects/first_manim/index.html",
       "/projects/free-wifi-kobe/index.html",
       "/projects/monti/index.html",
       "/projects/university/index.html"
@@ -11,6 +10,7 @@
   {
     "listing": "/post.html",
     "items": [
+      "/posts/seminor2024_0716/index.html",
       "/posts/seminor2024_0709/index.html",
       "/posts/data_math3_quest/index.html",
       "/posts/data_math2_quest/index.html",

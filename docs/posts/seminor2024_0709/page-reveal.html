@@ -488,11 +488,11 @@ f_{T,W}(t,w)&amp;=C((1-t)w)^{a-1} t^{b-1} (1-w(1-t)-t)^{c-1} (1-t) \\
 &amp;= \frac{\Gamma(a+b+c)}{\Gamma(a)\Gamma(b)\Gamma(c)} w^{a-1} (1-w)^{c-1} t^{b-1}  (1-t)^{a+c-1} \\
 &amp;= \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}
 \end{align}\]</span></p>
-<p>それぞれの周辺確率密度関数を求めます。</p>
+<p>それぞれの周辺確率密度関数を求めます。<span class="math inline">\(0&lt;t &lt;1, 0&lt;w&lt;1\)</span> であることに注意する。</p>
 <p><span class="math display">\[\begin{align}
 f_{T}(t)&amp;= \int_{-\infty}^{\infty} f_{T,W}(t,w)dw\\
-&amp;=\int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\
-&amp;=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{-\infty}^{\infty} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\
+&amp;=\int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} dw\\
+&amp;=\frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1} \int_{0}^{1} \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1} dw\\
 &amp;= \frac{\Gamma(a+b+c)}{\Gamma(b)\Gamma(a+c)} t^{b-1}  (1-t)^{a+c-1}
 \end{align}\]</span></p>
 <p>同様に</p>
@@ -500,10 +500,6 @@ f_{T}(t)&amp;= \int_{-\infty}^{\infty} f_{T,W}(t,w)dw\\
 f_{W}(w) = \frac{\Gamma(a+c)}{\Gamma(a)\Gamma(c)} w^{a-1} (1-w)^{c-1}
 \]</span></p>
 <p>よって、<span class="math inline">\(f_{T,W}(t,w)=f_{T}(t)f_{W}(w)\)</span>により<span class="math inline">\(T,W\)</span>は独立で、<span class="math inline">\(T \sim Beta(a+c,b), W \sim Beta(a,c)\)</span>に従う。</p>
-<div class="extra-space3">
-
-</div>
-<p>追記：ベータ分布に従うことをいう時、<span class="math inline">\(0&lt;t &lt;1, 0&lt;w&lt;1\)</span> を言わないといけないかも</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="en"><head>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -10,8 +10,8 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.47">
 
-  <meta name="dcterms.date" content="2024-07-06">
-  <title>Hirayama Nanami – 「データ解析のための数理統計入門」第2章 詰まったところ集</title>
+  <meta name="dcterms.date" content="2024-07-16">
+  <title>Hirayama Nanami – 7月16日「データ解析のための数理統計入門」第4章 4の例18から</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -329,90 +329,47 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">「データ解析のための数理統計入門」第2章 詰まったところ集</h1>
+  <h1 class="title">7月16日「データ解析のための数理統計入門」第4章 4の例18から</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-07-06</p>
+  <p class="date">2024-07-16</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
-<h2 id="toc-title">目次</h2>
+<h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#/第二章-確率変数と確率分布" id="/toc-第二章-確率変数と確率分布">第二章　確率変数と確率分布</a>
+<li><a href="#/例4.18-ガンマ分布" id="/toc-例4.18-ガンマ分布">例4.18　ガンマ分布</a>
 <ul>
-<li><a href="#/用語系" id="/toc-用語系">用語系</a>
-<ul>
-<li><a href="#/用語系" id="/toc-具体例">具体例</a></li>
+<li><a href="#/ガンマ分布の積率母関数" id="/toc-ガンマ分布の積率母関数">ガンマ分布の積率母関数</a></li>
 </ul></li>
-</ul></li>
+<li><a href="#/introduction" id="/toc-introduction">Introduction</a></li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="第二章-確率変数と確率分布" class="title-slide slide level1 center">
-<h1>第二章　確率変数と確率分布</h1>
-
+<section id="例4.18-ガンマ分布" class="title-slide slide level1 center">
+<h1>例4.18　ガンマ分布</h1>
+<p><span class="math inline">\(Ga(\alpha, \beta)\)</span> について積率母関数を求める。</p>
 </section>
-<section id="用語系" class="slide level2">
-<h2>用語系</h2>
-<div id="nte-one">
-<div id="nte-one" class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>離散確率変数の期待値</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-E[g(X)]= \sum_{i=1}^\infty g(x_i)p(x_i)
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<div id="nte-one">
-<div id="nte-one" class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>ベルヌーイ分布(<span class="math inline">\(Ber(p)\)</span>)</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math inline">\(0\)</span>と<span class="math inline">\(1\)</span>しかとらない確率変数を<strong>ベルヌーイ確率変数</strong>という。</p>
-<p><span class="math inline">\(X\)</span>をベルヌーイ確率変数とし、<span class="math inline">\(P(X=1)=p\)</span>とすると、</p>
-<p><span class="math display">\[
-p(x)=p^x (1-p)^{1-x}, x=0,1
-\]</span></p>
-<div class="extra-space2">
-
-</div>
-<p>平均:</p>
-<p><span class="math display">\[
-\mu = E[X]= \sum_{i=1}^2 g(x_i)p(x_i)= 0 \times (1-p) + 1 \times p = p
-\]</span></p>
-<p>分散：</p>
-<p><span class="math display">\[
-Var(X)=E[X^2]-E[X]^2= \sum_{i=1}^2 g(x_i^2)p(x_i) -p^2=0^2 \times (1-p) + 1^2 \times p-p^2=p(1-p)
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<h3 id="具体例">具体例</h3>
-<p>表と裏が出るコインはベルヌーイ分布に従う。</p>
-<p>表が出たら<span class="math inline">\(0\)</span>,裏が出たら<span class="math inline">\(1\)</span>とする確率変数とし、表が出る確率<span class="math inline">\(p=1/2\)</span>とすると、<span class="math inline">\(P(X=1)\)</span>は表が出る確率となる。</p>
-<p><span class="math display">\[
-P(X=1)=(1/2)^1 (1/2)^{1-1}=1/2
-\]</span></p>
-<p>シンプルですね。</p>
-
-<img data-src="https://mathlandscape.com/wp-content/uploads/2021/05/bernoulli-distrib.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">イメージ！</p><div class="extra-space3">
-
+<section id="ガンマ分布の積率母関数" class="slide level2">
+<h2>ガンマ分布の積率母関数</h2>
+<p>M_X(t)[1]を求める。</p>
+<p><span class="math display">\[\begin{align}
+M_X(t)=E[e^{tX}]&amp;=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
+&amp;=\int^{\infty}_0 e^{tx} \frac{x^{\alpha-1} e^{-x/\beta}}{\Gamma(\alpha) \beta^{\alpha}} dx \\
+&amp;= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) \beta^{\alpha}} dx \\
+&amp;= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} (1-\beta t)^{\alpha}} dx \\
+&amp;=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx \\
+&amp;= (1-\beta t)^{-\alpha}
+\end{align}\]</span></p>
+</section></section>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+<p>This document demonstrates the use of a number of advanced page layout features to produce an attractive and usable document inspired by the Tufte handout style and the use of Tufte’s styles in RMarkdown documents <span class="citation" data-cites="xie2018">[@xie2018]</span>. The Tufte handout style is a style that Edward Tufte uses in his books and handouts. Tufte’s style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography. Quarto supports most of the layout techniques that are used in the Tufte handout style for both HTML and LaTeX/PDF output.</p>
+<div class="column-margin">
+<p>We know from <em>the first fundamental theorem of calculus</em> that for <span class="math inline">\(x\)</span> in <span class="math inline">\([a, b]\)</span>:</p>
+<p><span class="math display">\[\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).\]</span></p>
 </div>
 
 <div class="quarto-auto-generated-content">
@@ -420,7 +377,7 @@ P(X=1)=(1/2)^1 (1/2)^{1-1}=1/2
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -607,7 +564,7 @@ P(X=1)=(1/2)^1 (1/2)^{1-1}=1/2
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -673,12 +630,12 @@ P(X=1)=(1/2)^1 (1/2)^{1-1}=1/2
         // flash "checked"
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "コピーしました");
+        button.setAttribute("title", "Copied!");
         let tooltip;
         if (window.bootstrap) {
           button.setAttribute("data-bs-toggle", "tooltip");
           button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "コピーしました");
+          button.setAttribute("data-bs-title", "Copied!");
           tooltip = new bootstrap.Tooltip(button, 
             { trigger: "manual", 
               customClass: "code-copy-button-tooltip",

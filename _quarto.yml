@@ -16,6 +16,9 @@ format:
     css: styles.css
     # javascript: script.js
     toc: true
+    grid:
+      margin-width: 450px
+    
   # revealjs:
   #   slide-number: true
   #   toc: true
