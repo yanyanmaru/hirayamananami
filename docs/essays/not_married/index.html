@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "サーチ"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -146,21 +149,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#興味があること" id="toc-興味があること" class="nav-link active" data-scroll-target="#興味があること">興味があること</a></li>
-  <li><a href="#モチベーション" id="toc-モチベーション" class="nav-link" data-scroll-target="#モチベーション">モチベーション</a></li>
+  <li><a href="#未婚率について" id="toc-未婚率について" class="nav-link active" data-scroll-target="#未婚率について">未婚率について</a></li>
+  <li><a href="#大まかな未婚率のデータについて" id="toc-大まかな未婚率のデータについて" class="nav-link" data-scroll-target="#大まかな未婚率のデータについて">大まかな未婚率のデータについて</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">未婚率について</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> コード</button></div></div>
-  <div class="quarto-categories">
-    <div class="quarto-category">興味</div>
-  </div>
-  </div>
+<div class="quarto-title-block"><div><h1 class="title">未婚率について</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> コード</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">すべてのコードを表示</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">すべてのコードを非表示</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">ソースコードを表示</a></li></ul></div></div>
+</div>
 
 
 
@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024年7月3日</p>
+      <p class="date">2024年7月21日</p>
     </div>
   </div>
   
@@ -182,16 +182,390 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="興味があること" class="level1">
-<h1>興味があること</h1>
-<ol type="1">
-<li>未婚率の地域性</li>
-<li>未婚率の要因</li>
-</ol>
+<section id="未婚率について" class="level1">
+<h1>未婚率について</h1>
+<p>未婚率は出生率の要因の一つと考えられており、出生率を上げるためには未婚率を下げることが不可欠である。</p>
+<p>未婚率は年々上昇している。未婚率の上昇要因は複雑でさまざまな要因が考えられているが、その１つに女性の社会的地位の向上が挙げられる。</p>
+<p>男性と女性は1対1で結婚するため、男性と女性の地域的な未婚率には大きな相関関係が見られそうである。しかし、男性と女性の相関係数はそこまで高くなく、また地域的に一方は高く一方は低い地域も見られた。</p>
+<p>男女の未婚率の要因は違うことが考えられ、男女差と地域差を表すことがモチベーションである。またその地域差男女差が何に由来するものかまで知るところまでは行きたい。</p>
 </section>
-<section id="モチベーション" class="level1">
-<h1>モチベーション</h1>
-<p>未婚化の原因はさまざまである。 そこには地域性も含まれており、さまざまな説明変数から重要度が高いものを抽出し、クラスタリングすることで地域類型をすることができる。</p>
+<section id="大まかな未婚率のデータについて" class="level1">
+<h1>大まかな未婚率のデータについて</h1>
+<p>データはeStatから取得した。</p>
+<p>未婚者数は5年に一度調査しているらしく、最新のものでも2020年であったため、他のデータも2020年に合わせる。</p>
+<div id="745ae789" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> pd.read_csv(<span class="st">"./data/data1.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'調査年'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'/項目'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.1'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.2'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.3'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.4'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.5'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.rename(columns<span class="op">=</span>{</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601031_未婚人口（25～29歳）（男）【人】'</span>: <span class="st">'25_29_man'</span>, </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601032_未婚人口（25～29歳）（女）【人】'</span>: <span class="st">'25_29_woman'</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601041_未婚人口（30～34歳）（男）【人】'</span>: <span class="st">'30_34_man'</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601042_未婚人口（30～34歳）（女）【人】'</span>: <span class="st">'30_34_woman'</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601051_未婚人口（35～39歳）（男）【人】'</span>: <span class="st">'35_39_man'</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601052_未婚人口（35～39歳）（女）【人】'</span>: <span class="st">'35_39_woman'</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'25_29_man'</span>] <span class="op">=</span> data1[<span class="st">'25_29_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'25_29_woman'</span>] <span class="op">=</span> data1[<span class="st">'25_29_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'30_34_man'</span>] <span class="op">=</span> data1[<span class="st">'30_34_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'30_34_woman'</span>] <span class="op">=</span> data1[<span class="st">'30_34_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'35_39_man'</span>] <span class="op">=</span> data1[<span class="st">'35_39_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'35_39_woman'</span>] <span class="op">=</span> data1[<span class="st">'35_39_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">"25_34_39_man"</span>]<span class="op">=</span>data1[<span class="st">"25_29_man"</span>]<span class="op">+</span>data1[<span class="st">"30_34_man"</span>]<span class="op">+</span>data1[<span class="st">"35_39_man"</span>]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">"25_34_39_woman"</span>]<span class="op">=</span>data1[<span class="st">"25_29_woman"</span>]<span class="op">+</span>data1[<span class="st">"30_34_woman"</span>]<span class="op">+</span>data1[<span class="st">"35_39_woman"</span>]</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'25_29_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'30_34_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'35_39_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'25_29_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'30_34_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'35_39_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>data1.head()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">地域</th>
+<th data-quarto-table-cell-role="th">25_34_39_man</th>
+<th data-quarto-table-cell-role="th">25_34_39_woman</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>北海道</td>
+<td>172737</td>
+<td>142471</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>青森県</td>
+<td>43748</td>
+<td>30961</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>岩手県</td>
+<td>42646</td>
+<td>29731</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>宮城県</td>
+<td>86883</td>
+<td>68589</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>秋田県</td>
+<td>31816</td>
+<td>21902</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>未婚者数のデータは取得したものの、人口数に依存するので、割合で考えるため人口を取得し割合で考える。</p>
+<div id="046fd900" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> pd.read_csv(<span class="st">"./data/data2.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'調査年'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'/項目'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.1'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.2'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.3'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.4'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.5'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.rename(columns<span class="op">=</span>{</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120601_25～29歳人口（男）【人】'</span>: <span class="st">'25_29_all_man'</span>, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120602_25～29歳人口（女）【人】'</span>: <span class="st">'25_29_all_woman'</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120701_30～34歳人口（男）【人】'</span>: <span class="st">'30_34_all_man'</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120702_30～34歳人口（女）【人】'</span>: <span class="st">'30_34_all_woman'</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120801_35～39歳人口（男）【人】'</span>: <span class="st">'35_39_all_man'</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120802_35～39歳人口（女）【人】'</span>: <span class="st">'35_39_all_woman'</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'25_29_all_man'</span>] <span class="op">=</span> data2[<span class="st">'25_29_all_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'25_29_all_woman'</span>] <span class="op">=</span> data2[<span class="st">'25_29_all_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'30_34_all_man'</span>] <span class="op">=</span> data2[<span class="st">'30_34_all_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'30_34_all_woman'</span>] <span class="op">=</span> data2[<span class="st">'30_34_all_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'35_39_all_man'</span>] <span class="op">=</span> data2[<span class="st">'35_39_all_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'35_39_all_woman'</span>] <span class="op">=</span> data2[<span class="st">'35_39_all_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">"25_34_39_all_man"</span>]<span class="op">=</span>data2[<span class="st">"25_29_all_man"</span>]<span class="op">+</span>data2[<span class="st">"30_34_all_man"</span>]<span class="op">+</span>data2[<span class="st">"35_39_all_man"</span>]</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">"25_34_39_all_woman"</span>]<span class="op">=</span>data2[<span class="st">"25_29_all_woman"</span>]<span class="op">+</span>data2[<span class="st">"30_34_all_woman"</span>]<span class="op">+</span>data2[<span class="st">"35_39_all_woman"</span>]</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'25_29_all_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'30_34_all_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'35_39_all_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'25_29_all_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'30_34_all_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'35_39_all_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>merge_data <span class="op">=</span> pd.merge(data1, data2, on<span class="op">=</span><span class="st">'地域'</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>merge_data[<span class="st">"per_25_34_39_man"</span>] <span class="op">=</span> merge_data[<span class="st">"25_34_39_man"</span>]<span class="op">/</span>merge_data[<span class="st">"25_34_39_all_man"</span>]</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>merge_data[<span class="st">"per_25_34_39_woman"</span>] <span class="op">=</span> merge_data[<span class="st">"25_34_39_woman"</span>]<span class="op">/</span>merge_data[<span class="st">"25_34_39_all_woman"</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="ca29ab85" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>merge_data.sort_values(<span class="st">'per_25_34_39_woman'</span>,ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">地域</th>
+<th data-quarto-table-cell-role="th">25_34_39_man</th>
+<th data-quarto-table-cell-role="th">25_34_39_woman</th>
+<th data-quarto-table-cell-role="th">25_34_39_all_man</th>
+<th data-quarto-table-cell-role="th">25_34_39_all_woman</th>
+<th data-quarto-table-cell-role="th">per_25_34_39_man</th>
+<th data-quarto-table-cell-role="th">per_25_34_39_woman</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>奈良県</td>
+<td>42175</td>
+<td>37642</td>
+<td>87102</td>
+<td>92748</td>
+<td>0.484202</td>
+<td>0.405852</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>京都府</td>
+<td>89020</td>
+<td>77827</td>
+<td>187229</td>
+<td>192252</td>
+<td>0.475461</td>
+<td>0.404818</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>高知県</td>
+<td>22069</td>
+<td>17243</td>
+<td>44302</td>
+<td>44279</td>
+<td>0.498149</td>
+<td>0.389417</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>東京都</td>
+<td>599442</td>
+<td>538399</td>
+<td>1415306</td>
+<td>1391891</td>
+<td>0.423542</td>
+<td>0.386811</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>青森県</td>
+<td>43748</td>
+<td>30961</td>
+<td>83462</td>
+<td>80654</td>
+<td>0.524167</td>
+<td>0.383874</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="bb84d6ab" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>merge_data.sort_values(<span class="st">'per_25_34_39_man'</span>,ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">地域</th>
+<th data-quarto-table-cell-role="th">25_34_39_man</th>
+<th data-quarto-table-cell-role="th">25_34_39_woman</th>
+<th data-quarto-table-cell-role="th">25_34_39_all_man</th>
+<th data-quarto-table-cell-role="th">25_34_39_all_woman</th>
+<th data-quarto-table-cell-role="th">per_25_34_39_man</th>
+<th data-quarto-table-cell-role="th">per_25_34_39_woman</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>青森県</td>
+<td>43748</td>
+<td>30961</td>
+<td>83462</td>
+<td>80654</td>
+<td>0.524167</td>
+<td>0.383874</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>秋田県</td>
+<td>31816</td>
+<td>21902</td>
+<td>61092</td>
+<td>57968</td>
+<td>0.520788</td>
+<td>0.377829</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>山梨県</td>
+<td>29826</td>
+<td>19898</td>
+<td>58037</td>
+<td>53705</td>
+<td>0.513914</td>
+<td>0.370506</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>富山県</td>
+<td>38680</td>
+<td>25062</td>
+<td>75395</td>
+<td>68492</td>
+<td>0.513031</td>
+<td>0.365911</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>群馬県</td>
+<td>76133</td>
+<td>49543</td>
+<td>148831</td>
+<td>133974</td>
+<td>0.511540</td>
+<td>0.369796</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="c6613d95" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.plot(merge_data[<span class="st">"地域"</span>], merge_data[<span class="st">"per_25_34_39_man"</span>], marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'男性'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.plot(merge_data[<span class="st">"地域"</span>], merge_data[<span class="st">"per_25_34_39_woman"</span>], marker<span class="op">=</span><span class="st">'s'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'女性'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"25-39歳男性の割合"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"地域"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"割合 (%)"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="662" height="661" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>男女の折れ線グラフは違った分布をしているため、未婚率に貢献する要素は男女によって変わりそうである。</p>
+<p>また男性の未婚割合が高いと女性の未婚割合が低くなるというような単純な関係も読み取れない。（女性の供給不足・男性の供給不足など）</p>
+<div id="fedc873d" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>correlation <span class="op">=</span> merge_data[<span class="st">"per_25_34_39_man"</span>].corr(merge_data[<span class="st">"per_25_34_39_woman"</span>])</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"相関係数: </span><span class="sc">{</span>correlation<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>相関係数: 0.24</code></pre>
+</div>
+</div>
+<p>相関係数は低いですね。</p>
+<div id="367075f1" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the scatter plot</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(merge_data[<span class="st">"per_25_34_39_man"</span>], merge_data[<span class="st">"per_25_34_39_woman"</span>], color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(merge_data)):</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    plt.text(merge_data[<span class="st">"per_25_34_39_man"</span>][i], merge_data[<span class="st">"per_25_34_39_woman"</span>][i], merge_data[<span class="st">"地域"</span>][i], fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"25-39歳男性と女性の割合の相関関係"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"25-39歳男性の割合 (%)"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"25-39歳女性の割合 (%)"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-8-output-1.png" width="609" height="597" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>散布図を描いてみると、東京・大阪・福岡には同じような傾向が見られそうです。京都と奈良も。この五つを除いたら結構相関係数高くなりそうですね。ただ外れ値とも言えないので除外するには適切ではない気がします。</p>
 
 
 <!-- -->
@@ -670,28 +1044,187 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "未婚率について"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  - 興味</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># 興味があること</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>未婚率の地域性</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>未婚率の要因</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># モチベーション</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>未婚化の原因はさまざまである。</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>そこには地域性も含まれており、さまざまな説明変数から重要度が高いものを抽出し、クラスタリングすることで地域類型をすることができる。</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 未婚率について</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># 未婚率について</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>未婚率は出生率の要因の一つと考えられており、出生率を上げるためには未婚率を下げることが不可欠である。</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>未婚率は年々上昇している。未婚率の上昇要因は複雑でさまざまな要因が考えられているが、その１つに女性の社会的地位の向上が挙げられる。</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>男性と女性は1対1で結婚するため、男性と女性の地域的な未婚率には大きな相関関係が見られそうである。しかし、男性と女性の相関係数はそこまで高くなく、また地域的に一方は高く一方は低い地域も見られた。</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>男女の未婚率の要因は違うことが考えられ、男女差と地域差を表すことがモチベーションである。またその地域差男女差が何に由来するものかまで知るところまでは行きたい。</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># 大まかな未婚率のデータについて</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>データはeStatから取得した。</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>未婚者数は5年に一度調査しているらしく、最新のものでも2020年であったため、他のデータも2020年に合わせる。</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> pd.read_csv(<span class="st">"./data/data1.csv"</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'調査年'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'/項目'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.1'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.2'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.3'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.4'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'注釈.5'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.rename(columns<span class="op">=</span>{</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601031_未婚人口（25～29歳）（男）【人】'</span>: <span class="st">'25_29_man'</span>, </span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601032_未婚人口（25～29歳）（女）【人】'</span>: <span class="st">'25_29_woman'</span>,</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601041_未婚人口（30～34歳）（男）【人】'</span>: <span class="st">'30_34_man'</span>,</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601042_未婚人口（30～34歳）（女）【人】'</span>: <span class="st">'30_34_woman'</span>,</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601051_未婚人口（35～39歳）（男）【人】'</span>: <span class="st">'35_39_man'</span>,</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A1601052_未婚人口（35～39歳）（女）【人】'</span>: <span class="st">'35_39_woman'</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'25_29_man'</span>] <span class="op">=</span> data1[<span class="st">'25_29_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'25_29_woman'</span>] <span class="op">=</span> data1[<span class="st">'25_29_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'30_34_man'</span>] <span class="op">=</span> data1[<span class="st">'30_34_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'30_34_woman'</span>] <span class="op">=</span> data1[<span class="st">'30_34_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'35_39_man'</span>] <span class="op">=</span> data1[<span class="st">'35_39_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'35_39_woman'</span>] <span class="op">=</span> data1[<span class="st">'35_39_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">"25_34_39_man"</span>]<span class="op">=</span>data1[<span class="st">"25_29_man"</span>]<span class="op">+</span>data1[<span class="st">"30_34_man"</span>]<span class="op">+</span>data1[<span class="st">"35_39_man"</span>]</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">"25_34_39_woman"</span>]<span class="op">=</span>data1[<span class="st">"25_29_woman"</span>]<span class="op">+</span>data1[<span class="st">"30_34_woman"</span>]<span class="op">+</span>data1[<span class="st">"35_39_woman"</span>]</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'25_29_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'30_34_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'35_39_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'25_29_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'30_34_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1.drop(<span class="st">'35_39_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>data1.head()</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>未婚者数のデータは取得したものの、人口数に依存するので、割合で考えるため人口を取得し割合で考える。</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> pd.read_csv(<span class="st">"./data/data2.csv"</span>)</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'調査年'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'/項目'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.1'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.2'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.3'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.4'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'注釈.5'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.rename(columns<span class="op">=</span>{</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120601_25～29歳人口（男）【人】'</span>: <span class="st">'25_29_all_man'</span>, </span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120602_25～29歳人口（女）【人】'</span>: <span class="st">'25_29_all_woman'</span>,</span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120701_30～34歳人口（男）【人】'</span>: <span class="st">'30_34_all_man'</span>,</span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120702_30～34歳人口（女）【人】'</span>: <span class="st">'30_34_all_woman'</span>,</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120801_35～39歳人口（男）【人】'</span>: <span class="st">'35_39_all_man'</span>,</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A120802_35～39歳人口（女）【人】'</span>: <span class="st">'35_39_all_woman'</span></span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'25_29_all_man'</span>] <span class="op">=</span> data2[<span class="st">'25_29_all_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'25_29_all_woman'</span>] <span class="op">=</span> data2[<span class="st">'25_29_all_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'30_34_all_man'</span>] <span class="op">=</span> data2[<span class="st">'30_34_all_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'30_34_all_woman'</span>] <span class="op">=</span> data2[<span class="st">'30_34_all_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'35_39_all_man'</span>] <span class="op">=</span> data2[<span class="st">'35_39_all_man'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">'35_39_all_woman'</span>] <span class="op">=</span> data2[<span class="st">'35_39_all_woman'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">"25_34_39_all_man"</span>]<span class="op">=</span>data2[<span class="st">"25_29_all_man"</span>]<span class="op">+</span>data2[<span class="st">"30_34_all_man"</span>]<span class="op">+</span>data2[<span class="st">"35_39_all_man"</span>]</span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>data2[<span class="st">"25_34_39_all_woman"</span>]<span class="op">=</span>data2[<span class="st">"25_29_all_woman"</span>]<span class="op">+</span>data2[<span class="st">"30_34_all_woman"</span>]<span class="op">+</span>data2[<span class="st">"35_39_all_woman"</span>]</span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'25_29_all_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'30_34_all_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'35_39_all_man'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'25_29_all_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'30_34_all_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> data2.drop(<span class="st">'35_39_all_woman'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>merge_data <span class="op">=</span> pd.merge(data1, data2, on<span class="op">=</span><span class="st">'地域'</span>)</span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>merge_data[<span class="st">"per_25_34_39_man"</span>] <span class="op">=</span> merge_data[<span class="st">"25_34_39_man"</span>]<span class="op">/</span>merge_data[<span class="st">"25_34_39_all_man"</span>]</span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>merge_data[<span class="st">"per_25_34_39_woman"</span>] <span class="op">=</span> merge_data[<span class="st">"25_34_39_woman"</span>]<span class="op">/</span>merge_data[<span class="st">"25_34_39_all_woman"</span>]</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>merge_data.sort_values(<span class="st">'per_25_34_39_woman'</span>,ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>)</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>merge_data.sort_values(<span class="st">'per_25_34_39_man'</span>,ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>)</span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a>plt.plot(merge_data[<span class="st">"地域"</span>], merge_data[<span class="st">"per_25_34_39_man"</span>], marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'男性'</span>)</span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>plt.plot(merge_data[<span class="st">"地域"</span>], merge_data[<span class="st">"per_25_34_39_woman"</span>], marker<span class="op">=</span><span class="st">'s'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'女性'</span>)</span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"25-39歳男性の割合"</span>)</span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"地域"</span>)</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"割合 (%)"</span>)</span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a>男女の折れ線グラフは違った分布をしているため、未婚率に貢献する要素は男女によって変わりそうである。</span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a>また男性の未婚割合が高いと女性の未婚割合が低くなるというような単純な関係も読み取れない。（女性の供給不足・男性の供給不足など）</span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a>correlation <span class="op">=</span> merge_data[<span class="st">"per_25_34_39_man"</span>].corr(merge_data[<span class="st">"per_25_34_39_woman"</span>])</span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"相関係数: </span><span class="sc">{</span>correlation<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>相関係数は低いですね。</span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> japanize_matplotlib</span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the scatter plot</span></span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a>plt.scatter(merge_data[<span class="st">"per_25_34_39_man"</span>], merge_data[<span class="st">"per_25_34_39_woman"</span>], color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(merge_data)):</span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a>    plt.text(merge_data[<span class="st">"per_25_34_39_man"</span>][i], merge_data[<span class="st">"per_25_34_39_woman"</span>][i], merge_data[<span class="st">"地域"</span>][i], fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"25-39歳男性と女性の割合の相関関係"</span>)</span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"25-39歳男性の割合 (%)"</span>)</span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"25-39歳女性の割合 (%)"</span>)</span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a>散布図を描いてみると、東京・大阪・福岡には同じような傾向が見られそうです。京都と奈良も。この五つを除いたら結構相関係数高くなりそうですね。ただ外れ値とも言えないので除外するには適切ではない気がします。</span>
+</code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

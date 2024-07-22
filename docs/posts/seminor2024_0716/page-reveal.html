@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="ja"><head>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -337,13 +337,15 @@
   <p class="date">2024-07-16</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
-<h2 id="toc-title">Table of contents</h2>
+<h2 id="toc-title">目次</h2>
 <ul>
 <li><a href="#/例4.18-ガンマ分布" id="/toc-例4.18-ガンマ分布">例4.18　ガンマ分布</a>
 <ul>
 <li><a href="#/ガンマ分布の積率母関数" id="/toc-ガンマ分布の積率母関数">ガンマ分布の積率母関数</a></li>
 </ul></li>
-<li><a href="#/introduction" id="/toc-introduction">Introduction</a></li>
+<li><a href="#/例4.19-正規分布" id="/toc-例4.19-正規分布">例4.19 正規分布</a></li>
+<li><a href="#/分布の再生性" id="/toc-分布の再生性">分布の再生性</a></li>
+<li><a href="#/命題4.20分布の再生性" id="/toc-命題4.20分布の再生性">命題4.20(分布の再生性)　</a></li>
 </ul>
 </nav>
 </section>
@@ -354,23 +356,111 @@
 </section>
 <section id="ガンマ分布の積率母関数" class="slide level2">
 <h2>ガンマ分布の積率母関数</h2>
-<p>M_X(t)[1]を求める。</p>
+<p><span class="math inline">\(M_X(t)\)</span> 積率母関数を求める。</p>
 <p><span class="math display">\[\begin{align}
 M_X(t)=E[e^{tX}]&amp;=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
 &amp;=\int^{\infty}_0 e^{tx} \frac{x^{\alpha-1} e^{-x/\beta}}{\Gamma(\alpha) \beta^{\alpha}} dx \\
 &amp;= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) \beta^{\alpha}} dx \\
 &amp;= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} (1-\beta t)^{\alpha}} dx \\
-&amp;=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx \\
-&amp;= (1-\beta t)^{-\alpha}
+&amp;=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx
 \end{align}\]</span></p>
-</section></section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction</h1>
-<p>This document demonstrates the use of a number of advanced page layout features to produce an attractive and usable document inspired by the Tufte handout style and the use of Tufte’s styles in RMarkdown documents <span class="citation" data-cites="xie2018">[@xie2018]</span>. The Tufte handout style is a style that Edward Tufte uses in his books and handouts. Tufte’s style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography. Quarto supports most of the layout techniques that are used in the Tufte handout style for both HTML and LaTeX/PDF output.</p>
-<div class="column-margin">
-<p>We know from <em>the first fundamental theorem of calculus</em> that for <span class="math inline">\(x\)</span> in <span class="math inline">\([a, b]\)</span>:</p>
-<p><span class="math display">\[\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).\]</span></p>
+<p><span class="math inline">\((1-\beta t)&gt;0\)</span>のとき、確率密度関数の無限大までの和と考えることができるので、積分部分は1になる。</p>
+<p>よって積率母関数は <span class="math inline">\((1-\beta t)^{-\alpha}\)</span> である。</p>
+<div class="extra-space3">
+
 </div>
+<p><span class="math display">\[
+M^{\prime}_X(t)= (-\alpha)(-\beta)  (1-\beta t)^{-\alpha-1}=\alpha \beta  (1-\beta t)^{-\alpha-1}
+\]</span></p>
+<p><span class="math display">\[
+M^{\prime \prime}_X(t)= (-\alpha-1)(-\beta) \alpha \beta  (1-\beta t)^{-\alpha-2}=\alpha (\alpha+1)\beta^2 (1-\beta t)^{-\alpha-2}
+\]</span></p>
+<div class="extra-space3">
+
+</div>
+<p><span class="math display">\[
+E[X]= M^{\prime}_X(0)=\alpha \beta
+\]</span></p>
+<p><span class="math display">\[
+E[X^2]=M^{\prime \prime}_X(0)= \alpha (\alpha+1)\beta^2
+\]</span></p>
+<p><span class="math display">\[
+Var[X]=E[X^2]-E[X]^2= \alpha (\alpha+1)\beta^2 - \alpha^2 \beta^2= \alpha\beta^2
+\]</span></p>
+</section></section>
+<section id="例4.19-正規分布" class="title-slide slide level1 center">
+<h1>例4.19 正規分布</h1>
+<p>正規分布<span class="math inline">\(N(\mu, \sigma^2)\)</span>の積率母関数を求める。</p>
+<p><span class="math display">\[\begin{align}
+M_X(t)=E[e^{tX}]&amp;=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
+&amp;=\int^{\infty}_{-\infty} e^{tx} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{- \frac{(x-\mu)^2}{2\sigma^2}\right\} dx \\
+&amp;=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{tx- \frac{(x-\mu)^2}{2\sigma^2}\right\} dx \\
+&amp;=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{-\frac{x^2-2\mu x +\mu^2-2\sigma^2tx}{2\sigma^2}\right\} dx \\
+&amp;=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma } \exp\left\{-\frac{(x-(\mu+\sigma^2t))^2-2\mu\sigma^2t-\sigma^4t^2}{2\sigma^2}\right\} dx \\
+&amp;=\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{-\frac{(x-(\mu+\sigma^2t))^2}{2\sigma^2} +\mu t +\frac{\sigma^2 t^2}{2}\right\} dx \\
+&amp;=\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)\int^{\infty}_{-\infty} \frac{1}{\sqrt{2\pi  }\sigma} \exp\left\{-\frac{(x-(\mu+\sigma^2t))^2}{2\sigma^2} \right\} dx \\
+&amp;=\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)
+\end{align}\]</span></p>
+<p><span class="math display">\[
+M^{\prime}_X(t)=  (\mu +\sigma^2 t)\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)
+\]</span></p>
+<p><span class="math display">\[\begin{align}
+M^{\prime \prime}_X(t)&amp;=  (\mu +\sigma^2 t)^{\prime} \exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)+(\mu +\sigma^2 t)\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)^{\prime} \\
+&amp;=\sigma^2 \exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)+(\mu +\sigma^2 t)^2\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)^{\prime} \\
+&amp;=(\sigma^2+(\mu +\sigma^2 t)^2)\exp \left( \mu t +\frac{\sigma^2 t^2}{2}\right)
+\end{align}\]</span></p>
+<p><span class="math display">\[
+E[X]= M^{\prime}_X(0)=\mu
+\]</span></p>
+<p><span class="math display">\[
+E[X^2]=M^{\prime \prime}_X(0)= \sigma^2+\mu^2
+\]</span></p>
+<p><span class="math display">\[
+Var[X]=E[X^2]-E[X]^2= \sigma^2+\mu^2 - \mu^2= \sigma^2
+\]</span></p>
+</section>
+
+<section id="分布の再生性" class="title-slide slide level1 center">
+<h1>分布の再生性</h1>
+<p>確率変数の和の分布を求めるのに畳み込みの方法を例 3.7 で説明した。多くの連続確率分布に利用可能ではあるが，一般に積分を計算するのが大変である。上の例で扱った確率分布については，積率母関数を用いることによって和の分布を容易に求めることができる。 <span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> が独立に分布し，それぞれの積率母関数を <span class="math inline">\(M_X(t), M_Y(t)\)</span> とする。このとき， <span class="math inline">\(X + Y\)</span> の積率母関数は <span class="math display">\[
+M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX}]E[e^{tY}] = M_X(t) M_Y(t) \tag{4.9}
+\]</span></p>
+<p>と表される。したがって積率母関数が <span class="math inline">\(M_X(t) M_Y(t)\)</span> になるような分布を見つけることができれば，命題 4.14 より分布を特定することができる。 <span class="math inline">\(X + Y\)</span> の分布が <span class="math inline">\(X, Y\)</span> と同じ分布族に入ることを分布の再生性と呼ぶ。（4.9）を用いると，このことを示すことができる。</p>
+</section>
+
+<section id="命題4.20分布の再生性" class="title-slide slide level1 center">
+<h1>命題4.20(分布の再生性)　</h1>
+<p>確率変数 <span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> が独立に分布する。</p>
+<p><span class="math display">\[\begin{align*}
+(1) \quad &amp; X \sim Bin(m, p), \quad Y \sim Bin(n, p) \implies X + Y \sim Bin(m+n, p) \\
+(2) \quad &amp; X \sim Po(\lambda_1), \quad Y \sim Po(\lambda_2) \implies X + Y \sim Po(\lambda_1 + \lambda_2) \\
+(3) \quad &amp; X \sim NBin(r_1, p), \quad Y \sim NBin(r_2, p) \implies X + Y \sim NBin(r_1 + r_2, p) \\
+(4) \quad &amp; X \sim \mathcal{N}(\mu_1, \sigma_1^2), \quad Y \sim \mathcal{N}(\mu_2, \sigma_2^2) \implies X + Y \sim \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \\
+(5) \quad &amp; X \sim Ga(\alpha_1, \beta), \quad Y \sim Ga(\alpha_2, \beta) \implies X + Y \sim Ga(\alpha_1 + \alpha_2, \beta)
+\end{align*}\]</span></p>
+<p>⑴</p>
+<p><span class="math display">\[\begin{align}
+M_X(t)M_Y(t) &amp;= (pe^t+1-p)^n(pe^t+1-p)^m \\
+&amp;=(pe^t+1-p)^{n+m}
+\end{align}\]</span></p>
+<p>よって<span class="math inline">\(M_{X+Y}(t)=M_X(t)M_Y(t)=(pe^t+1-p)^{n+m}\)</span>になるため、和の分布は二項分布に従うことがわかる。また、和の分布は再生性を持つ。</p>
+<p>⑵</p>
+<p><span class="math display">\[\begin{align}
+M_X(t)M_Y(t) &amp;= \exp \left\{ \left( e^t - 1 \right) \lambda_1 \right\} \exp \left\{ \left( e^t - 1 \right) \lambda_2 \right\} \\
+&amp;= \exp \left\{ \left( e^t - 1 \right) (\lambda_1 + \lambda_2 )\right\}
+\end{align}\]</span></p>
+<p>⑶</p>
+<p>負の二項分布はとーばそ</p>
+<p>⑷</p>
+<p><span class="math display">\[\begin{align}
+    M_X(t)M_Y(t) &amp;= \exp\left( \mu_1 t + \frac{\sigma_1^2 t^2}{2} \right) \exp\left( \mu_2 t + \frac{\sigma_2^2 t^2}{2} \right) \\
+    &amp;= \exp\left\{ (\mu_1 + \mu_2) t + \frac{\sigma_1^2 + \sigma_2^2}{2} t^2 \right\}
+\end{align}\]</span></p>
+<p>⑸</p>
+<p><span class="math display">\[\begin{align}
+M_X(t)M_Y(t) &amp;= (1-\beta t)^{-\alpha_1}(1-\beta t)^{-\alpha_2} \\
+&amp;=(1-\beta t)^{-(\alpha_1+\alpha_2)}
+\end{align}\]</span></p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -630,12 +720,12 @@ M_X(t)=E[e^{tX}]&amp;=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
         // flash "checked"
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
+        button.setAttribute("title", "コピーしました");
         let tooltip;
         if (window.bootstrap) {
           button.setAttribute("data-bs-toggle", "tooltip");
           button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
+          button.setAttribute("data-bs-title", "コピーしました");
           tooltip = new bootstrap.Tooltip(button, 
             { trigger: "manual", 
               customClass: "code-copy-button-tooltip",

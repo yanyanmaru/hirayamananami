@@ -1,0 +1,59 @@
+---
+title: "7月23日「データ解析のための数理統計入門」第4章 命題4.21"
+code-fold: true
+reference-location: margin
+citation-location: margin
+date: 2024/07/23
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+::: {#prp-line}
+
+## 命題4.21
+
+確率変数$X_1,\ldots,X_m$が独立で、各$X_i$がポアソン分布$Po(\lambda_i)$に従うとする。$X_1+\cdots+X_m=n$という条件のもとで、$X_1,\ldots,X_m$ の条件付き分布は多項分布$Mult_m(n,p_1,\ldots,p_m)$ に従う。ただし、$p_i=\lambda_i/(\lambda_1+\cdots+\lambda_m)$である。
+
+:::
+
+<br/>
+
+
+::: {.proof}
+
+$$
+Y=X_1+\cdots+X_m,\quad \theta = \lambda_1+\cdots+\lambda_m
+$$
+
+とおくと、ポアソン分布の再生性により$Y \sim Po(\theta)$ となる。
+
+$$
+P(X_1=x_1, \ldots ,X_m=x_m)=\prod_{i=1}^{m} \frac{\lambda_i^{x_i} e^{-\lambda_i}}{x_i!}
+$$
+
+$$
+P(Y=n)=\frac{\theta^n}{n!} e^{-\theta}
+$$
+
+条件付き確率は以下のようになる。
+$$
+P(X_1 = x_1, \ldots, X_m = x_m \mid Y = n) =P(X_1 = x_1, \ldots, X_m = x_m , Y = n)/ P(Y =n)
+$$
+
+$P(X_1 = x_1, \ldots, X_m = x_m , Y = n)$ の同時確率は、$P(X_1=x_1, \ldots ,X_m=x_m)$が$x_1 + \cdots + x_m =n$ となるときである。
+
+\begin{align}
+P(X_1 = x_1, \ldots, X_m = x_m \mid Y = n)&= \frac{\prod_{i=1}^{m} \frac{\lambda_i^{x_i} e^{-\lambda_i}}{x_i!}}{\frac{\theta^n e^{-\theta}}{n!}}  \\
+&= \frac{n!}{x_1!x_2! \cdots x_m!} \frac{e^{-\lambda_1}e^{-\lambda_2} \cdots e^{-\lambda_m}}{e^{-\theta}} \frac{\prod_{i=1}^{m}\lambda_i^{x_i}}{\theta^n} \\
+&= \frac{n!}{x_1!x_2! \cdots x_m!} \frac{e^{-(\lambda_1 + \cdots + \lambda_m)}}{e^{-(\lambda_1 + \cdots + \lambda_m)}} \frac{\prod_{i=1}^{m}(p_i \theta)^{x_i}}{\theta^n} \\
+&= \frac{n!}{x_1!x_2! \cdots x_m!}  \frac{\theta^{x_1}\theta^{x_2} \cdots \theta^{x_m}}{\theta^n}p^{x_1}p^{x_2} \cdots p^{x_m}\\
+&= \frac{n!}{x_1!x_2! \cdots x_m!}  p^{x_1}p^{x_2} \cdots p^{x_m}
+\end{align}
+
+よって条件付き分布は多項分布$Mult_m(n,p_1,\ldots,p_m)$に従う。
+:::
