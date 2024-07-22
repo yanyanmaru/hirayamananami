@@ -16,8 +16,8 @@ format:
     css: styles.css
     lang: ja
     toc: true
-    grid:
-      margin-width: 450px
+    # grid:
+    #   margin-width: 450px
   typst:
     mainfont: "Noto Sans JP"
     

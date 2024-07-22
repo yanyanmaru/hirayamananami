@@ -13,6 +13,6 @@ lang: ja
 
 <div class="extra-space3"></div>
 
-**メモ**
+<!-- **メモ**
 
-[うけるね](/essays/crime/)
+[うけるね](/essays/crime/) -->

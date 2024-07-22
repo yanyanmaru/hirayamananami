@@ -543,7 +543,7 @@
     "href": "index.html",
     "title": "Hirayama Nanami",
     "section": "",
-    "text": "Post\nゼミの勉強・気になったことや気づいたこと・発見などをちょくちょく追記します。\n\n\nProject\n小さなことから大きなことまで作成したものを追記します。\n\n\n\nメモ\nうけるね"
+    "text": "Post\nゼミの勉強・気になったことや気づいたこと・発見などをちょくちょく追記します。\n\n\nProject\n小さなことから大きなことまで作成したものを追記します。"
   },
   {
     "objectID": "posts/seminor2024_0716/index.html#footnotes",
@@ -663,5 +663,40 @@
     "title": "7月23日「データ解析のための数理統計入門」第4章 命題4.21",
     "section": "",
     "text": "命題 1 (命題4.21) 確率変数\\(X_1,\\ldots,X_m\\)が独立で、各\\(X_i\\)がポアソン分布\\(Po(\\lambda_i)\\)に従うとする。\\(X_1+\\cdots+X_m=n\\)という条件のもとで、\\(X_1,\\ldots,X_m\\) の条件付き分布は多項分布\\(Mult_m(n,p_1,\\ldots,p_m)\\) に従う。ただし、\\(p_i=\\lambda_i/(\\lambda_1+\\cdots+\\lambda_m)\\)である。\n\n\n証明. \\[\nY=X_1+\\cdots+X_m,\\quad \\theta = \\lambda_1+\\cdots+\\lambda_m\n\\]\nとおくと、ポアソン分布の再生性により\\(Y \\sim Po(\\theta)\\) となる。\n\\[\nP(X_1=x_1, \\ldots ,X_m=x_m)=\\prod_{i=1}^{m} \\frac{\\lambda_i^{x_i} e^{-\\lambda_i}}{x_i!}\n\\]\n\\[\nP(Y=n)=\\frac{\\theta^n}{n!} e^{-\\theta}\n\\]\n条件付き確率は以下のようになる。 \\[\nP(X_1 = x_1, \\ldots, X_m = x_m \\mid Y = n) =P(X_1 = x_1, \\ldots, X_m = x_m , Y = n)/ P(Y =n)\n\\]\n\\(P(X_1 = x_1, \\ldots, X_m = x_m , Y = n)\\) の同時確率は、\\(P(X_1=x_1, \\ldots ,X_m=x_m)\\)が\\(x_1 + \\cdots + x_m =n\\) となるときである。\n\\[\\begin{align}\nP(X_1 = x_1, \\ldots, X_m = x_m \\mid Y = n)&= \\frac{\\prod_{i=1}^{m} \\frac{\\lambda_i^{x_i} e^{-\\lambda_i}}{x_i!}}{\\frac{\\theta^n e^{-\\theta}}{n!}}  \\\\\n&= \\frac{n!}{x_1!x_2! \\cdots x_m!} \\frac{e^{-\\lambda_1}e^{-\\lambda_2} \\cdots e^{-\\lambda_m}}{e^{-\\theta}} \\frac{\\prod_{i=1}^{m}\\lambda_i^{x_i}}{\\theta^n} \\\\\n&= \\frac{n!}{x_1!x_2! \\cdots x_m!} \\frac{e^{-(\\lambda_1 + \\cdots + \\lambda_m)}}{e^{-(\\lambda_1 + \\cdots + \\lambda_m)}} \\frac{\\prod_{i=1}^{m}\\lambda_i^{x_i}}{\\theta^n}\n\\end{align}\\]"
+  },
+  {
+    "objectID": "study.html",
+    "href": "study.html",
+    "title": "Study",
+    "section": "",
+    "text": "Study\nwawa"
+  },
+  {
+    "objectID": "study/references.html",
+    "href": "study/references.html",
+    "title": "",
+    "section": "",
+    "text": "コード\n\n\n\n\n\nReferences"
+  },
+  {
+    "objectID": "study/index.html",
+    "href": "study/index.html",
+    "title": "",
+    "section": "",
+    "text": "コード\n\n\n\n\n\nPreface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\nありがとうね〜"
+  },
+  {
+    "objectID": "study/intro.html",
+    "href": "study/intro.html",
+    "title": "",
+    "section": "",
+    "text": "コード\n\n\n\n\n\nIntroduction\nThis is a book created from markdown and executable code.\nSee @knuth84 for additional discussion of literate programming."
+  },
+  {
+    "objectID": "study/summary.html",
+    "href": "study/summary.html",
+    "title": "",
+    "section": "",
+    "text": "コード\n\n\n\n\n\nSummary\nIn summary, this book has no content whatsoever."
   }
 ]
