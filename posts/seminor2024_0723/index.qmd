@@ -32,6 +32,12 @@ $$
 
 とおくと、ポアソン分布の再生性により$Y \sim Po(\theta)$ となる。
 
+::: {.extra-space2}
+
+:::
+
+確率変数$X_1,\ldots,X_m$が独立であるため、同時確率は積で表される。
+
 $$
 P(X_1=x_1, \ldots ,X_m=x_m)=\prod_{i=1}^{m} \frac{\lambda_i^{x_i} e^{-\lambda_i}}{x_i!}
 $$
@@ -39,6 +45,10 @@ $$
 $$
 P(Y=n)=\frac{\theta^n}{n!} e^{-\theta}
 $$
+
+::: {.extra-space2}
+
+:::
 
 条件付き確率は以下のようになる。
 $$
