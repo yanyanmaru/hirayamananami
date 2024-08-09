@@ -20,3 +20,19 @@
     border: solid 1px rgb(61, 175, 76);
     color: rgb(61, 175, 76);
 }
+
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Zenn+Maru+Gothic:wght@400;700&display=swap');
+
+body {
+    font-family: 'Zenn Maru Gothic', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Zenn Maru Gothic', sans-serif;
+}

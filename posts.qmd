@@ -1,6 +1,6 @@
 ---
-title: "Post"
-description: "気になったことや気づいたこと・発見などをちょくちょく追記します。"
+title: "Seminor"
+description: "ゼミの発表資料や勉強系用。"
 listing:
   contents: posts
   fields: [date, title,status]

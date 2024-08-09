@@ -152,12 +152,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../post.html"> 
-<span class="menu-text">Post</span></a>
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Seminor</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../project.html"> 
-<span class="menu-text">Project</span></a>
+    <a class="nav-link" href="../../free.html"> 
+<span class="menu-text">Free</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -231,7 +231,7 @@ M_X(t)=E[e^{tX}]&amp;=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
 &amp;= \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} (1-\beta t)^{\alpha}} dx \\
 &amp;=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx
 \end{align}\]</span></p>
-<p><span class="math inline">\((1-\beta t)&gt;0\)</span>のとき、確率密度関数の無限大までの和と考えることができるので、積分部分は1になる。</p>
+<p><span class="math inline">\((1-\beta t)&gt;0\)</span>のとき、積分は，ガンマ分布<span class="math inline">\(shape=\alpha, scale=\beta/(1-\beta t)\)</span>の確率密度関数の標本空間<span class="math inline">\((0,\infty)\)</span>での積分と見なせるので 1 になる。</p>
 <p>よって積率母関数は <span class="math inline">\((1-\beta t)^{-\alpha}\)</span> である。</p>
 <div class="extra-space3">
 
@@ -825,7 +825,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">  - ゼミ</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">  - 統計</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">  - データ解析のための数理統計入門</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "完了"</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu"># 例4.18　ガンマ分布</span></span>
@@ -843,7 +843,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>&amp;=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp<span class="sc">\{</span>-\frac{1-\beta t}{\beta}x<span class="sc">\}</span> }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx </span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>$(1-\beta t)&gt;0$のとき、確率密度関数の無限大までの和と考えることができるので、積分部分は1になる。</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>$(1-\beta t)&gt;0$のとき、積分は，ガンマ分布$shape=\alpha, scale=\beta/(1-\beta t)$の確率密度関数の標本空間$(0,\infty)$での積分と見なせるので 1 になる。</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>よって積率母関数は $(1-\beta t)^{-\alpha}$ である。</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>

@@ -10,7 +10,7 @@ categories:
   - ゼミ
   - 統計
   - データ解析のための数理統計入門
-status: "作成中"
+status: "完了"
 ---
 
 ::: {#prp-line}

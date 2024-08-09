@@ -1,14 +1,6 @@
 [
   {
-    "listing": "/project.html",
-    "items": [
-      "/projects/free-wifi-kobe/index.html",
-      "/projects/monti/index.html",
-      "/projects/university/index.html"
-    ]
-  },
-  {
-    "listing": "/post.html",
+    "listing": "/posts.html",
     "items": [
       "/posts/seminor2024_0723/index.html",
       "/posts/seminor2024_0716/index.html",
@@ -25,6 +17,12 @@
       "/posts/seminor2024_0625/index.html",
       "/posts/seminor2024_0618/index.html",
       "/posts/seminor2024_0611/index.html"
+    ]
+  },
+  {
+    "listing": "/free.html",
+    "items": [
+      "/free/free-wifi-kobe/index.html"
     ]
   }
 ]

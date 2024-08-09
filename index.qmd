@@ -5,14 +5,10 @@ toc: true
 lang: ja
 ---
 
-### [Post](/post.html)
-ゼミの勉強・気になったことや気づいたこと・発見などをちょくちょく追記します。
+### [Seminor](/seminor.html)
+ゼミの発表資料や勉強系用。
 
-### [Project](/project.html)
-小さなことから大きなことまで作成したものを追記します。
+### [Free](/free.html)
+自分が気になったこと用。
 
 <div class="extra-space3"></div>
-
-<!-- **メモ**
-
-[うけるね](/essays/crime/) -->

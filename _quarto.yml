@@ -6,8 +6,8 @@ website:
   title: "Hirayama Nanami"
   navbar:
     left:
-      - post.qmd
-      - project.qmd
+      - posts.qmd
+      - free.qmd
 
 format:
   html:
@@ -18,8 +18,8 @@ format:
     toc: true
     # grid:
     #   margin-width: 450px
-  typst:
-    mainfont: "Noto Sans JP"
+  # typst:
+  #   mainfont: "Noto Sans JP"
     
   # revealjs:
   #   slide-number: true

@@ -1,0 +1,13 @@
+---
+title: "Free"
+description: "自分が気になったこと用。"
+listing:
+  contents: free
+  sort: "date desc"
+  type: grid
+lang: ja
+code-tools: false
+toc: false
+page-layout: full
+
+---

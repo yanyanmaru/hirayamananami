@@ -18,7 +18,7 @@ categories:
   - ゼミ
   - 統計
   - データ解析のための数理統計入門
-status: "作成中"
+status: "完了"
 ---
 
 # 例4.18　ガンマ分布
@@ -36,7 +36,7 @@ M_X(t)=E[e^{tX}]&=\int^{\infty}_{-\infty} e^{tx} f(x) dx \\
 &=(1-\beta t)^{-\alpha} \int^{\infty}_0  \frac{x^{\alpha-1} \exp\{-\frac{1-\beta t}{\beta}x\} }{\Gamma(\alpha) (\frac{\beta}{1-\beta t})^{\alpha} } dx 
 \end{align}
 
-$(1-\beta t)>0$のとき、確率密度関数の無限大までの和と考えることができるので、積分部分は1になる。
+$(1-\beta t)>0$のとき、積分は，ガンマ分布$shape=\alpha, scale=\beta/(1-\beta t)$の確率密度関数の標本空間$(0,\infty)$での積分と見なせるので 1 になる。
 
 よって積率母関数は $(1-\beta t)^{-\alpha}$ である。
 
