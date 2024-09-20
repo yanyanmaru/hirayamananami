@@ -7,7 +7,7 @@ website:
   navbar:
     left:
       - posts.qmd
-      - free.qmd
+      - memo.qmd
 
 format:
   html:

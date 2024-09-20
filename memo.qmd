@@ -1,0 +1,9 @@
+---
+title: "Memo"
+description: "メモ用。"
+lang: ja
+code-tools: false
+toc: false
+page-layout: full
+
+---

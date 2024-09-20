@@ -3,12 +3,13 @@ title: Hirayama Nanami
 date: last-modified
 toc: true
 lang: ja
+page-layout: full
 ---
 
-### [Seminor](/seminor.html)
-ゼミの発表資料や勉強系用。
+### [Seminor](/posts.html)
+ゼミの発表資料用。
 
-### [Free](/free.html)
-自分が気になったこと用。
+### [Memo](/memo.html)
+メモ用。
 
-<div class="extra-space3"></div>
+

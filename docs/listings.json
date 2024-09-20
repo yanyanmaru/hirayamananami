@@ -5,15 +5,9 @@
       "/posts/seminor2024_0723/index.html",
       "/posts/seminor2024_0716/index.html",
       "/posts/seminor2024_0709/index.html",
-      "/posts/data_math3_quest/index.html",
       "/posts/data_math2_quest/index.html",
-      "/posts/quarto_my_tip/index.html",
       "/posts/data_math1_quest/index.html",
-      "/posts/data_math1_chap3_me/index.html",
-      "/posts/data_math1_chap2_me/index.html",
-      "/posts/data_math1_chap1_me/index.html",
       "/posts/seminor2024_0702/index.html",
-      "/posts/latex_basis/index.html",
       "/posts/seminor2024_0625/index.html",
       "/posts/seminor2024_0618/index.html",
       "/posts/seminor2024_0611/index.html"
@@ -21,8 +15,6 @@
   },
   {
     "listing": "/free.html",
-    "items": [
-      "/free/free-wifi-kobe/index.html"
-    ]
+    "items": []
   }
 ]
