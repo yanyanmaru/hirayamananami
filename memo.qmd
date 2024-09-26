@@ -1,9 +1,24 @@
 ---
 title: "Memo"
-description: "メモ用。"
 lang: ja
 code-tools: false
 toc: false
 page-layout: full
-
 ---
+
+
+::: {.content-hidden when-format="html"}
+
+[各確率分布の期待値・分散・確率母関数の求め方](/memo/1.html)
+
+アイデア
+偏差値とは
+95%信頼区間とは
+ガンマポアソン分布とは
+統計に関する数学知識
+カイ二乗分布とは
+T分布とは
+F分布とは
+統計的仮設検定の仕組み
+
+:::

@@ -1,0 +1,57 @@
+---
+title: "10月1日「データ解析のための数理統計入門」第4章 4-3条件付き期待値前半"
+code-fold: true
+reference-location: margin
+citation-location: margin
+date: 2024/07/23
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+条件付き気確率分布に関する期待値を条件付き期待値と言います。
+
+# 定義4.9
+二つの確率変数$X,Y$と関数$g(X)$を考える。
+
+## 離散確率変数の場合
+
+$Y=y_i$を与えた時の$X$の条件付き確率変数$p_{X|Y}(x_i|y)$で表すと、$Y=y_i$を与えた時の$g(X)$の条件付き期待値は
+
+$$
+E[g(X)|Y=y_i]= \sigma_{j=1}^{\infty} g(x_j) p_{X|Y}(x_j|y_i)
+$$
+
+## 連続確率変数の場合
+
+$Y=y$を与えた時の$X$の条件付き確率密度関数$f_{X|Y}(x|y)$で表すと、$Y=y$を与えた時の$g(X)$の条件付き期待値は
+
+$$
+E[g(X)|Y=y]= \int_{-\infty}^{\infty} g(x_j) f_{X|Y}(x|y)dx
+$$
+
+$Y=y$を与えた時の$X$の条件付き平均$E[X|Y=y]$、条件付き分散$Var[X|Y=y]=E[(X-E[X|Y=y])^2|Y=y]$
+
+# 命題4.10 条件付き期待値の性質
+
+⑴繰り返し期待値の法則
+
+$$
+E[X]=E[E[X|Y]]
+$$
+
+証明
+
+連続分布の場合、右辺
+
+\begin{align}
+E[E[X|Y]]&= \int_{-\infty}^{\infty} \{\int_{-\infty}^{\infty} x f_{X|Y}(x|y)dx\} f_Y(y)dy \\
+&= \int_{-\infty}^{\infty}x \int_{-\infty}^{\infty}  f_{X|Y}(x|y)f_Y(y)dy dx \\
+&= \int_{-\infty}^{\infty}x f_X(x) dx \\
+&= E[X]
+\end{align}
+
