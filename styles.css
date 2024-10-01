@@ -36,3 +36,7 @@ h5,
 h6 {
     font-family: 'Zenn Maru Gothic', sans-serif;
 }
+
+.bold {
+    font-weight: bold;
+}

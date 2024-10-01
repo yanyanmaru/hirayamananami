@@ -15,12 +15,22 @@ status: "作成中"
 
 条件付き確率分布に関する期待値を条件付き期待値と言います。
 
-# 定義4.9
+::: {.extra-space2}
+
+:::
+
+
+::: {.bold}
+定義4.9（条件付き期待値）
+:::
+
+
+
 二つの確率変数$X,Y$と関数$g(X)$を考える。
 
-## 離散確率変数の場合
+(A)離散確率変数の場合
 
-$Y=y_i$ を与えた時の$X$の条件付き確率変数 $p_{X|Y}(x_j|y_i)$ で表すと、$Y=y_i$を与えた時の$g(X)$の条件付き期待値は
+$Y=y_i$ を与えた時の$X$の条件付き確率関数 $p_{X|Y}(x_j|y_i)$ で表すと、$Y=y_i$を与えた時の$g(X)$の条件付き期待値は
 
 $$
 E[g(X)|Y=y_i]= \sum_{j=1}^{\infty} g(x_j) p_{X|Y}(x_j|y_i)
@@ -31,7 +41,7 @@ $$
 :::
 
 
-## 連続確率変数の場合
+(B)連続確率変数の場合
 
 $Y=y$ を与えた時の$X$の条件付き確率密度関数 $f_{X|Y}(x|y)$ で表すと、$Y=y$ を与えた時の $g(X)$ の条件付き期待値は
 
@@ -44,30 +54,44 @@ $$
 :::
 
 
-$Y=y$を与えた時の$X$の条件付き平均$E[X|Y=y]$
 
-条件付き分散 $Var[X|Y=y]=E[(X-E[X|Y=y])^2|Y=y]$ と表される。
+
+$Y=y$ を与えた時の$X$の条件付き平均$E[X|Y=y]$ 、条件付き分散 $Var[X|Y=y]=E[(X-E[X|Y=y])^2|Y=y]$ と表される。
+
+周辺分布の平均と分散を求める際、条件付き平均や条件付き分散を求める方が易しくなる場合がある。
+
+
+::: {.extra-space3}
+
+:::
+
+::: {.bold}
+命題4.10 条件付き期待値の性質
+:::
+
+
+⑴繰り返し期待値の法則
+
+$$
+E[X]=E[E[X|Y]]
+$$
+
+右辺については、まず$E[E[X|Y]]$ を求め、次に$y$ を$Y$で置き換えて$Y$ に関して期待値を取ることを意味する。
 
 ::: {.extra-space3}
 
 :::
 
 
-# 命題4.10 条件付き期待値の性質
-
-## ⑴繰り返し期待値の法則
-
-$$
-E[X]=E[E[X|Y]]
-$$
-
-## 証明
+⑴証明
 
 連続分布の場合、右辺
 
 \begin{align}
 E[E[X|Y]]&= \int_{-\infty}^{\infty} \{\int_{-\infty}^{\infty} x f_{X|Y}(x|y)dx\} f_Y(y)dy \\
 &= \int_{-\infty}^{\infty}x \int_{-\infty}^{\infty}  f_{X|Y}(x|y)f_Y(y)dy dx \\
+&= \int_{-\infty}^{\infty}x \int_{-\infty}^{\infty} \frac{f(x,y)}{f_Y(y)} f_Y(y)dy dx \\
+&= \int_{-\infty}^{\infty}x \int_{-\infty}^{\infty} f(x,y)dydx \\
 &= \int_{-\infty}^{\infty}x f_X(x) dx \\
 &= E[X]
 \end{align}
@@ -77,8 +101,9 @@ E[E[X|Y]]&= \int_{-\infty}^{\infty} \{\int_{-\infty}^{\infty} x f_{X|Y}(x|y)dx\}
 
 
 \begin{align}
-E[E[X|Y]]&= \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} x_j p_{X|Y}(x_j|y_i) \\
-&= \sum_{j=1}^{\infty} x_j \sum_{i=1}^{\infty}  p_{X|Y}(x_j|y_i) \\
+E[E[X|Y]]&= \sum_{i=1}^{\infty} \{\sum_{j=1}^{\infty} x_j p_{X|Y}(x_j|y_i)\} p_Y(y_i) \\
+&= \sum_{j=1}^{\infty} x_j \sum_{i=1}^{\infty}  p_{X|Y}(x_j|y_i) p_Y(y_i) \\
+&= \sum_{j=1}^{\infty} x_j \sum_{i=1}^{\infty}   \frac{p(x_j,y_i)}{p_Y(y_i)} p_Y(y_i) \\
 &= \sum_{j=1}^{\infty} x_j p_X(x_j) \\
 &= E[X]
 \end{align}
