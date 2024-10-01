@@ -79,7 +79,7 @@ $$
 E[X]=E[E[X|Y]]
 $$
 
-右辺については、まず$E[X|Y]$ を求め、次に$y$ を$Y$で置き換えて$Y$ に関して期待値を取ることを意味する。
+右辺については、まず$E[X|Y=y]$ を求め、次に$y$ を$Y$で置き換えて$Y$ に関して期待値を取ることを意味する。
 
 ::: {.extra-space3}
 
@@ -107,6 +107,7 @@ E[E[X|Y]]&= \int_{-\infty}^{\infty} \{\int_{-\infty}^{\infty} x f_{X|Y}(x|y)dx\}
 E[E[X|Y]]&= \sum_{i=1}^{\infty} \{\sum_{j=1}^{\infty} x_j p_{X|Y}(x_j|y_i)\} p_Y(y_i) \\
 &= \sum_{j=1}^{\infty} x_j \sum_{i=1}^{\infty}  p_{X|Y}(x_j|y_i) p_Y(y_i) \\
 &= \sum_{j=1}^{\infty} x_j \sum_{i=1}^{\infty}   \frac{p(x_j,y_i)}{p_Y(y_i)} p_Y(y_i) \\
+&= \sum_{j=1}^{\infty} x_j \sum_{i=1}^{\infty}   p(x_j,y_i) \\
 &= \sum_{j=1}^{\infty} x_j p_X(x_j) \\
 &= E[X]
 \end{align}
