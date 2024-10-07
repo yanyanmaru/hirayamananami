@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Seminor",
     "section": "",
-    "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/10/01\n\n\n10月1日「データ解析のための数理統計入門」第4章 4-3条件付き期待値前半\n\n\n作成中\n\n\n\n\n2024/07/23\n\n\n7月23日「データ解析のための数理統計入門」第4章 命題4.21\n\n\n完了\n\n\n\n\n2024/07/16\n\n\n7月16日「データ解析のための数理統計入門」第4章 4の例18から\n\n\n完了\n\n\n\n\n2024/07/09\n\n\n7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目\n\n\n完了\n\n\n\n\n2024/07/06\n\n\n「データ解析のための数理統計入門」第2章 演習問題 解答\n\n\n作成中\n\n\n\n\n2024/07/05\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n完了\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n完了\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
+    "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/10/08\n\n\n10月8日「データ解析のための数理統計入門」第5章\n\n\n作成中\n\n\n\n\n2024/10/01\n\n\n10月1日「データ解析のための数理統計入門」第4章 4-3条件付き期待値前半\n\n\n完了\n\n\n\n\n2024/07/23\n\n\n7月23日「データ解析のための数理統計入門」第4章 命題4.21\n\n\n完了\n\n\n\n\n2024/07/16\n\n\n7月16日「データ解析のための数理統計入門」第4章 4の例18から\n\n\n完了\n\n\n\n\n2024/07/09\n\n\n7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目\n\n\n完了\n\n\n\n\n2024/07/06\n\n\n「データ解析のための数理統計入門」第2章 演習問題 解答\n\n\n作成中\n\n\n\n\n2024/07/05\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n完了\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n完了\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "index.html",
@@ -641,7 +641,7 @@
     "href": "memo.html",
     "title": "Memo",
     "section": "",
-    "text": "各確率分布の期待値・分散・確率母関数の求め方\nWill not appear in HTML."
+    "text": "各確率分布の期待値・分散の求め方\n確率母関数・積率母関数の求め方\n各確率分布の関係性（ポアソン分布の二項近似など）\n分布の性質（再生性・〜性）"
   },
   {
     "objectID": "posts/seminor2024_1001/index.html",
@@ -677,5 +677,61 @@
     "title": "10月1日「データ解析のための数理統計入門」第4章 4-3条件付き期待値前半",
     "section": "証明",
     "text": "証明\n連続分布の場合、右辺\n\\[\\begin{align}\nE[E[X|Y]]&= \\int_{-\\infty}^{\\infty} \\{\\int_{-\\infty}^{\\infty} x f_{X|Y}(x|y)dx\\} f_Y(y)dy \\\\\n&= \\int_{-\\infty}^{\\infty}x \\int_{-\\infty}^{\\infty}  f_{X|Y}(x|y)f_Y(y)dy dx \\\\\n&= \\int_{-\\infty}^{\\infty}x f_X(x) dx \\\\\n&= E[X]\n\\end{align}\\]\nおそらく離散分布の場合は右辺は下のようになる。\n\\[\\begin{align}\nE[E[X|Y]]&= \\sum_{i=1}^{\\infty} \\sum_{j=1}^{\\infty} x_j p_{X|Y}(x_j|y_i) \\\\\n&= \\sum_{j=1}^{\\infty} x_j \\sum_{i=1}^{\\infty}  p_{X|Y}(x_j|y_i) \\\\\n&= \\sum_{j=1}^{\\infty} x_j p_X(x_j) \\\\\n&= E[X]\n\\end{align}\\]"
+  },
+  {
+    "objectID": "posts/seminor2024_1008/index.html",
+    "href": "posts/seminor2024_1008/index.html",
+    "title": "10月8日「データ解析のための数理統計入門」第5章",
+    "section": "",
+    "text": "【例5.9】(ガンマ・ポアソン分布)\n\n確率変数(\\(X,Y\\))の階層モデルとして\n\\[\nX|Y \\sim Po(Y), Y \\sim Ga(\\alpha,\\beta)\n\\]\nを考える。\n\\(Y=y\\) を与えた時の\\(X\\) の条件付き確率関数を \\(f_{X|Y}(x|y)\\)とし、\\(Y\\) の確率密度関数を\\(f_Y(y)\\) とすると\n\\[\nf_{X|Y}(x|y) = \\frac{y^x}{x!} e^{-y}\n\\]\n\\[\nf_Y(y) = \\frac{y^{\\alpha-1}}{\\Gamma(\\alpha) \\beta^{\\alpha}} e^{-y/\\beta}\n\\]\n(\\(X,Y\\))の同時確率密度関数は\n\\[\nf(x,y)=f_{X|Y}(x|y) f_Y(y)= \\frac{y^x}{x!} e^{-y} \\frac{y^{\\alpha-1}}{\\Gamma(\\alpha) \\beta^{\\alpha}} e^{-y/\\beta}\n= \\frac{1}{\\Gamma(\\alpha) x!  \\beta^{\\alpha}} y^{x+\\alpha-1} e^{-(1+1/\\beta)y}\n\\]\nと書ける。\n\\(X\\) の周辺確率分布をガンマ・ポアソン分布と呼び\n\\[\nf_X(x) = \\int_{0}^{\\infty} f(x,y) dy =  \\frac{\\Gamma(x+\\alpha)}{\\Gamma(\\alpha) x!} \\frac{\\beta^x}{(1+\\beta)^{x+\\alpha}}\n\\]\nで与えられる。\n\n\nガンマ・ポアソン分布の細かい計算\n\n\\[\\begin{align}\n  f_X(x) &= \\int_{0}^{\\infty} f(x,y) dy \\\\\n  &= \\int_{0}^{\\infty}  \\frac{1}{\\Gamma(\\alpha) x!  \\beta^{\\alpha}} y^{x+\\alpha-1} e^{-(1+1/\\beta)y} dy \\\\\n  &= \\int_{0}^{\\infty}  \\frac{1}{\\Gamma(\\alpha) x!  \\beta^{\\alpha} (1+\\frac{1}{\\beta})^{x+\\alpha+1}} \\{(1+\\frac{1}{\\beta})y\\}^{x+\\alpha-1} e^{-(1+1/\\beta)y} dy \\\\\n  &=\\frac{1}{\\Gamma(\\alpha) x!  \\beta^{\\alpha} (1+\\frac{1}{\\beta})^{x+\\alpha-1}} \\int_{0}^{\\infty}  u^{x+\\alpha-1} e^{u} \\frac{du}{(1+\\frac{1}{\\beta})} \\\\\n  &=\\frac{\\Gamma(x+\\alpha)}{\\Gamma(\\alpha) x!  \\beta^{\\alpha} (1+\\frac{1}{\\beta})^{x+\\alpha}} \\\\\n  &=\\frac{\\Gamma(x+\\alpha) \\beta^{x+\\alpha}}{\\Gamma(\\alpha) x!  \\beta^{\\alpha} (1+\\beta)^{x+\\alpha}} \\\\\n  &=\\frac{\\Gamma(x+\\alpha) \\beta^{x}}{\\Gamma(\\alpha) x!(1+\\beta)^{x+\\alpha}} \\\\\n\\end{align}\\]\n\n\n\n\n\\(\\alpha\\) が自然数の時、ガンマ・ポアソン分布は負の二項分布 \\(NBin(\\alpha, 1/1+\\beta)\\) に従う。\n\n\n負の二項分布とガンマ・ポアソン分布\n\n\\(X \\sim NBin(r,p)\\) として、\\(X=k\\) となる確率は\n\\(p(k)=\\begin{pmatrix}\n   r+k-1 \\\\\n   k\n   \\end{pmatrix} p^r q^k\\)\n\\(\\alpha\\) が自然数の時、\\(X\\) の周辺確率関数は\n\\[f_X(x)= \\frac{\\Gamma(x+\\alpha)}{\\Gamma(\\alpha) x!} \\frac{\\beta^x}{(1+\\beta)^{x+\\alpha}}\n  = \\frac{(x+\\alpha-1)!}{(\\alpha-1)! x!} \\frac{\\beta^x}{(1+\\beta)^{x+\\alpha}}\n    =\\begin{pmatrix}\n   \\alpha+x-1 \\\\\n   x\n   \\end{pmatrix} \\{\\frac{1}{(1+\\beta)}\\}^\\alpha \\{\\frac{\\beta}{(1+\\beta)}\\}^x\n  \\]\n\n\n\n\nポアソン分布は平均と分散が等しいが（\\(Z \\sim Po(\\lambda)\\) の \\(E[Z]=\\lambda\\),\\(V[Z]=\\lambda\\)）、現実には死亡数などのデータを分析してみると平均より分散の方が大きくなることがあり、ポアソン分布を当てはめることができない。これを過分散の問題と呼び、ガンマ・ポアソン分布はこの問題を解決するモデルとして紹介されている。\n\n\n\n\nガンマ・ポアソン分布の平均と分散\n\n\\(E[X],Var[X]\\) を求める。\n\n\n\n積率母関数から求める方法もあるが（演習問題5）、条件付き確率における条件付き期待値・条件付き分散の性質を用いると簡単に求めることができる。\n\n\n\n\\(X|Y \\sim Po(Y)\\) より、\\(E[X|Y]=Var(X|Y)=Y\\)\n\\(Y \\sim Ga(\\alpha, \\beta)\\) より、\\(E[Y] = \\alpha \\beta\\), \\(Var(Y)= \\alpha \\beta^2\\)\n\n\n\n命題4.10を用いると、\n\\(E[X]=E[E[X|Y]]=E[Y]=\\alpha \\beta\\)\n\\(Var(X)= E[Y]+Var[Y]=\\alpha \\beta (1+\\beta)\\)\nとなり、\\(\\alpha, \\beta\\) は正のパラメーターのため、分散が平均より大きくなることがわかる。\nこれによって、ポアソン分布では当てはまりが悪いものでも、ガンマ・ポアソン分布を使えばうまくいく場合があるのだと思う。\n\n\n\n\n【例5.10】(ベータ・2項分布)\n\n確率変数(\\(X,Y\\))の階層モデルとして\n\\[\nX|Y \\sim Bin(n,Y), Y \\sim Beta(\\alpha,\\beta)\n\\]\nを考えると、(\\(X,Y\\))の同時確率密度関数は\n\\[\nf(x,y) =    \n\\begin{pmatrix}\n   n \\\\\n   x\n\\end{pmatrix} \\frac{1}{B(\\alpha,\\beta)} y^{x+\\alpha-1} (1-y)^{n-x+\\beta-1}\n\\]\nと書ける。\n\\(X\\) の周辺確率密度関数は次のように書ける。\n\\[\nf_X(x)=\n\\begin{pmatrix}\n   n \\\\\n   x\n\\end{pmatrix} \\frac{B(x+\\alpha,n-x+\\beta)}{B(\\alpha,\\beta)},x=0, \\ldots,n\n\\]\n\n\n計算\n\n\\[\n  f_X(x)= \\int^{1}_{0}\n  \\begin{pmatrix}\n   n \\\\\n   x\n\\end{pmatrix} \\frac{1}{B(\\alpha,\\beta)} y^{x+\\alpha-1} (1-y)^{n-x+\\beta-1} dy=\n\\begin{pmatrix}\n   n \\\\\n   x\n\\end{pmatrix} \\frac{B(x+\\alpha,n-x+\\beta)}{B(\\alpha,\\beta)}\n  \\]\n\nこれをベータ・二項分布と呼ぶ。平均・分散を直接計算することは困難である。\n\n\n\n\\(E[X|Y]=nY,Var(X|Y)=nY(1-Y)\\)\n\\(X\\) の平均と分散は、命題4.10を用いて\\(E[X]=E[nY]=n\\alpha/(\\alpha+\\beta)\\), \\(Var(X)=E[nY(1-Y)]+Var(nY)=n(n-1)Var(Y)+nE[Y](1-E[Y])\\) より\n\\[\nVar(X)= n(n-1) \\frac{\\alpha \\beta}{(\\alpha+\\beta)^2 (\\alpha+\\beta+1)} + n\\frac{\\alpha \\beta}{(\\alpha+\\beta)^2}\n\\]\nと書ける。\n\n\n分散の計算\n\n\\[\\begin{align}\n  Var(X)&=E[Var(X|Y)]+Var(E[X|Y]) \\\\\n  &=E[nY(1-Y)] + Var(nY) \\\\\n  &=nE[Y]-nE[Y^2]+ n^2Var(Y)\\\\\n  &=nE[Y]-n(Var(Y)+(E[Y])^2)+ n^2Var(Y)\\\\\n  &=nE[Y](1-E[Y])+nVar(Y)(n-1)\\\\\n  &=n\\frac{\\alpha}{\\alpha+\\beta}(1-\\frac{\\alpha}{\\alpha+\\beta})+n(n-1)\\frac{\\alpha\\beta}{(\\alpha+\\beta)^2 (\\alpha+\\beta+1)}\\\\\n    &=n\\frac{\\alpha \\beta}{(\\alpha+\\beta)^2}+n(n-1)\\frac{\\alpha\\beta}{(\\alpha+\\beta)^2 (\\alpha+\\beta+1)}\\\\\n  \\end{align}\\]"
+  },
+  {
+    "objectID": "memo/1.html",
+    "href": "memo/1.html",
+    "title": "各確率分布の期待値・分散・確率母関数の求め方",
+    "section": "",
+    "text": "\\(X \\sim Bin(n,p)\\) のとき、\\(E[X]=np\\) , \\(V[X]=np(1-p)\\) である。\n\n\n\\[\\begin{align}\nE[X] &= \\sum_{k=0}^{n} k P(X=k) \\\\\n&= \\sum_{k=0}^{n} k\n\\begin{pmatrix}\n   n \\\\\n   k\n\\end{pmatrix} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=0}^{n} k \\frac{n!}{k!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!(n-k+1)}{(k-1)!(n-(k-1))!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k'=0}^{n-1} \\frac{n!(n-k+1)}{(k')!(n-k')!} p^k (1-p)^{n-k} \\\\\n\n\n\\end{align}\\]\n\n\n\n同じ求め方で求めれると思われる。\nあとはベルヌーイ分布の和の分布でも求めれそう。\n確率母関数から求める方法もある。\n\\(G_X(s)=E[s^X]=(ps+1-p)^n\\), \\(M_X(t)=E[e^{tX}]=(pe^t+1-p)^n\\) から求める方法もある。\n\\(E[X]=\\frac{d}{ds} G_X(s)|_{s=1} = n(ps+1-p)^{n-1} p|_{s=1}=np\\)\n\\(E[X]=\\frac{d}{dt} M_X(t)|_{t=0} = n(pe^t+1-p)^{n-1} p|_{t=0}=np\\)\n\\(E[X(X-1)]= \\frac{d^2}{ds^2} G_X(s)|_{s=1} = \\frac{d}{ds} \\{n(ps+1-p)^{n-1} p\\}|_{s=1}= \\{n(n-1)(ps+1-p)^{n-2} p^2\\}|_{s=1}=n(n-1)p^2\\)\n\\(E[X^2]=\\frac{d^2}{dt^2} M_X(t)|_{t=0}= \\frac{d}{dt}\\{n(pe^t+1-p)^{n-1} p\\}|_{t=0}=n(n-1)(pe^t+1-p)^{n-2} p^2|_{t=0}=n(n-1)p^2\\)\n\\(V[X]=E[X^2]-(E[X])^2=n(n-1)p^2-(np)^2????\\)\n\\(V[X]=E[X^2]-(E[X])^2=E[X(X-1)]+E[X]-(E[X])^2=n(n-1)p^2+np-(np)^2=np(1-p)\\)"
+  },
+  {
+    "objectID": "memo/1.html#二項分布",
+    "href": "memo/1.html#二項分布",
+    "title": "各確率分布の期待値・分散・確率母関数の求め方",
+    "section": "",
+    "text": "\\(X \\sim Bin(n,p)\\) のとき、\\(E[X]=np\\) , \\(V[X]=np(1-p)\\) である。\n\n\n\\[\\begin{align}\nE[X] &= \\sum_{k=0}^{n} k P(X=k) \\\\\n&= \\sum_{k=0}^{n} k\n\\begin{pmatrix}\n   n \\\\\n   k\n\\end{pmatrix} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=0}^{n} k \\frac{n!}{k!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!(n-k+1)}{(k-1)!(n-(k-1))!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k'=0}^{n-1} \\frac{n!(n-k+1)}{(k')!(n-k')!} p^k (1-p)^{n-k} \\\\\n\n\n\\end{align}\\]\n\n\n\n同じ求め方で求めれると思われる。\nあとはベルヌーイ分布の和の分布でも求めれそう。\n確率母関数から求める方法もある。\n\\(G_X(s)=E[s^X]=(ps+1-p)^n\\), \\(M_X(t)=E[e^{tX}]=(pe^t+1-p)^n\\) から求める方法もある。\n\\(E[X]=\\frac{d}{ds} G_X(s)|_{s=1} = n(ps+1-p)^{n-1} p|_{s=1}=np\\)\n\\(E[X]=\\frac{d}{dt} M_X(t)|_{t=0} = n(pe^t+1-p)^{n-1} p|_{t=0}=np\\)\n\\(E[X(X-1)]= \\frac{d^2}{ds^2} G_X(s)|_{s=1} = \\frac{d}{ds} \\{n(ps+1-p)^{n-1} p\\}|_{s=1}= \\{n(n-1)(ps+1-p)^{n-2} p^2\\}|_{s=1}=n(n-1)p^2\\)\n\\(E[X^2]=\\frac{d^2}{dt^2} M_X(t)|_{t=0}= \\frac{d}{dt}\\{n(pe^t+1-p)^{n-1} p\\}|_{t=0}=n(n-1)(pe^t+1-p)^{n-2} p^2|_{t=0}=n(n-1)p^2\\)\n\\(V[X]=E[X^2]-(E[X])^2=n(n-1)p^2-(np)^2????\\)\n\\(V[X]=E[X^2]-(E[X])^2=E[X(X-1)]+E[X]-(E[X])^2=n(n-1)p^2+np-(np)^2=np(1-p)\\)"
+  },
+  {
+    "objectID": "memo/1.html#ベルヌーイ分布",
+    "href": "memo/1.html#ベルヌーイ分布",
+    "title": "各確率分布の期待値・分散・確率母関数の求め方",
+    "section": "ベルヌーイ分布",
+    "text": "ベルヌーイ分布\n\\(X \\sim Ber(p)\\) のとき、\\(E[X]=p\\) , \\(V[X]=p(1-p)\\) である。"
+  },
+  {
+    "objectID": "memo/1.html#幾何分布",
+    "href": "memo/1.html#幾何分布",
+    "title": "各確率分布の期待値・分散・確率母関数の求め方",
+    "section": "幾何分布",
+    "text": "幾何分布\n\\(X \\sim Geo(p)\\) のとき、\\(E[X]=\\frac{q}{p}\\) , \\(V[X]=\\frac{q}{p^2}\\) である。"
+  },
+  {
+    "objectID": "memo/1.html#ポアソン分布",
+    "href": "memo/1.html#ポアソン分布",
+    "title": "各確率分布の期待値・分散・確率母関数の求め方",
+    "section": "ポアソン分布",
+    "text": "ポアソン分布\n\\(X \\sim Po(\\lambda)\\) のとき、\\(E[X]=\\lambda\\) , \\(V[X]=\\lambda\\) である。\n\\(E[X]=\\sum_{k=0}^{\\infty}k \\frac{\\lambda^k}{k!} e^{-\\lambda}=\\sum_{k=1}^{\\infty} \\frac{\\lambda \\lambda^{k-1}}{(k-1)!} e^{-\\lambda}=\\sum_{k'=0}^{\\infty} \\frac{\\lambda \\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda  \\sum_{k'=0}^{\\infty} \\frac{\\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda\\)\n\\(E[X(X-1)]=\\sum_{k=0}^{\\infty}k(k-1) \\frac{\\lambda^k}{k!} e^{-\\lambda}=\\sum_{k=2}^{\\infty} \\frac{\\lambda^2 \\lambda^{k-2}}{(k-2)!} e^{-\\lambda}=\\sum_{k'=0}^{\\infty} \\frac{\\lambda^2 \\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda^2  \\sum_{k'=0}^{\\infty} \\frac{\\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda^2\\)\n\\(V[X]=E[X^2]-\\{E[X]\\}^2=E[X(X-1)]+E[X]-\\{E[X]\\}^2= \\lambda^2 + \\lambda - \\lambda^2 =\\lambda\\)\n確率母関数、積率母関数からも求めれそうです。\nポアソン分布の確率母関数\\(G_X(s)=\\exp\\{s\\lambda-\\lambda\\}\\),積率母関数は\\(M_X(t)=\\exp\\{e^t\\lambda-\\lambda\\}\\)である。\n\\(E[X]=\\frac{d}{ds}G_X(s)|_{s=1}= \\{\\lambda \\exp\\{s\\lambda-\\lambda\\}\\}|_{s=1} = \\lambda\\)\n\\(E[X]=\\frac{d}{dt}M_X(t)|_{t=0}= e^t\\lambda \\exp\\{e^t\\lambda-\\lambda\\}|_{t=0} = \\lambda\\)\n\\(E[X(X-1)]=\\frac{d^2}{ds^2}G_X(s)|_{s=1}= \\frac{d}{ds}\\{\\lambda \\exp\\{s\\lambda-\\lambda\\}\\}|_{s=1} =\\{\\lambda^2 \\exp\\{s\\lambda-\\lambda\\}\\}|_{s=1} = \\lambda^2\\)\n\\(E[X^2]=\\frac{d^2}{dt^2}M_X(t)|_{t=0}= \\frac{d}{dt} \\{e^t\\lambda \\exp\\{e^t\\lambda-\\lambda\\}\\}|_{t=0}\\)"
+  },
+  {
+    "objectID": "memo/1.html#離散一様分布",
+    "href": "memo/1.html#離散一様分布",
+    "title": "各確率分布の期待値・分散・確率母関数の求め方",
+    "section": "離散一様分布",
+    "text": "離散一様分布"
+  },
+  {
+    "objectID": "memo/datamath_4_answer.html",
+    "href": "memo/datamath_4_answer.html",
+    "title": "データ解析のための数理統計入門 4章　解答",
+    "section": "",
+    "text": "３問目\n問題\n\\(X \\sim Po(\\lambda)\\) のとき、\\(E[\\frac{1}{X+1}]\\)、\\(E[\\frac{1}{X+2}]\\) を求める。\n\\(P(X=x)=\\frac{\\lambda^x}{x!} e^{-\\lambda}\\) より期待値の定義から、\n\\[\\begin{align}\nE[\\frac{1}{X+1}] &= \\sum_{x=0}^{\\infty} \\frac{1}{x+1} \\frac{\\lambda^x}{x!} e^{-\\lambda} \\\\\n&= \\sum_{x=0}^{\\infty}  \\frac{\\lambda^x}{(x+1)!} e^{-\\lambda} \\\\\n&= \\frac{1}{\\lambda}\\sum_{x=0}^{\\infty}  \\frac{\\lambda^{x+1}}{(x+1)!} e^{-\\lambda} \\\\\n&= \\frac{1}{\\lambda}\\sum_{x'=1}^{\\infty}  \\frac{\\lambda^{x'}}{(x')!} e^{-\\lambda} \\\\\n\\end{align}\\]\nここで、\\(\\sum_{x'=1}^{\\infty} \\frac{\\lambda^{x'}}{(x')!}\\) の部分は、\\(x'=1\\) から \\(\\infty\\) の和になっている。\n\\(x'=0\\) から \\(\\infty\\) の和から、\\(x'=0\\) の時を引けば良い。\n\\[\ne^{\\lambda} = 1 + \\lambda + \\frac{\\lambda^2}{2!} + \\frac{\\lambda^3}{3!} + \\cdots = \\sum_{x'=0}^{\\infty}\\frac{\\lambda^{x'}}{(x')!}\n\\]\nこの式の\\(x'=0\\) の部分は\\(1\\) にあたるので、\\(\\sum_{x'=1}^{\\infty}\\frac{\\lambda^{x'}}{(x')!}  = e^\\lambda -1\\)\n\\[\\begin{align}\nE[\\frac{1}{X+1}] &= \\frac{1}{\\lambda}\\sum_{x'=1}^{\\infty}  \\frac{\\lambda^{x'}}{(x')!} e^{-\\lambda} \\\\\n&= \\frac{1}{\\lambda} (e^\\lambda -1) e^{-\\lambda} \\\\\n&= \\frac{1}{\\lambda} (1 -e^{-\\lambda})\n\\end{align}\\]"
   }
 ]

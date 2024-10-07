@@ -1,5 +1,89 @@
 ---
 title: "各確率分布の期待値・分散・確率母関数の求め方"
+format: html
+code-fold: true
+date: last-modified
+toc: true
 lang: ja
-page-layout: full
 ---
+
+## 二項分布
+
+$X \sim Bin(n,p)$ のとき、$E[X]=np$ , $V[X]=np(1-p)$ である。
+
+#### $E[X]=np$ の求め方
+
+\begin{align}
+E[X] &= \sum_{k=0}^{n} k P(X=k) \\
+&= \sum_{k=0}^{n} k 
+\begin{pmatrix}
+   n \\
+   k
+\end{pmatrix} p^k (1-p)^{n-k} \\
+&= \sum_{k=0}^{n} k \frac{n!}{k!(n-k)!} p^k (1-p)^{n-k} \\
+&= \sum_{k=1}^{n} \frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k} \\
+&= \sum_{k=1}^{n} \frac{n!(n-k+1)}{(k-1)!(n-(k-1))!} p^k (1-p)^{n-k} \\
+&= \sum_{k'=0}^{n-1} \frac{n!(n-k+1)}{(k')!(n-k')!} p^k (1-p)^{n-k} \\
+
+
+\end{align}
+
+
+#### $V[X]=np(1-p)$ の求め方
+
+同じ求め方で求めれると思われる。
+
+あとはベルヌーイ分布の和の分布でも求めれそう。
+
+確率母関数から求める方法もある。
+
+$G_X(s)=E[s^X]=(ps+1-p)^n$, $M_X(t)=E[e^{tX}]=(pe^t+1-p)^n$ から求める方法もある。
+
+$E[X]=\frac{d}{ds} G_X(s)|_{s=1} = n(ps+1-p)^{n-1} p|_{s=1}=np$
+
+$E[X]=\frac{d}{dt} M_X(t)|_{t=0} = n(pe^t+1-p)^{n-1} p|_{t=0}=np$
+
+$E[X(X-1)]= \frac{d^2}{ds^2} G_X(s)|_{s=1} = \frac{d}{ds} \{n(ps+1-p)^{n-1} p\}|_{s=1}= \{n(n-1)(ps+1-p)^{n-2} p^2\}|_{s=1}=n(n-1)p^2$
+
+$E[X^2]=\frac{d^2}{dt^2} M_X(t)|_{t=0}= \frac{d}{dt}\{n(pe^t+1-p)^{n-1} p\}|_{t=0}=n(n-1)(pe^t+1-p)^{n-2} p^2|_{t=0}=n(n-1)p^2$
+
+$V[X]=E[X^2]-(E[X])^2=n(n-1)p^2-(np)^2????$
+
+$V[X]=E[X^2]-(E[X])^2=E[X(X-1)]+E[X]-(E[X])^2=n(n-1)p^2+np-(np)^2=np(1-p)$
+
+
+## ベルヌーイ分布
+
+
+
+$X \sim Ber(p)$ のとき、$E[X]=p$ , $V[X]=p(1-p)$ である。
+
+
+## 幾何分布
+
+$X \sim Geo(p)$ のとき、$E[X]=\frac{q}{p}$ , $V[X]=\frac{q}{p^2}$ である。
+
+## ポアソン分布
+
+$X \sim Po(\lambda)$ のとき、$E[X]=\lambda$ , $V[X]=\lambda$ である。
+
+$E[X]=\sum_{k=0}^{\infty}k \frac{\lambda^k}{k!} e^{-\lambda}=\sum_{k=1}^{\infty} \frac{\lambda \lambda^{k-1}}{(k-1)!} e^{-\lambda}=\sum_{k'=0}^{\infty} \frac{\lambda \lambda^{k'}}{(k')!} e^{-\lambda}=\lambda  \sum_{k'=0}^{\infty} \frac{\lambda^{k'}}{(k')!} e^{-\lambda}=\lambda$
+
+$E[X(X-1)]=\sum_{k=0}^{\infty}k(k-1) \frac{\lambda^k}{k!} e^{-\lambda}=\sum_{k=2}^{\infty} \frac{\lambda^2 \lambda^{k-2}}{(k-2)!} e^{-\lambda}=\sum_{k'=0}^{\infty} \frac{\lambda^2 \lambda^{k'}}{(k')!} e^{-\lambda}=\lambda^2  \sum_{k'=0}^{\infty} \frac{\lambda^{k'}}{(k')!} e^{-\lambda}=\lambda^2$
+
+$V[X]=E[X^2]-\{E[X]\}^2=E[X(X-1)]+E[X]-\{E[X]\}^2= \lambda^2 + \lambda - \lambda^2 =\lambda$
+
+確率母関数、積率母関数からも求めれそうです。
+
+ポアソン分布の確率母関数$G_X(s)=\exp\{s\lambda-\lambda\}$,積率母関数は$M_X(t)=\exp\{e^t\lambda-\lambda\}$である。
+
+$E[X]=\frac{d}{ds}G_X(s)|_{s=1}= \{\lambda \exp\{s\lambda-\lambda\}\}|_{s=1} = \lambda$
+
+$E[X]=\frac{d}{dt}M_X(t)|_{t=0}= e^t\lambda \exp\{e^t\lambda-\lambda\}|_{t=0} = \lambda$
+
+$E[X(X-1)]=\frac{d^2}{ds^2}G_X(s)|_{s=1}= \frac{d}{ds}\{\lambda \exp\{s\lambda-\lambda\}\}|_{s=1} =\{\lambda^2 \exp\{s\lambda-\lambda\}\}|_{s=1} = \lambda^2$
+
+$E[X^2]=\frac{d^2}{dt^2}M_X(t)|_{t=0}= \frac{d}{dt} \{e^t\lambda \exp\{e^t\lambda-\lambda\}\}|_{t=0}$
+
+## 離散一様分布
+

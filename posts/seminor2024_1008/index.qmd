@@ -1,0 +1,247 @@
+---
+title: "10月8日「データ解析のための数理統計入門」第5章 "
+code-fold: true
+format:
+  html: default
+reference-location: margin
+citation-location: margin
+page-layout: full
+date: 2024/10/08
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+::: {.bold}
+【例5.9】(ガンマ・ポアソン分布)
+:::
+
+
+確率変数($X,Y$)の階層モデルとして
+
+$$
+X|Y \sim Po(Y), Y \sim Ga(\alpha,\beta)
+$$
+
+を考える。
+
+$Y=y$ を与えた時の$X$ の条件付き確率関数を $f_{X|Y}(x|y)$とし、$Y$ の確率密度関数を$f_Y(y)$ とすると
+
+$$
+f_{X|Y}(x|y) = \frac{y^x}{x!} e^{-y}
+$$
+
+$$
+f_Y(y) = \frac{y^{\alpha-1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-y/\beta}
+$$
+
+
+
+($X,Y$)の同時確率密度関数は
+
+$$
+f(x,y)=f_{X|Y}(x|y) f_Y(y)= \frac{y^x}{x!} e^{-y} \frac{y^{\alpha-1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-y/\beta}
+= \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha}} y^{x+\alpha-1} e^{-(1+1/\beta)y}
+$$
+
+と書ける。
+
+
+
+$X$ の周辺確率分布をガンマ・ポアソン分布と呼び
+
+$$
+f_X(x) = \int_{0}^{\infty} f(x,y) dy =  \frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x!} \frac{\beta^x}{(1+\beta)^{x+\alpha}}
+$$
+
+で与えられる。
+
+
+
+<details>
+  <summary>ガンマ・ポアソン分布の細かい計算</summary>
+  \begin{align}
+  f_X(x) &= \int_{0}^{\infty} f(x,y) dy \\
+  &= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha}} y^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
+  &= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha+1}} \{(1+\frac{1}{\beta})y\}^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
+  &=\frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} \int_{0}^{\infty}  u^{x+\alpha-1} e^{u} \frac{du}{(1+\frac{1}{\beta})} \\
+  &=\frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha}} \\
+  &=\frac{\Gamma(x+\alpha) \beta^{x+\alpha}}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\beta)^{x+\alpha}} \\
+  &=\frac{\Gamma(x+\alpha) \beta^{x}}{\Gamma(\alpha) x!(1+\beta)^{x+\alpha}} \\
+\end{align}
+</details>
+
+::: {.extra-space2}
+
+:::
+
+
+$\alpha$ が自然数の時、ガンマ・ポアソン分布は負の二項分布 $NBin(\alpha, 1/1+\beta)$ に従う。
+
+<details>
+  <summary>負の二項分布とガンマ・ポアソン分布</summary>
+  $X \sim NBin(r,p)$ として、$X=k$ となる確率は
+
+  $p(k)=\begin{pmatrix}
+   r+k-1 \\
+   k 
+   \end{pmatrix} p^r q^k$
+
+  $\alpha$ が自然数の時、$X$ の周辺確率関数は
+   
+  $$f_X(x)= \frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x!} \frac{\beta^x}{(1+\beta)^{x+\alpha}}
+  = \frac{(x+\alpha-1)!}{(\alpha-1)! x!} \frac{\beta^x}{(1+\beta)^{x+\alpha}}
+    =\begin{pmatrix}
+   \alpha+x-1 \\
+   x
+   \end{pmatrix} \{\frac{1}{(1+\beta)}\}^\alpha \{\frac{\beta}{(1+\beta)}\}^x
+  $$
+
+
+</details>
+
+::: {.extra-space2}
+
+:::
+
+ポアソン分布は平均と分散が等しいが（$Z \sim Po(\lambda)$ の $E[Z]=\lambda$,$V[Z]=\lambda$）、現実には死亡数などのデータを分析してみると平均より分散の方が大きくなることがあり、ポアソン分布を当てはめることができない。これを**過分散**の問題と呼び、ガンマ・ポアソン分布はこの問題を解決するモデルとして紹介されている。
+
+::: {.extra-space2}
+
+:::
+
+::: {.bold}
+ガンマ・ポアソン分布の平均と分散
+:::
+
+$E[X],Var[X]$ を求める。
+
+::: {.extra-space2}
+
+:::
+
+積率母関数から求める方法もあるが（演習問題5）、条件付き確率における条件付き期待値・条件付き分散の性質を用いると簡単に求めることができる。
+
+
+
+::: {.extra-space2}
+
+:::
+
+
+$X|Y \sim Po(Y)$ より、$E[X|Y]=Var(X|Y)=Y$
+
+$Y \sim Ga(\alpha, \beta)$ より、$E[Y] = \alpha \beta$, $Var(Y)= \alpha \beta^2$ 
+
+::: {.extra-space2}
+
+:::
+
+命題4.10を用いると、
+
+$E[X]=E[E[X|Y]]=E[Y]=\alpha \beta$
+
+$Var(X)= E[Y]+Var[Y]=\alpha \beta (1+\beta)$ 
+
+となり、$\alpha, \beta$ は正のパラメーターのため、分散が平均より大きくなることがわかる。
+
+これによって、ポアソン分布では当てはまりが悪いものでも、ガンマ・ポアソン分布を使えばうまくいく場合があるのだと思う。
+
+::: {.extra-space3}
+
+:::
+
+
+::: {.bold}
+【例5.10】(ベータ・2項分布)
+:::
+
+
+
+確率変数($X,Y$)の階層モデルとして
+
+$$
+X|Y \sim Bin(n,Y), Y \sim Beta(\alpha,\beta)
+$$
+
+を考えると、($X,Y$)の同時確率密度関数は
+
+$$
+f(x,y) = 	
+\begin{pmatrix}
+   n \\
+   x 
+\end{pmatrix} \frac{1}{B(\alpha,\beta)} y^{x+\alpha-1} (1-y)^{n-x+\beta-1}
+$$
+
+
+と書ける。
+
+
+
+
+
+$X$ の周辺確率密度関数は次のように書ける。
+
+$$
+f_X(x)=
+\begin{pmatrix}
+   n \\
+   x 
+\end{pmatrix} \frac{B(x+\alpha,n-x+\beta)}{B(\alpha,\beta)},x=0, \ldots,n
+$$
+
+<details>
+  <summary>計算</summary>
+  $$
+  f_X(x)= \int^{1}_{0}
+  \begin{pmatrix}
+   n \\
+   x 
+\end{pmatrix} \frac{1}{B(\alpha,\beta)} y^{x+\alpha-1} (1-y)^{n-x+\beta-1} dy=
+\begin{pmatrix}
+   n \\
+   x 
+\end{pmatrix} \frac{B(x+\alpha,n-x+\beta)}{B(\alpha,\beta)}
+  $$
+
+</details>
+
+
+これをベータ・二項分布と呼ぶ。平均・分散を直接計算することは困難である。
+
+::: {.extra-space3}
+
+:::
+
+
+$E[X|Y]=nY,Var(X|Y)=nY(1-Y)$
+
+
+$X$ の平均と分散は、命題4.10を用いて$E[X]=E[nY]=n\alpha/(\alpha+\beta)$, $Var(X)=E[nY(1-Y)]+Var(nY)=n(n-1)Var(Y)+nE[Y](1-E[Y])$ より
+
+$$
+Var(X)= n(n-1) \frac{\alpha \beta}{(\alpha+\beta)^2 (\alpha+\beta+1)} + n\frac{\alpha \beta}{(\alpha+\beta)^2}
+$$
+
+と書ける。
+
+
+
+<details>
+  <summary>分散の計算</summary>
+  \begin{align}
+  Var(X)&=E[Var(X|Y)]+Var(E[X|Y]) \\
+  &=E[nY(1-Y)] + Var(nY) \\
+  &=nE[Y]-nE[Y^2]+ n^2Var(Y)\\
+  &=nE[Y]-n(Var(Y)+(E[Y])^2)+ n^2Var(Y)\\
+  &=nE[Y](1-E[Y])+nVar(Y)(n-1)\\
+  &=n\frac{\alpha}{\alpha+\beta}(1-\frac{\alpha}{\alpha+\beta})+n(n-1)\frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)}\\
+    &=n\frac{\alpha \beta}{(\alpha+\beta)^2}+n(n-1)\frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)}\\
+  \end{align}
+
+</details>
