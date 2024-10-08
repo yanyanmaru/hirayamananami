@@ -221,7 +221,7 @@ f_{X|Y}(x|y) = \frac{y^x}{x!} e^{-y}
 <p><span class="math display">\[
 f_Y(y) = \frac{y^{\alpha-1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-y/\beta}
 \]</span></p>
-<p>(<span class="math inline">\(X,Y\)</span>)の同時確率密度関数は</p>
+<p>(<span class="math inline">\(X,Y\)</span>)の同時確率関数は</p>
 <p><span class="math display">\[
 f(x,y)=f_{X|Y}(x|y) f_Y(y)= \frac{y^x}{x!} e^{-y} \frac{y^{\alpha-1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-y/\beta}
 = \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha}} y^{x+\alpha-1} e^{-(1+1/\beta)y}
@@ -239,7 +239,7 @@ f_X(x) = \int_{0}^{\infty} f(x,y) dy =  \frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x
 <span class="math display">\[\begin{align}
   f_X(x) &amp;= \int_{0}^{\infty} f(x,y) dy \\
   &amp;= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha}} y^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
-  &amp;= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha+1}} \{(1+\frac{1}{\beta})y\}^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
+  &amp;= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} \{(1+\frac{1}{\beta})y\}^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
   &amp;=\frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} \int_{0}^{\infty}  u^{x+\alpha-1} e^{u} \frac{du}{(1+\frac{1}{\beta})} \\
   &amp;=\frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha}} \\
   &amp;=\frac{\Gamma(x+\alpha) \beta^{x+\alpha}}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\beta)^{x+\alpha}} \\
@@ -306,7 +306,7 @@ f_X(x) = \int_{0}^{\infty} f(x,y) dy =  \frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x
 <p><span class="math display">\[
 X|Y \sim Bin(n,Y), Y \sim Beta(\alpha,\beta)
 \]</span></p>
-<p>を考えると、(<span class="math inline">\(X,Y\)</span>)の同時確率密度関数は</p>
+<p>を考えると、(<span class="math inline">\(X,Y\)</span>)の同時確率関数は</p>
 <p><span class="math display">\[
 f(x,y) =    
 \begin{pmatrix}
@@ -315,7 +315,7 @@ f(x,y) =
 \end{pmatrix} \frac{1}{B(\alpha,\beta)} y^{x+\alpha-1} (1-y)^{n-x+\beta-1}
 \]</span></p>
 <p>と書ける。</p>
-<p><span class="math inline">\(X\)</span> の周辺確率密度関数は次のように書ける。</p>
+<p><span class="math inline">\(X\)</span> の周辺確率関数は次のように書ける。</p>
 <p><span class="math display">\[
 f_X(x)=
 \begin{pmatrix}
@@ -363,6 +363,9 @@ Var(X)= n(n-1) \frac{\alpha \beta}{(\alpha+\beta)^2 (\alpha+\beta+1)} + n\frac{\
     &amp;=n\frac{\alpha \beta}{(\alpha+\beta)^2}+n(n-1)\frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)}\\
   \end{align}\]</span></p>
 </details>
+<div class="class">
+
+</div>
 
 
 <!-- -->
@@ -883,7 +886,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>($X,Y$)の同時確率密度関数は</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>($X,Y$)の同時確率関数は</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>f(x,y)=f_{X|Y}(x|y) f_Y(y)= \frac{y^x}{x!} e^{-y} \frac{y^{\alpha-1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-y/\beta}</span>
@@ -909,7 +912,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  \begin{align}</span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  f_X(x) &amp;= \int_{0}^{\infty} f(x,y) dy <span class="sc">\\</span></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  &amp;= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha}} y^{x+\alpha-1} e^{-(1+1/\beta)y} dy <span class="sc">\\</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  &amp;= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha+1}} <span class="sc">\{</span>(1+\frac{1}{\beta})y<span class="sc">\}</span>^{x+\alpha-1} e^{-(1+1/\beta)y} dy <span class="sc">\\</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  &amp;= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} <span class="sc">\{</span>(1+\frac{1}{\beta})y<span class="sc">\}</span>^{x+\alpha-1} e^{-(1+1/\beta)y} dy <span class="sc">\\</span></span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  &amp;=\frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} \int_{0}^{\infty}  u^{x+\alpha-1} e^{u} \frac{du}{(1+\frac{1}{\beta})} <span class="sc">\\</span></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  &amp;=\frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha}} <span class="sc">\\</span></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  &amp;=\frac{\Gamma(x+\alpha) \beta^{x+\alpha}}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\beta)^{x+\alpha}} <span class="sc">\\</span></span>
@@ -1010,7 +1013,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>X|Y \sim Bin(n,Y), Y \sim Beta(\alpha,\beta)</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>を考えると、($X,Y$)の同時確率密度関数は</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>を考えると、($X,Y$)の同時確率関数は</span>
 <span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>f(x,y) =    </span>
@@ -1027,7 +1030,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>$X$ の周辺確率密度関数は次のように書ける。</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>$X$ の周辺確率関数は次のように書ける。</span>
 <span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>f_X(x)=</span>
@@ -1086,7 +1089,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>    &amp;=n\frac{\alpha \beta}{(\alpha+\beta)^2}+n(n-1)\frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)}<span class="sc">\\</span></span>
 <span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>  \end{align}</span>
 <span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>&lt;/details&gt;</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>&lt;/details&gt;</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>::: {.class}</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>::: {.content-hidden when-format="html"}</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>::: {.bold}</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>追加</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>ガンマポアソン分布の平均と分散を積率母関数から求める。</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>M_X(t)=E<span class="co">[</span><span class="ot">e^{tX}</span><span class="co">]</span>=E<span class="co">[</span><span class="ot">E[e^{tX}|Y]</span><span class="co">]</span>=E<span class="co">[</span><span class="ot">e^{(e^t-1)Y}</span><span class="co">]</span>=(1-\beta (e^t-1))^{-\alpha}</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=M'_X(t)|_{t=0} = \{\beta \alpha (1-\beta (e^t-1))^{-\alpha -1}\}|_{t=0}= \beta \alpha</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">X^2</span><span class="co">]</span>=M''_X(t)|_{t=0} = \{\beta^2 \alpha(\alpha+1) (1-\beta (e^t-1))^{-\alpha -2}\}|_{t=0}= \beta^2 \alpha(\alpha+1) </span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>V<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=E<span class="co">[</span><span class="ot">X^2</span><span class="co">]</span>-<span class="sc">\{</span>E<span class="co">[</span><span class="ot">X</span><span class="co">]</span><span class="sc">\}</span>^2 =\beta^2 \alpha(\alpha+1) -\beta^2 \alpha^2 =</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

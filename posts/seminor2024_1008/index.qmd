@@ -41,7 +41,7 @@ $$
 
 
 
-($X,Y$)の同時確率密度関数は
+($X,Y$)の同時確率関数は
 
 $$
 f(x,y)=f_{X|Y}(x|y) f_Y(y)= \frac{y^x}{x!} e^{-y} \frac{y^{\alpha-1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-y/\beta}
@@ -67,7 +67,7 @@ $$
   \begin{align}
   f_X(x) &= \int_{0}^{\infty} f(x,y) dy \\
   &= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha}} y^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
-  &= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha+1}} \{(1+\frac{1}{\beta})y\}^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
+  &= \int_{0}^{\infty}  \frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} \{(1+\frac{1}{\beta})y\}^{x+\alpha-1} e^{-(1+1/\beta)y} dy \\
   &=\frac{1}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha-1}} \int_{0}^{\infty}  u^{x+\alpha-1} e^{u} \frac{du}{(1+\frac{1}{\beta})} \\
   &=\frac{\Gamma(x+\alpha)}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\frac{1}{\beta})^{x+\alpha}} \\
   &=\frac{\Gamma(x+\alpha) \beta^{x+\alpha}}{\Gamma(\alpha) x!  \beta^{\alpha} (1+\beta)^{x+\alpha}} \\
@@ -168,7 +168,7 @@ $$
 X|Y \sim Bin(n,Y), Y \sim Beta(\alpha,\beta)
 $$
 
-を考えると、($X,Y$)の同時確率密度関数は
+を考えると、($X,Y$)の同時確率関数は
 
 $$
 f(x,y) = 	
@@ -185,7 +185,7 @@ $$
 
 
 
-$X$ の周辺確率密度関数は次のように書ける。
+$X$ の周辺確率関数は次のように書ける。
 
 $$
 f_X(x)=
@@ -245,3 +245,35 @@ $$
   \end{align}
 
 </details>
+
+
+::: {.class}
+
+:::
+
+::: {.content-hidden when-format="html"}
+
+::: {.bold}
+追加
+:::
+
+ガンマポアソン分布の平均と分散を積率母関数から求める。
+
+$$
+M_X(t)=E[e^{tX}]=E[E[e^{tX}|Y]]=E[e^{(e^t-1)Y}]=(1-\beta (e^t-1))^{-\alpha}
+$$
+
+$$
+E[X]=M'_X(t)|_{t=0} = \{\beta \alpha (1-\beta (e^t-1))^{-\alpha -1}\}|_{t=0}= \beta \alpha
+$$
+
+$$
+E[X^2]=M''_X(t)|_{t=0} = \{\beta^2 \alpha(\alpha+1) (1-\beta (e^t-1))^{-\alpha -2}\}|_{t=0}= \beta^2 \alpha(\alpha+1) 
+$$
+
+$$
+V[X]=E[X^2]-\{E[X]\}^2 =\beta^2 \alpha(\alpha+1) -\beta^2 \alpha^2 =
+$$
+
+
+:::
