@@ -40,3 +40,27 @@ h6 {
 .bold {
     font-weight: bold;
 }
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 15px;
+}
+
+h4 {
+    font-size: 10px;
+}
+
+.copy-button {
+    color: #fff;
+    background: #5cbcf6;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 3px 20px;
+}

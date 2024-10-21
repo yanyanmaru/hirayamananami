@@ -1,0 +1,36 @@
+---
+title: "LaTeX　自分用"
+format: html
+code-fold: true
+date: last-modified
+toc: false
+lang: ja
+page-layout: full
+---
+
+<script>
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function() {
+    alert('コピーしました: ' + text);
+  }, function(err) {
+    console.error('コピーに失敗しました', err);
+  });
+}
+</script>
+
+
+# LaTeXコードコピー
+
+頻繁に使いそうなものを準備しておく。
+
+## 統計学
+
+
+
+| 説明 | 表示 | LaTeXコード |コピーボタン |
+|:-----:|:-----:|:-------------:|:----:|
+|ポアソン分布の確率関数| $\frac{\lambda^x}{x!}e^{-\lambda}$    | `\frac{\lambda^x}{x!}e^{-\lambda}`   | <button class="copy-button" onclick="copyToClipboard('\\frac{\lambda^x}{x!}e^{-\lambda}')">COPY</button> |
+|二項分布の確率関数| ${}_n C_x p^x (1-p)^{n-x}$         | `{}_n C_x p^x (1-p)^{n-x}`        | <button class="copy-button" onclick="copyToClipboard('{}_n C_x p^x (1-p)^{n-x}')">COPY</button> |
+|正規分布の確率密度関数|   $\frac{1}{\sqrt{2 \pi \sigma^2}}\exp\{-\frac{(x-u)^2}{2\sigma^2}\}$   | `\frac{1}{\sqrt{2 \pi \sigma^2}}\exp\{- \frac{(x-u)^2}{2\sigma^2}\}`      | <button class="copy-button" onclick="copyToClipboard('\\frac{1}{\\sqrt{2 \\pi \\sigma^2}}\\exp\\{-\\frac{(x-u)^2}{2\\sigma^2}\\}')">COPY</button> |
+|標準正規分布の確率密度関数|   $\frac{1}{\sqrt{2 \pi}}\exp\{-\frac{z^2}{2}\}$   | `\frac{1}{\sqrt{2 \pi}}\exp\{-\frac{z^2}{2}\}`      | <button class="copy-button" onclick="copyToClipboard('\\frac{1}{\\sqrt{2 \\pi}}\\exp\\{-\\frac{z^2}{2}\\}')">COPY</button> |
+

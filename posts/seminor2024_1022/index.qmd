@@ -1,0 +1,34 @@
+---
+title: "10月22日「データ解析のための数理統計入門」第6章 連続補正"
+code-fold: true
+format:
+  html: default
+reference-location: margin
+citation-location: margin
+page-layout: full
+date: 2024/10/22
+toc: true
+lang: ja
+categories:
+  - ゼミ
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+【例6.8】(連続補正)
+
+確率変数$X \sim Bin(n,p)$ に従うとする。整数$m_1,m_2$ が$0 \leq m_1 \leq m_2 \leq n$ を満たす時、確率$P(m_1 \leq X \leq m_2 )$ の近似値を中心極限定理を用いて求めることを考える。$X$ はベルヌーイ分布に従う$n$ 個の独立な確率変数の和で表されるので、$n$ が大きい時は中心極限定理が適用できて、$(X-np)/\sqrt{np(1-p)}$ は標準正規分布で近似できる。したがって、
+
+$$
+P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-np}{\sqrt{np(1-p)}})
+$$
+
+のように近似し、標準正規分布の分布関数 $\Phi(\cdot)$ を用いて確率を計算することができる。しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。
+
+$$
+P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-0.5-np}{\sqrt{np(1-p)}})
+$$
+
+で近似する。これを連続補正と呼ぶ。サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は$P(25 \leq Y_{120} \leq 30)=0.129$ であるが、通常の正規近似では$0.103$, 連続補正した正規近似では$0.130$ となり連続補正した方が近似が良いことがわかる。
+

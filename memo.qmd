@@ -6,10 +6,14 @@ toc: false
 page-layout: full
 ---
 
+[LaTeX　自分用](/memo/latex_code_copy.html)
 
 ::: {.content-hidden when-format="html"}
 
+
 [各確率分布の期待値・分散の求め方](/memo/1.html)
+
+各確率関数は本当に１になるのか
 
 確率母関数・積率母関数の求め方
 
