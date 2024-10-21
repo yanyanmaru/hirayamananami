@@ -2,9 +2,11 @@
 title: "10月22日「データ解析のための数理統計入門」第6章 連続補正"
 code-fold: true
 format:
-  html: default
-reference-location: margin
-citation-location: margin
+  html:
+    grid:
+      margin-width: 350px         # <1>
+reference-location: margin        # <2>
+citation-location: margin         # <2>
 page-layout: full
 date: 2024/10/22
 toc: true
@@ -16,19 +18,104 @@ categories:
 status: "作成中"
 ---
 
-【例6.8】(連続補正)
+# 【例6.8】(連続補正)
 
-確率変数$X \sim Bin(n,p)$ に従うとする。整数$m_1,m_2$ が$0 \leq m_1 \leq m_2 \leq n$ を満たす時、確率$P(m_1 \leq X \leq m_2 )$ の近似値を中心極限定理を用いて求めることを考える。$X$ はベルヌーイ分布に従う$n$ 個の独立な確率変数の和で表されるので、$n$ が大きい時は中心極限定理が適用できて、$(X-np)/\sqrt{np(1-p)}$ は標準正規分布で近似できる。したがって、
+確率変数$X \sim Bin(n,p)$ に従うとする。整数$m_1,m_2$ が$0 \leq m_1 \leq m_2 \leq n$ を満たす時、確率$P(m_1 \leq X \leq m_2 )$ の近似値を中心極限定理を用いて求めることを考える。
+
+$X$ はベルヌーイ分布に従う$n$ 個の独立な確率変数の和で表される[^1]ので、$n$ が大きい時は中心極限定理が適用できて、$(X-np)/\sqrt{np(1-p)}$ は標準正規分布で近似できる。[^2]
+
+[^1]: $X_i \sim Ber(p)$ にそれぞれ従う時、$X=X_1+X_2+ \cdots + X_n$ とすると、和の分布である$X$ は二項分布に従う。p18の定義にも書いてある。
+
+[^2]: 二項分布に従う確率変数$X$の$E[X]=np$,$V[X]=np(1-p)$より。
+
+::: {.extra-space2}
+
+:::
+
+したがって、
 
 $$
 P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-np}{\sqrt{np(1-p)}})
 $$
 
-のように近似し、標準正規分布の分布関数 $\Phi(\cdot)$ を用いて確率を計算することができる。しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。
+のように近似し、標準正規分布の分布関数 $\Phi(\cdot)$ を用いて確率を計算することができる。下の図は教科書の図6.2を再現している。
+
+
+
+
+
+しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。[^3] 図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。
+
+[^3]: 正規分布は連続変数だから、m_1,m_2では0になるってことを言ってるのかな？
 
 $$
 P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-0.5-np}{\sqrt{np(1-p)}})
 $$
 
-で近似する。これを連続補正と呼ぶ。サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は$P(25 \leq Y_{120} \leq 30)=0.129$ であるが、通常の正規近似では$0.103$, 連続補正した正規近似では$0.130$ となり連続補正した方が近似が良いことがわかる。
+で近似する。これを連続補正と呼ぶ。
 
+
+
+
+サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は$P(25 \leq Y_{120} \leq 30)=0.129$ であるが、通常の正規近似では$0.103$, 連続補正した正規近似では$0.130$ となり連続補正した方が近似が良いことがわかる。
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+
+n = 120  # 試行回数
+p = 1/6  # 確率
+x = np.arange(n + 1)
+
+bars = plt.bar(x, stats.binom.pmf(x, n, p), color='blue')
+
+for i in range(25, 31):
+    bars[i].set_color('red')  
+
+plt.xlim(0, 35)
+
+plt.xlabel('number of successes')
+plt.ylabel('probability')
+
+plt.show()
+
+```
+
+
+::: {.extra-space2}
+
+:::
+
+## 正確な確率(Python)
+
+
+
+```{python}
+import math
+
+p_25_30 = 0
+
+for i in range(25, 31):
+  p_25_30 = p_25_30 + math.factorial(120)/(math.factorial(i)*math.factorial(120-i)) * ((1/6)**i)*((5/6)**(120-i))
+
+print(p_25_30)
+```
+
+## 通常の正規近似(Python)
+
+```{python}
+from scipy.stats import norm
+
+p_25_30_norm = norm.cdf(x = 30, loc = 120*(1/6), scale = math.sqrt(120*(1/6)*(5/6))) - norm.cdf(x = 25, loc = 120*(1/6), scale = math.sqrt(120*(1/6)*(5/6)))
+print(p_25_30_norm)
+```
+
+## 連続補正した正規近似(Python)
+
+```{python}
+from scipy.stats import norm
+
+p_25_30_norm_hosei = norm.cdf(x = (30+1/2), loc = 120*(1/6), scale = math.sqrt(120*(1/6)*(5/6))) - norm.cdf(x = (25-1/2), loc = 120*(1/6), scale = math.sqrt(120*(1/6)*(5/6)))
+print(p_25_30_norm_hosei)
+```
