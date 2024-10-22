@@ -220,22 +220,30 @@ window.Quarto = {
 <section id="例6.8連続補正" class="level1 page-columns page-full">
 <h1>【例6.8】(連続補正)</h1>
 <p>確率変数<span class="math inline">\(X \sim Bin(n,p)\)</span> に従うとする。整数<span class="math inline">\(m_1,m_2\)</span> が<span class="math inline">\(0 \leq m_1 \leq m_2 \leq n\)</span> を満たす時、確率<span class="math inline">\(P(m_1 \leq X \leq m_2 )\)</span> の近似値を中心極限定理を用いて求めることを考える。</p>
-<p><span class="math inline">\(X\)</span> はベルヌーイ分布に従う<span class="math inline">\(n\)</span> 個の独立な確率変数の和で表される<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>ので、<span class="math inline">\(n\)</span> が大きい時は中心極限定理が適用できて、<span class="math inline">\((X-np)/\sqrt{np(1-p)}\)</span> は標準正規分布で近似できる。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="math inline">\(X_i \sim Ber(p)\)</span> にそれぞれ従う時、<span class="math inline">\(X=X_1+X_2+ \cdots + X_n\)</span> とすると、和の分布である<span class="math inline">\(X\)</span> は二項分布に従う。p18の定義にも書いてある。</p></div><div id="fn2"><p><sup>2</sup>&nbsp;二項分布に従う確率変数<span class="math inline">\(X\)</span>の<span class="math inline">\(E[X]=np\)</span>,<span class="math inline">\(V[X]=np(1-p)\)</span>より。</p></div></div><div class="extra-space2">
+<div class="extra-space1">
+
+</div>
+<p><span class="math inline">\(X\)</span> はベルヌーイ分布に従う<span class="math inline">\(n\)</span> 個の独立な確率変数の和で表される<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>ので、<span class="math inline">\(n\)</span> が大きい時は中心極限定理が適用できて、<span class="math inline">\((X-np)/\sqrt{np(1-p)}\)</span> は標準正規分布で近似できる。</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="math inline">\(X_i \sim Ber(p)\)</span> にそれぞれ従う時、<span class="math inline">\(X=X_1+X_2+ \cdots + X_n\)</span> とすると、和の分布である<span class="math inline">\(X\)</span> は二項分布に従う。p18の定義にも書いてある。</p></div></div><p><span class="math inline">\(X=X_1+X_2+ \cdots + X_n\)</span> とすると、それぞれ独立に <span class="math inline">\(X_i \sim Ber(p)\)</span> より、<span class="math inline">\(E[X_i]=p\)</span>、<span class="math inline">\(V[X_i]=p(1-p)\)</span> になる。これを用いて、中心極限定理を適用すると、</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}(\overline{X} - \mu) }{\sigma} = \frac{\sqrt{n}(\frac{1}{n}(X_1+X_2+ \cdots + X_n) - p) }{\sqrt{p(1-p)}}= \frac{\frac{1}{\sqrt{n}}(X - np) }{\sqrt{p(1-p)}}=\frac{X - np }{\sqrt{np(1-p)}}
+\]</span></p>
+<p>と計算されるので、<span class="math inline">\(\frac{X - np }{\sqrt{np(1-p)}} \sim N(0,1)\)</span> である。この形は、確率変数<span class="math inline">\(X\)</span> を<span class="math inline">\(E[X]=np\)</span>,<span class="math inline">\(V[X]=np(1-p)\)</span> で標準化しているともとれる<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>ので、<span class="math inline">\(X \sim Bin(n,p)\)</span> は<span class="math inline">\(X \sim N(np,np(1-p))\)</span> に近似できると考えることができるはず。</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span> を<span class="math inline">\(Y=aX+b\)</span> という変換で考えると、<span class="math inline">\(Y \sim N(a \mu +b, a^2 \sigma^2)\)</span> で考えることもできるはず。p35の命題2.15参照。</p></div></div><div class="extra-space2">
 
 </div>
 <p>したがって、</p>
 <p><span class="math display">\[
 P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-np}{\sqrt{np(1-p)}})
 \]</span></p>
-<p>のように近似し、標準正規分布の分布関数 <span class="math inline">\(\Phi(\cdot)\)</span> を用いて確率を計算することができる。下の図は教科書の図6.2を再現している。</p>
-<p>しかし、<span class="math inline">\(m_1,m_2\)</span> が整数であるから<span class="math inline">\(X=m_1,X=m_2\)</span> で確率を持つことになる。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 図6.2が示唆するように、<span class="math inline">\(m_1 \leq X \leq m_2\)</span> の確率を考えるより<span class="math inline">\(m_1-0.5 \leq X \leq m_2+0.5\)</span> の確率を求めた方が近似が良くなることが知られている。</p>
+<p>のように近似し、標準正規分布の分布関数 <span class="math inline">\(\Phi(\cdot)\)</span> を用いて確率を計算することができる。</p>
+<p>しかし、<span class="math inline">\(m_1,m_2\)</span> が整数であるから<span class="math inline">\(X=m_1,X=m_2\)</span> で確率を持つことになる。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 図6.2が示唆するように、<span class="math inline">\(m_1 \leq X \leq m_2\)</span> の確率を考えるより<span class="math inline">\(m_1-0.5 \leq X \leq m_2+0.5\)</span> の確率を求めた方が近似が良くなることが知られている。おそらく</p>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;正規分布は連続変数だから、m_1,m_2では0になるってことを言ってるのかな？</p></div></div><p><span class="math display">\[
 P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-0.5-np}{\sqrt{np(1-p)}})
 \]</span></p>
 <p>で近似する。これを連続補正と呼ぶ。</p>
 <p>サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は<span class="math inline">\(P(25 \leq Y_{120} \leq 30)=0.129\)</span> であるが、通常の正規近似では<span class="math inline">\(0.103\)</span>, 連続補正した正規近似では<span class="math inline">\(0.130\)</span> となり連続補正した方が近似が良いことがわかる。</p>
-<div id="5db6d59c" class="cell" data-execution_count="1">
+<div id="f2c02989" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -271,7 +279,7 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 </div>
 <section id="正確な確率python" class="level2">
 <h2 class="anchored" data-anchor-id="正確な確率python">正確な確率(Python)</h2>
-<div id="27c755dc" class="cell" data-execution_count="2">
+<div id="ed046a07" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -287,16 +295,27 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 <pre><code>0.12893057190612908</code></pre>
 </div>
 </div>
+<div id="168d31aa" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>stats.binom.cdf(<span class="dv">30</span>,<span class="dv">120</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">-</span>stats.binom.cdf(<span class="dv">24</span>,<span class="dv">120</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>0.12893057190612855</code></pre>
+</div>
+</div>
 </section>
 <section id="通常の正規近似python" class="level2">
 <h2 class="anchored" data-anchor-id="通常の正規近似python">通常の正規近似(Python)</h2>
-<div id="45349c92" class="cell" data-execution_count="3">
+<div id="f802b8ff" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>p_25_30_norm <span class="op">=</span> norm.cdf(x <span class="op">=</span> <span class="dv">30</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> <span class="dv">25</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p_25_30_norm <span class="op">=</span> norm.cdf(x <span class="op">=</span> <span class="dv">30</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> <span class="dv">25</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.10318274174220854</code></pre>
@@ -305,13 +324,13 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 </section>
 <section id="連続補正した正規近似python" class="level2">
 <h2 class="anchored" data-anchor-id="連続補正した正規近似python">連続補正した正規近似(Python)</h2>
-<div id="60bce790" class="cell" data-execution_count="4">
+<div id="219001b9" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p_25_30_norm_hosei <span class="op">=</span> norm.cdf(x <span class="op">=</span> (<span class="dv">30</span><span class="op">+</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> (<span class="dv">25</span><span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm_hosei)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p_25_30_norm_hosei <span class="op">=</span> norm.cdf(x <span class="op">=</span> (<span class="dv">30</span><span class="op">+</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> (<span class="dv">25</span><span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm_hosei)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.1301159033667233</code></pre>
@@ -797,127 +816,146 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "10月22日「データ解析のための数理統計入門」第6章 連続補正"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    grid:</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">      margin-width: 350px         # &lt;1&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="an">reference-location:</span><span class="co"> margin        # &lt;2&gt;</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="an">citation-location:</span><span class="co"> margin         # &lt;2&gt;</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024/10/22</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - ゼミ</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - 統計</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">  - データ解析のための数理統計入門</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># 【例6.8】(連続補正)</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>確率変数$X \sim Bin(n,p)$ に従うとする。整数$m_1,m_2$ が$0 \leq m_1 \leq m_2 \leq n$ を満たす時、確率$P(m_1 \leq X \leq m_2 )$ の近似値を中心極限定理を用いて求めることを考える。</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>$X$ はベルヌーイ分布に従う$n$ 個の独立な確率変数の和で表される<span class="ot">[^1]</span>ので、$n$ が大きい時は中心極限定理が適用できて、$(X-np)/\sqrt{np(1-p)}$ は標準正規分布で近似できる。<span class="ot">[^2]</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>$X_i \sim Ber(p)$ にそれぞれ従う時、$X=X_1+X_2+ \cdots + X_n$ とすると、和の分布である$X$ は二項分布に従う。p18の定義にも書いてある。</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>二項分布に従う確率変数$X$の$E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np$,$V<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np(1-p)$より。</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>::: {.extra-space2}</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>したがって、</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-np}{\sqrt{np(1-p)}})</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>のように近似し、標準正規分布の分布関数 $\Phi(\cdot)$ を用いて確率を計算することができる。下の図は教科書の図6.2を再現している。</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。<span class="ot">[^3]</span> 図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>正規分布は連続変数だから、m_1,m_2では0になるってことを言ってるのかな？</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-0.5-np}{\sqrt{np(1-p)}})</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>で近似する。これを連続補正と呼ぶ。</span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は$P(25 \leq Y_{120} \leq 30)=0.129$ であるが、通常の正規近似では$0.103$, 連続補正した正規近似では$0.130$ となり連続補正した方が近似が良いことがわかる。</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">120</span>  <span class="co"># 試行回数</span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span>  <span class="co"># 確率</span></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(n <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> plt.bar(x, stats.binom.pmf(x, n, p), color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">25</span>, <span class="dv">31</span>):</span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>    bars[i].set_color(<span class="st">'red'</span>)  </span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">35</span>)</span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'number of successes'</span>)</span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'probability'</span>)</span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>::: {.extra-space2}</span>
-<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## 正確な確率(Python)</span></span>
-<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>p_25_30 <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">25</span>, <span class="dv">31</span>):</span>
-<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>  p_25_30 <span class="op">=</span> p_25_30 <span class="op">+</span> math.factorial(<span class="dv">120</span>)<span class="op">/</span>(math.factorial(i)<span class="op">*</span>math.factorial(<span class="dv">120</span><span class="op">-</span>i)) <span class="op">*</span> ((<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">**</span>i)<span class="op">*</span>((<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)<span class="op">**</span>(<span class="dv">120</span><span class="op">-</span>i))</span>
-<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30)</span>
-<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## 通常の正規近似(Python)</span></span>
-<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>p_25_30_norm <span class="op">=</span> norm.cdf(x <span class="op">=</span> <span class="dv">30</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> <span class="dv">25</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
-<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm)</span>
-<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## 連続補正した正規近似(Python)</span></span>
-<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>p_25_30_norm_hosei <span class="op">=</span> norm.cdf(x <span class="op">=</span> (<span class="dv">30</span><span class="op">+</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> (<span class="dv">25</span><span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
-<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm_hosei)</span>
-<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "10月22日「データ解析のための数理統計入門」第6章 連続補正"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">    grid:</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">      margin-width: 350px         # &lt;1&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="an">reference-location:</span><span class="co"> margin        # &lt;2&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="an">citation-location:</span><span class="co"> margin         # &lt;2&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024/10/22</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - ゼミ</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - 統計</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">  - データ解析のための数理統計入門</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># 【例6.8】(連続補正)</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>確率変数$X \sim Bin(n,p)$ に従うとする。整数$m_1,m_2$ が$0 \leq m_1 \leq m_2 \leq n$ を満たす時、確率$P(m_1 \leq X \leq m_2 )$ の近似値を中心極限定理を用いて求めることを考える。</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>::: {.extra-space1}</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>$X$ はベルヌーイ分布に従う$n$ 個の独立な確率変数の和で表される<span class="ot">[^1]</span>ので、$n$ が大きい時は中心極限定理が適用できて、$(X-np)/\sqrt{np(1-p)}$ は標準正規分布で近似できる。</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>$X=X_1+X_2+ \cdots + X_n$ とすると、それぞれ独立に $X_i \sim Ber(p)$ より、$E<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>=p$、$V<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>=p(1-p)$ になる。これを用いて、中心極限定理を適用すると、</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>\frac{\sqrt{n}(\overline{X} - \mu) }{\sigma} = \frac{\sqrt{n}(\frac{1}{n}(X_1+X_2+ \cdots + X_n) - p) }{\sqrt{p(1-p)}}= \frac{\frac{1}{\sqrt{n}}(X - np) }{\sqrt{p(1-p)}}=\frac{X - np }{\sqrt{np(1-p)}}</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>と計算されるので、$\frac{X - np }{\sqrt{np(1-p)}} \sim N(0,1)$ である。この形は、確率変数$X$ を$E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np$,$V<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np(1-p)$ で標準化しているともとれる<span class="ot">[^2]</span>ので、$X \sim Bin(n,p)$ は$X \sim N(np,np(1-p))$ に近似できると考えることができるはず。</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>$X_i \sim Ber(p)$ にそれぞれ従う時、$X=X_1+X_2+ \cdots + X_n$ とすると、和の分布である$X$ は二項分布に従う。p18の定義にも書いてある。</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>$X \sim N(\mu,\sigma^2)$ を$Y=aX+b$ という変換で考えると、$Y \sim N(a \mu +b, a^2 \sigma^2)$ で考えることもできるはず。p35の命題2.15参照。</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>::: {.extra-space2}</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>したがって、</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-np}{\sqrt{np(1-p)}})</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>のように近似し、標準正規分布の分布関数 $\Phi(\cdot)$ を用いて確率を計算することができる。</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。<span class="ot">[^3]</span> 図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。おそらく</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>正規分布は連続変数だから、m_1,m_2では0になるってことを言ってるのかな？</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-0.5-np}{\sqrt{np(1-p)}})</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>で近似する。これを連続補正と呼ぶ。</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は$P(25 \leq Y_{120} \leq 30)=0.129$ であるが、通常の正規近似では$0.103$, 連続補正した正規近似では$0.130$ となり連続補正した方が近似が良いことがわかる。</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">120</span>  <span class="co"># 試行回数</span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">6</span>  <span class="co"># 確率</span></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(n <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> plt.bar(x, stats.binom.pmf(x, n, p), color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">25</span>, <span class="dv">31</span>):</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>    bars[i].set_color(<span class="st">'red'</span>)  </span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">35</span>)</span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'number of successes'</span>)</span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'probability'</span>)</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>::: {.extra-space2}</span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## 正確な確率(Python)</span></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>p_25_30 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">25</span>, <span class="dv">31</span>):</span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>  p_25_30 <span class="op">=</span> p_25_30 <span class="op">+</span> math.factorial(<span class="dv">120</span>)<span class="op">/</span>(math.factorial(i)<span class="op">*</span>math.factorial(<span class="dv">120</span><span class="op">-</span>i)) <span class="op">*</span> ((<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">**</span>i)<span class="op">*</span>((<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)<span class="op">**</span>(<span class="dv">120</span><span class="op">-</span>i))</span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30)</span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>stats.binom.cdf(<span class="dv">30</span>,<span class="dv">120</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">-</span>stats.binom.cdf(<span class="dv">24</span>,<span class="dv">120</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)</span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## 通常の正規近似(Python)</span></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>p_25_30_norm <span class="op">=</span> norm.cdf(x <span class="op">=</span> <span class="dv">30</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> <span class="dv">25</span>, loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm)</span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## 連続補正した正規近似(Python)</span></span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>p_25_30_norm_hosei <span class="op">=</span> norm.cdf(x <span class="op">=</span> (<span class="dv">30</span><span class="op">+</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> (<span class="dv">25</span><span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm_hosei)</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
