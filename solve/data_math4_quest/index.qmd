@@ -1,0 +1,155 @@
+---
+title: "「データ解析のための数理統計入門」第4章 演習問題 解答"
+format: html
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - 統計
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+# 問3
+ 
+## 問題概要
+
+$X \sim Po(\lambda)$ 
+
+⑴ $E[\frac{1}{X+1}]$
+
+⑵ $E[\frac{1}{X+2}]$
+
+
+## 解答
+
+⑴
+
+期待値の定義から求める。
+
+$$
+\begin{aligned}
+E[\frac{1}{X+1}] &= \sum_{x=0}^\infty \frac{1}{x+1} \frac{\lambda^x}{x!} e^{-\lambda} \\
+&= \sum_{x=0}^\infty  \frac{\lambda^{x+1}}{(x+1)!} e^{-\lambda} \times \frac{1}{\lambda} \\
+&= \sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!} e^{-\lambda} \times \frac{1}{\lambda} \\
+&= \frac{1}{\lambda}(e^{\lambda}-1)e^{\lambda} \\
+&= \frac{1}{\lambda} (1-e^{-\lambda})
+\end{aligned}
+$$
+
+$1-e^{-\lambda}$ の補足。
+
+$$
+\begin{aligned}
+e^\lambda = 1 + \lambda + \frac{\lambda^2}{2!}+ \frac{\lambda^3}{3!} + \dots = \sum_{x=0}^{\infty} \frac{\lambda^x}{x!}
+\end{aligned}
+$$
+
+を用いて、$\sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!}$ を求めたい。これは$\sum_{x=0}^{\infty} \frac{\lambda^x}{x!}$ から$x=0$ の時を引けば良い。$x=0$ のときは1であり, $\sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!} = e^{\lambda}-1$　であり、$\sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!}e^{-\lambda} = (e^{\lambda}-1)e^{\lambda} = 1-e^{-\lambda}$
+
+になるってことだと思ってる。
+
+⑵
+
+階乗を利用して同じようにときたいので、$E[\frac{1}{(X+2)(X+1)}]$ をまず求める。⑴で求めた$E[\frac{1}{X+1}]$ と合わせて計算すると求めれるはず。
+
+
+$$
+\begin{aligned}
+E[\frac{1}{(X+2)(X+1)}] &= \sum_{x=0}^\infty \frac{1}{(x+1)(x+1)} \frac{\lambda^x}{x!} e^{-\lambda} \\
+&= \sum_{x=0}^\infty  \frac{\lambda^{x+2}}{(x+2)!} e^{-\lambda} \times \frac{1}{\lambda^2} \\
+&= \sum_{x'=2}^\infty  \frac{\lambda^{x'}}{x'!} e^{-\lambda} \times \frac{1}{\lambda^2} \\
+&= \frac{1}{\lambda^2} (e^\lambda -1 - \lambda) e^{-\lambda} \\
+&= \frac{1}{\lambda^2} (1- e^{-\lambda} - \lambda e^{-\lambda} )
+\end{aligned}
+$$
+
+$e^\lambda -1 - \lambda$ の補足。
+
+⑴と同じで、x=0,1の時の1と$\lambda$ を引いてる。
+
+$$
+\begin{aligned}
+E[\frac{1}{X+2}] &= E[\frac{X+1}{(X+2)(X+1)}] \\
+&=E[\frac{X+2-1}{(X+2)(X+1)}] \\
+&=E[\frac{1}{X+1}]-E[\frac{1}{(X+2)(X+1)}]\\
+&= \frac{1}{\lambda} (1-e^{-\lambda}) -\frac{1}{\lambda^2} (1- e^{-\lambda} - \lambda e^{-\lambda} ) \\
+&= \frac{1}{\lambda^2} (-1 + \lambda + e^{-\lambda})
+\end{aligned}
+$$
+
+# 問4
+
+## 問題概要
+
+連続確率変数$X$ の分布関数が以下。
+
+
+$$
+F(x) =
+\begin{cases}
+0  & (- \infty \leq x \leq 0)\\
+1-\frac{(x-2)^2}{4} & (0 \leq x \leq 2)\\
+1 &(2 \leq x)
+\end{cases}
+$$
+
+⑴ 確率密度関数を求める。
+
+⑵ $E[X], V(X)$ を求める。
+
+⑶ メディアン、モードを求める。
+
+## 解答
+
+⑴ $0 \leq x \leq 2$ のとき、
+
+$$
+f(x)= F'(x)= -2 \frac{x-2}{4} = \frac{2-x}{2}
+$$
+
+
+$$
+F(x) =
+\begin{cases}
+0  & (- \infty \leq x \leq 0)\\
+\frac{2-x}{2} & (0 \leq x \leq 2)\\
+0 &(2 \leq x)
+\end{cases}
+$$
+
+⑵
+
+$$
+\begin{aligned}
+E[X^k]&=  \int^{2}_{0} x^k \frac{2-x}{2}dx \\
+&=  \int^{2}_{0} x^kdx - \frac{1}{2} \int^{2}_{0} x^{k+1}dx \\
+&= [\frac{1}{k+1}x^{k+1}]^2_0-\frac{1}{2}[\frac{1}{k+2}x^{k+2}]^2_0 \\
+&= \frac{2^{k+1}}{k+1} - \frac{2^{k+1}}{k+2} \\ 
+&= \frac{2^{k+1}}{(k+1)(k+2)}
+\end{aligned}
+$$
+
+$E[X]=\frac{2^2}{(2)(3)}=\frac{2}{3}$,$E[X^2]=\frac{2^3}{(3)(4)}=\frac{2}{3}$である。
+
+$V[X]=\frac{2}{3}-\frac{4}{9}=\frac{2}{9}$
+
+⑶
+
+メディアンを$x_{med}$ とする。モードは$x_{mode}$ とする。
+
+メディアンは累積確率が0.5になるところなので、
+
+$$ 
+\begin{aligned}
+1 - \frac{(x_{med}-2)^2}{4} = \frac{1}{2} \\
+x_{med} = 2 \pm \sqrt{2}
+\end{aligned}
+$$
+
+$0 \leq x \leq 2$ より$x_{med}= 2-\sqrt{2}$
+
+
+モードは$f(x)$が最大となる値なので、$f'(x)$ からわかる。$0 \leq x \leq 2$ のとき$f'(x)=-1$ より$x=0$ がモードとなる。
+

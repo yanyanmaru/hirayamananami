@@ -8,10 +8,12 @@ page-layout: full
 
 [LaTeX　自分用](/memo/latex_code_copy.html)
 
+[各確率分布の期待値・分散の求め方(制作途中)](/memo/1.html)
+
 ::: {.content-hidden when-format="html"}
 
 
-[各確率分布の期待値・分散の求め方](/memo/1.html)
+
 
 各確率関数は本当に１になるのか
 

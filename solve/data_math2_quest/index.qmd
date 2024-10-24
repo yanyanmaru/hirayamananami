@@ -362,3 +362,118 @@ $$
 \frac{k}{n} \le U < \frac{k+1}{n}
 $$
 
+
+# 問6 
+
+## 問題概要
+
+$X \sim N(\mu, \sigma^2)$
+
+⑴ $P(\mu - c \leq X \leq \mu + c)=0.95$ となる$c$
+
+⑵ $P(\mu - 2\sigma \leq X \leq \mu + \sigma)$ の確率。$P(X \leq d)=0.05$ となる$d$。
+
+⑶ $Y=aX+b$, $Y$ の確率分布は？
+
+## 解答
+
+⑴
+
+$X$ を標準化した確率変数 $Z=\frac{X-\mu}{\sigma}$ を使い、標準正規分布表を用いて考える。
+
+$Z \sim N(0,1)$ であり、$P(-1.96 \leq Z \leq 1.96) = 0.95$ である。
+
+$$
+\begin{aligned}
+P(\mu - c \leq X \leq \mu + c) 
+&= P(\frac{\mu - c-\mu}{\sigma} \leq \frac{X-\mu}{\sigma} \leq \frac{\mu + c-\mu}{\sigma}) \\
+&=P(\frac{ - c}{\sigma} \leq \frac{X-\mu}{\sigma} \leq \frac{c}{\sigma}) \\
+&= P(-1.96 \leq Z \leq 1.96) \\
+\end{aligned}
+$$
+
+よって $\frac{c}{\sigma}=1.96$ であり、$c=1.96\sigma$
+
+⑵
+
+同じく標準化して考える。
+
+$$
+\begin{aligned}
+P(\mu - 2\sigma \leq X \leq \mu + \sigma) 
+&= P( \frac{\mu - 2\sigma -\mu}{ \sigma} \leq \frac{X-\mu}{\sigma} \leq \frac{\mu + \sigma -\mu}{ \sigma}) \\
+&= P(-2 \leq Z \leq 1) \\
+&= \Phi(1) - \Phi(-2) \\
+&= 1 - 0.1587 - 0.0228 \\
+&= 0.82 
+\end{aligned}
+$$
+
+二つ目の問題も同じ解き方である。
+
+$$
+\begin{aligned}
+P(X \leq d)=P(\frac{X - \mu}{\sigma} \leq \frac{d - \mu}{\sigma})
+=P(Z \leq \frac{d - \mu}{\sigma})
+\end{aligned}
+$$
+
+標準正規分布表で累積確率が0.05となる値は-1.64である。
+
+$\frac{d - \mu}{\sigma} = -1.64$ より $d = \mu - 1.64 \sigma$
+
+⑶
+
+(命題) $X \sim N(\mu,\sigma)$ を$Y=aX+b$という変換をすると、 $N(a \mu + b, a^2 \sigma^2)$ 。
+
+一応１から書く！
+
+変数変換の公式から, $X$ の確率関数を$f_X(x)$とすると、$Y=aX+b$の確率関数は
+
+$$
+f_Y(y)=\frac{1}{|a|} f_X(\frac{y-b}{a})
+$$
+
+である。
+
+よって、
+
+$$
+\begin{aligned}
+f_Y(y) &= \frac{1}{|a|} f_X(\frac{y-b}{a}) \\ 
+&=  \frac{1}{\sqrt{2 \pi \sigma^2}|a|} \exp\left\{ - \frac{(\frac{y-b}{a} - \mu)^2}{2 \sigma^2}\right\} \\
+&= \frac{1}{\sqrt{2 \pi \sigma^2}|a|} \exp\left\{ - \frac{(y-b - a\mu)^2}{2 a^2\sigma^2}\right\} \\
+\end{aligned}
+$$
+
+となる。この確率密度関数は$E[Y]= a \mu + b$,$Var(Y)= a^2 \sigma^2$ の正規分布に従う確率密度関数と一致するため、$Y \sim N(a \mu + b ,a^2 \sigma^2)$
+
+
+# 問12
+
+## 問題概要
+
+$X \sim Geo(\frac{\theta}{n})$, $\lim_{n \to \infty}P(X \leq n)$ を求める問題
+
+## 解答
+
+幾何分布の確率関数は、$p(x)= \frac{\theta}{n} (1 - \frac{\theta}{n})^x$
+
+$$
+\begin{aligned}
+P(X \leq n) &= \sum_{x=0}^n \frac{\theta}{n} (1 - \frac{\theta}{n})^x \\
+&= \frac{\theta}{n} \frac{1-(1 - \frac{\theta}{n})^{n+1}}{1-(1 - \frac{\theta}{n})} \\
+&= 1-(1 - \frac{\theta}{n})^{n+1}
+\end{aligned}
+$$
+
+である。これの極限を求める。
+
+
+
+$$
+\begin{aligned}
+\lim_{n \to \infty}P(X \leq n) = \lim_{n \to \infty}1-(1 - \frac{\theta}{n})^{n+1}
+= 1 - e^{-\theta}
+\end{aligned}
+$$

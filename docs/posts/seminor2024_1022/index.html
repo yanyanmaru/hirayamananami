@@ -134,7 +134,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -156,6 +156,10 @@ window.Quarto = {
 <span class="menu-text">Seminor</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../solve.html"> 
+<span class="menu-text">Solve</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../memo.html"> 
 <span class="menu-text">Memo</span></a>
   </li>  
@@ -169,9 +173,8 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">目次</h2>
    
   <ul>
@@ -183,9 +186,13 @@ window.Quarto = {
   </ul></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -199,7 +206,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-body">
 
     
     <div>
@@ -237,13 +244,13 @@ window.Quarto = {
 P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-np}{\sqrt{np(1-p)}})
 \]</span></p>
 <p>のように近似し、標準正規分布の分布関数 <span class="math inline">\(\Phi(\cdot)\)</span> を用いて確率を計算することができる。</p>
-<p>しかし、<span class="math inline">\(m_1,m_2\)</span> が整数であるから<span class="math inline">\(X=m_1,X=m_2\)</span> で確率を持つことになる。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 図6.2が示唆するように、<span class="math inline">\(m_1 \leq X \leq m_2\)</span> の確率を考えるより<span class="math inline">\(m_1-0.5 \leq X \leq m_2+0.5\)</span> の確率を求めた方が近似が良くなることが知られている。おそらく</p>
+<p>しかし、<span class="math inline">\(m_1,m_2\)</span> が整数であるから<span class="math inline">\(X=m_1,X=m_2\)</span> で確率を持つことになる。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 図6.2が示唆するように、<span class="math inline">\(m_1 \leq X \leq m_2\)</span> の確率を考えるより<span class="math inline">\(m_1-0.5 \leq X \leq m_2+0.5\)</span> の確率を求めた方が近似が良くなることが知られている。</p>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;正規分布は連続変数だから、m_1,m_2では0になるってことを言ってるのかな？</p></div></div><p><span class="math display">\[
 P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\frac{m_1-0.5-np}{\sqrt{np(1-p)}})
 \]</span></p>
 <p>で近似する。これを連続補正と呼ぶ。</p>
 <p>サイコロを120回投げて6の目が25回以上30回以下でる正確な確率は<span class="math inline">\(P(25 \leq Y_{120} \leq 30)=0.129\)</span> であるが、通常の正規近似では<span class="math inline">\(0.103\)</span>, 連続補正した正規近似では<span class="math inline">\(0.130\)</span> となり連続補正した方が近似が良いことがわかる。</p>
-<div id="f2c02989" class="cell" data-execution_count="1">
+<div id="b96a3a2b" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -279,7 +286,7 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 </div>
 <section id="正確な確率python" class="level2">
 <h2 class="anchored" data-anchor-id="正確な確率python">正確な確率(Python)</h2>
-<div id="ed046a07" class="cell" data-execution_count="2">
+<div id="153b5df9" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -295,7 +302,7 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 <pre><code>0.12893057190612908</code></pre>
 </div>
 </div>
-<div id="168d31aa" class="cell" data-execution_count="3">
+<div id="d25734c5" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -309,7 +316,7 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 </section>
 <section id="通常の正規近似python" class="level2">
 <h2 class="anchored" data-anchor-id="通常の正規近似python">通常の正規近似(Python)</h2>
-<div id="f802b8ff" class="cell" data-execution_count="4">
+<div id="241cc18e" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -324,7 +331,7 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 </section>
 <section id="連続補正した正規近似python" class="level2">
 <h2 class="anchored" data-anchor-id="連続補正した正規近似python">連続補正した正規近似(Python)</h2>
-<div id="219001b9" class="cell" data-execution_count="5">
+<div id="8d862ec2" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -336,6 +343,9 @@ P(m_1 \leq X \leq m_2 ) \approx \Phi(\frac{m_2+0.5-np}{\sqrt{np(1-p)}})-\Phi(\fr
 <pre><code>0.1301159033667233</code></pre>
 </div>
 </div>
+<p><span class="math display">\[
+\frac{\lambda^k}{k!} e^{-\lambda}
+\]</span></p>
 
 
 <!-- -->
@@ -875,7 +885,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。<span class="ot">[^3]</span> 図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。おそらく</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>しかし、$m_1,m_2$ が整数であるから$X=m_1,X=m_2$ で確率を持つことになる。<span class="ot">[^3]</span> 図6.2が示唆するように、$m_1 \leq X \leq m_2$ の確率を考えるより$m_1-0.5 \leq X \leq m_2+0.5$ の確率を求めた方が近似が良くなることが知られている。</span>
 <span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>正規分布は連続変数だから、m_1,m_2では0になるってことを言ってるのかな？</span>
 <span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
@@ -956,6 +966,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>p_25_30_norm_hosei <span class="op">=</span> norm.cdf(x <span class="op">=</span> (<span class="dv">30</span><span class="op">+</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))) <span class="op">-</span> norm.cdf(x <span class="op">=</span> (<span class="dv">25</span><span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), loc <span class="op">=</span> <span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>), scale <span class="op">=</span> math.sqrt(<span class="dv">120</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)))</span>
 <span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p_25_30_norm_hosei)</span>
 <span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>\frac{\lambda^k}{k!} e^{-\lambda}</span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>$$</span>
 </code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

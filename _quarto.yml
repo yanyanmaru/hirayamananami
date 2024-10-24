@@ -7,7 +7,9 @@ website:
   navbar:
     left:
       - posts.qmd
+      - solve.qmd
       - memo.qmd
+   
 
 format:
   html:
@@ -16,6 +18,7 @@ format:
     css: styles.css
     lang: ja
     toc: true
+    toc-location: left
     # grid:
     #   margin-width: 450px
   # typst:

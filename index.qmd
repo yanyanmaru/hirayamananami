@@ -2,14 +2,19 @@
 title: Hirayama Nanami
 date: last-modified
 toc: true
+toc-location: left
 lang: ja
 page-layout: full
 ---
 
-### [Seminor](/posts.html)
+# [Seminor](/posts.html)
 ゼミの発表資料用。
 
-### [Memo](/memo.html)
+# [Solve](/solve.html)
+問題解く用。
+
+# [Memo](/memo.html)
 メモ用。
+
 
 
