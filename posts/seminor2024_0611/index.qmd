@@ -6,8 +6,6 @@ date: 2024/06/11
 toc: true
 lang: ja
 categories:
-  - ゼミ
-  - 統計
   - データ解析のための数理統計入門
   - python
 status: "完了"

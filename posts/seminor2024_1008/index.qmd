@@ -10,8 +10,6 @@ date: 2024/10/08
 toc: true
 lang: ja
 categories:
-  - ゼミ
-  - 統計
   - データ解析のための数理統計入門
 status: "完了"
 ---

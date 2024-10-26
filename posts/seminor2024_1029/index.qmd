@@ -1,0 +1,68 @@
+---
+title: "10月29日　不偏分散がカイ二乗分布に従う話"
+code-fold: true
+format:
+  html:
+    grid:
+      margin-width: 350px         # <1>
+reference-location: margin        # <2>
+citation-location: margin         # <2>
+page-layout: full
+date: 2024/10/29
+toc: true
+lang: ja
+categories:
+  - 現代数理統計学
+status: "作成中"
+---
+
+# 不偏分散が自由度n-1のカイ二乗分布に従う
+
+$G$ として１行目の要素が全て等しく、$(\frac{1}{\sqrt{n}}, \dots,\frac{1}{\sqrt{n}})$ となっているものを考える。
+
+$g_1$ に対して、$g_1, \dots,g_n$ が、$R^n$ の正規直交底をなすように、$g_2, \dots,g_n$ を適当に選び、$G$ の各行とすれば良い。
+
+$G$ の一つの具体的な取り方として、$G$ の２行目を$\frac{(1,-1,0, \dots,0)}{\sqrt{2}}$ とし、３行目を$\frac{(1,1,-2,0, \dots,0)}{\sqrt{6}}$ とする。以下同様に第$k$行を
+
+$$
+\frac{\left( \overbrace{1, \dots, 1}^{k-1 \text{個}}, -k + 1, 0, \dots, 0 \right)}{\sqrt{k(k-1)}}
+$$
+
+とおく。このとき$G$ の各行は正規直交ベクトル系をなし、$G$ は直交行列となる。このとき$G$ を用いた変換はHelmert変換と呼ばれる。
+
+$G$ は直交行列であるから、
+
+$$
+\sum_{i=1}^n X_i^2 = X^{\top}X=(GX)^{\top}GX = Y^{\top} Y = \sum_{i=1}^n Y_i^2
+$$
+
+
+等式の補足
+
+$X = (X_1, \dots,X_n)^{\top}$ より、$X^{\top}X = (X_1, \dots,X_n)(X_1, \dots,X_n)^{\top}=\sum_{i=1}^n X_i^2$
+
+
+$X^{\top}X=(GX)^{\top}GX$は$G$が直交行列なので$GG^{\top}=I_n$ である。$Y$ に変換できるような形に変えている。
+
+
+::: {.extra-space2}
+
+:::
+
+また$G$の第１行の選び方により、$Y_1=\sqrt{n}\bar{X}$ である。（第１行が$(\frac{1}{\sqrt{n}}, \dots,\frac{1}{\sqrt{n}})$ より）
+
+$$
+\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2 = \sum_{i=1}^n Y_i^2 - Y_1^2 = \sum_{i=2}^n Y_i^2
+$$
+
+等式の補足
+
+$\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2$ はどっかで出てきたと思うけど、$n$引いて$n$足すとうまいこと計算できるはず。
+
+::: {.extra-space2}
+
+:::
+
+したがって$ns^2=\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=2}^n Y_i^2$ は自由度$n-1$のカイ二乗分布に従う。(Yが標準多変量正規分布に従ってて、それぞれは独立に正規分布に従うから。正規分布の二乗和はカイ二乗分布に従うという性質から。自由度がn-1なのはY_i がn-1個だから)
+
+また、$Y_2, \dots, Y_n$ は$Y_1=\sqrt{n}\bar{X}$ と互いに独立であるから、$ns^2= \sum_{i=2}^n Y_i^2$ も$\bar{X}$ と独立である。（ここはしっくりきていない）以上で$\bar{X}$と$s^2$ が互いに独立であり、、$\sigma^2 \ne 1$ の場合を含めて考えれば、$\frac{ns^2}{\sigma^2}=\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}$ が自由度$n-1$のカイ二乗分布に従うことが示された。
