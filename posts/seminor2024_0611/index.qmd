@@ -128,3 +128,5 @@ $n$ のとき成立つと仮定すると $P(\bigcup_{i=1}^n A_i) \leq \sum_{i=1}
 \begin{equation*}
     P(A \cap B) = P(A) + P(B) - P(A \cup B) \geq P(A) + P(B) - 1
 \end{equation*}
+
+
