@@ -1,5 +1,5 @@
 ---
-title: "Seminor"
+title: "Seminar"
 description: "ゼミの発表資料や勉強系用。"
 listing:
   contents: "posts/**/index.qmd"

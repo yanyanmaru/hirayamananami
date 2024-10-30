@@ -7,7 +7,7 @@ lang: ja
 page-layout: full
 ---
 
-# [Seminor](/posts.html)
+# [Seminar](/posts.html)
 ゼミの発表資料用。
 
 # [Solve](/solve.html)
