@@ -2,12 +2,8 @@
 title: "10月29日　不偏分散がカイ二乗分布に従う話"
 code-fold: true
 format:
-  html:
-    grid:
-      margin-width: 350px         # <1>
-reference-location: margin        # <2>
-citation-location: margin         # <2>
-page-layout: full
+  html: default
+page-layout: article
 date: 2024/10/29
 toc: true
 lang: ja
@@ -26,11 +22,11 @@ $$
 G=
 \begin{bmatrix}
   \frac{1}{\sqrt{n}} & \frac{1}{\sqrt{n}} &\frac{1}{\sqrt{n}} &\dots &\frac{1}{\sqrt{n}}\\
-   \frac{-1}{\sqrt{1 \cdot 2}} & \frac{1}{\sqrt{1 \cdot 2}}& 0 & \dots & 0\\
-\frac{-1}{\sqrt{2 \cdot 3}} & \frac{-1}{\sqrt{2 \cdot 3}}& \frac{2}{\sqrt{2 \cdot 3}}& \dots & 0\\
-\dots &\dots&\dots& \dots &\dots\\
-\frac{-1}{\sqrt{(n-1) \cdot n}}& \frac{-1}{\sqrt{(n-1) \cdot n}}& 
-\frac{-1}{\sqrt{(n-1) \cdot n}}& \dots & \frac{n-1}{\sqrt{(n-1) \cdot n}}& \\
+   \frac{1}{\sqrt{1 \cdot 2}} & \frac{-1}{\sqrt{1 \cdot 2}}& 0 & \dots & 0\\
+\frac{1}{\sqrt{2 \cdot 3}} & \frac{1}{\sqrt{2 \cdot 3}}& \frac{-2}{\sqrt{2 \cdot 3}}& \dots & 0\\
+\dots &\dots&\dots& \ddots &\dots\\
+\frac{1}{\sqrt{(n-1) \cdot n}}& \frac{1}{\sqrt{(n-1) \cdot n}}& 
+\frac{1}{\sqrt{(n-1) \cdot n}}& \dots & \frac{1-n}{\sqrt{(n-1) \cdot n}}& \\
 \end{bmatrix}
 $$
 
@@ -38,13 +34,14 @@ $$
 
 標本分散は$s^2 = \frac{1}{n}\sum_{i=1}^n (X_i-\bar{X})^2$ 、不偏分散は$V^2 =\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X})^2$である。
 
+
 不偏分散の式変形について考えると、
 
 $$
 \sum_{i=1}^n (X_i-\bar{X})^2 = \sum_{i=1}^n X_i^2-n\bar{X}^2=\sum_{i=1}^n Y_i^2-Y_1^2=\sum_{i=2}^n Y_i^2
 $$
 
-$Y$が標準多変量正規分布に従い、それぞれ独立に標準正規分布に従う。よって標準正規分布の二乗和はカイ二乗分布に従うことを知っているので、$\sum_{i=1}^n (X_i-\bar{X})^2$　は自由度$n-1$のカイ二乗分布に従う。このことから、$ns^2,(n-1)V^2$は自由度$n-1$ のカイ二乗分布に従う。
+$Y$が標準多変量正規分布に従い、$Y_i$ はそれぞれ独立に標準正規分布に従う。標準正規分布の二乗和はカイ二乗分布に従うことを知っているので、$\sum_{i=1}^n (X_i-\bar{X})^2$　は自由度$n-1$のカイ二乗分布に従う。このことから、$ns^2,(n-1)V^2$は自由度$n-1$ のカイ二乗分布に従う。
 
 
 
@@ -77,12 +74,15 @@ $$
 $$
 
 
-等式の補足
+> 1つ目の等式の補足
+> 
+> $X = (X_1, \dots,X_n)^{\top}$ より、$X^{\top}X = (X_1, \dots,X_n)(X_1, \dots,X_n)^{\top}=\sum_{i=1}^n X_i^2$
 
-$X = (X_1, \dots,X_n)^{\top}$ より、$X^{\top}X = (X_1, \dots,X_n)(X_1, \dots,X_n)^{\top}=\sum_{i=1}^n X_i^2$
+> 2つ目の等式の補足
+> 
+> $X^{\top}X=(GX)^{\top}GX$は$G$が直交行列なので$GG^{\top}=I_n$ である。$Y$ に変換できるような形に変えている。
 
 
-$X^{\top}X=(GX)^{\top}GX$は$G$が直交行列なので$GG^{\top}=I_n$ である。$Y$ に変換できるような形に変えている。
 
 
 ::: {.extra-space2}
@@ -95,14 +95,39 @@ $$
 \sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2 = \sum_{i=1}^n Y_i^2 - Y_1^2 = \sum_{i=2}^n Y_i^2
 $$
 
-等式の補足
+> 1つ目の等式の補足
+> 
+> $\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2$ はどっかで出てきたと思うけど、展開したら計算できるはず。
 
-$\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2$ はどっかで出てきたと思うけど、$n$引いて$n$足すとうまいこと計算できるはず。
+>  2つ目の等式の補足
+>
+> $Y_1=\sqrt{n}\bar{X}$ より。これがおそらくHelmert行列を使った理由。
+> $GX=G(X_1,X_2,\dots, X_n)^{\top} = \begin{bmatrix}
+  \frac{1}{\sqrt{n}} & \frac{1}{\sqrt{n}} &\frac{1}{\sqrt{n}} &\dots &\frac{1}{\sqrt{n}}\\
+   \frac{1}{\sqrt{1 \cdot 2}} & \frac{-1}{\sqrt{1 \cdot 2}}& 0 & \dots & 0\\
+\frac{1}{\sqrt{2 \cdot 3}} & \frac{1}{\sqrt{2 \cdot 3}}& \frac{-2}{\sqrt{2 \cdot 3}}& \dots & 0\\
+\dots &\dots&\dots& \ddots &\dots\\
+\frac{1}{\sqrt{(n-1) \cdot n}}& \frac{1}{\sqrt{(n-1) \cdot n}}& 
+\frac{1}{\sqrt{(n-1) \cdot n}}& \dots & \frac{1-n}{\sqrt{(n-1) \cdot n}}& \\
+\end{bmatrix}(X_1,X_2,\dots, X_n)^{\top}$
 
 ::: {.extra-space2}
 
 :::
 
-したがって$ns^2=\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=2}^n Y_i^2$ は自由度$n-1$のカイ二乗分布に従う。(Yが標準多変量正規分布に従ってて、それぞれは独立に正規分布に従うから。正規分布の二乗和はカイ二乗分布に従うという性質から。自由度がn-1なのはY_i がn-1個だから)
+したがって$ns^2=\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=2}^n Y_i^2$ は自由度$n-1$のカイ二乗分布に従う。(Yが標準多変量正規分布に従ってて、それぞれは独立に標準正規分布に従うから。正規分布の二乗和はカイ二乗分布に従うという性質から。自由度が$n-1$なのは$Y_i$ が$n-1$個だから)
 
-また、$Y_2, \dots, Y_n$ は$Y_1=\sqrt{n}\bar{X}$ と互いに独立であるから、$ns^2= \sum_{i=2}^n Y_i^2$ も$\bar{X}$ と独立である。以上で$\bar{X}$と$s^2$ が互いに独立であり、、$\sigma^2 \ne 1$ の場合を含めて考えれば、$\frac{ns^2}{\sigma^2}=\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}$ が自由度$n-1$のカイ二乗分布に従うことが示された。
+また、$Y_1, Y_2 , \dots, Y_n$ は互いに独立に標準正規分布に従うため、$Y_2, \dots, Y_n$ は$Y_1=\sqrt{n}\bar{X}$ と互いに独立である。$ns^2= \sum_{i=2}^n Y_i^2$ も$\bar{X}$ と独立である。以上で$\bar{X}$と$s^2$ が互いに独立であり、$\sigma^2 \ne 1$ の場合を含めて考えれば、$\frac{ns^2}{\sigma^2}=\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}$ が自由度$n-1$のカイ二乗分布に従うことが示された。
+
+ついでに、$Y_1=\sqrt{n}\bar{X}$ であることと、$Y_1$ が標準正規分布に従うことを用いると、標本平均$\bar{X}$の分布もわかる。
+
+$\bar{X} \sim N(0,\frac{1}{n})$ になるため、$\mu = 0, \sigma^2 = 1$ ではない場合も含めると、$\bar{X} \sim N(\mu,\frac{\sigma^2}{n})$　になることもわかる。
+
+
+> $\sigma^2 \ne 1$ の場合を含めて考えるの意味
+>
+> |  これまで証明してきた$X_1,X_2, \dots, X_n$ は $\mu = 0, \sigma^2 = 1$　の時である。
+>
+> |  $\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}=\sum_{i=1}^n (\frac{X_i - \bar{X}}{\sigma})^2= \sum_{i=1}^n (\frac{X_i-\mu}{\sigma}-\frac{\mu-\bar{X}}{\sigma})^2 = \sum_{i=1}^n (Z_i-\bar{Z})^2$
+> |  よって、$\sigma^2$ で割っている。
+
