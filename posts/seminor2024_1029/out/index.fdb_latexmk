@@ -4,8 +4,8 @@
   (generated)
   "out/index.pdf"
   (rewritten before read)
-["latex"] 1730210835.69314 "/Users/hirayamananakai/Desktop/hirayama/posts/seminor2024_1029/index.tex" "out/index.dvi" "index" 1730210836.92282 2
-  "/Users/hirayamananakai/Desktop/hirayama/posts/seminor2024_1029/index.tex" 1730093386.15387 9557 cac37f4e2d46cf1f493dd361bac39b58 ""
+["latex"] 1730270287.15601 "/Users/hirayamananakai/Desktop/hirayama/posts/seminor2024_1029/index.tex" "out/index.dvi" "index" 1730270288.35215 2
+  "/Users/hirayamananakai/Desktop/hirayama/posts/seminor2024_1029/index.tex" 1730270286.75472 11644 20ad36ba9ef3a91ff91613637c0fcfde ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm" 1463434352 1196 1be730212205a270378fba11a44765dc ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm" 1463434352 856 39c171483fe1bb7d0e1368980c0c205b ""
@@ -38,7 +38,7 @@
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1713064664 41983 7ec6bfd6bf34339a61f0f08f42298e60 ""
   "/usr/local/texlive/2024/texmf-var/web2c/euptex/platex.fmt" 1714925836 8159863 d6c0cb71b7caed658c1e2b3bff887000 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "index.tex" 1730093386.15387 9557 cac37f4e2d46cf1f493dd361bac39b58 ""
+  "index.tex" 1730270286.75472 11644 20ad36ba9ef3a91ff91613637c0fcfde ""
   "out/index.aux" 0 -1 0 "latex"
   (generated)
   "out/index.aux"

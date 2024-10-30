@@ -6,8 +6,7 @@
 \documentclass[
   letterpaper,
   DIV=11,
-  numbers=noendperiod,
-  oneside]{scrartcl}
+  numbers=noendperiod]{scrartcl}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -41,9 +40,8 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[left=1in,marginparwidth=2.0666666666667in,textwidth=4.1333333333333in,marginparsep=0.3in]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -129,16 +127,21 @@
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
 \floatname{codelisting}{コード}
 \newcommand*\listoflistings{\listof{codelisting}{コード一覧}}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\theoremstyle{remark}
+\AtBeginDocument{\renewcommand*{\proofname}{証明}}
+\newtheorem*{remark}{注釈}
+\newtheorem*{solution}{解答}
+\newtheorem{refremark}{注釈}[section]
+\newtheorem{refsolution}{解答}[section]
 \makeatother
 \makeatletter
 \makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\makeatletter
-\@ifpackageloaded{sidenotes}{}{\usepackage{sidenotes}}
-\@ifpackageloaded{marginnote}{}{\usepackage{marginnote}}
 \makeatother
 
 \ifLuaTeX
@@ -153,6 +156,7 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\usepackage[]{biblatex}
 \usepackage{bookmark}
 
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -184,6 +188,21 @@
 
 \section{不偏分散が自由度n-1のカイ二乗分布に従う}\label{ux4e0dux504fux5206ux6563ux304cux81eaux7531ux5ea6n-1ux306eux30abux30a4ux4e8cux4e57ux5206ux5e03ux306bux5f93ux3046}
 
+\subsection{証明したいこと}\label{ux8a3cux660eux3057ux305fux3044ux3053ux3068}
+
+\begin{theorem}[Line]\protect\hypertarget{thm-line}{}\label{thm-line}
+
+The equation of any straight line, called a linear equation, can be
+written as:
+
+\[
+y = mx + b
+\]
+
+\end{theorem}
+
+See 定理~\ref{thm-line}.
+
 \subsection{概要}\label{ux6982ux8981}
 
 \(G\) の具体例の一つとして、Helmert行列と呼ばれるものがある。
@@ -192,11 +211,11 @@
 G=
 \begin{bmatrix}
   \frac{1}{\sqrt{n}} & \frac{1}{\sqrt{n}} &\frac{1}{\sqrt{n}} &\dots &\frac{1}{\sqrt{n}}\\
-   \frac{-1}{\sqrt{1 \cdot 2}} & \frac{1}{\sqrt{1 \cdot 2}}& 0 & \dots & 0\\
-\frac{-1}{\sqrt{2 \cdot 3}} & \frac{-1}{\sqrt{2 \cdot 3}}& \frac{2}{\sqrt{2 \cdot 3}}& \dots & 0\\
-\dots &\dots&\dots& \dots &\dots\\
-\frac{-1}{\sqrt{(n-1) \cdot n}}& \frac{-1}{\sqrt{(n-1) \cdot n}}& 
-\frac{-1}{\sqrt{(n-1) \cdot n}}& \dots & \frac{n-1}{\sqrt{(n-1) \cdot n}}& \\
+   \frac{1}{\sqrt{1 \cdot 2}} & \frac{-1}{\sqrt{1 \cdot 2}}& 0 & \dots & 0\\
+\frac{1}{\sqrt{2 \cdot 3}} & \frac{1}{\sqrt{2 \cdot 3}}& \frac{-2}{\sqrt{2 \cdot 3}}& \dots & 0\\
+\dots &\dots&\dots& \ddots &\dots\\
+\frac{1}{\sqrt{(n-1) \cdot n}}& \frac{1}{\sqrt{(n-1) \cdot n}}& 
+\frac{1}{\sqrt{(n-1) \cdot n}}& \dots & \frac{1-n}{\sqrt{(n-1) \cdot n}}& \\
 \end{bmatrix}
 \]
 
@@ -211,7 +230,8 @@ G=
 \sum_{i=1}^n (X_i-\bar{X})^2 = \sum_{i=1}^n X_i^2-n\bar{X}^2=\sum_{i=1}^n Y_i^2-Y_1^2=\sum_{i=2}^n Y_i^2
 \]
 
-\(Y\)が標準多変量正規分布に従い、それぞれ独立に標準正規分布に従う。よって標準正規分布の二乗和はカイ二乗分布に従うことを知っているので、\(\sum_{i=1}^n (X_i-\bar{X})^2\)　は自由度\(n-1\)のカイ二乗分布に従う。このことから、\(ns^2,(n-1)V^2\)は自由度\(n-1\)
+\(Y\)が標準多変量正規分布に従い、\(Y_i\)
+はそれぞれ独立に標準正規分布に従う。標準正規分布の二乗和はカイ二乗分布に従うことを知っているので、\(\sum_{i=1}^n (X_i-\bar{X})^2\)　は自由度\(n-1\)のカイ二乗分布に従う。このことから、\(ns^2,(n-1)V^2\)は自由度\(n-1\)
 のカイ二乗分布に従う。
 
 \subsection{細かい説明}\label{ux7d30ux304bux3044ux8aacux660e}
@@ -242,13 +262,19 @@ G=
 \sum_{i=1}^n X_i^2 = X^{\top}X=(GX)^{\top}GX = Y^{\top} Y = \sum_{i=1}^n Y_i^2
 \]
 
-等式の補足
+\begin{quote}
+1つ目の等式の補足
 
 \(X = (X_1, \dots,X_n)^{\top}\)
 より、\(X^{\top}X = (X_1, \dots,X_n)(X_1, \dots,X_n)^{\top}=\sum_{i=1}^n X_i^2\)
+\end{quote}
+
+\begin{quote}
+2つ目の等式の補足
 
 \(X^{\top}X=(GX)^{\top}GX\)は\(G\)が直交行列なので\(GG^{\top}=I_n\)
 である。\(Y\) に変換できるような形に変えている。
+\end{quote}
 
 また\(G\)の第１行の選び方により、\(Y_1=\sqrt{n}\bar{X}\)
 である。（第１行が\((\frac{1}{\sqrt{n}}, \dots,\frac{1}{\sqrt{n}})\)
@@ -258,22 +284,58 @@ G=
 \sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2 = \sum_{i=1}^n Y_i^2 - Y_1^2 = \sum_{i=2}^n Y_i^2
 \]
 
-等式の補足
+\begin{quote}
+1つ目の等式の補足
 
 \(\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=1}^n X_i^2 - n \bar{X}^2\)
-はどっかで出てきたと思うけど、\(n\)引いて\(n\)足すとうまいこと計算できるはず。
+はどっかで出てきたと思うけど、展開したら計算できるはず。
+\end{quote}
+
+\begin{quote}
+2つ目の等式の補足
+
+\(Y_1=\sqrt{n}\bar{X}\) より。これがおそらくHelmert行列を使った理由。
+\(GX=G(X_1,X_2,\dots, X_n)^{\top} = \begin{bmatrix}
+\frac{1}{\sqrt{n}} & \frac{1}{\sqrt{n}} &\frac{1}{\sqrt{n}} &\dots &\frac{1}{\sqrt{n}}\\
+\frac{1}{\sqrt{1 \cdot 2}} & \frac{-1}{\sqrt{1 \cdot 2}}& 0 & \dots & 0\\
+\frac{1}{\sqrt{2 \cdot 3}} & \frac{1}{\sqrt{2 \cdot 3}}& \frac{-2}{\sqrt{2 \cdot 3}}& \dots & 0\\
+\dots &\dots&\dots& \ddots &\dots\\
+\frac{1}{\sqrt{(n-1) \cdot n}}& \frac{1}{\sqrt{(n-1) \cdot n}}&
+\frac{1}{\sqrt{(n-1) \cdot n}}& \dots & \frac{1-n}{\sqrt{(n-1) \cdot n}}& \\
+\end{bmatrix}(X_1,X_2,\dots, X_n)^{\top}\)
+\end{quote}
 
 したがって\(ns^2=\sum_{i=1}^n (X_i - \bar{X})^2= \sum_{i=2}^n Y_i^2\)
-は自由度\(n-1\)のカイ二乗分布に従う。(Yが標準多変量正規分布に従ってて、それぞれは独立に正規分布に従うから。正規分布の二乗和はカイ二乗分布に従うという性質から。自由度がn-1なのはY\_i
-がn-1個だから)
+は自由度\(n-1\)のカイ二乗分布に従う。(Yが標準多変量正規分布に従ってて、それぞれは独立に標準正規分布に従うから。正規分布の二乗和はカイ二乗分布に従うという性質から。自由度が\(n-1\)なのは\(Y_i\)
+が\(n-1\)個だから)
 
-また、\(Y_2, \dots, Y_n\) は\(Y_1=\sqrt{n}\bar{X}\)
-と互いに独立であるから、\(ns^2= \sum_{i=2}^n Y_i^2\) も\(\bar{X}\)
+また、\(Y_1, Y_2 , \dots, Y_n\)
+は互いに独立に標準正規分布に従うため、\(Y_2, \dots, Y_n\)
+は\(Y_1=\sqrt{n}\bar{X}\)
+と互いに独立である。\(ns^2= \sum_{i=2}^n Y_i^2\) も\(\bar{X}\)
 と独立である。以上で\(\bar{X}\)と\(s^2\)
-が互いに独立であり、、\(\sigma^2 \ne 1\)
+が互いに独立であり、\(\sigma^2 \ne 1\)
 の場合を含めて考えれば、\(\frac{ns^2}{\sigma^2}=\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}\)
 が自由度\(n-1\)のカイ二乗分布に従うことが示された。
 
+ついでに、\(Y_1=\sqrt{n}\bar{X}\) であることと、\(Y_1\)
+が標準正規分布に従うことを用いると、標本平均\(\bar{X}\)の分布もわかる。
+
+\(\bar{X} \sim N(0,\frac{1}{n})\) になるため、\(\mu = 0, \sigma^2 = 1\)
+ではない場合も含めると、\(\bar{X} \sim N(\mu,\frac{\sigma^2}{n})\)　になることもわかる。
+
+\begin{quote}
+\(\sigma^2 \ne 1\) の場合を含めて考えるの意味
+
+~これまで証明してきた\(X_1,X_2, \dots, X_n\) は
+\(\mu = 0, \sigma^2 = 1\)　の時である。
+
+~\(\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}=\sum_{i=1}^n (\frac{X_i - \bar{X}}{\sigma})^2= \sum_{i=1}^n (\frac{X_i-\mu}{\sigma}-\frac{\mu-\bar{X}}{\sigma})^2 = \sum_{i=1}^n (Z_i-\bar{Z})^2\)\\
+\strut ~よって、\(\sigma^2\) で割っている。
+\end{quote}
+
+
+\printbibliography
 
 
 

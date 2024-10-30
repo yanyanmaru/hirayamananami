@@ -62,3 +62,11 @@ h4 {
     border-radius: 0.5rem;
     padding: 3px 20px;
 }
+
+.theorem {
+    background-color: rgb(254, 254, 254);
+    padding: 5px;
+    border: 1px solid black;
+
+    border-radius: 10px;
+}

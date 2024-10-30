@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.6)  28 OCT 2024 14:29
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.6)  30 OCT 2024 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -36,12 +36,6 @@ Package: tocbasic 2023/07/07 v3.41 KOMA-Script package (handling toc-files)
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
 (tocbasic)             for `toc' on input line 133.
-Class scrartcl Info: You've used standard option `oneside'.
-(scrartcl)           This is correct!
-(scrartcl)           Internally I'm using `twoside=false'.
-(scrartcl)           If you'd like to set the option with \KOMAoptions,
-(scrartcl)           you'd have to use `twoside=false' there
-(scrartcl)           instead of `oneside', too.
 Class scrartcl Info: File `scrsize11pt.clo' used instead of
 (scrartcl)           file `scrsize11.clo' to setup font sizes on input line 244
 1.
@@ -58,12 +52,6 @@ Package typearea Info: You've used standard option `letterpaper'.
 (typearea)             If you'd like to set the option with \KOMAoptions,
 (typearea)             you'd have to use `paper=letter' there
 (typearea)             instead of `letterpaper', too.
-Package typearea Info: You've used standard option `oneside'.
-(typearea)             This is correct!
-(typearea)             Internally I'm using `twoside=false'.
-(typearea)             If you'd like to set the option with \KOMAoptions,
-(typearea)             you'd have to use `twoside=false' there
-(typearea)             instead of `oneside', too.
 \ta@hblk=\skip50
 \ta@vblk=\skip51
 \ta@temp=\skip52
@@ -350,88 +338,71 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/x11nam.def
 File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-(/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-)
-\Gm@cnth=\count292
-\Gm@cntv=\count293
-\c@Gm@tempcnt=\count294
-\Gm@bindingoffset=\dimen154
-\Gm@wd@mp=\dimen155
-\Gm@odd@mp=\dimen156
-\Gm@even@mp=\dimen157
-\Gm@layoutwidth=\dimen158
-\Gm@layoutheight=\dimen159
-\Gm@layouthoffset=\dimen160
-\Gm@layoutvoffset=\dimen161
-\Gm@dimlist=\toks25
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \LTleft=\skip67
 \LTright=\skip68
 \LTpre=\skip69
 \LTpost=\skip70
-\LTchunksize=\count295
-\LTcapwidth=\dimen162
+\LTchunksize=\count292
+\LTcapwidth=\dimen154
 \LT@head=\box57
 \LT@firsthead=\box58
 \LT@foot=\box59
 \LT@lastfoot=\box60
 \LT@gbox=\box61
-\LT@cols=\count296
-\LT@rows=\count297
-\c@LT@tables=\count298
-\c@LT@chunks=\count299
-\LT@p@ftn=\toks26
+\LT@cols=\count293
+\LT@rows=\count294
+\c@LT@tables=\count295
+\c@LT@chunks=\count296
+\LT@p@ftn=\toks25
 )
-Class scrartcl Info: longtable captions redefined on input line 74.
+Class scrartcl Info: longtable captions redefined on input line 72.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen163
-\lightrulewidth=\dimen164
-\cmidrulewidth=\dimen165
-\belowrulesep=\dimen166
-\belowbottomsep=\dimen167
-\aboverulesep=\dimen168
-\abovetopsep=\dimen169
-\cmidrulesep=\dimen170
-\cmidrulekern=\dimen171
-\defaultaddspace=\dimen172
-\@cmidla=\count300
-\@cmidlb=\count301
-\@aboverulesep=\dimen173
-\@belowrulesep=\dimen174
-\@thisruleclass=\count302
-\@lastruleclass=\count303
-\@thisrulewidth=\dimen175
+\heavyrulewidth=\dimen155
+\lightrulewidth=\dimen156
+\cmidrulewidth=\dimen157
+\belowrulesep=\dimen158
+\belowbottomsep=\dimen159
+\aboverulesep=\dimen160
+\abovetopsep=\dimen161
+\cmidrulesep=\dimen162
+\cmidrulekern=\dimen163
+\defaultaddspace=\dimen164
+\@cmidla=\count297
+\@cmidlb=\count298
+\@aboverulesep=\dimen165
+\@belowrulesep=\dimen166
+\@thisruleclass=\count299
+\@lastruleclass=\count300
+\@thisrulewidth=\dimen167
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/array.sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen176
+\col@sep=\dimen168
 \ar@mcellbox=\box62
-\extrarowheight=\dimen177
-\NC@list=\toks27
+\extrarowheight=\dimen169
+\NC@list=\toks26
 \extratabsurround=\skip71
 \backup@length=\skip72
 \ar@cellbox=\box63
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count304
-\calc@Bcount=\count305
-\calc@Adimen=\dimen178
-\calc@Bdimen=\dimen179
+\calc@Acount=\count301
+\calc@Bcount=\count302
+\calc@Adimen=\dimen170
+\calc@Bdimen=\dimen171
 \calc@Askip=\skip73
 \calc@Bskip=\skip74
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count306
+\calc@Ccount=\count303
 \calc@Cskip=\skip75
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
 Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
 \FNH@notes=\box64
-\FNH@width=\dimen180
-\FNH@toks=\toks28
+\FNH@width=\dimen172
+\FNH@toks=\toks27
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
@@ -443,109 +414,342 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
 )
-\Gin@req@height=\dimen181
-\Gin@req@width=\dimen182
+\Gin@req@height=\dimen173
+\Gin@req@width=\dimen174
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen183
-\captionmargin=\dimen184
-\caption@leftmargin=\dimen185
-\caption@rightmargin=\dimen186
-\caption@width=\dimen187
-\caption@indent=\dimen188
-\caption@parindent=\dimen189
-\caption@hangindent=\dimen190
+\caption@tempdima=\dimen175
+\captionmargin=\dimen176
+\caption@leftmargin=\dimen177
+\caption@rightmargin=\dimen178
+\caption@width=\dimen179
+\caption@indent=\dimen180
+\caption@parindent=\dimen181
+\caption@hangindent=\dimen182
 Package caption Info: KOMA-Script document class detected.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption-koma.sto
 File: caption-koma.sto 2023/09/08 v2.0e Adaption of the caption package to the 
 KOMA-Script document classes (AR)
 ))
-\c@caption@flags=\count307
-\c@continuedfloat=\count308
+\c@caption@flags=\count304
+\c@continuedfloat=\count305
 Package caption Info: longtable package is loaded.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: KOMA-Script scrextend package detected.
-\caption@addmargin@hsize=\dimen191
-\caption@addmargin@linewidth=\dimen192
+\caption@addmargin@hsize=\dimen183
+\caption@addmargin@linewidth=\dimen184
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count309
-\float@exts=\toks29
+\c@float@type=\count306
+\float@exts=\toks28
 \float@box=\box65
-\@float@everytoks=\toks30
+\@float@everytoks=\toks29
 \@floatcapt=\box66
 )
-\@float@every@codelisting=\toks31
-\c@codelisting=\count310
+\@float@every@codelisting=\toks30
+\c@codelisting=\count307
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks31
+\thm@bodyfont=\toks32
+\thm@headfont=\toks33
+\thm@notefont=\toks34
+\thm@headpunct=\toks35
+\thm@preskip=\skip76
+\thm@postskip=\skip77
+\thm@headsep=\skip78
+\dth@everypar=\toks36
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/xpatch/xpatch.sty
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+)
+Class scrartcl Info: amsthm's \deferred@thm@head patched.
+\c@theorem=\count308
+\c@refremark=\count309
+\c@refsolution=\count310
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count311
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count312
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/sidenotes/sidenotes.sty
-Package: sidenotes 2016/04/21 v1.00 rich text in the margin for LaTeX
-(/usr/local/texlive/2024/texmf-dist/tex/latex/marginnote/marginnote.sty
-Package: marginnote 2018/08/09 1.4b non floating margin notes for LaTeX
-\c@mn@abspage=\count313
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/changepage/changepage.sty
-Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count314
-\cp@tempcnt=\count315
-)
-\c@sidenote=\count316
-\@sidenotes@marginfigurebox=\box67
-\@sidenotes@margintablebox=\box68
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/04/20 v24.4 The Babel package
-\babel@savecnt=\count317
-\U@D=\dimen193
+\babel@savecnt=\count313
+\U@D=\dimen185
 \l@unhyphenated=\language89
 (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/xebabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count318
+\bbl@dirlevel=\count314
 Package babel Info: You haven't specified a language as a class or package
 (babel)             option. I'll load 'nil'. Reported on input line 4269.
 (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/nil.ldf
 Language: nil 2024/04/20 v24.4 Nil language
 \l@nil=\language90
 ))
-\everypar=\toks32
+\everypar=\toks37
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/locale/ja/babel-japanese.
 tex)
 Package babel Info: Importing data for japanese
-(babel)             from babel-ja.ini. Reported on input line 149.
+(babel)             from babel-ja.ini. Reported on input line 152.
 Package babel Info: Hyphen rules for 'japanese' set to \l@nil
-(babel)             (\language90). Reported on input line 149.
+(babel)             (\language90). Reported on input line 152.
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/locale/ja/babel-japanese.
-tex) (/usr/local/texlive/2024/texmf-dist/tex/latex/bookmark/bookmark.sty
-Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
-(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
-(/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-(/usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+tex) (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count315
+(/usr/local/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count316
+\c@listtotal=\count317
+\c@listcount=\count318
+\c@liststart=\count319
+\c@liststop=\count320
+\c@citecount=\count321
+\c@citetotal=\count322
+\c@multicitecount=\count323
+\c@multicitetotal=\count324
+\c@instcount=\count325
+\c@maxnames=\count326
+\c@minnames=\count327
+\c@maxitems=\count328
+\c@minitems=\count329
+\c@citecounter=\count330
+\c@maxcitecounter=\count331
+\c@savedcitecounter=\count332
+\c@uniquelist=\count333
+\c@uniquename=\count334
+\c@refsection=\count335
+\c@refsegment=\count336
+\c@maxextratitle=\count337
+\c@maxextratitleyear=\count338
+\c@maxextraname=\count339
+\c@maxextradate=\count340
+\c@maxextraalpha=\count341
+\c@abbrvpenalty=\count342
+\c@highnamepenalty=\count343
+\c@lownamepenalty=\count344
+\c@maxparens=\count345
+\c@parenlevel=\count346
+\blx@tempcnta=\count347
+\blx@tempcntb=\count348
+\blx@tempcntc=\count349
+\c@blx@maxsection=\count350
+\blx@maxsegment@0=\count351
+\blx@notetype=\count352
+\blx@parenlevel@text=\count353
+\blx@parenlevel@foot=\count354
+\blx@sectionciteorder@0=\count355
+\blx@sectionciteorderinternal@0=\count356
+\blx@entrysetcounter=\count357
+\blx@biblioinstance=\count358
+\labelnumberwidth=\skip79
+\labelalphawidth=\skip80
+\biblabelsep=\skip81
+\bibitemsep=\skip82
+\bibnamesep=\skip83
+\bibinitsep=\skip84
+\bibparsep=\skip85
+\bibhang=\skip86
+\blx@bcfin=\read3
+\blx@bcfout=\write3
+\blx@langwohyphens=\language91
+\c@mincomprange=\count359
+\c@maxcomprange=\count360
+\c@mincompwidth=\count361
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2024/03/21 v3.20 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count362
+\c@savedafterword=\count363
+\c@annotator=\count364
+\c@savedannotator=\count365
+\c@author=\count366
+\c@savedauthor=\count367
+\c@bookauthor=\count368
+\c@savedbookauthor=\count369
+\c@commentator=\count370
+\c@savedcommentator=\count371
+\c@editor=\count372
+\c@savededitor=\count373
+\c@editora=\count374
+\c@savededitora=\count375
+\c@editorb=\count376
+\c@savededitorb=\count377
+\c@editorc=\count378
+\c@savededitorc=\count379
+\c@foreword=\count380
+\c@savedforeword=\count381
+\c@holder=\count382
+\c@savedholder=\count383
+\c@introduction=\count384
+\c@savedintroduction=\count385
+\c@namea=\count386
+\c@savednamea=\count387
+\c@nameb=\count388
+\c@savednameb=\count389
+\c@namec=\count390
+\c@savednamec=\count391
+\c@translator=\count392
+\c@savedtranslator=\count393
+\c@shortauthor=\count394
+\c@savedshortauthor=\count395
+\c@shorteditor=\count396
+\c@savedshorteditor=\count397
+\c@labelname=\count398
+\c@savedlabelname=\count399
+\c@institution=\count400
+\c@savedinstitution=\count401
+\c@lista=\count402
+\c@savedlista=\count403
+\c@listb=\count404
+\c@savedlistb=\count405
+\c@listc=\count406
+\c@savedlistc=\count407
+\c@listd=\count408
+\c@savedlistd=\count409
+\c@liste=\count410
+\c@savedliste=\count411
+\c@listf=\count412
+\c@savedlistf=\count413
+\c@location=\count414
+\c@savedlocation=\count415
+\c@organization=\count416
+\c@savedorganization=\count417
+\c@origlocation=\count418
+\c@savedoriglocation=\count419
+\c@origpublisher=\count420
+\c@savedorigpublisher=\count421
+\c@publisher=\count422
+\c@savedpublisher=\count423
+\c@language=\count424
+\c@savedlanguage=\count425
+\c@origlanguage=\count426
+\c@savedoriglanguage=\count427
+\c@pageref=\count428
+\c@savedpageref=\count429
+\shorthandwidth=\skip87
+\shortjournalwidth=\skip88
+\shortserieswidth=\skip89
+\shorttitlewidth=\skip90
+\shortauthorwidth=\skip91
+\shorteditorwidth=\skip92
+\locallabelnumberwidth=\skip93
+\locallabelalphawidth=\skip94
+\localshorthandwidth=\skip95
+\localshortjournalwidth=\skip96
+\localshortserieswidth=\skip97
+\localshorttitlewidth=\skip98
+\localshortauthorwidth=\skip99
+\localshorteditorwidth=\skip100
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+\c@textcitecount=\count430
+\c@textcitetotal=\count431
+\c@textcitemaxnames=\count432
+\c@biburlbigbreakpenalty=\count433
+\c@biburlbreakpenalty=\count434
+\c@biburlnumpenalty=\count435
+\c@biburlucpenalty=\count436
+\c@biburllcpenalty=\count437
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count438
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count439
+\c@bbx:relatedtotal=\count440
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2024-04-11 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+(/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
@@ -557,20 +761,18 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(/usr/local/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
-\c@section@level=\count319
 )
-\@linkdim=\dimen194
-\Hy@linkcounter=\count320
-\Hy@pagecounter=\count321
+\c@section@level=\count441
+)
+\@linkdim=\dimen186
+\Hy@linkcounter=\count442
+\Hy@pagecounter=\count443
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count322
+\Hy@SavedSpaceFactor=\count444
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 )
@@ -582,22 +784,18 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count323
-(/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip18
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
+\c@Hy@tempcnt=\count445
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen195
+\XeTeXLinkMargin=\dimen187
 (/usr/local/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count324
-\Field@Width=\dimen196
-\Fld@charsize=\dimen197
+\Fld@menulength=\count446
+\Field@Width=\dimen188
+\Fld@charsize=\dimen189
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -609,9 +807,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count325
-\c@Item=\count326
-\c@Hfootnote=\count327
+\Hy@abspage=\count447
+\c@Item=\count448
+\c@Hfootnote=\count449
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -620,11 +818,11 @@ File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box69
-\c@Hy@AnnotLevel=\count328
-\HyField@AnnotCount=\count329
-\Fld@listcount=\count330
-\c@bookmark@seq@number=\count331
+\pdfm@box=\box67
+\c@Hy@AnnotLevel=\count450
+\HyField@AnnotCount=\count451
+\Fld@listcount=\count452
+\c@bookmark@seq@number=\count453
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
@@ -639,51 +837,58 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip76
+\Hy@SectionHShift=\skip101
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
-\BKM@id=\count332
+\BKM@id=\count454
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
+xurl: Set penalties for biblatex
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 168.
+Package hyperref Info: Option `colorlinks' set `true' on input line 172.
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count455
+\@quotereset=\count456
 No file index.aux.
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 175.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 175.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 175.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 175.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 175.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 175.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 179.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 175.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 179.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -716,7 +921,7 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 175.
+(Font)              scaled to size 10.95pt on input line 179.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -761,18 +966,18 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 175.
+(Font)              scaled to size 10.95pt on input line 179.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 175.
+(Font)              `operators' in the math version `normal' on input line 179.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 175.
+ line 179.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 175.
+(Font)              `operators' in the math version `bold' on input line 179.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 175.
+t line 179.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -870,15 +1075,15 @@ t=math;language=dflt;"
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 175.
+(Font)              `symbols' in the math version `normal' on input line 179.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 175.
+t line 179.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 175.
+(Font)              `symbols' in the math version `bold' on input line 179.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 175.
+t line 179.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -959,22 +1164,22 @@ pt=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-75.
+79.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 175.
+t line 179.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 175
+(Font)              `largesymbols' in the math version `bold' on input line 179
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 175.
-LaTeX Info: Redefining \microtypecontext on input line 175.
-Package microtype Info: Applying patch `item' on input line 175.
-Package microtype Info: Applying patch `toc' on input line 175.
-Package microtype Info: Applying patch `eqnum' on input line 175.
-Package microtype Info: Applying patch `footnote' on input line 175.
-Package microtype Info: Applying patch `verbatim' on input line 175.
+t line 179.
+LaTeX Info: Redefining \microtypecontext on input line 179.
+Package microtype Info: Applying patch `item' on input line 179.
+Package microtype Info: Applying patch `toc' on input line 179.
+Package microtype Info: Applying patch `eqnum' on input line 179.
+Package microtype Info: Applying patch `footnote' on input line 179.
+Package microtype Info: Applying patch `verbatim' on input line 179.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -985,49 +1190,28 @@ Package microtype Info: No adjustment of kerning.
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
 ern Roman (RS)
 )
-*geometry* driver: auto-detecting
-*geometry* detected driver: xetex
-*geometry* verbose mode - [ preamble ] result:
-* driver: xetex
-* paper: letterpaper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(72.26999pt, 298.71585pt, 243.30916pt)
-* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=298.71585pt
-* \textheight=556.47656pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-14.27263pt
-* \headheight=17.0pt
-* \headsep=20.40001pt
-* \topskip=11.0pt
-* \footskip=47.6pt
-* \marginparwidth=149.35793pt
-* \marginparsep=21.68121pt
-* \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen198
-\caption@adjustwidth@linewidth=\dimen199
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\@sidenotes@extrawidth=\skip77
-Package hyperref Info: Link coloring ON on input line 175.
+Package biblatex Info: Trying to load language 'japanese'...
+Package biblatex Info: ... file 'japanese.lbx' not found.
+
+Package biblatex Warning: Language 'japanese' not supported.
+(biblatex)                Using dummy definitions on input line 179.
+
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `index.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'index.bbl' not found.
+No file index.bbl.
+Package biblatex Info: Reference section=0 on input line 179.
+Package biblatex Info: Reference segment=0 on input line 179.
+Package hyperref Info: Link coloring ON on input line 179.
 
 Package hyperref Warning: Rerun to get /PageLabels entry.
 
@@ -1072,36 +1256,36 @@ ext;!
 Missing character: There is no 話 (U+8A71) in font [lmsans10-bold]:mapping=tex-t
 ext;!
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 177.
+(Font)              scaled to size 14.4pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 177.
+(Font)              scaled to size 10.0pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 177.
+(Font)              scaled to size 7.0pt on input line 181.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-77.
+81.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4013pt on input line 177.
+(Font)              scaled to size 14.4013pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 177.
+(Font)              scaled to size 10.00092pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 177.
+(Font)              scaled to size 7.00064pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 177.
+(Font)              scaled to size 14.39845pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 177.
+(Font)              scaled to size 9.99893pt on input line 181.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 177.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 177
+(Font)              scaled to size 6.99925pt on input line 181.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 181
 .
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 177
+LaTeX Font Info:    Trying to load font information for U+msb on input line 181
 .
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1113,10 +1297,10 @@ ext;!
 Missing character: There is no 次 (U+6B21) in font [lmsans10-bold]:mapping=tex-t
 ext;!
 Package tocbasic Info: character protrusion at toc deactivated on input line 18
-2.
+6.
 No file index.toc.
-\tf@toc=\write3
-\openout3 = `index.toc'.
+\tf@toc=\write4
+\openout4 = `index.toc'.
 
 Missing character: There is no 不 (U+4E0D) in font [lmsans10-bold]:mapping=tex-t
 ext;!
@@ -1154,26 +1338,51 @@ Missing character: There is no 従 (U+5F93) in font [lmsans10-bold]:mapping=tex-
 ext;!
 Missing character: There is no う (U+3046) in font [lmsans10-bold]:mapping=tex-t
 ext;!
+Missing character: There is no 証 (U+8A3C) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no 明 (U+660E) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no し (U+3057) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no た (U+305F) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no い (U+3044) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no こ (U+3053) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no と (U+3068) in font [lmsans10-bold]:mapping=tex-t
+ext;!
+Missing character: There is no 定 (U+5B9A) in font [lmroman10-bold]:mapping=tex-
+text;!
+Missing character: There is no 理 (U+7406) in font [lmroman10-bold]:mapping=tex-
+text;!
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.665pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.475pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95099pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.66568pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.4755pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 198.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 198.
+Missing character: There is no 定 (U+5B9A) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 理 (U+7406) in font [lmroman10-regular]:mapping=t
+ex-text;!
+
+LaTeX Warning: Reference `thm-line' on page 1 undefined on input line 204.
+
 Missing character: There is no 概 (U+6982) in font [lmsans10-bold]:mapping=tex-t
 ext;!
 Missing character: There is no 要 (U+8981) in font [lmsans10-bold]:mapping=tex-t
 ext;!
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 189.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 189.
 Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 具 (U+5177) in font [lmroman10-regular]:mapping=t
@@ -1348,6 +1557,10 @@ Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
 ex-text;!
+[1
+
+
+]
 Missing character: There is no が (U+304C) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 標 (U+6A19) in font [lmroman10-regular]:mapping=t
@@ -1375,6 +1588,8 @@ ex-text;!
 Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no は (U+306F) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no そ (U+305D) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -1409,12 +1624,6 @@ ex-text;!
 Missing character: There is no う (U+3046) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no よ (U+3088) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no っ (U+3063) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no て (U+3066) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 標 (U+6A19) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -1622,10 +1831,6 @@ Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
 ex-text;!
-[1
-
-
-]
 Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 対 (U+5BFE) in font [lmroman10-regular]:mapping=t
@@ -1914,6 +2119,16 @@ Missing character: There is no ら (U+3089) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
 ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 目 (U+76EE) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
 Missing character: There is no 等 (U+7B49) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 式 (U+5F0F) in font [lmroman10-regular]:mapping=t
@@ -1929,6 +2144,26 @@ ex-text;!
 Missing character: There is no り (U+308A) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 目 (U+76EE) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 等 (U+7B49) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 式 (U+5F0F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 補 (U+88DC) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 足 (U+8DB3) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no は (U+306F) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -2042,6 +2277,16 @@ Missing character: There is no り (U+308A) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no ） (U+FF09) in font [lmroman10-regular]:mapping=t
 ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 目 (U+76EE) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
 Missing character: There is no 等 (U+7B49) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 式 (U+5F0F) in font [lmroman10-regular]:mapping=t
@@ -2082,27 +2327,15 @@ Missing character: There is no ど (U+3069) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no 引 (U+5F15) in font [lmroman10-regular]:mapping=t
+Missing character: There is no 展 (U+5C55) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
+Missing character: There is no 開 (U+958B) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no て (U+3066) in font [lmroman10-regular]:mapping=t
+Missing character: There is no し (U+3057) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no 足 (U+8DB3) in font [lmroman10-regular]:mapping=t
+Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no す (U+3059) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no う (U+3046) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no ま (U+307E) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no こ (U+3053) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+Missing character: There is no ら (U+3089) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 計 (U+8A08) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -2120,6 +2353,72 @@ Missing character: There is no ず (U+305A) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
 ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 目 (U+76EE) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 等 (U+7B49) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 式 (U+5F0F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 補 (U+88DC) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 足 (U+8DB3) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no よ (U+3088) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no り (U+308A) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no こ (U+3053) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no れ (U+308C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no が (U+304C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no お (U+304A) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no そ (U+305D) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ら (U+3089) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no く (U+304F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 行 (U+884C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 列 (U+5217) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no を (U+3092) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 使 (U+4F7F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no っ (U+3063) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 理 (U+7406) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 由 (U+7531) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
+ex-text;!
+
+Overfull \hbox (216.60088pt too wide) in paragraph at lines 297--306
+[]$[][] [] [][]$ \TU/lmr/m/n/10.95 よ り。 こ れ が お そ ら く Helmert 行 列 を 使 っ た 理 由。 
+$[][] [] [][][][][] [][][] [] [] [][][][] [] [] [][][][] [][][] [] [] [][][][]$
+ 
+ []
+
+[2]
 Missing character: There is no し (U+3057) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=t
@@ -2207,6 +2506,10 @@ ex-text;!
 Missing character: There is no 立 (U+7ACB) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 標 (U+6A19) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 準 (U+6E96) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 正 (U+6B63) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -2312,6 +2615,44 @@ Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no は (U+306F) in font [lmroman10-regular]:mapping=t
 ex-text;!
+Missing character: There is no 互 (U+4E92) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 独 (U+72EC) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 立 (U+7ACB) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 標 (U+6A19) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 準 (U+6E96) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 正 (U+6B63) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 規 (U+898F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 分 (U+5206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 布 (U+5E03) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 従 (U+5F93) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no う (U+3046) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no め (U+3081) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no は (U+306F) in font [lmroman10-regular]:mapping=t
+ex-text;!
 Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 互 (U+4E92) in font [lmroman10-regular]:mapping=t
@@ -2330,11 +2671,7 @@ Missing character: There is no あ (U+3042) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no か (U+304B) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no ら (U+3089) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no も (U+3082) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -2377,8 +2714,6 @@ ex-text;!
 Missing character: There is no あ (U+3042) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no り (U+308A) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
 ex-text;!
@@ -2450,22 +2785,262 @@ Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
 ex-text;!
-[2] (./index.aux)
+Missing character: There is no つ (U+3064) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no で (U+3067) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no で (U+3067) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no あ (U+3042) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no こ (U+3053) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no が (U+304C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 標 (U+6A19) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 準 (U+6E96) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 正 (U+6B63) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 規 (U+898F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 分 (U+5206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 布 (U+5E03) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 従 (U+5F93) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no う (U+3046) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no こ (U+3053) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no を (U+3092) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 用 (U+7528) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 標 (U+6A19) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 本 (U+672C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 平 (U+5E73) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 均 (U+5747) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 分 (U+5206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 布 (U+5E03) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no も (U+3082) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no わ (U+308F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no か (U+304B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no な (U+306A) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no め (U+3081) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no で (U+3067) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no は (U+306F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no な (U+306A) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 場 (U+5834) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 合 (U+5408) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no も (U+3082) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 含 (U+542B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no め (U+3081) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 　 (U+3000) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no に (U+306B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no な (U+306A) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no こ (U+3053) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no と (U+3068) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no も (U+3082) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no わ (U+308F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no か (U+304B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 場 (U+5834) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 合 (U+5408) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no を (U+3092) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 含 (U+542B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no め (U+3081) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no て (U+3066) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 考 (U+8003) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no え (U+3048) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 意 (U+610F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 味 (U+5473) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no こ (U+3053) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no れ (U+308C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ま (U+307E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no で (U+3067) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 証 (U+8A3C) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 明 (U+660E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no し (U+3057) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no て (U+3066) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no き (U+304D) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no た (U+305F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no は (U+306F) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 　 (U+3000) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no の (U+306E) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 時 (U+6642) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no で (U+3067) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no あ (U+3042) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no よ (U+3088) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no っ (U+3063) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no て (U+3066) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no で (U+3067) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 割 (U+5272) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no っ (U+3063) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no て (U+3066) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no い (U+3044) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no る (U+308B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 。 (U+3002) in font [lmroman10-regular]:mapping=t
+ex-text;!
+
+LaTeX Warning: Empty bibliography on input line 338.
+
+[3] (./index.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-04-11>
+L3 programming layer <2020/03/25>
  ***********
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                index
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'index.run.xml'.
+\openout1 = `index.run.xml'.
+
  ) 
 Here is how much of TeX's memory you used:
- 25280 strings out of 474706
- 486181 string characters out of 5756289
- 1944403 words of memory out of 5000000
- 47181 multiletter control sequences out of 15000+600000
- 564500 words of font info for 86 fonts, out of 8000000 for 9000
+ 30933 strings out of 474706
+ 603097 string characters out of 5756289
+ 1946403 words of memory out of 5000000
+ 52793 multiletter control sequences out of 15000+600000
+ 564508 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,8n,121p,10900b,354s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,9n,121p,10900b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (2 pages).
+Output written on index.pdf (3 pages).

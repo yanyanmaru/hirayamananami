@@ -12,7 +12,9 @@ categories:
 status: "作成中"
 ---
 
-# 不偏分散が自由度n-1のカイ二乗分布に従う
+
+
+
 
 ## 概要
 
@@ -130,4 +132,5 @@ $\bar{X} \sim N(0,\frac{1}{n})$ になるため、$\mu = 0, \sigma^2 = 1$ では
 >
 > |  $\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{\sigma^2}=\sum_{i=1}^n (\frac{X_i - \bar{X}}{\sigma})^2= \sum_{i=1}^n (\frac{X_i-\mu}{\sigma}-\frac{\mu-\bar{X}}{\sigma})^2 = \sum_{i=1}^n (Z_i-\bar{Z})^2$
 > |  よって、$\sigma^2$ で割っている。
+
 
