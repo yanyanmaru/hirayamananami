@@ -180,13 +180,14 @@ $$
 
 
 と表せる。これを計算すると
+
+
 $$
 \begin{aligned}
 \sum_{x=0}^n P(X=x)P(Y=n-x) &= \sum_{x=0}^n\frac{\lambda_1^x}{x!}e^{-\lambda_1}\frac{\lambda_2^{n-x}}{(n-x)!}e^{-\lambda_2} \\
 &=\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)} \sum_{x=0}^n\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x} \\
 &=\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)}
 \end{aligned}
-
 $$
 
 

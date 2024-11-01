@@ -25,7 +25,7 @@
     "href": "posts.html",
     "title": "Seminar",
     "section": "",
-    "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/11/05\n\n\n11月5日　7-4\n\n\n作成中\n\n\n\n\n2024/10/29\n\n\n10月29日　不偏分散がカイ二乗分布に従う話\n\n\n完了\n\n\n\n\n2024/10/22\n\n\n10月22日「データ解析のための数理統計入門」第6章 連続補正\n\n\n完了\n\n\n\n\n2024/10/08\n\n\n10月8日「データ解析のための数理統計入門」第5章\n\n\n完了\n\n\n\n\n2024/10/01\n\n\n10月1日「データ解析のための数理統計入門」第4章 4-3条件付き期待値前半\n\n\n完了\n\n\n\n\n2024/07/23\n\n\n7月23日「データ解析のための数理統計入門」第4章 命題4.21\n\n\n完了\n\n\n\n\n2024/07/16\n\n\n7月16日「データ解析のための数理統計入門」第4章 4の例18から\n\n\n完了\n\n\n\n\n2024/07/09\n\n\n7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目\n\n\n完了\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n完了\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
+    "text": "並び替え\n       デフォルト\n         \n          日付 - 日付（昇順）\n        \n         \n          日付 - 日付（降順）\n        \n         \n          題名\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n日付\n\n\n題名\n\n\nstatus\n\n\n\n\n\n\n2024/10/29\n\n\n10月29日　不偏分散がカイ二乗分布に従う話\n\n\n完了\n\n\n\n\n2024/10/22\n\n\n10月22日「データ解析のための数理統計入門」第6章 連続補正\n\n\n完了\n\n\n\n\n2024/10/08\n\n\n10月8日「データ解析のための数理統計入門」第5章\n\n\n完了\n\n\n\n\n2024/10/01\n\n\n10月1日「データ解析のための数理統計入門」第4章 4-3条件付き期待値前半\n\n\n完了\n\n\n\n\n2024/07/23\n\n\n7月23日「データ解析のための数理統計入門」第4章 命題4.21\n\n\n完了\n\n\n\n\n2024/07/16\n\n\n7月16日「データ解析のための数理統計入門」第4章 4の例18から\n\n\n完了\n\n\n\n\n2024/07/09\n\n\n7月9日「データ解析のための数理統計入門」第3章 演習問題　７問目\n\n\n完了\n\n\n\n\n2024/07/02\n\n\n7月2日「データ解析のための数理統計入門」第3章 3.1と3.2の途中まで\n\n\n完了\n\n\n\n\n2024/06/25\n\n\n6月25日「データ解析のための数理統計入門」第2章 2.3 確率変数の変数変換\n\n\n完了\n\n\n\n\n2024/06/18\n\n\n6月18日「データ解析のための数理統計入門」第2章 2.1.6ポアソン分布\n\n\n完了\n\n\n\n\n2024/06/11\n\n\n6月11日「データ解析のための数理統計入門」第1章 例1.2, 問5\n\n\n完了\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "posts/seminor2024_0716/index.html",
@@ -1019,7 +1019,7 @@
     "href": "solve/data_math3_quest/index.html#回答-2",
     "title": "「データ解析のための数理統計入門」第3章 演習問題 解答",
     "section": "回答",
-    "text": "回答\n\n小問1\n再生性からと言いたいところですが、誘導に乗ってみます。\n\\[\n\\]"
+    "text": "回答\n\n小問1\n再生性からと言いたいところですが、誘導に乗ってみます。（離散確率の変数変換の方法ってどこかに載ってたかな）\n\\(X=x\\) という実現値を取る時、\\(Y\\) は自ずと\\(n-x\\) という実現時をとる。\\(X\\) と\\(Y\\) は独立であり、同時確率は積であらわすことができるため、\n\\[\nP(X+Y=n) = \\sum_{x=0}^n P(X=x)P(Y=n-x)\n\\]\nと表せる。これを計算すると\n\\[\n\\begin{aligned}\n\\sum_{x=0}^n P(X=x)P(Y=n-x) &= \\sum_{x=0}^n\\frac{\\lambda_1^x}{x!}e^{-\\lambda_1}\\frac{\\lambda_2^{n-x}}{(n-x)!}e^{-\\lambda_2} \\\\\n&=\\frac{(\\lambda_1+\\lambda_2)^n}{n!} e^{-(\\lambda_1+\\lambda_2)} \\sum_{x=0}^n\\frac{n!}{x!(n-x)!} \\left(\\frac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)^x \\left(\\frac{\\lambda_2}{\\lambda_1+\\lambda_2}\\right)^{n-x} \\\\\n&=\\frac{(\\lambda_1+\\lambda_2)^n}{n!} e^{-(\\lambda_1+\\lambda_2)}\n\\end{aligned}\n\\]\n\\(\\displaystyle \\sum_{x=0}^n\\frac{n!}{x!(n-x)!} \\left(\\frac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)^x \\left(\\frac{\\lambda_2}{\\lambda_1+\\lambda_2}\\right)^{n-x}\\) は嬉しいことに、二項分布\\(\\displaystyle Bin(n,\\frac{\\lambda_1}{\\lambda_1+\\lambda_2})\\) に従う分布の全確率？（用語があっているかわからない）なので1になります。\n\\(X+Y=n\\) という確率変数が従う分布は\\(Po(\\lambda_1+\\lambda_2)\\) になります。\n例えば\\(X \\sim Po(2)\\),\\(Y \\sim Po(3)\\) なら\\(X+Y \\sim Po(5)\\) になるみたいなことですね。\n\n\n小問2\n求めたいのは\\(\\displaystyle \\frac{P(X+Y=n,X=x)}{P(X+Y=n)}\\) である。\nまた\\(P(X+Y=n,X=x)=P(X=x,Y=n-x)\\) とも表せれるので、\n\\[\n\\begin{aligned}\n  \\frac{P(X=x,Y=n-x)}{P(X+Y=n)} &=\\frac{\\frac{\\lambda_1^x}{x!}e^{-\\lambda_1}\\frac{\\lambda_2^{n-x}}{(n-x)!}e^{-\\lambda_2}}{\\frac{(\\lambda_1+\\lambda_2)^n}{n!} e^{-(\\lambda_1+\\lambda_2)}} \\\\\n  &=\\frac{n!}{x!(n-x)!} \\left(\\frac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)^x \\left(\\frac{\\lambda_2}{\\lambda_1+\\lambda_2}\\right)^{n-x}\n\\end{aligned}\n\\]\n綺麗に二項分布\\(\\displaystyle Bin(n,\\frac{\\lambda_1}{\\lambda_1+\\lambda_2})\\)に従います！\nちなみに統計検定準１級の勉強でも出てきました。"
   },
   {
     "objectID": "posts/seminar2024_1105/index.html",
@@ -1076,5 +1076,19 @@
     "title": "",
     "section": "回答",
     "text": "回答\n\n小問1\n再生性からと言いたいところですが、誘導に乗ってみます。\n\\[\n\\]"
+  },
+  {
+    "objectID": "solve/data_math3_quest/index.html#問題概要-3",
+    "href": "solve/data_math3_quest/index.html#問題概要-3",
+    "title": "「データ解析のための数理統計入門」第3章 演習問題 解答",
+    "section": "問題概要",
+    "text": "問題概要\n\\(f(x,y)=xe^{-x(y+1)} I(x &gt; 0,y&gt;0)\\) の周辺確率、条件確率、\\(P(XY &gt; 1)\\) を計算。"
+  },
+  {
+    "objectID": "solve/data_math3_quest/index.html#回答-3",
+    "href": "solve/data_math3_quest/index.html#回答-3",
+    "title": "「データ解析のための数理統計入門」第3章 演習問題 解答",
+    "section": "回答",
+    "text": "回答\n\\[\n\\begin{aligned}\n  f_X(x)\n  &= \\int^{\\infty}_{0} xe^{-x(y+1)} dy \\\\\n  &= xe^{-x} \\int^{\\infty}_{0} e^{-xy} dy \\\\\n  &= xe^{-x} \\left[-\\frac{1}{x}e^{-xy}\\right]^{\\infty}_{y=0} \\\\\n  &= e^{-x}\n\\end{aligned}\n\\]\n\\[\n\\begin{aligned}\n  f_Y(y)\n  &= \\int^{\\infty}_{0} xe^{-x(y+1)} dx \\\\\n  &= \\frac{1}{(y+1)^2} \\int^{\\infty}_{0} \\frac{1}{\\Gamma(2) (y+1)^{-2}} xe^{-x(y+1)} dx \\\\\n  &= \\frac{1}{(y+1)^2}\n\\end{aligned}\n\\]\n\\(xe^{-x}\\) みたいな形を見つけたら、ガンマ関数の式に持っていくのがよくある計算だと感じてきた。\n\\(xe^{-x(y+1)}\\)から\\(\\alpha=2,\\beta=(y+1)^{-1}\\) にしたら都合がよさそうなことから、この変形をしている。\n\\[\n\\begin{aligned}\nf_{X|Y}(x|y)\n&= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{xe^{-x(y+1)} }{(y+1)^{-2} } \\\\\n&= \\frac{1}{\\Gamma(2)(y+1)^2} x^{2-1} e^{-(y+1)x}\n\\end{aligned}\n\\]\n３つ目の等式はガンマ分布に落ち着きそうな気配を察して、\\(\\Gamma(2)=1\\)を入れている。\nよって\n\\[\nX|Y=y \\sim Ga(2,(y+1)^{-1})\n\\]\nとなる。\n\\[\n\\begin{aligned}\nf_{Y|X}(y|x)\n&= \\frac{f(x,y)}{f_X(x)} \\\\\n&= \\frac{xe^{-x(y+1)} }{e^{-x}} \\\\\n&= xe^{-xy}\n\\end{aligned}\n\\]\n一瞬見慣れないと思いきや、\\(y\\) の関数で\\(x\\)はすでに与えられているパラメーターです。すると指数分布\\(Ex(x)\\)に従うことがわかります。\n\\[\n\\begin{aligned}\n  P(XY&gt;1) &= \\int^{\\infty}_{0} \\int^{\\infty}_{\\frac{1}{x}} xe^{-x(y+1)} dy dx \\\\\n  &= \\int^{\\infty}_{0} x e^{-x} \\\\\n  &= \\frac{1}{e}\n\\end{aligned}\n\\]\n\\(\\int^{\\infty}_{0} \\int^{\\infty}_{\\frac{1}{x}}\\) がしっくりきてない。なんとなくそうな気はするけど、\\(\\int^{\\infty}_{\\frac{1}{y}} \\int^{\\infty}_{\\frac{1}{x}}\\) じゃだめなのかがわからない。"
   }
 ]
