@@ -11,8 +11,10 @@ categories:
 status: "作成中"
 ---
 
+
+
 # 問3
- 
+
 ## 問題概要
 
 $X \sim Po(\lambda)$ 

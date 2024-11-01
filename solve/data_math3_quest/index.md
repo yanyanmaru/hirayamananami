@@ -170,12 +170,120 @@ $X+Y=n$に固定した時、$X$ の条件付き分布を求める。
 ### 小問1
 
 
-再生性からと言いたいところですが、誘導に乗ってみます。
+再生性からと言いたいところですが、誘導に乗ってみます。（離散確率の変数変換の方法ってどこかに載ってたかな）
+
+$X=x$ という実現値を取る時、$Y$ は自ずと$n-x$ という実現時をとる。$X$ と$Y$ は独立であり、同時確率は積であらわすことができるため、
 
 $$
+P(X+Y=n) = \sum_{x=0}^n P(X=x)P(Y=n-x)
 $$
 
 
+と表せる。これを計算すると
+$$
+\begin{aligned}
+\sum_{x=0}^n P(X=x)P(Y=n-x) &= \sum_{x=0}^n\frac{\lambda_1^x}{x!}e^{-\lambda_1}\frac{\lambda_2^{n-x}}{(n-x)!}e^{-\lambda_2} \\
+&=\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)} \sum_{x=0}^n\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x} \\
+&=\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)}
+\end{aligned}
+
+$$
+
+
+$\displaystyle \sum_{x=0}^n\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x}$ は嬉しいことに、二項分布$\displaystyle Bin(n,\frac{\lambda_1}{\lambda_1+\lambda_2})$ に従う分布の全確率？（用語があっているかわからない）なので1になります。
+
+$X+Y=n$ という確率変数が従う分布は$Po(\lambda_1+\lambda_2)$ になります。
+
+例えば$X \sim Po(2)$,$Y \sim Po(3)$ なら$X+Y \sim Po(5)$ になるみたいなことですね。
+
+
+### 小問2
+
+求めたいのは$\displaystyle \frac{P(X+Y=n,X=x)}{P(X+Y=n)}$ である。
+
+また$P(X+Y=n,X=x)=P(X=x,Y=n-x)$ とも表せれるので、
+
+$$
+\begin{aligned}
+  \frac{P(X=x,Y=n-x)}{P(X+Y=n)} &=\frac{\frac{\lambda_1^x}{x!}e^{-\lambda_1}\frac{\lambda_2^{n-x}}{(n-x)!}e^{-\lambda_2}}{\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)}} \\
+  &=\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x}
+\end{aligned}
+$$
+
+綺麗に二項分布$\displaystyle Bin(n,\frac{\lambda_1}{\lambda_1+\lambda_2})$に従います！
+
+ちなみに統計検定準１級の勉強でも出てきました。
+
+# 4問目
+
+## 問題概要
+
+$f(x,y)=xe^{-x(y+1)} I(x > 0,y>0)$ の周辺確率、条件確率、$P(XY > 1)$ を計算。
+
+## 回答
+
+$$
+\begin{aligned}
+  f_X(x) 
+  &= \int^{\infty}_{0} xe^{-x(y+1)} dy \\
+  &= xe^{-x} \int^{\infty}_{0} e^{-xy} dy \\
+  &= xe^{-x} \left[-\frac{1}{x}e^{-xy}\right]^{\infty}_{y=0} \\
+  &= e^{-x}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  f_Y(y) 
+  &= \int^{\infty}_{0} xe^{-x(y+1)} dx \\
+  &= \frac{1}{(y+1)^2} \int^{\infty}_{0} \frac{1}{\Gamma(2) (y+1)^{-2}} xe^{-x(y+1)} dx \\
+  &= \frac{1}{(y+1)^2} 
+\end{aligned}
+$$
+
+$xe^{-x}$ みたいな形を見つけたら、ガンマ関数の式に持っていくのがよくある計算だと感じてきた。
+
+$xe^{-x(y+1)}$から$\alpha=2,\beta=(y+1)^{-1}$ にしたら都合がよさそうなことから、この変形をしている。
+
+$$
+\begin{aligned}
+f_{X|Y}(x|y)
+&= \frac{f(x,y)}{f_Y(y)} \\
+&= \frac{xe^{-x(y+1)} }{(y+1)^{-2} } \\
+&= \frac{1}{\Gamma(2)(y+1)^2} x^{2-1} e^{-(y+1)x}
+\end{aligned}
+$$
+
+３つ目の等式はガンマ分布に落ち着きそうな気配を察して、$\Gamma(2)=1$を入れている。
+
+よって
+
+$$
+X|Y=y \sim Ga(2,(y+1)^{-1})
+$$
+
+となる。
+
+$$
+\begin{aligned}
+f_{Y|X}(y|x)
+&= \frac{f(x,y)}{f_X(x)} \\
+&= \frac{xe^{-x(y+1)} }{e^{-x}} \\
+&= xe^{-xy}
+\end{aligned}
+$$
+
+一瞬見慣れないと思いきや、$y$ の関数で$x$はすでに与えられているパラメーターです。すると指数分布$Ex(x)$に従うことがわかります。
+
+$$
+\begin{aligned}
+  P(XY>1) &= \int^{\infty}_{0} \int^{\infty}_{\frac{1}{x}} xe^{-x(y+1)} dy dx \\
+  &= \int^{\infty}_{0} x e^{-x} \\
+  &= \frac{1}{e}
+\end{aligned}
+$$
+
+$\int^{\infty}_{0} \int^{\infty}_{\frac{1}{x}}$ がしっくりきてない。なんとなくそうな気はするけど、$\int^{\infty}_{\frac{1}{y}} \int^{\infty}_{\frac{1}{x}}$ じゃだめなのかがわからない。
 
 # 7問目
 

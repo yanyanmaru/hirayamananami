@@ -6,6 +6,8 @@ toc: false
 page-layout: full
 ---
 
+見切り発車系
+
 [LaTeX　自分用](/memo/latex_code_copy.html)
 
 [各確率分布の期待値・分散の求め方(制作途中)](/memo/1.html)
