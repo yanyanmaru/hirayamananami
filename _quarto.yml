@@ -6,15 +6,16 @@ website:
   title: "Hirayama Nanami"
   navbar:
     left:
-      - posts.qmd
+      - about.md
+      - seminar.qmd
       - solve.qmd
-      - memo.qmd
+      - post.qmd
    
 
 format:
   html:
     code-tools: true
-    theme: sandstone
+    theme: litera
     css: styles.css
     lang: ja
     toc: true
