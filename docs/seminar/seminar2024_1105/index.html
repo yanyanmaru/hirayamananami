@@ -183,8 +183,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#項分布" id="toc-項分布" class="nav-link active" data-scroll-target="#項分布">２項分布</a></li>
+  <li><a href="#正規分布" id="toc-正規分布" class="nav-link" data-scroll-target="#正規分布">正規分布</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -221,9 +222,9 @@ window.Quarto = {
 </header>
 
 
-<section id="項分布" class="level1">
-<h1>２項分布</h1>
-<p>$ X Bin(n,p) $ とする。</p>
+<section id="項分布" class="level2">
+<h2 class="anchored" data-anchor-id="項分布">２項分布</h2>
+<p><span class="math inline">\(X \sim Bin(n,p)\)</span>とする。</p>
 <p><span class="math inline">\(p\)</span> の推定量 <span class="math inline">\(\displaystyle \hat{p}=\frac{X}{n}\)</span> は <span class="math inline">\(\displaystyle E_p[\hat{p}] = \frac{E_p[X]}{n}=\frac{np}{n}=p\)</span> より不偏推定量である。</p>
 <p>推定量の分散は<span class="math inline">\(\displaystyle Var[\hat{p}]=\frac{Var[X]}{n^2}=\frac{p(1-p)}{n}\)</span> である。</p>
 <p>２項分布の確率変数 <span class="math inline">\(f(x,p)=p^x(1-p)^{n-x}\begin{pmatrix}
@@ -238,8 +239,22 @@ x  \\
 \]</span></p>
 <p>となる。従ってフィッシャー情報量は</p>
 <p><span class="math display">\[
-I(p)=E[\ell'(p,X)^2]=\frac{E[(X-np)^2]}{(p(1-p))^2}
+I(p)=E[\ell'(p,X)^2]=\frac{E[(X-np)^2]}{(p(1-p))^2} =\frac{np(1-p)}{(p(1-p))^2} = \frac{n}{p(1-p)}
 \]</span></p>
+<p>となり、これは<span class="math inline">\(\displaystyle \frac{1}{Var_p[\hat{p}]}\)</span> に一致する。したがって<span class="math inline">\(\hat{p}\)</span>は<span class="math inline">\(UMVU\)</span>であることが確かめられた。</p>
+</section>
+<section id="正規分布" class="level2">
+<h2 class="anchored" data-anchor-id="正規分布">正規分布</h2>
+<p>次に正規分布の母平均<span class="math inline">\(\mu\)</span>の推定において標本平均<span class="math inline">\(\bar{X}\)</span> がUMVUであることを示す。</p>
+<p>まず、<span class="math inline">\(\mu\)</span> に関するフィッシャー情報量を求める。</p>
+<p><span class="math display">\[
+\ell(\mu,x)= - \frac{(x-\mu)^2}{2\sigma^2} - \frac{1}{2} \log(2\pi \sigma^2)
+\]</span></p>
+<p>を<span class="math inline">\(\mu\)</span> で偏微分すると<span class="math inline">\(\displaystyle \ell'(\mu,x)=\frac{x-\mu}{\sigma^2}\)</span> を得る。したがって、</p>
+<p><span class="math display">\[
+I(\mu)=\frac{E[(X-\mu)^2]}{\sigma^4} = \frac{1}{\sigma^2}
+\]</span></p>
+<p>となり、<span class="math inline">\(\bar{X}\)</span> がUMVUであることが示された。</p>
 
 
 <!-- -->
@@ -723,48 +738,69 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> article</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024/11/05</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  - 現代数理統計学</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># ２項分布</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  typst:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> article</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024/11/05</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - 現代数理統計学</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> "作成中"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>$</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>X \sim Bin(n,p)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>$</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>とする。</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>$p$ の推定量 $\displaystyle \hat{p}=\frac{X}{n}$ は $\displaystyle E_p<span class="co">[</span><span class="ot">\hat{p}</span><span class="co">]</span> = \frac{E_p<span class="co">[</span><span class="ot">X</span><span class="co">]</span>}{n}=\frac{np}{n}=p$ より不偏推定量である。</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>推定量の分散は$\displaystyle Var<span class="co">[</span><span class="ot">\hat{p}</span><span class="co">]</span>=\frac{Var<span class="co">[</span><span class="ot">X</span><span class="co">]</span>}{n^2}=\frac{p(1-p)}{n}$ である。</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>２項分布の確率変数</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>$f(x,p)=p^x(1-p)^{n-x}\begin{pmatrix}</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>n  <span class="sc">\\</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>x  <span class="sc">\\</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>$の対数を$p$ で微分すると</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    \ell'(p, x) &amp;= \frac{\partial}{\partial p} \left( x \log p + (n - x) \log (1 - p) + \log \binom{n}{x} \right) <span class="sc">\\</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    &amp;= \frac{x}{p}+\frac{-(n-x)}{1-p} = \frac{x-np}{p(1-p)}</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>となる。従ってフィッシャー情報量は</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>I(p)=E<span class="co">[</span><span class="ot">\ell'(p,X)^2</span><span class="co">]</span>=\frac{E<span class="co">[</span><span class="ot">(X-np)^2</span><span class="co">]</span>}{(p(1-p))^2}</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## ２項分布</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>$X \sim Bin(n,p)$とする。</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>$p$ の推定量 $\displaystyle \hat{p}=\frac{X}{n}$ は $\displaystyle E_p<span class="co">[</span><span class="ot">\hat{p}</span><span class="co">]</span> = \frac{E_p<span class="co">[</span><span class="ot">X</span><span class="co">]</span>}{n}=\frac{np}{n}=p$ より不偏推定量である。</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>推定量の分散は$\displaystyle Var<span class="co">[</span><span class="ot">\hat{p}</span><span class="co">]</span>=\frac{Var<span class="co">[</span><span class="ot">X</span><span class="co">]</span>}{n^2}=\frac{p(1-p)}{n}$ である。</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>２項分布の確率変数</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>$f(x,p)=p^x(1-p)^{n-x}\begin{pmatrix}</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>n  <span class="sc">\\</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>x  <span class="sc">\\</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>$の対数を$p$ で微分すると</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    \ell'(p, x) &amp;= \frac{\partial}{\partial p} \left( x \log p + (n - x) \log (1 - p) + \log \binom{n}{x} \right) <span class="sc">\\</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    &amp;= \frac{x}{p}+\frac{-(n-x)}{1-p} = \frac{x-np}{p(1-p)}</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>となる。従ってフィッシャー情報量は</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>I(p)=E<span class="co">[</span><span class="ot">\ell'(p,X)^2</span><span class="co">]</span>=\frac{E<span class="co">[</span><span class="ot">(X-np)^2</span><span class="co">]</span>}{(p(1-p))^2} =\frac{np(1-p)}{(p(1-p))^2} = \frac{n}{p(1-p)}</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>となり、これは$\displaystyle \frac{1}{Var_p<span class="co">[</span><span class="ot">\hat{p}</span><span class="co">]</span>}$ に一致する。したがって$\hat{p}$は$UMVU$であることが確かめられた。</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 正規分布</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>次に正規分布の母平均$\mu$の推定において標本平均$\bar{X}$ がUMVUであることを示す。</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>まず、$\mu$ に関するフィッシャー情報量を求める。</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>\ell(\mu,x)= - \frac{(x-\mu)^2}{2\sigma^2} - \frac{1}{2} \log(2\pi \sigma^2)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>を$\mu$ で偏微分すると$\displaystyle \ell'(\mu,x)=\frac{x-\mu}{\sigma^2}$ を得る。したがって、</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>I(\mu)=\frac{E<span class="co">[</span><span class="ot">(X-\mu)^2</span><span class="co">]</span>}{\sigma^4} = \frac{1}{\sigma^2}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>となり、$\bar{X}$ がUMVUであることが示された。</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

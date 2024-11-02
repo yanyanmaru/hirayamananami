@@ -2,7 +2,9 @@
 title: "Seminar"
 description: "ゼミの発表資料や勉強系用。"
 listing:
-  contents: "seminar/**/index.qmd"
+  contents: 
+    - "seminar/**/**.md"
+    - "seminar/**/**.qmd"
   fields: [date, title,status]
   sort: "date desc"
   type: table
