@@ -13,10 +13,8 @@ page-layout: full
 # [Seminar](/seminar.html)
 ゼミの発表資料用。
 
-# [Solve](/solve.html)
-問題解く用。
 
 # [Post](/post.html)
-気になったことや探索用。
+気になったことや問題を解いたり、探索用。
 
 

@@ -732,7 +732,7 @@
     "href": "index.html",
     "title": "Hirayama Nanami",
     "section": "",
-    "text": "About\n興味、関心、雑記系。\n\n\nSeminar\nゼミの発表資料用。\n\n\nSolve\n問題解く用。\n\n\nPost\n気になったことや探索用。"
+    "text": "About\n興味、関心、雑記系。\n\n\nSeminar\nゼミの発表資料用。\n\n\nPost\n気になったことや問題を解いたり、探索用。"
   },
   {
     "objectID": "seminar/seminar2024_0702/index.html",
@@ -844,7 +844,7 @@
     "href": "seminar/seminar2024_1105/index.html",
     "title": "11月5日　7-4",
     "section": "",
-    "text": "\\(X \\sim Bin(n,p)\\)とする。\n\\(p\\) の推定量 \\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) は \\(\\displaystyle E_p[\\hat{p}] = \\frac{E_p[X]}{n}=\\frac{np}{n}=p\\) より不偏推定量である。\n推定量の分散は\\(\\displaystyle Var[\\hat{p}]=\\frac{Var[X]}{n^2}=\\frac{p(1-p)}{n}\\) である。\n２項分布の確率変数 \\(f(x,p)=p^x(1-p)^{n-x}\\begin{pmatrix}\nn  \\\\\nx  \\\\\n\\end{pmatrix}\\)の対数を\\(p\\) で微分すると\n\\[\n\\begin{aligned}\n    \\ell'(p, x) &= \\frac{\\partial}{\\partial p} \\left( x \\log p + (n - x) \\log (1 - p) + \\log \\binom{n}{x} \\right) \\\\\n    &= \\frac{x}{p}+\\frac{-(n-x)}{1-p} = \\frac{x-np}{p(1-p)}\n\\end{aligned}\n\\]\nとなる。従ってフィッシャー情報量は\n\\[\nI(p)=E[\\ell'(p,X)^2]=\\frac{E[(X-np)^2]}{(p(1-p))^2} =\\frac{np(1-p)}{(p(1-p))^2} = \\frac{n}{p(1-p)}\n\\]\nとなり、これは\\(\\displaystyle \\frac{1}{Var_p[\\hat{p}]}\\) に一致する。したがって\\(\\hat{p}\\)は\\(UMVU\\)であることが確かめられた。"
+    "text": "\\(X \\sim Bin(n,p)\\)とする。\nまず二項分布における\\(p\\) の推定量を\\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) とおく。 \\(\\displaystyle E_p[\\hat{p}] = \\frac{E_p[X]}{n}=\\frac{np}{n}=p\\) より不偏推定量である。\nちなみに不偏推定量の定義は、以下である。\n\n定理 1 \n\\(\\hat{\\theta}\\) が不偏推定量であるとは\n\\[\nE_\\theta[\\hat{\\theta}(X)] = \\theta, \\quad \\delta\\theta\n\\]\nが成り立つことである。\n\n\n\n\n不偏推定量 \\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) がUMVUであることを示すには、次の等式を満たす。\n\n定理 2 (クラメル・ラオの不等式を用いたUMVUの証明) \n不偏推定量\\(\\hat{\\theta^*}\\) が\n\\[\nVar_\\theta[\\hat{\\theta^*}] = \\frac{1}{I_n(\\theta)},\\quad \\delta\\theta\n\\]\nを満たせば、\\(\\hat{\\theta*}\\)はUMVUである。\n\nつまり、\\(\\displaystyle Var_\\theta \\left[\\hat{p}\\right] = \\frac{1}{I_n(\\theta)}\\) であることを示したい。\n\n\n\nまず、推定量の分散は\\(\\displaystyle Var[\\hat{p}]=\\frac{Var[X]}{n^2}=\\frac{p(1-p)}{n}\\) である。\n\n\n\n次にフィッシャー情報量\\(I_n(\\theta)\\)を求めたい。\n\n定理 3 (フィッシャー情報量の求め方) \n\\(\\ell'(\\theta,X)\\)は対数充度関数\\(\\ell(\\theta,X)\\) を\\(\\theta\\) で微分したものである。\n\\[\nI_n(\\theta) = E_\\theta \\left[(\\ell'(\\theta,X)^2)\\right]\n\\]\n\n２項分布の確率変数 \\(f(x,p)=p^x(1-p)^{n-x}\\begin{pmatrix}\nn  \\\\\nx  \\\\\n\\end{pmatrix}\\)の対数を\\(p\\) で微分すると\n\\[\n\\begin{aligned}\n    \\ell'(p, x) &= \\frac{\\partial}{\\partial p} \\left( x \\log p + (n - x) \\log (1 - p) + \\log \\binom{n}{x} \\right) \\\\\n    &= \\frac{x}{p}+\\frac{-(n-x)}{1-p} = \\frac{x-np}{p(1-p)}\n\\end{aligned}\n\\]\nとなる。従ってフィッシャー情報量は\n\\[\nI(p)=E[\\ell'(p,X)^2]=\\frac{E[(X-np)^2]}{(p(1-p))^2} =\\frac{np(1-p)}{(p(1-p))^2} = \\frac{n}{p(1-p)}\n\\]\nとなり、これは\\(\\displaystyle \\frac{1}{Var_p[\\hat{p}]}\\) に一致する。したがって\\(\\hat{p}\\)は\\(UMVU\\)であることが確かめられた。\n\\(E[(X-np)^2]\\)はテクニカル！"
   },
   {
     "objectID": "seminar/seminar2024_0611/index.html",
@@ -872,14 +872,14 @@
     "href": "seminar/seminar2024_1105/index.html#項分布",
     "title": "11月5日　7-4",
     "section": "",
-    "text": "\\(X \\sim Bin(n,p)\\)とする。\n\\(p\\) の推定量 \\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) は \\(\\displaystyle E_p[\\hat{p}] = \\frac{E_p[X]}{n}=\\frac{np}{n}=p\\) より不偏推定量である。\n推定量の分散は\\(\\displaystyle Var[\\hat{p}]=\\frac{Var[X]}{n^2}=\\frac{p(1-p)}{n}\\) である。\n２項分布の確率変数 \\(f(x,p)=p^x(1-p)^{n-x}\\begin{pmatrix}\nn  \\\\\nx  \\\\\n\\end{pmatrix}\\)の対数を\\(p\\) で微分すると\n\\[\n\\begin{aligned}\n    \\ell'(p, x) &= \\frac{\\partial}{\\partial p} \\left( x \\log p + (n - x) \\log (1 - p) + \\log \\binom{n}{x} \\right) \\\\\n    &= \\frac{x}{p}+\\frac{-(n-x)}{1-p} = \\frac{x-np}{p(1-p)}\n\\end{aligned}\n\\]\nとなる。従ってフィッシャー情報量は\n\\[\nI(p)=E[\\ell'(p,X)^2]=\\frac{E[(X-np)^2]}{(p(1-p))^2} =\\frac{np(1-p)}{(p(1-p))^2} = \\frac{n}{p(1-p)}\n\\]\nとなり、これは\\(\\displaystyle \\frac{1}{Var_p[\\hat{p}]}\\) に一致する。したがって\\(\\hat{p}\\)は\\(UMVU\\)であることが確かめられた。"
+    "text": "\\(X \\sim Bin(n,p)\\)とする。\nまず二項分布における\\(p\\) の推定量を\\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) とおく。 \\(\\displaystyle E_p[\\hat{p}] = \\frac{E_p[X]}{n}=\\frac{np}{n}=p\\) より不偏推定量である。\nちなみに不偏推定量の定義は、以下である。\n\n定理 1 \n\\(\\hat{\\theta}\\) が不偏推定量であるとは\n\\[\nE_\\theta[\\hat{\\theta}(X)] = \\theta, \\quad \\delta\\theta\n\\]\nが成り立つことである。\n\n\n\n\n不偏推定量 \\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) がUMVUであることを示すには、次の等式を満たす。\n\n定理 2 (クラメル・ラオの不等式を用いたUMVUの証明) \n不偏推定量\\(\\hat{\\theta^*}\\) が\n\\[\nVar_\\theta[\\hat{\\theta^*}] = \\frac{1}{I_n(\\theta)},\\quad \\delta\\theta\n\\]\nを満たせば、\\(\\hat{\\theta*}\\)はUMVUである。\n\nつまり、\\(\\displaystyle Var_\\theta \\left[\\hat{p}\\right] = \\frac{1}{I_n(\\theta)}\\) であることを示したい。\n\n\n\nまず、推定量の分散は\\(\\displaystyle Var[\\hat{p}]=\\frac{Var[X]}{n^2}=\\frac{p(1-p)}{n}\\) である。\n\n\n\n次にフィッシャー情報量\\(I_n(\\theta)\\)を求めたい。\n\n定理 3 (フィッシャー情報量の求め方) \n\\(\\ell'(\\theta,X)\\)は対数充度関数\\(\\ell(\\theta,X)\\) を\\(\\theta\\) で微分したものである。\n\\[\nI_n(\\theta) = E_\\theta \\left[(\\ell'(\\theta,X)^2)\\right]\n\\]\n\n２項分布の確率変数 \\(f(x,p)=p^x(1-p)^{n-x}\\begin{pmatrix}\nn  \\\\\nx  \\\\\n\\end{pmatrix}\\)の対数を\\(p\\) で微分すると\n\\[\n\\begin{aligned}\n    \\ell'(p, x) &= \\frac{\\partial}{\\partial p} \\left( x \\log p + (n - x) \\log (1 - p) + \\log \\binom{n}{x} \\right) \\\\\n    &= \\frac{x}{p}+\\frac{-(n-x)}{1-p} = \\frac{x-np}{p(1-p)}\n\\end{aligned}\n\\]\nとなる。従ってフィッシャー情報量は\n\\[\nI(p)=E[\\ell'(p,X)^2]=\\frac{E[(X-np)^2]}{(p(1-p))^2} =\\frac{np(1-p)}{(p(1-p))^2} = \\frac{n}{p(1-p)}\n\\]\nとなり、これは\\(\\displaystyle \\frac{1}{Var_p[\\hat{p}]}\\) に一致する。したがって\\(\\hat{p}\\)は\\(UMVU\\)であることが確かめられた。\n\\(E[(X-np)^2]\\)はテクニカル！"
   },
   {
     "objectID": "seminar/seminar2024_1105/index.html#正規分布",
     "href": "seminar/seminar2024_1105/index.html#正規分布",
     "title": "11月5日　7-4",
     "section": "正規分布",
-    "text": "正規分布\n次に正規分布の母平均\\(\\mu\\)の推定において標本平均\\(\\bar{X}\\) がUMVUであることを示す。\nまず、\\(\\mu\\) に関するフィッシャー情報量を求める。\n\\[\n\\ell(\\mu,x)= - \\frac{(x-\\mu)^2}{2\\sigma^2} - \\frac{1}{2} \\log(2\\pi \\sigma^2)\n\\]\nを\\(\\mu\\) で偏微分すると\\(\\displaystyle \\ell'(\\mu,x)=\\frac{x-\\mu}{\\sigma^2}\\) を得る。したがって、\n\\[\nI(\\mu)=\\frac{E[(X-\\mu)^2]}{\\sigma^4} = \\frac{1}{\\sigma^2}\n\\]\nとなり、\\(\\bar{X}\\) がUMVUであることが示された。"
+    "text": "正規分布\n次に正規分布の母平均\\(\\mu\\)の推定において標本平均\\(\\bar{X}\\) がUMVUであることを示す。\nまず、\\(\\mu\\) に関するフィッシャー情報量を求める。\n\\[\n\\ell(\\mu,x)= - \\frac{(x-\\mu)^2}{2\\sigma^2} - \\frac{1}{2} \\log(2\\pi \\sigma^2)\n\\]\nを\\(\\mu\\) で偏微分すると\\(\\displaystyle \\ell'(\\mu,x)=\\frac{x-\\mu}{\\sigma^2}\\) を得る。したがって、\n\\[\nI(\\mu)=\\frac{E[(X-\\mu)^2]}{\\sigma^4} = \\frac{1}{\\sigma^2}\n\\]\nとなり、\\(\\bar{X}\\) がUMVUであることが示された。\n\\(E[(X-\\mu)^2]\\)もテクニカル！"
   },
   {
     "objectID": "post/spotify.html",
@@ -1223,5 +1223,26 @@
     "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
     "section": "解答",
     "text": "解答\n⑴ \\(0 \\leq x \\leq 2\\) のとき、\n\\[\nf(x)= F'(x)= -2 \\frac{x-2}{4} = \\frac{2-x}{2}\n\\]\n\\[\nF(x) =\n\\begin{cases}\n0  & (- \\infty \\leq x \\leq 0)\\\\\n\\frac{2-x}{2} & (0 \\leq x \\leq 2)\\\\\n0 &(2 \\leq x)\n\\end{cases}\n\\]\n⑵\n\\[\n\\begin{aligned}\nE[X^k]&=  \\int^{2}_{0} x^k \\frac{2-x}{2}dx \\\\\n&=  \\int^{2}_{0} x^kdx - \\frac{1}{2} \\int^{2}_{0} x^{k+1}dx \\\\\n&= [\\frac{1}{k+1}x^{k+1}]^2_0-\\frac{1}{2}[\\frac{1}{k+2}x^{k+2}]^2_0 \\\\\n&= \\frac{2^{k+1}}{k+1} - \\frac{2^{k+1}}{k+2} \\\\\n&= \\frac{2^{k+1}}{(k+1)(k+2)}\n\\end{aligned}\n\\]\n\\(E[X]=\\frac{2^2}{(2)(3)}=\\frac{2}{3}\\),\\(E[X^2]=\\frac{2^3}{(3)(4)}=\\frac{2}{3}\\)である。\n\\(V[X]=\\frac{2}{3}-\\frac{4}{9}=\\frac{2}{9}\\)\n⑶\nメディアンを\\(x_{med}\\) とする。モードは\\(x_{mode}\\) とする。\nメディアンは累積確率が0.5になるところなので、\n\\[\n\\begin{aligned}\n1 - \\frac{(x_{med}-2)^2}{4} = \\frac{1}{2} \\\\\nx_{med} = 2 \\pm \\sqrt{2}\n\\end{aligned}\n\\]\n\\(0 \\leq x \\leq 2\\) より\\(x_{med}= 2-\\sqrt{2}\\)\nモードは\\(f(x)\\)が最大となる値なので、\\(f'(x)\\) からわかる。\\(0 \\leq x \\leq 2\\) のとき\\(f'(x)=-1\\) より\\(x=0\\) がモードとなる。"
+  },
+  {
+    "objectID": "seminar/seminar2024_1105/page-reveal.html#項分布",
+    "href": "seminar/seminar2024_1105/page-reveal.html#項分布",
+    "title": "11月5日　7-4",
+    "section": "２項分布",
+    "text": "２項分布\n\\(X \\sim Bin(n,p)\\)とする。\nまず二項分布における\\(p\\) の推定量を\\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) とおく。 \\(\\displaystyle E_p[\\hat{p}] = \\frac{E_p[X]}{n}=\\frac{np}{n}=p\\) より不偏推定量である。\nちなみに不偏推定量の定義は、以下である。\n\n定理 1 \n\\(\\hat{\\theta}\\) が不偏推定量であるとは\n\\[\nE_\\theta[\\hat{\\theta}(X)] = \\theta, \\quad \\delta\\theta\n\\]\nが成り立つことである。\n\n\n\n\n不偏推定量 \\(\\displaystyle \\hat{p}=\\frac{X}{n}\\) がUMVUであることを示すには、次の等式を満たす。\n\n定理 2 (クラメル・ラオの不等式を用いたUMVUの証明) \n不偏推定量\\(\\hat{\\theta^*}\\) が\n\\[\nVar_\\theta[\\hat{\\theta^*}] = \\frac{1}{I_n(\\theta)},\\quad \\delta\\theta\n\\]\nを満たせば、\\(\\hat{\\theta*}\\)はUMVUである。\n\nつまり、\\(\\displaystyle Var_\\theta \\left[\\hat{p}\\right] = \\frac{1}{I_n(\\theta)}\\) であることを示したい。\n\n\n\nまず、推定量の分散は\\(\\displaystyle Var[\\hat{p}]=\\frac{Var[X]}{n^2}=\\frac{p(1-p)}{n}\\) である。\n\n\n\n次にフィッシャー情報量\\(I_n(\\theta)\\)を求めたい。\n\n定理 3 (フィッシャー情報量の求め方) \n\\(\\ell'(\\theta,X)\\)は対数充度関数\\(\\ell(\\theta,X)\\) を\\(\\theta\\) で微分したものである。\n\\[\nI_n(\\theta) = E_\\theta \\left[(\\ell'(\\theta,X)^2)\\right]\n\\]\n\n２項分布の確率変数 \\(f(x,p)=p^x(1-p)^{n-x}\\begin{pmatrix}\nn  \\\\\nx  \\\\\n\\end{pmatrix}\\)の対数を\\(p\\) で微分すると\n\\[\n\\begin{aligned}\n    \\ell'(p, x) &= \\frac{\\partial}{\\partial p} \\left( x \\log p + (n - x) \\log (1 - p) + \\log \\binom{n}{x} \\right) \\\\\n    &= \\frac{x}{p}+\\frac{-(n-x)}{1-p} = \\frac{x-np}{p(1-p)}\n\\end{aligned}\n\\]\nとなる。従ってフィッシャー情報量は\n\\[\nI(p)=E[\\ell'(p,X)^2]=\\frac{E[(X-np)^2]}{(p(1-p))^2} =\\frac{np(1-p)}{(p(1-p))^2} = \\frac{n}{p(1-p)}\n\\]\nとなり、これは\\(\\displaystyle \\frac{1}{Var_p[\\hat{p}]}\\) に一致する。したがって\\(\\hat{p}\\)は\\(UMVU\\)であることが確かめられた。\n\\(E[(X-np)^2]\\)はテクニカル！"
+  },
+  {
+    "objectID": "seminar/seminar2024_1105/page-reveal.html#正規分布",
+    "href": "seminar/seminar2024_1105/page-reveal.html#正規分布",
+    "title": "11月5日　7-4",
+    "section": "正規分布",
+    "text": "正規分布\n次に正規分布の母平均\\(\\mu\\)の推定において標本平均\\(\\bar{X}\\) がUMVUであることを示す。\nまず、\\(\\mu\\) に関するフィッシャー情報量を求める。\n\\[\n\\ell(\\mu,x)= - \\frac{(x-\\mu)^2}{2\\sigma^2} - \\frac{1}{2} \\log(2\\pi \\sigma^2)\n\\]\nを\\(\\mu\\) で偏微分すると\\(\\displaystyle \\ell'(\\mu,x)=\\frac{x-\\mu}{\\sigma^2}\\) を得る。したがって、\n\\[\nI(\\mu)=\\frac{E[(X-\\mu)^2]}{\\sigma^4} = \\frac{1}{\\sigma^2}\n\\]\nとなり、\\(\\bar{X}\\) がUMVUであることが示された。\n\\(E[(X-\\mu)^2]\\)もテクニカル！"
+  },
+  {
+    "objectID": "seminar/seminar2024_1105/index.html#クラメルラオの不等式",
+    "href": "seminar/seminar2024_1105/index.html#クラメルラオの不等式",
+    "title": "11月5日　7-4",
+    "section": "",
+    "text": "\\[\nE_\\theta[\\hat{\\theta}(X)] = \\theta, \\quad \\delta\\theta\n\\]\nが成り立つことである。"
   }
 ]
