@@ -1,0 +1,1675 @@
+---
+title: "「データ解析のための数理統計入門」第1章 演習問題 解答"
+format: html
+code-fold: true
+date: last-modified
+toc: true
+lang: ja
+categories:
+  - 統計
+  - データ解析のための数理統計入門
+status: "完了"
+---
+
+
+タイピングが追いつかないので、途中からは気になった問題だけになってます！
+
+# １章
+
+## １問目
+
+### 問題
+大学生の就職活動に関して、ある企業にエントリーした学生は男性が60%を占めていたが、採用を内定された割合は、男性は男性応募者の40%、女性は女性応募者の30%であった。
+
+
+<div class="extra-space1"></div>
+
+⑴この企業の男女合わせた全体の応募者に対する男性の採用内定率、女性の採用内定率を求めよ。
+
+⑵この企業の男女合わせた全体の採用内定率を求めよ。
+
+⑶この企業の採用内定者の名簿から一人をランダムに選んだ場合、それが女性である確率を求めよ。
+
+<div class="extra-space2"></div>
+
+### 解答
+#### ⑴
+
+ある企業にエントリーした学生全体を$\Omega$とし、男性である事象を$A$とする。また男性である確率は$P(A)$と表します。
+
+この場合女性である事象は$A^c$で表され、女性である確率は$P(A)$となります。
+
+男性の割合は60%なので、$P(A)=0.6$である。
+女性の割合は、$P(A^c)=1-0.6=0.4$である。
+
+<div class="extra-space2"></div>
+
+また採用される事象は$B$と表し、採用されない事象は$B^c$となります。
+
+男性は男性応募者の40%、女性は女性応募者の30%が採用内定である。これは条件付き確率で表される。40%とは、男性である条件のもとで採用した確率なので、$P(B|A)=0.4$。同様に、$P(B|A^c)=0.3$
+
+<div class="extra-space2"></div>
+
+⑴で聞かれているのは、男性の採用内定率つまり$P(A \cap B)$と、女性の採用内定率つまり$P(A^c \cap B)$である。
+
+<div class="extra-space2"></div>
+
+$P(A \cap B)=P(B|A) \times P(A) = 0.4 \times  0.6 = 0.24$
+
+$P(A^c \cap B)=P(B|A^c) \times P(A^c) = 0.3 \times  0.4 = 0.12$
+
+<div class="extra-space2"></div>
+
+#### ⑵
+
+⑵で聞かれているのは、全体の採用内定率つまり$P(B)$である。
+
+$A+A^c=\Omega$で、$A$と$A^c$は排反より、全確率の公式を用いると、以下の式が成り立つ。
+
+$P(B) = P(B|A) \times P(A) + P(B|A^c) \times P(A^c) = 0.24+0.12=0.36$
+
+<div class="extra-space2"></div>
+
+#### ⑶
+
+⑶は条件付き確率の問題で、採用内定者のもとで女性である確率つまり$P(A^c|B)$である。
+
+$P(A^c|B)=\frac{P(A^c \cap B)}{P(B)}= \frac{0.12}{0.36} =\frac{1}{3}$ 
+
+<div class="extra-space3"></div>
+
+## 2問目
+
+### 問題
+
+週の天気予報によると、土曜日に雨の降る確率は25%、日曜日に雨の降る確率も25%である。
+週末の土日のどこかに雨が降る確率は25+25=50%になると考えた。これは正しいかどうか。
+
+### 解答
+
+正しくない。
+
+土曜日に雨が降る事象を$A$とし、確率は$P(A)$で表される。
+
+日曜日に雨が降る事象を$B$とし、確率は$P(B)$で表される。
+
+<div class="extra-space2"></div>
+
+この問題が言っていることは$P(A \cup B) = P(A)+P(B)$になるということである。しかし、これが成り立つのは、$A$と$B$が排反の時である。
+
+事象$A$と$B$はどう考えても排反ではないので、成り立たない。
+
+:::{.callout-note}
+事象$A$と$B$が排反とは、$A$と$B$が同時に起こり得ないということです。
+:::
+
+$P(A \cup B) = P(A)+P(B)-P(A \cap B)$なので、確率は50%より低くなることが考えられる。
+
+## 3問目
+
+### 問題
+
+ある大学のある学部はA学科とB学科の２つからなり、それぞれの志願者数と合格率が男女別に次の表で与えられたとする。学部全体の男女の合格率に関して、シンプソンのパラドクスが生ずるような$a$の条件を考えよ。
+
+::: {layout-ncol=2}
+| A 学科 | 志願者 | 合格率 |
+|------|------|------|
+| 男性    | 500    | 60%    |
+| 女性    | 30    | 70%   |
+
+
+| B 学科 | 志願者 | 合格率 |
+|------|------|------|
+| 男性    | 400    | 10%    |
+| 女性    | 300    | a%   |
+
+
+:::
+
+### 解答
+
+A学科を見ると女性の方が合格率が高い。
+
+男女の合格率に関してシンプソンのパラドクスが生じるようにという問題です。つまり、B学科もA学科同様に学科単体では女性の合格率が高いが、A学科とB学科を合計すると男性の合格率のほうが高くなるような$a$を求める問題です。
+
+<div class="extra-space2"></div>
+
+まず、学科単体では女性の合格率が高くなるので、$a>10$です。
+
+<div class="extra-space2"></div>
+
+次に、男女別の学科合計の合格率を考えます。
+
+**男性の合格率**
+
+$\frac{500 \times 0.6 + 400 \times 0.1}{500+400}=\frac{340}{900}$
+
+**女性の合格率**
+
+$\frac{30 \times 0.7 + 300 \times a/100}{500+400} = \frac{21+3a}{330}$
+
+男性の合格率>女性の合格率となればいいので、以下の式が成り立ちます。
+
+$\frac{340}{900}>\frac{21+3a}{330}$
+
+$a < \frac{340}{900} \times 110 -7\fallingdotseq 34.6$ 
+
+
+よって$a$の条件とは $10<a<34.6$ である。
+
+
+## 4問目
+
+### 問題
+
+両親と二人の子供がいる4人家族において、同じ誕生日の人がいる確率を求めよ。
+
+### 解答
+
+誕生日問題は補集合で考えるとわかりやすい。
+
+同じ誕生日の人が**いない**事象を$A$とすると、求めたい事象は$A^c$であり、求めたい確率は$P(A^c)$である。
+
+$P(A)=\frac{365}{365} \cdot \frac{364}{365} \cdot \frac{363}{365} \cdot \frac{362}{365} = \frac{364\cdot 363\cdot 362}{365^3}$
+
+$P(A^c)=1-P(A)=1-\frac{364\cdot 363\cdot 362}{365^3} = 0.016$
+
+よって約1.6%である。
+
+
+## 5問目
+
+[ここ](/posts/seminor2024_0611/)に書いてあるので、省略します。
+
+## 6問目
+
+### 問題
+条件付き確率について不等式$P(A|D) \geq P(B|D)$,$P(A|D^c) \geq P(B|D^c)$が成り立つならば、$P(A) \geq P(B)$であることを示せ。
+
+### 解答
+
+$P(A|D^c)$のような補集合の条件付き確率が出てきていることから、全確率の公式を用いることが推察できます。
+
+$P(A|D)P(D) + P(A|D^c)P(D^c) =P(A)$
+
+$P(B|D)P(D) + P(B|D^c)P(D^c) =P(B)$
+
+この２つを用いれば解くことができそうですね。
+
+<div class="extra-space2"></div>
+
+$P(A|D) \geq P(B|D)$の両辺に$P(D)$をかけても不等式は成り立ちます。
+
+$P(A|D)P(D) \geq P(B|D)P(D)$
+
+$P(A|D^c) \geq P(B|D^c)$の両辺に$P(D^c)$をかけても不等式は成り立ちます。
+
+$P(A|D^c)P(D^c) \geq P(B|D^c)P(D^c)$
+
+不等式同士を辺々足しても大小関係は変わらないため、以下の式が成り立つ。
+
+$P(A|D)P(D)+P(A|D^c)P(D^c) \geq P(B|D)P(D)+ P(B|D^c)P(D^c)$
+
+全確率の公式より
+
+$P(A) \geq P(B)$である。
+
+
+## 7問目
+
+### 問題
+
+次の多項式の係数を求めよ。
+
+⑴$(x+y)^6$における$x^3y^3$の係数
+
+⑵$(x+y+z)^6$における$x^2y^2z^2$の係数
+
+### 解答
+
+⑴
+
+$\begin{pmatrix}
+6 \\
+3 
+\end{pmatrix} =\frac{6!}{3!3!}=20$
+
+⑵
+
+$\begin{pmatrix}
+& 6 & \\
+2 & 2 & 2
+\end{pmatrix} =\frac{6!}{2!2!2!}=90$
+
+## 8問目
+
+### 問題
+正しいコインを３回投げる時次の確率を求めよ
+
+⑴少なくとも１回は表が出るという条件のもとで２回以上表の出る確率
+
+⑵少なくとも１回は裏が出るという条件のもとで２回以上表の出る確率
+
+### 解答
+正しいコインの意味はおそらく裏表が1/2の確率になるという意味だと思います。
+
+⑴
+
+条件付き確率ですね。
+
+少なくとも１回は表が出るという事象を$A$として、2回以上表が出る事象を$B$とする。
+
+求めるのは$P(B|A)$である。
+
+<div class="extra-space2"></div>
+
+$P(B|A)=\frac{P(A \cap B)}{P(A)}$となるので、それぞれの確率を求めれば良い。
+
+<div class="extra-space2"></div>
+
+$P(A)$は余事象ですぐ求めることができる。
+
+$P(A)=1-P(A^c)=1-(\frac{1}{2})^3=\frac{7}{8}$
+
+<div class="extra-space2"></div>
+
+$P(A \cap B)$ は$B \subset A$より$P(A \cap B)=P(B)$である。
+また、表が２回出る確率は${}_3 C_1(\frac{1}{2})^3$です。
+
+$P(A \cap B)=P(B)=\frac{1}{8}+\frac{3}{8}=\frac{1}{2}$
+
+<div class="extra-space2"></div>
+
+よって、
+
+$P(B|A)=\frac{P(A \cap B)}{P(A)}= \frac{P(1/2)}{7/8}=\frac{4}{7}$
+
+⑵
+
+⑴と同様に求めます。
+
+少なくとも１回は裏が出るという事象を$A$として、2回以上表が出る事象を$B$とする。
+
+$P(A)=1-P(A^c)=1-(\frac{1}{2})^3=\frac{7}{8}$
+
+少なくとも１回は裏が出るかつ２回以上表が出る事象は、表が２回（裏が１回）の事象のみである。
+
+$P(A \cap B)={}_3 C_1(\frac{1}{2})^3=\frac{3}{8}$
+
+よって、
+
+$P(B|A)=\frac{P(A \cap B)}{P(A)}= \frac{P(3/8)}{7/8}=\frac{3}{7}$
+
+## 9問目
+
+### 問題
+2人の子供がいる夫婦について、第一子が女の子であるという条件のもとで二人とも女の子であるという確率を求めよ。また子供の一人が女子であるという条件のもとで二人とも女子である確率を求めよ。
+
+### 解答
+
+これも条件付き確率の問題と考えることができます。
+
+1つ目について。
+
+A：第一子が女の子である
+
+B：二人とも女の子である
+
+一つ目で求められているのは$P(B|A)$である。
+
+$P(A)=1/2$
+
+$P(A \cap B)=1/2 \times 1/2 =1/4$
+
+$P(B|A)= \frac{1/4}{1/2} = 1/2$
+
+2つ目について。
+
+C：子供の一人が女子である
+
+D：二人とも女子である
+
+$P(C)=1- (\frac{1}{2})^2 = 3/4$
+
+$P(D \cap C)=1/4$
+
+$P(D|C)= \frac{1/4}{3/4} = 1/3$
+
+## 10問目
+
+### 問題
+独立性に関して次の問いに答えよ
+
+⑴$A$と$B$が独立ならば、$A$と$B^c$も独立になり、$A^c$と$B^c$も独立になるか。
+
+⑵$A$と$B$が独立で、$B$と$C$が独立であるとき、$A$と$C$は独立になるか。
+
+⑶$A$と$B$が排反であれば常に$A$と$B$は独立であるか。
+
+⑷$A \subset B$であるとき、$A$と$B$は独立になるか。
+
+
+### 解答
+
+::: {.callout-note}
+$A$と$B$が**独立**であるとは、$P(A \cap B)=P(A) \cdot P(B)$であること。
+
+<div class="extra-space2"></div>
+
+この式は条件付き確率からわかる。
+
+$$
+P(A | B)=\frac{P(A \cap B)}{P(B)}
+$$
+
+式を移行すると、
+
+$$
+P(A \cap B)=P(A | B) \cdot P(B)
+$$
+
+この$B$という事象の元で$A$という事象が起こる確率が$B$に依存しない時、$P(A | B)=P(A)$となる。
+:::
+
+⑴
+
+$A$と$B$が**独立**であるとは、$P(A \cap B)=P(A) \cdot P(B)$であることである。
+
+<div class="extra-space2"></div>
+
+
+$A$と$B^c$が独立であることを示したいときは$P(A \cap B^c)=P(A) \cdot P(B^c)$を示せば良い。
+
+また$P(A \cap B)=P(A) \cdot P(B)$という条件があるので、$A \cap B$の形を出せると使えそうなことがわかる。
+
+\begin{align}
+P(A \cap B^c)&=P(A)-P(A\cap B) \\
+&=P(A)-P(A)\cdot P(B)\\
+&=P(A)\cdot(1-P(B))\\
+&=P(A)\cdot P(B^c)
+\end{align}
+
+これで$P(A \cap B^c)=P(A) \cdot P(B^c)$が示せたので、$A$と$B$が独立なとき、$A$と$B^c$が独立であることを示せた。
+
+⑵
+
+$P(A \cap B)=P(A) \cdot P(B)$
+
+$P(B \cap C)=P(B) \cdot P(C)$
+
+この２つから$P(A \cap C)=P(A) \cdot P(C)$を求めることができれば、独立が成り立つと言えそうだが、明らかに言えなそうなので反例を探していく。
+
+例えば、$P(B)=0$の時を考える。上２式は$B$の事象が $\emptyset$より0の等式が成り立つ。
+
+$P(A \cap C)=P(A) \cdot P(C)$の式は上2式で定まらないので、単独で考えると、独立でない時もあるので成り立たない。
+
+⑶
+
+::: {.callout-note}
+$A$と$B$が排反であるとは、$A\cap B = \emptyset$であるということ。
+:::
+
+$$
+P(A \cap B)=P(\emptyset) =0
+$$
+
+である。$P(A)$と$P(B)$は1/3と1/3とかもあり得るので、$P(A)\cdot P(B)$は常に0ではない。
+
+よって、常に独立にはならない。
+
+⑷
+
+$$
+P(A \cap B)=P(A) \ne P(A) \cdot P(B)
+$$
+
+よって常に独立にはならない。
+
+## 11問目
+
+### 問題
+
+ベイズの定理により事前確率は事後確率の取り方に依存する。
+例1.6のウイルス検査において、発熱という症状が出ている患者群を母集団として考えた場合、ウイルスに感染している確率が高くなるので事前確率は高くなる。
+例えば、発熱している患者の半数が感染していて、半数が感染していないという設定では事前確率が$P(A_1)=0.5$、$P(A_2)=0.5$となる。
+このとき陽性反応が出たという条件のもとで、感染している確率はどうなるか。
+
+### 解答
+
+感染している割合が0.1から0.5に上がった時（母集団を変えた時）にどうなるかということです。
+
+$$
+P(A_1)=0.5
+$$
+
+$$
+P(A_2)=0.5
+$$
+
+
+以下の条件は変わらない。
+
+\begin{align}
+P(B_1|A_1)=0.9
+P(B_2|A_1)=0.1
+P(B_1|A_2)=0.01
+P(B_1|A_2)=0.99
+\end{align}
+
+陽性反応が出たという条件のもとで、感染している確率$P(A_1|B_1)$を求める。
+
+
+\begin{align}
+P(A_1|B_1)&=\frac{P(A_1 \cap B_1)}{P(B_1)} \\
+&=\frac{P(B_1|A_1)\cdot P(A_1)}{P(B_1|A_1)\cdot P(A_1)+P(B_1|A_2)\cdot P(A_2)}\\
+&=\frac{0.9 \cdot 0.5}{0.9 \cdot 0.5 + 0.01 \cdot 0.5}\\
+&=\frac{0.45}{0.455}\\
+&=0.989
+\end{align}
+
+確率結構上がりましたね。
+
+## 12問目
+
+### 問題
+
+正しいコインを２回投げる時、１回目に表が出る事象を$A$、２回目に表の出る事象を$B$、２回のうちに１回だけ表の出る事象を$C$とする。
+
+⑴$A,B,C$はペアワイズ独立であることを示せ。
+
+⑵$A,B,C$は互いに独立でないことを示せ。
+
+### 解答
+
+::: {.callout-note}
+$A,B,C$はペアワイズ独立であるとは、$P(A\cap B)=P(A) \cdot P(B)$かつ$P(B\cap C)=P(B) \cdot P(C)$かつ$P(A\cap C)=P(A) \cdot P(C)$が成り立つこと。
+:::
+
+⑴
+
+正しいコインを投げる時表が出る事象を$H$,裏が出る事象を$T$とする。
+
+すると２回投げる時,$\{HH,HT,TH,TT\}$の４パターンになる。
+
+\begin{align}
+A=\{HH,HT\} ,P(A)=1/2\\
+B=\{HH,TH\},P(B)=1/2 \\
+C=\{HT,TH\} ,P(C)=1/2\\
+\end{align}
+
+\begin{align}
+A \cap B=\{HH\} ,P(A \cap B)=1/4\\
+B \cap C=\{TH\},P(A \cap B)=1/4 \\
+A \cap C=\{HT\} ,P(A \cap B)=1/4\\
+\end{align}
+
+$P(A\cap B)=P(A) \cdot P(B)$かつ$P(B\cap C)=P(B) \cdot P(C)$かつ$P(A\cap C)=P(A) \cdot P(C)$が成り立つので、ペアワイズ独立である。
+
+⑵
+
+::: {.callout-note}
+三つの事象が互いに独立であるとは、
+
+\begin{align}
+P(A\cap B)=P(A) \cdot P(B) \\
+P(B\cap C)=P(B) \cdot P(C)\\
+P(A\cap C)=P(A) \cdot P(C)\\
+P(A\cap B \cap C)=P(A)\cdot P(B) \cdot P(C)\\
+\end{align}
+
+すべてが成り立つことである。
+:::
+
+$$
+A \cap B \cap C= \emptyset,P(A \cap B\cap C)=0
+$$
+
+$P(A)\cdot P(B) \cdot P(C)=1/8$より$P(A\cap B \cap C)=P(A)\cdot P(B) \cdot P(C)$が成り立たないため、$A,B,C$は互いに独立ではない。
+
+## 13問目
+
+### 問題
+モンティ・ホール問題を説明せよ。
+
+### 解答
+
+後でシミュレーションとか作って丁寧にやります。
+
+## 14問目
+
+### 問題
+２項係数の関係式を示し、これを用いて２項定理を証明せよ。
+また、パスカルの３角形が成り立つことを証明せよ。
+
+### 解答
+
+一つ目は
+
+$$
+\left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) 
+=
+\left(
+\begin{matrix}
+n-1 \\
+k-1
+\end{matrix}
+\right) +
+\left(
+\begin{matrix}
+n-1 \\
+k
+\end{matrix}
+\right) 
+$$
+
+\begin{align}
+\left(
+\begin{matrix}
+n-1 \\
+k-1
+\end{matrix}
+\right) 
++\left(
+\begin{matrix}
+n-1 \\
+k
+\end{matrix}
+\right) &=\frac{(n-1)!}{(k-1)!(n-1-(k-1))!}+\frac{(n-1)!}{k!(n-1-k)!} \\
+&= \frac{(n-1)! \cdot k}{(k)!(n-k)!}+\frac{(n-1)! \cdot (n-k)}{k!(n-k)!} \\
+&=\frac{(n-1)! \cdot (k+n-k)}{(k)!(n-k)!} \\
+&=\frac{(n)!}{(k)!(n-k)!} \\
+&=\left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right)
+
+
+\end{align}
+
+
+二つ目は
+
+$$
+(a+b)^n = \sum_{k=0}^n \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^k b^{n-k}
+$$ {#eq-one}
+
+この二項定理が成り立つことを示せということです。
+
+感覚的に(a+b)がたくさんある中で$a^kb^{n-k}$の組み合わせは何個だからみたいな方法もわかりやすくていいと思うんですが、帰納法で示します。
+
+$n=1$のとき、
+
+$$
+a+b=\sum_{k=0}^1 \left(
+\begin{matrix}
+1 \\
+k
+\end{matrix}
+\right) a^k b^{1-k}
+=\left(
+\begin{matrix}
+1 \\
+0
+\end{matrix}
+\right) a^0 b^{1}+\left(
+\begin{matrix}
+1 \\
+1
+\end{matrix}
+\right) a^1 b^{0}
+=a+b
+$$
+
+よって$n=1$の時成り立つ。
+
+$n=k$のとき @eq-one が成り立つと仮定する。
+
+$n=k+1$のとき
+
+\begin{align}
+(a+b)^{k+1} &= (a+b)\sum_{k=0}^n \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^k b^{n-k}\\
+&=  \sum_{k=0}^n \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^{k+1} b^{n-k}
++\sum_{k=0}^n \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^{k} b^{n-k+1}
+\\
+
+
+
+&=a^{n+1} +\sum_{k=0}^{n-1} \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^{k+1} b^{n-k}
++\sum_{k=1}^n \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^{k} b^{n-k+1}
++b^{n+1}
+
+\\
+
+
+
+&=a^{n+1} +\sum_{k=1}^{n} \left(
+\begin{matrix}
+n \\
+k-1
+\end{matrix}
+\right) a^{k} b^{n-k+1}
++\sum_{k=1}^n \left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right) a^{k} b^{n-k+1}
++b^{n+1}
+
+\\
+
+
+
+&=a^{n+1} +\sum_{k=1}^{n} (\left(
+\begin{matrix}
+n \\
+k-1
+\end{matrix}
+\right)+\left(
+\begin{matrix}
+n \\
+k
+\end{matrix}
+\right)) a^{k} b^{n-k+1}
++b^{n+1}
+
+\\
+
+&=a^{n+1} +\sum_{k=1}^{n} \left(
+\begin{matrix}
+n+1 \\
+k
+\end{matrix}
+\right)a^{k} b^{n-k+1}
++b^{n+1}
+
+\\
+
+&=\sum_{k=1}^{n+1} \left(
+\begin{matrix}
+n+1 \\
+k
+\end{matrix}
+\right)a^{k} b^{n-k+1}
++b^{n+1}
+
+\\
+
+&=\sum_{k=0}^{n+1} \left(
+\begin{matrix}
+n+1 \\
+k
+\end{matrix}
+\right)a^{k} b^{n-k+1}
+\end{align}
+
+$n=k+1$の時 @eq-one が成り立つので、二項定理が示された。
+
+三つ目
+
+パスカルの三角形が成り立つことを証明せよ。
+
+問題の意味がわからなかったのですが、おそらく「パスカルの三角形が二項定理の係数に相当することを示せ」ということだと解釈しました。
+
+![](https://integraldx.info/wp-content/uploads/2019/04/pascal-triangle2.png)
+
+$n$列目の$k$行目の数を${}_n C_k$とすると、${}_n C_k={}_{n-1}+ C_{k-1}{}_{n-1} C_{k}$が成り立つことを示せという問題なんですかね。
+
+
+これは一つ目で示したものと同じになります。
+
+# ２章
+
+
+# 問1
+
+## 問題
+二項分布$Bin(n,p)$の確率関数を$p_k=P(X=k)$,$k=0, \ldots, n$とする。
+
+⑴$p_k$を$p_{k-1}$を用いて表せ。$\{p_0,\ldots,p_n\}$の中で最大を与える$k$を求めよ
+
+⑵$p=1/2$のとき、$n=10,k=9$の時の確率と$n=20,k=18$の時の確率ではどちらが大きいか。
+
+
+## 解答
+
+::: {#nte-one .callout-note}
+確率変数$X$が二項分布$Bin(n,p)$に従う時、$X=k$となる確率は$q=1-p$に対して次のようになる。
+
+$$
+p(k)=\binom{n}{k}p^k q^{n-k}
+$$
+
+:::
+
+### ⑴
+
+$p_k=\binom{n}{k}p^k q^{n-k}$と$p_{k-1}=\binom{n}{k-1}p^{k-1} q^{n-(k-1)}$の関係を示したいです。
+
+カッコのままだとわかりにくかったので、階乗に直します。
+
+$p_k=\frac{n!}{k!(n-k)!} p^k q^{n-k}$ を　$p_{k-1}=\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}$の関係を示す問題です。
+
+式変形していきます。
+
+\begin{align}
+p_{k}
+&=
+\binom{n}{k}p^k q^{n-k} 
+\\
+
+&=
+\frac{n!}{k!(n-k)!} p^k q^{n-k} 
+\\
+
+&=
+\frac{n!(n-(k-1))}{k(k-1)! \cdot (n-(k-1))!} p^k q^{n-k} 
+\\
+
+&=
+\frac{n!(n-(k-1))}{k(k-1)! \cdot (n-(k-1))!} p^{k-1} q^{n-(k-1)} \frac{p}{q}
+\\
+
+&=
+\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\frac{p(n-(k-1))}{kq}
+\\
+&=
+\frac{p(n-(k-1))}{kq} p_{k-1} 
+\\
+&=
+\frac{p(n-(k-1))}{k(1-p)} p_{k-1} 
+
+\end{align}
+
+きれいに治すと、
+$$
+p_k=\frac{p}{1-p} \frac{n-(k-1)}{k} p_{k-1} 
+$${#eq-one}
+
+となります。
+
+$\{p_0,\ldots,p_n\}$の中で最大を与える$k$を求める問題です。$p_k \ge p_{k-1}$かつ$p_k \ge p_{k+1}$となるような$k$の確率が最大となります。@eq-one が誘導になってることがわかりますね。
+
+
+$$
+p_k = \frac{p}{1-p} \frac{n-(k-1)}{k} p_{k-1} \ge p_{k-1}
+$$
+
+かつ
+
+$$
+p_{k+1} = \frac{p}{1-p} \frac{n-k}{k+1} p_{k} \le p_{k}
+$$
+
+が成り立つことである。
+
+1つ目の式は確率は0以上であるため、下のように変形できる。
+
+\begin{align}
+p_k = \frac{p}{1-p} \frac{n-(k-1)}{k} p_{k-1} &\ge p_{k-1}　 \\
+\Longleftrightarrow p(n-k+1) &\ge (1-p)k \\
+\Longleftrightarrow p(n+1) \ge k
+\end{align}
+
+2つ目の式も同様に変形できる。
+
+<!-- めんどくさかったので丁寧に整形するのはいつか -->
+
+\begin{align}
+p_{k+1} = \frac{p}{1-p} \frac{n-k}{k+1} p_{k} &\le p_{k} \\
+\Longleftrightarrow p(n-k) &\le (1-p)(k+1) \\
+\Longleftrightarrow pn \le k-p+1 \\
+\Longleftrightarrow p(n+1) \le k+1 
+\end{align}
+
+よって$k$について以下の不等式を解くと確率が最大になる時の$k$がもとまる。
+
+$$
+p(n+1)-1 \le k \le p(n+1)
+$$
+
+これを満たす整数$k$は$p(n+1)$が整数かどうかで変わる。
+
+$p(n+1)$が整数のとき、$k=p(n+1),p(n+1)-1$である。
+
+$p(n+1)$が整数ではないとき、$k=[p(n+1)]$となる。
+
+::: {.extra-space3}
+
+:::
+
+$p(n+1)$が整数の時のグラフ！
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binom
+import japanize_matplotlib
+
+# 複数のn, p値を定義
+params = [(9, 0.2), (9, 0.5), (19, 0.7), (19, 0.5), (19, 0.7)]
+
+# x の範囲を定義
+x = np.arange(0, 21)
+
+# グラフのプロット
+plt.figure(figsize=(10, 6))
+
+for n, p in params:
+    pmf = binom.pmf(x, n, p)
+    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')
+
+# x軸の目盛りを整数に設定
+plt.xticks(np.arange(0, 21, 1))
+
+plt.xlabel('x')
+plt.ylabel('確率')
+plt.title('nとpを変動させた二項分布')
+plt.legend()
+plt.grid(True)
+plt.savefig('binom_distribution.png')
+plt.show()
+```
+
+
+$p(n+1)$が整数の時のグラフ！
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binom
+import japanize_matplotlib
+
+# 複数のn, p値を定義
+params = [(10, 0.2), (10, 0.5), (10, 0.7), (20, 0.5), (20, 0.7)]
+
+# x の範囲を定義
+x = np.arange(0, 21)
+
+# グラフのプロット
+plt.figure(figsize=(10, 6))
+
+for n, p in params:
+    pmf = binom.pmf(x, n, p)
+    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')
+
+# x軸の目盛りを整数に設定
+plt.xticks(np.arange(0, 21, 1))
+
+plt.xlabel('x')
+plt.ylabel('確率')
+plt.title('nとpを変動させた二項分布')
+plt.legend()
+plt.grid(True)
+plt.savefig('binom_distribution.png')
+plt.show()
+```
+
+
+グラフで見てみるとわかりやすいですね！
+
+### ⑵
+
+$n=10,k=9$のとき @nte-one　より
+
+$$
+p_9=\binom{10}{9} (\frac{1}{2})^{10}
+$$
+
+$$
+p_{18}=\binom{20}{18} (\frac{1}{2})^{20}
+$$
+
+$$
+\binom{10}{9}={}_{10} C_9={}_{10} C_1=10,  
+\binom{20}{18}={}_{20} C_{18}={}_{20} C_2=190
+$$
+
+よって　$p_9=\binom{10}{9} (\frac{1}{2})^{10} > p_{18}=\binom{20}{18} (\frac{1}{2})^{20}$
+
+$p_{9}$の方が確率は大きい。
+
+
+# 問2
+
+## 問題
+ポアソン分布$Po(\lambda)$の確率関数を$p_k=P(X=k)$,$k=0, \ldots,$とする。
+
+⑴$p_k$を$p_{k-1}$を用いて表せ。$\{p_0,\ldots,\}$の中で最大を与える$k$を求めよ
+
+⑵少なくとも１回以上起こる確率が90%以上になる$\lambda$の条件を求めよ
+
+## 解答
+
+### ⑴
+
+問１と同じですね。
+
+::: {#nte-one .callout-note}
+確率変数$X$ポアソン分布$Po(\lambda)$に従う時、$X=k$となる確率は下のようになる。
+
+[ここ](/posts/seminor2024_0618/)に詳しく書いてある。
+
+
+$$
+p(k) = P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, k = 0,1,2,3, \ldots
+$$
+
+:::
+
+$p_k= \frac{\lambda^k}{k!}e^{-\lambda}$ を、$p_{k-1}= \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda}$ を用いて表す。
+
+$$
+p(k) = \frac{\lambda^k}{k!}e^{-\lambda} = \frac{\lambda \lambda^{k-1} }{k(k-1)!}e^{-\lambda} =\frac{\lambda}{k}p_{k-1}
+$$
+
+$p_k \ge p_{k-1}$かつ$p_k \ge p_{k+1}$となるような$k$の確率が最大となります。
+
+$$
+p_k = \frac{\lambda}{k}p_{k-1} \ge p_{k-1} \Longleftrightarrow \lambda \ge k
+$$
+
+$$
+p_{k+1} = \frac{\lambda}{k+1}p_{k} \le p_{k} \Longleftrightarrow \lambda \le k+1
+$$
+
+よって$\lambda-1 \le k \le \lambda$ となります。
+
+$\lambda$が整数の時、$k=\lambda-1,\lambda$。
+
+$\lambda$が整数ではない時、$k=[\lambda]$となります。
+
+### ⑵
+少なくとも１回以上起こる確率は
+
+$$
+P(X \le 1)=1-P(X=0)=1-\frac{\lambda^0}{0!}e^{-\lambda}=1-e^{-\lambda} \ge 0.9
+$$
+
+$$
+e^{-\lambda} \le 0.1
+$$
+
+両辺$e$を底数とする対数を取ると、
+$$
+-\lambda \le \log 0.1 = - \log 10
+$$
+
+$$
+\lambda \ge \log 10
+$$
+
+# 問3
+
+## 問題
+
+３個の正しいコインを同時に投げ、３枚とも表か３枚とも裏が出るまで投げ続ける実験を行い、投げ続けた回数を$X+1$で表すことにする。このとき、$X$の確率分布を求めよ。また$P(X \le k) \ge 0.9$を満たす最小の$k$を求めよ。
+
+## 解答
+
+求めているものが出るまでやり続ける回数は幾何分布に従う。
+
+注意する点として失敗する回数が幾何分布に従うことである。なのでこの問題で成功した時を$X+1$としているのは、$X$が幾何分布に従うことを意味する。
+
+::: {.extra-space2}
+
+:::
+
+::: {#nte-three .callout-note}
+## 幾何分布($Geo(p)$)
+確率変数$X$が幾何分布に従う時、$p$を成功確率、$k$を失敗確率として、$k$回失敗した時の$Xの確率関数は
+
+$$
+p(k)=q^k p, k=0,1,2 \ldots
+$$
+
+:::
+
+成功確率$p=(1/2)^3 \times 2 = 1/4$,$q=3/4$
+
+よって確率変数$X$は$Geo(3/4)$の幾何分布に従う。←確率分布を求めよの答えかなあ
+
+$X$の確率関数は
+
+$$
+p(k)=(3/4)^k (1/4)
+$$
+
+となる。
+
+
+累積分布関数が0.9を越す最小の$k$を求めます。
+
+$$
+F(k)=P(X \le k) = \sum_{x=0}^k p(x) = \sum_{x=0}^k (3/4)^x (1/4)=1/4+\sum_{x=1}^k (3/4)^{x-1} (3/4)(1/4)=1/4+\frac{3/16(1-(3/4)^{k})}{1-3/4}=1-(3/4)^{k+1} \ge 0.9
+$$
+
+$$
+1-(3/4)^{k+1} \ge 0.9
+$$
+
+$$
+(k+1) \log (3/4) \le - \log 10
+$$
+
+$$
+k \le -1 -  \frac{\log 10}{\log (3/4)}
+$$
+
+である。
+
+
+# 問4
+
+## 問題
+
+$U$を一様分布$U(0,1)$に従う確率変数とし、自然数$n$に対して$X=[nU]$とおく。$X$の確率分布を与えよ。
+
+
+## 解答
+
+$[nU]=k$とすると$k \le nU < k+1$となる。
+
+$$
+\frac{k}{n} \le U < \frac{k+1}{n} 
+$$
+
+$$
+P(X=k) = P(k \le nU < k+1) = P(\frac{k}{n} \le U < \frac{k+1}{n} ) = \frac{1}{n}
+$$
+
+# 問5
+
+## 問題概要
+
+$Y \sim Ex(\lambda)$ のとき、$X=[Y]$ とおく。$X$ はどういう確率分布に従うか。
+
+## 回答
+
+といてない
+
+# 問6 
+
+## 問題概要
+
+$X \sim N(\mu, \sigma^2)$
+
+⑴ $P(\mu - c \leq X \leq \mu + c)=0.95$ となる$c$
+
+⑵ $P(\mu - 2\sigma \leq X \leq \mu + \sigma)$ の確率。$P(X \leq d)=0.05$ となる$d$。
+
+⑶ $Y=aX+b$, $Y$ の確率分布は？
+
+## 解答
+
+⑴
+
+$X$ を標準化した確率変数 $Z=\frac{X-\mu}{\sigma}$ を使い、標準正規分布表を用いて考える。
+
+$Z \sim N(0,1)$ であり、$P(-1.96 \leq Z \leq 1.96) = 0.95$ である。
+
+$$
+\begin{aligned}
+P(\mu - c \leq X \leq \mu + c) 
+&= P(\frac{\mu - c-\mu}{\sigma} \leq \frac{X-\mu}{\sigma} \leq \frac{\mu + c-\mu}{\sigma}) \\
+&=P(\frac{ - c}{\sigma} \leq \frac{X-\mu}{\sigma} \leq \frac{c}{\sigma}) \\
+&= P(-1.96 \leq Z \leq 1.96) \\
+\end{aligned}
+$$
+
+よって $\frac{c}{\sigma}=1.96$ であり、$c=1.96\sigma$
+
+⑵
+
+同じく標準化して考える。
+
+$$
+\begin{aligned}
+P(\mu - 2\sigma \leq X \leq \mu + \sigma) 
+&= P( \frac{\mu - 2\sigma -\mu}{ \sigma} \leq \frac{X-\mu}{\sigma} \leq \frac{\mu + \sigma -\mu}{ \sigma}) \\
+&= P(-2 \leq Z \leq 1) \\
+&= \Phi(1) - \Phi(-2) \\
+&= 1 - 0.1587 - 0.0228 \\
+&= 0.82 
+\end{aligned}
+$$
+
+二つ目の問題も同じ解き方である。
+
+$$
+\begin{aligned}
+P(X \leq d)=P(\frac{X - \mu}{\sigma} \leq \frac{d - \mu}{\sigma})
+=P(Z \leq \frac{d - \mu}{\sigma})
+\end{aligned}
+$$
+
+標準正規分布表で累積確率が0.05となる値は-1.64である。
+
+$\frac{d - \mu}{\sigma} = -1.64$ より $d = \mu - 1.64 \sigma$
+
+⑶
+
+(命題) $X \sim N(\mu,\sigma)$ を$Y=aX+b$という変換をすると、 $N(a \mu + b, a^2 \sigma^2)$ 。
+
+一応１から書く！
+
+変数変換の公式から, $X$ の確率関数を$f_X(x)$とすると、$Y=aX+b$の確率関数は
+
+$$
+f_Y(y)=\frac{1}{|a|} f_X(\frac{y-b}{a})
+$$
+
+である。
+
+よって、
+
+$$
+\begin{aligned}
+f_Y(y) &= \frac{1}{|a|} f_X(\frac{y-b}{a}) \\ 
+&=  \frac{1}{\sqrt{2 \pi \sigma^2}|a|} \exp\left\{ - \frac{(\frac{y-b}{a} - \mu)^2}{2 \sigma^2}\right\} \\
+&= \frac{1}{\sqrt{2 \pi \sigma^2}|a|} \exp\left\{ - \frac{(y-b - a\mu)^2}{2 a^2\sigma^2}\right\} \\
+\end{aligned}
+$$
+
+となる。この確率密度関数は$E[Y]= a \mu + b$,$Var(Y)= a^2 \sigma^2$ の正規分布に従う確率密度関数と一致するため、$Y \sim N(a \mu + b ,a^2 \sigma^2)$
+
+
+# 問12
+
+## 問題概要
+
+$X \sim Geo(\frac{\theta}{n})$, $\lim_{n \to \infty}P(X \leq n)$ を求める問題
+
+## 解答
+
+幾何分布の確率関数は、$p(x)= \frac{\theta}{n} (1 - \frac{\theta}{n})^x$
+
+$$
+\begin{aligned}
+P(X \leq n) &= \sum_{x=0}^n \frac{\theta}{n} (1 - \frac{\theta}{n})^x \\
+&= \frac{\theta}{n} \frac{1-(1 - \frac{\theta}{n})^{n+1}}{1-(1 - \frac{\theta}{n})} \\
+&= 1-(1 - \frac{\theta}{n})^{n+1}
+\end{aligned}
+$$
+
+である。これの極限を求める。
+
+
+
+$$
+\begin{aligned}
+\lim_{n \to \infty}P(X \leq n) = \lim_{n \to \infty}1-(1 - \frac{\theta}{n})^{n+1}
+= 1 - e^{-\theta}
+\end{aligned}
+$$
+
+# ３章
+
+# １問目
+
+## 問題概要
+
+$X,Y$が確率変数で、1~4を２回やるときの和と差に対応。
+
+### 小問1
+$f(4,0), f(5,3)$ を求める。
+
+### 小問2
+$f_X(6),f_Y(2)$ を求める。
+
+### 小問3
+$f_{Y|X}(2|4),f_{X|Y}(5|1)$
+
+## 回答
+
+
+
+### 小問1
+
+
+$$
+f(4,0)=P(X=4,Y=0) = \frac{1}{16}
+$$
+
+$$
+f(5,3)=P(X=5,Y=3) = \frac{2}{16} = \frac{1}{8}
+$$
+
+### 小問2
+
+$$
+f_X(6)= f(6,0)+f(6,1)+f(6,2)+f(6,3)= \frac{1}{16} + 0 + \frac{2}{16} + 0 =\frac{3}{16}
+$$
+
+$$
+f_Y(2)= f(2,2)+f(3,2)+f(4,2)+f(5,2)+f(6,2)+f(7,2)+f(8,2)= 0+ 0+ \frac{2}{16}+0+\frac{2}{16}+0+0=\frac{1}{4}
+$$
+
+
+### 小問3
+
+$$
+f_{Y|X}(2|4)=\frac{f(4,2)}{f_X(4)}=\frac{f(4,2)}{f(4,0)+f(4,1)+f(4,2)+f(4,3)} =\frac{2/16}{1/16+2/16}=\frac{2}{3}
+$$
+
+$$
+f_{X|Y}(5|1) = \frac{f(5,1)}{f_Y(1)}= \frac{f(5,1)}{f(2,1)+f(3,1)+f(4,1)+f(5,1)+f(6,1)+f(7,1)+f(8,1)} = \frac{2/16}{2/16+2/16+2/16}= \frac{1}{3}
+$$
+
+# 2問目
+
+## 問題概要
+
+多項分布について。
+
+### 小問1
+
+多項分布の周辺分布は二項分布か、周辺分布の和の分布はどうなるか。
+
+
+
+### 小問2
+
+$X_1$ を与えた時の、$X_2$の条件付き確率。
+
+
+
+### 小問3
+
+$X_1+X_2$ を与えた時の$X_2$ の条件付き確率。
+
+
+
+## 回答
+
+### 小問1
+
+多項分布は多次元の確率変数で、$1$から$m$ の番号が書かれた多面体を$n$ 回投げる時に、それぞれの面が出る確率を$p_1,p_2,\dots,p_m=1$ とし、$X_1+X_2+ \dots + X_m=n$ である分布。
+
+$X_i$ の周辺分布は$i$　番目が出るか出ないかであり、$Bin(n,p_i)$となるし、$X_i+X_j$ の周辺分布は$i$番目もしくは$j$　番目が出るか出ないかなので$Bin(n,p_i+p_j)$ である。
+
+サイコロで考えてみるとわかりやすいかも。
+
+### 小問2
+
+求めたいのは$\frac{P(X_1=x_1,X_2=x_2)}{P(X_1=x_1)}$ である。それぞれ、
+
+$$
+P(X=x_1)= \frac{n!}{x_1!(n-x_1)!} p_1^{x_1}(1-p_1)^{n-x_1}
+$$
+
+
+$$
+P(X_1=x_1,X_2=x_2)= \frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_2}
+$$
+
+よって
+
+$$
+\begin{aligned}
+\frac{P(X_1=x_1,X_2=x_2)}{P(X_1=x_1)}
+=\frac{\frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_2}}{\frac{n!}{x_1!(n-x_1)!} p_1^{x_1}(1-p_1)^{n-x_1}} \\
+= \frac{(n-x_1)!}{x_2!(n-x_1-x_2)!} (\frac{p_2}{1-p_1})^{x_2} (\frac{1-p_1-p_2}{1-p_1})^{n-x_1-x_2}
+\end{aligned}
+$$
+
+
+これによって条件付き確率は二項分布$Bin(n-x_1,\frac{p_2}{1-p_1})$ に従う。
+
+直感的にも、例えばサイコロを１０回投げるとして1の目が２回出たことを知っていたら、2の目が出る確率は試行回数が8回で2~6の1/5の確率で出る二項分布というのはしっくりきます。
+
+### 小問3
+
+求めたいのは$\frac{P(X_2=x_2)}{P(X_1+X_2=z)}=\frac{P(X_2=x_2)}{P(X_1+X_2=x_1+x_2)}$ である。
+
+(変数$x_2$が与えられれば$x_1$は自ずと決まるので、$x_1$を使う。)
+
+それぞれ
+
+$$
+P(X_1+X_2=x_1+x_2)=\frac{n!}{(x_1+x_2)!(n-x_1-x_2)!}(p_1+p_2)^{x_1+x_2}(1-p_1-p_2)^{n-x_1-x_2}
+$$
+
+$$
+P(X_2=x_2,X_1+X_2=x_1+x_2)=P(X_1=x_1,X_2=x_2)= \frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_2}
+$$
+
+
+$$
+\begin{aligned}
+\frac{P(X_2=x_2)}{P(X_1+X_2=x_1+x_2)}=\frac{\frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_1-x_2}}{\frac{n!}{(x_1+x_2)!(n-x_1-x_2)!}(p_1+p_2)^{x_1+x_2}(1-p_1-p_2)^{n-x_1-x_2}} \\
+=\frac{(x_1+x_2)!}{x_1!x_2!} (\frac{p_2}{p_1+p_2})^{x_2}(\frac{p_1}{p_1+p_2})^{x_1}
+\end{aligned}
+$$
+
+よって条件付き分布は二項分布$Bin(z,\frac{p_2}{p_1+p_2})$ に従う。
+
+これもサイコロで例えると、１の目が出た回数と2の目が出た回数が合計4回だと知っているとき、2の目が出る確率は試行回数4回で1/2の二項分布の確率になりそうですよね。
+
+
+# 3問目
+
+## 問題概要
+
+$X,Y$ がそれぞれポアソン分布に従う。
+
+### 小問1
+$Z=X+Y$ の分布を求めよ。
+
+### 小問2
+
+$X+Y=n$に固定した時、$X$ の条件付き分布を求める。
+
+## 回答
+
+
+
+
+
+### 小問1
+
+
+再生性からと言いたいところですが、誘導に乗ってみます。（離散確率の変数変換の方法ってどこかに載ってたかな）
+
+$X=x$ という実現値を取る時、$Y$ は自ずと$n-x$ という実現時をとる。$X$ と$Y$ は独立であり、同時確率は積であらわすことができるため、
+
+$$
+P(X+Y=n) = \sum_{x=0}^n P(X=x)P(Y=n-x)
+$$
+
+
+と表せる。これを計算すると
+
+
+$$
+\begin{aligned}
+\sum_{x=0}^n P(X=x)P(Y=n-x) &= \sum_{x=0}^n\frac{\lambda_1^x}{x!}e^{-\lambda_1}\frac{\lambda_2^{n-x}}{(n-x)!}e^{-\lambda_2} \\
+&=\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)} \sum_{x=0}^n\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x} \\
+&=\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)}
+\end{aligned}
+$$
+
+
+$\displaystyle \sum_{x=0}^n\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x}$ は嬉しいことに、二項分布$\displaystyle Bin(n,\frac{\lambda_1}{\lambda_1+\lambda_2})$ に従う分布の全確率？（用語があっているかわからない）なので1になります。
+
+$X+Y=n$ という確率変数が従う分布は$Po(\lambda_1+\lambda_2)$ になります。
+
+例えば$X \sim Po(2)$,$Y \sim Po(3)$ なら$X+Y \sim Po(5)$ になるみたいなことですね。
+
+
+### 小問2
+
+求めたいのは$\displaystyle \frac{P(X+Y=n,X=x)}{P(X+Y=n)}$ である。
+
+また$P(X+Y=n,X=x)=P(X=x,Y=n-x)$ とも表せれるので、
+
+$$
+\begin{aligned}
+  \frac{P(X=x,Y=n-x)}{P(X+Y=n)} &=\frac{\frac{\lambda_1^x}{x!}e^{-\lambda_1}\frac{\lambda_2^{n-x}}{(n-x)!}e^{-\lambda_2}}{\frac{(\lambda_1+\lambda_2)^n}{n!} e^{-(\lambda_1+\lambda_2)}} \\
+  &=\frac{n!}{x!(n-x)!} \left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^x \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-x}
+\end{aligned}
+$$
+
+綺麗に二項分布$\displaystyle Bin(n,\frac{\lambda_1}{\lambda_1+\lambda_2})$に従います！
+
+ちなみに統計検定準１級の勉強でも出てきました。
+
+# 4問目
+
+## 問題概要
+
+$f(x,y)=xe^{-x(y+1)} I(x > 0,y>0)$ の周辺確率、条件確率、$P(XY > 1)$ を計算。
+
+## 回答
+
+$$
+\begin{aligned}
+  f_X(x) 
+  &= \int^{\infty}_{0} xe^{-x(y+1)} dy \\
+  &= xe^{-x} \int^{\infty}_{0} e^{-xy} dy \\
+  &= xe^{-x} \left[-\frac{1}{x}e^{-xy}\right]^{\infty}_{y=0} \\
+  &= e^{-x}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  f_Y(y) 
+  &= \int^{\infty}_{0} xe^{-x(y+1)} dx \\
+  &= \frac{1}{(y+1)^2} \int^{\infty}_{0} \frac{1}{\Gamma(2) (y+1)^{-2}} xe^{-x(y+1)} dx \\
+  &= \frac{1}{(y+1)^2} 
+\end{aligned}
+$$
+
+$xe^{-x}$ みたいな形を見つけたら、ガンマ関数の式に持っていくのがよくある計算だと感じてきた。
+
+$xe^{-x(y+1)}$から$\alpha=2,\beta=(y+1)^{-1}$ にしたら都合がよさそうなことから、この変形をしている。
+
+$$
+\begin{aligned}
+f_{X|Y}(x|y)
+&= \frac{f(x,y)}{f_Y(y)} \\
+&= \frac{xe^{-x(y+1)} }{(y+1)^{-2} } \\
+&= \frac{1}{\Gamma(2)(y+1)^2} x^{2-1} e^{-(y+1)x}
+\end{aligned}
+$$
+
+３つ目の等式はガンマ分布に落ち着きそうな気配を察して、$\Gamma(2)=1$を入れている。
+
+よって
+
+$$
+X|Y=y \sim Ga(2,(y+1)^{-1})
+$$
+
+となる。
+
+$$
+\begin{aligned}
+f_{Y|X}(y|x)
+&= \frac{f(x,y)}{f_X(x)} \\
+&= \frac{xe^{-x(y+1)} }{e^{-x}} \\
+&= xe^{-xy}
+\end{aligned}
+$$
+
+一瞬見慣れないと思いきや、$y$ の関数で$x$はすでに与えられているパラメーターです。すると指数分布$Ex(x)$に従うことがわかります。
+
+$$
+\begin{aligned}
+  P(XY>1) &= \int^{\infty}_{0} \int^{\infty}_{\frac{1}{x}} xe^{-x(y+1)} dy dx \\
+  &= \int^{\infty}_{0} x e^{-x} \\
+  &= \frac{1}{e}
+\end{aligned}
+$$
+
+$\int^{\infty}_{0} \int^{\infty}_{\frac{1}{x}}$ がしっくりきてない。なんとなくそうな気はするけど、$\int^{\infty}_{\frac{1}{y}} \int^{\infty}_{\frac{1}{x}}$ じゃだめなのかがわからない。
+
+# 7問目
+
+ゼミでやったことがあるので飛ばします。
+
+# ４章
+
+# 問3
+
+## 問題概要
+
+$X \sim Po(\lambda)$ 
+
+⑴ $E[\frac{1}{X+1}]$
+
+⑵ $E[\frac{1}{X+2}]$
+
+
+## 解答
+
+⑴
+
+期待値の定義から求める。
+
+$$
+\begin{aligned}
+E[\frac{1}{X+1}] &= \sum_{x=0}^\infty \frac{1}{x+1} \frac{\lambda^x}{x!} e^{-\lambda} \\
+&= \sum_{x=0}^\infty  \frac{\lambda^{x+1}}{(x+1)!} e^{-\lambda} \times \frac{1}{\lambda} \\
+&= \sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!} e^{-\lambda} \times \frac{1}{\lambda} \\
+&= \frac{1}{\lambda}(e^{\lambda}-1)e^{\lambda} \\
+&= \frac{1}{\lambda} (1-e^{-\lambda})
+\end{aligned}
+$$
+
+$1-e^{-\lambda}$ の補足。
+
+$$
+\begin{aligned}
+e^\lambda = 1 + \lambda + \frac{\lambda^2}{2!}+ \frac{\lambda^3}{3!} + \dots = \sum_{x=0}^{\infty} \frac{\lambda^x}{x!}
+\end{aligned}
+$$
+
+を用いて、$\sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!}$ を求めたい。これは$\sum_{x=0}^{\infty} \frac{\lambda^x}{x!}$ から$x=0$ の時を引けば良い。$x=0$ のときは1であり, $\sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!} = e^{\lambda}-1$　であり、$\sum_{x'=1}^\infty  \frac{\lambda^{x'}}{x'!}e^{-\lambda} = (e^{\lambda}-1)e^{\lambda} = 1-e^{-\lambda}$
+
+になるってことだと思ってる。
+
+⑵
+
+階乗を利用して同じようにときたいので、$E[\frac{1}{(X+2)(X+1)}]$ をまず求める。⑴で求めた$E[\frac{1}{X+1}]$ と合わせて計算すると求めれるはず。
+
+
+$$
+\begin{aligned}
+E[\frac{1}{(X+2)(X+1)}] &= \sum_{x=0}^\infty \frac{1}{(x+1)(x+1)} \frac{\lambda^x}{x!} e^{-\lambda} \\
+&= \sum_{x=0}^\infty  \frac{\lambda^{x+2}}{(x+2)!} e^{-\lambda} \times \frac{1}{\lambda^2} \\
+&= \sum_{x'=2}^\infty  \frac{\lambda^{x'}}{x'!} e^{-\lambda} \times \frac{1}{\lambda^2} \\
+&= \frac{1}{\lambda^2} (e^\lambda -1 - \lambda) e^{-\lambda} \\
+&= \frac{1}{\lambda^2} (1- e^{-\lambda} - \lambda e^{-\lambda} )
+\end{aligned}
+$$
+
+$e^\lambda -1 - \lambda$ の補足。
+
+⑴と同じで、x=0,1の時の1と$\lambda$ を引いてる。
+
+$$
+\begin{aligned}
+E[\frac{1}{X+2}] &= E[\frac{X+1}{(X+2)(X+1)}] \\
+&=E[\frac{X+2-1}{(X+2)(X+1)}] \\
+&=E[\frac{1}{X+1}]-E[\frac{1}{(X+2)(X+1)}]\\
+&= \frac{1}{\lambda} (1-e^{-\lambda}) -\frac{1}{\lambda^2} (1- e^{-\lambda} - \lambda e^{-\lambda} ) \\
+&= \frac{1}{\lambda^2} (-1 + \lambda + e^{-\lambda})
+\end{aligned}
+$$
+
+# 問4
+
+## 問題概要
+
+連続確率変数$X$ の分布関数が以下。
+
+
+$$
+F(x) =
+\begin{cases}
+0  & (- \infty \leq x \leq 0)\\
+1-\frac{(x-2)^2}{4} & (0 \leq x \leq 2)\\
+1 &(2 \leq x)
+\end{cases}
+$$
+
+⑴ 確率密度関数を求める。
+
+⑵ $E[X], V(X)$ を求める。
+
+⑶ メディアン、モードを求める。
+
+## 解答
+
+⑴ $0 \leq x \leq 2$ のとき、
+
+$$
+f(x)= F'(x)= -2 \frac{x-2}{4} = \frac{2-x}{2}
+$$
+
+
+$$
+F(x) =
+\begin{cases}
+0  & (- \infty \leq x \leq 0)\\
+\frac{2-x}{2} & (0 \leq x \leq 2)\\
+0 &(2 \leq x)
+\end{cases}
+$$
+
+⑵
+
+$$
+\begin{aligned}
+E[X^k]&=  \int^{2}_{0} x^k \frac{2-x}{2}dx \\
+&=  \int^{2}_{0} x^kdx - \frac{1}{2} \int^{2}_{0} x^{k+1}dx \\
+&= [\frac{1}{k+1}x^{k+1}]^2_0-\frac{1}{2}[\frac{1}{k+2}x^{k+2}]^2_0 \\
+&= \frac{2^{k+1}}{k+1} - \frac{2^{k+1}}{k+2} \\ 
+&= \frac{2^{k+1}}{(k+1)(k+2)}
+\end{aligned}
+$$
+
+$E[X]=\frac{2^2}{(2)(3)}=\frac{2}{3}$,$E[X^2]=\frac{2^3}{(3)(4)}=\frac{2}{3}$である。
+
+$V[X]=\frac{2}{3}-\frac{4}{9}=\frac{2}{9}$
+
+⑶
+
+メディアンを$x_{med}$ とする。モードは$x_{mode}$ とする。
+
+メディアンは累積確率が0.5になるところなので、
+
+$$ 
+\begin{aligned}
+1 - \frac{(x_{med}-2)^2}{4} = \frac{1}{2} \\
+x_{med} = 2 \pm \sqrt{2}
+\end{aligned}
+$$
+
+$0 \leq x \leq 2$ より$x_{med}= 2-\sqrt{2}$
+
+
+モードは$f(x)$が最大となる値なので、$f'(x)$ からわかる。$0 \leq x \leq 2$ のとき$f'(x)=-1$ より$x=0$ がモードとなる。
+
+
+
+
+
+
