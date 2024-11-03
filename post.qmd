@@ -1,5 +1,6 @@
 ---
 title: "Post"
+description: "何でも気になったことをやる場所。"
 lang: ja
 code-tools: false
 toc: false
