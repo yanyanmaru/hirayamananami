@@ -11,6 +11,7 @@ format:
     chalkboard: true
     toc: false
     html-math-method: mathjax
+    eraser: { radius: 100}
 page-layout: article
 date: 2024/11/05
 toc: true
