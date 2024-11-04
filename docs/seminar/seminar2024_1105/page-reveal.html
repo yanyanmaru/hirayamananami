@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.47">
 
   <meta name="dcterms.date" content="2024-11-05">
-  <title>Hirayama Nanami – 11月5日　7-4</title>
+  <title>Hirayama Nanami – 11月5日　7-4 推定量がUMVUを満たすかどうかの具体例（二項分布・正規分布）</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -247,7 +247,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -330,47 +329,72 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">11月5日　7-4</h1>
+  <h1 class="title">11月5日　7-4 推定量がUMVUを満たすかどうかの具体例（二項分布・正規分布）</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">2024-11-05</p>
 </section>
-<section id="項分布" class="slide level2">
-<h2>２項分布</h2>
+<section class="slide level2">
+
+<h4 id="項分布の不偏推定量がumvuを満たすかどうか1">２項分布の不偏推定量がUMVUを満たすかどうか(1)</h4>
+<div class="extra-space3">
+
+</div>
 <p><span class="math inline">\(X \sim Bin(n,p)\)</span>とする。</p>
 <p>まず二項分布における<span class="math inline">\(p\)</span> の推定量を<span class="math inline">\(\displaystyle \hat{p}=\frac{X}{n}\)</span> とおく。 <span class="math inline">\(\displaystyle E_p[\hat{p}] = \frac{E_p[X]}{n}=\frac{np}{n}=p\)</span> より不偏推定量である。</p>
+<div class="extra-space3">
+
+</div>
 <p>ちなみに不偏推定量の定義は、以下である。</p>
 <div id="thm-line" class="theorem">
 <p><span class="theorem-title"><strong>定理 1</strong></span> <br></p>
 <p><span class="math inline">\(\hat{\theta}\)</span> が不偏推定量であるとは</p>
 <p><span class="math display">\[
-E_\theta[\hat{\theta}(X)] = \theta, \quad \delta\theta
+E_\theta[\hat{\theta}(X)] = \theta, \quad \forall\theta
 \]</span></p>
 <p>が成り立つことである。</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h4 id="項分布の不偏推定量がumvuを満たすかどうか2">２項分布の不偏推定量がUMVUを満たすかどうか(2)</h4>
 <div class="extra-space3">
 
 </div>
 <p>不偏推定量 <span class="math inline">\(\displaystyle \hat{p}=\frac{X}{n}\)</span> がUMVUであることを示すには、次の等式を満たす。</p>
+<div class="extra-space3">
+
+</div>
 <div id="thm-line" class="theorem">
 <p><span class="theorem-title"><strong>定理 2 (クラメル・ラオの不等式を用いたUMVUの証明)</strong></span> <br></p>
 <p>不偏推定量<span class="math inline">\(\hat{\theta^*}\)</span> が</p>
 <p><span class="math display">\[
-Var_\theta[\hat{\theta^*}] = \frac{1}{I_n(\theta)},\quad \delta\theta
+Var_\theta[\hat{\theta^*}] = \frac{1}{I_n(\theta)},\quad \forall\theta
 \]</span></p>
 <p>を満たせば、<span class="math inline">\(\hat{\theta*}\)</span>はUMVUである。</p>
 </div>
+<div class="extra-space2">
+
+</div>
 <p>つまり、<span class="math inline">\(\displaystyle Var_\theta \left[\hat{p}\right] = \frac{1}{I_n(\theta)}\)</span> であることを示したい。</p>
+</section>
+<section class="slide level2">
+
+<h4 id="項分布の不偏推定量がumvuを満たすかどうか3">２項分布の不偏推定量がUMVUを満たすかどうか(3)</h4>
 <div class="extra-space2">
 
 </div>
 <p>まず、推定量の分散は<span class="math inline">\(\displaystyle Var[\hat{p}]=\frac{Var[X]}{n^2}=\frac{p(1-p)}{n}\)</span> である。</p>
-<div class="extra-space1">
+<div class="extra-space3">
 
 </div>
 <p>次にフィッシャー情報量<span class="math inline">\(I_n(\theta)\)</span>を求めたい。</p>
+<div class="extra-space2">
+
+</div>
+<p>ちなみにフィッシャー情報量<span class="math inline">\(I_n(\theta)\)</span>の求め方は、</p>
 <div id="thm-line" class="theorem">
 <p><span class="theorem-title"><strong>定理 3 (フィッシャー情報量の求め方)</strong></span> <br></p>
 <p><span class="math inline">\(\ell'(\theta,X)\)</span>は対数充度関数<span class="math inline">\(\ell(\theta,X)\)</span> を<span class="math inline">\(\theta\)</span> で微分したものである。</p>
@@ -378,6 +402,10 @@ Var_\theta[\hat{\theta^*}] = \frac{1}{I_n(\theta)},\quad \delta\theta
 I_n(\theta) = E_\theta \left[(\ell'(\theta,X)^2)\right]
 \]</span></p>
 </div>
+</section>
+<section class="slide level2">
+
+<h4 id="項分布の不偏推定量がumvuを満たすかどうか4">２項分布の不偏推定量がUMVUを満たすかどうか(4)</h4>
 <p>２項分布の確率変数 <span class="math inline">\(f(x,p)=p^x(1-p)^{n-x}\begin{pmatrix}
 n  \\
 x  \\
@@ -395,8 +423,12 @@ I(p)=E[\ell'(p,X)^2]=\frac{E[(X-np)^2]}{(p(1-p))^2} =\frac{np(1-p)}{(p(1-p))^2} 
 <p>となり、これは<span class="math inline">\(\displaystyle \frac{1}{Var_p[\hat{p}]}\)</span> に一致する。したがって<span class="math inline">\(\hat{p}\)</span>は<span class="math inline">\(UMVU\)</span>であることが確かめられた。</p>
 <p><span class="math inline">\(E[(X-np)^2]\)</span>はテクニカル！</p>
 </section>
-<section id="正規分布" class="slide level2">
-<h2>正規分布</h2>
+<section class="slide level2">
+
+<h4 id="正規分布の不偏推定量がumvuを満たすかどうか">正規分布の不偏推定量がUMVUを満たすかどうか</h4>
+<div class="extra-space2">
+
+</div>
 <p>次に正規分布の母平均<span class="math inline">\(\mu\)</span>の推定において標本平均<span class="math inline">\(\bar{X}\)</span> がUMVUであることを示す。</p>
 <p>まず、<span class="math inline">\(\mu\)</span> に関するフィッシャー情報量を求める。</p>
 <p><span class="math display">\[
@@ -406,8 +438,11 @@ I(p)=E[\ell'(p,X)^2]=\frac{E[(X-np)^2]}{(p(1-p))^2} =\frac{np(1-p)}{(p(1-p))^2} 
 <p><span class="math display">\[
 I(\mu)=\frac{E[(X-\mu)^2]}{\sigma^4} = \frac{1}{\sigma^2}
 \]</span></p>
-<p>となり、<span class="math inline">\(\bar{X}\)</span> がUMVUであることが示された。</p>
-<p><span class="math inline">\(E[(X-\mu)^2]\)</span>もテクニカル！</p>
+<p>となる。これより、</p>
+<p><span class="math display">\[
+\frac{1}{I_n(\mu)}=\frac{1}{nI(\mu)}=\frac{\sigma^2}{n}=Var[\bar{X}]
+\]</span></p>
+<p><span class="math inline">\(\bar{X}\)</span> がUMVUであることが示された。</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -448,8 +483,8 @@ I(\mu)=\frac{E[(X-\mu)^2]}{\sigma^4} = \frac{1}{\sigma^2}
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
-'pointer': {"key":"q","color":"#32cd32","pointerSize":18,"alwaysVisible":false},
+'chalkboard': {"buttons":true,"theme":"whiteboard"},
+'pointer': {"key":"q","color":"red","pointerSize":16,"alwaysVisible":false},
 'smaller': true,
  
         // Display controls in the bottom right corner
