@@ -8,8 +8,6 @@ lang: ja
 page-layout: full
 ---
 
-## Profile
-
 ## Memo
 
 やってみたいことなどなど、メモ・雑記。

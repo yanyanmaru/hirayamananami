@@ -3,8 +3,8 @@
     "objectID": "about.html#memo",
     "href": "about.html#memo",
     "title": "About",
-    "section": "Memo",
-    "text": "Memo\nやってみたいことなどなど、メモ・雑記。\n\n統計学\n\n『データ解析のための数理統計入門』の問題を解く→ゆっくり進行中（タイピングが追いつかないので、気になったのだけ書くことに。）\n関連した『現代数理統計学の基礎』の問題も解きたい\n\n\n\nPython\n\nWebサイト上で、tikzのように図を可視化する方法を探索→tikzのやり方はわからなかった😭\n面白そうなデータセットを見つけて、Pythonで分析！→spotifyをやってみてる。\n\n\n\nその他\n\nこのサイトの見た目を揃える→進行中\nこのサイトのページ構成を決める→about seminar postの３つにまとめた。"
+    "section": "",
+    "text": "やってみたいことなどなど、メモ・雑記。\n\n\n\n『データ解析のための数理統計入門』の問題を解く→ゆっくり進行中（タイピングが追いつかないので、気になったのだけ書くことに。）\n関連した『現代数理統計学の基礎』の問題も解きたい\n\n\n\n\n\nWebサイト上で、tikzのように図を可視化する方法を探索→tikzのやり方はわからなかった😭\n面白そうなデータセットを見つけて、Pythonで分析！→spotifyをやってみてる。\n\n\n\n\n\nこのサイトの見た目を揃える→進行中\nこのサイトのページ構成を決める→about seminar postの３つにまとめた。"
   },
   {
     "objectID": "seminar/seminar2024_0618/index.html",
@@ -130,7 +130,7 @@
     "href": "post.html",
     "title": "Post",
     "section": "",
-    "text": "やってみたいこと\n\n各確率分布の期待値・分散の求め方を確認\n各確率分布の積率母関数・確率母関数の求め方を確認\nWEB上で図を表現する方法を探索\n面白そうなデータセットを探索\nPythonでデータ可視化の方法を探索\n教科書の問題を解く\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpotifyをPythonで分析\n\n\n\n\n\n\n\n\n\n2024/11/03\n\n\n\n\n\n\n\n\n\n\n\n\n「データ解析のための数理統計入門」第1章 演習問題 解答\n\n\n\n\n\n\n\n\n\n2024/11/03\n\n\n\n\n\n\n\n\n\n\n\n\n各確率分布の期待値・分散の求め方(制作途中)\n\n\n\n\n\n\n\n\n\n2024/11/02\n\n\n\n\n\n\n\n\n一致なし"
+    "text": "やってみたいこと\n\n各確率分布の期待値・分散の求め方を確認\n各確率分布の積率母関数・確率母関数の求め方を確認\nWEB上で図を表現する方法を探索\n面白そうなデータセットを探索\nPythonでデータ可視化の方法を探索\n教科書の問題を解く\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n「データ解析のための数理統計入門」回答\n\n\n\n\n\n\n\n\n\n2024/11/06\n\n\n\n\n\n\n\n\n一致なし"
   },
   {
     "objectID": "empty/data_math1_chap3_me/index.html",
@@ -369,83 +369,6 @@
     "title": "Solve",
     "section": "",
     "text": "問題解く用。\n\nデータ解析のための数理統計入門\n1章\n2章(途中)\n3章(途中)\n4章(途中)"
-  },
-  {
-    "objectID": "post/1.html",
-    "href": "post/1.html",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "",
-    "text": "\\(X \\sim Bin(n,p)\\) のとき、\\(E[X]=np\\) , \\(V[X]=np(1-p)\\) である。\n\n\n\\[\n\\begin{aligned}\nE[X] &= \\sum_{k=0}^{n} k P(X=k) \\\\\n&= \\sum_{k=0}^{n} k\n\\begin{pmatrix}\n   n \\\\\n   k\n\\end{pmatrix} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=0}^{n} k \\frac{n!}{k!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!(n-k+1)}{(k-1)!(n-(k-1))!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k'=0}^{n-1} \\frac{n!(n-k+1)}{(k')!(n-k')!} p^k (1-p)^{n-k} \\\\\n\\end{aligned}\n\\]\n\n\n\n同じ求め方で求めれると思われる。\nあとはベルヌーイ分布の和の分布でも求めれそう。\n確率母関数から求める方法もある。\n\\(G_X(s)=E[s^X]=(ps+1-p)^n\\), \\(M_X(t)=E[e^{tX}]=(pe^t+1-p)^n\\) から求める方法もある。\n\\(E[X]=\\frac{d}{ds} G_X(s)|_{s=1} = n(ps+1-p)^{n-1} p|_{s=1}=np\\)\n\\(E[X]=\\frac{d}{dt} M_X(t)|_{t=0} = n(pe^t+1-p)^{n-1} p|_{t=0}=np\\)\n\\(E[X(X-1)]= \\frac{d^2}{ds^2} G_X(s)|_{s=1} = \\frac{d}{ds} \\{n(ps+1-p)^{n-1} p\\}|_{s=1}= \\{n(n-1)(ps+1-p)^{n-2} p^2\\}|_{s=1}=n(n-1)p^2\\)\n\\(E[X^2]=\\frac{d^2}{dt^2} M_X(t)|_{t=0}= \\frac{d}{dt}\\{n(pe^t+1-p)^{n-1} p\\}|_{t=0}=n(n-1)(pe^t+1-p)^{n-2} p^2|_{t=0}=n(n-1)p^2\\)\n\\(V[X]=E[X^2]-(E[X])^2=n(n-1)p^2-(np)^2????\\)\n\\(V[X]=E[X^2]-(E[X])^2=E[X(X-1)]+E[X]-(E[X])^2=n(n-1)p^2+np-(np)^2=np(1-p)\\)"
-  },
-  {
-    "objectID": "post/1.html#二項分布",
-    "href": "post/1.html#二項分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "",
-    "text": "\\(X \\sim Bin(n,p)\\) のとき、\\(E[X]=np\\) , \\(V[X]=np(1-p)\\) である。\n\n\n\\[\n\\begin{aligned}\nE[X] &= \\sum_{k=0}^{n} k P(X=k) \\\\\n&= \\sum_{k=0}^{n} k\n\\begin{pmatrix}\n   n \\\\\n   k\n\\end{pmatrix} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=0}^{n} k \\frac{n!}{k!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k=1}^{n} \\frac{n!(n-k+1)}{(k-1)!(n-(k-1))!} p^k (1-p)^{n-k} \\\\\n&= \\sum_{k'=0}^{n-1} \\frac{n!(n-k+1)}{(k')!(n-k')!} p^k (1-p)^{n-k} \\\\\n\\end{aligned}\n\\]\n\n\n\n同じ求め方で求めれると思われる。\nあとはベルヌーイ分布の和の分布でも求めれそう。\n確率母関数から求める方法もある。\n\\(G_X(s)=E[s^X]=(ps+1-p)^n\\), \\(M_X(t)=E[e^{tX}]=(pe^t+1-p)^n\\) から求める方法もある。\n\\(E[X]=\\frac{d}{ds} G_X(s)|_{s=1} = n(ps+1-p)^{n-1} p|_{s=1}=np\\)\n\\(E[X]=\\frac{d}{dt} M_X(t)|_{t=0} = n(pe^t+1-p)^{n-1} p|_{t=0}=np\\)\n\\(E[X(X-1)]= \\frac{d^2}{ds^2} G_X(s)|_{s=1} = \\frac{d}{ds} \\{n(ps+1-p)^{n-1} p\\}|_{s=1}= \\{n(n-1)(ps+1-p)^{n-2} p^2\\}|_{s=1}=n(n-1)p^2\\)\n\\(E[X^2]=\\frac{d^2}{dt^2} M_X(t)|_{t=0}= \\frac{d}{dt}\\{n(pe^t+1-p)^{n-1} p\\}|_{t=0}=n(n-1)(pe^t+1-p)^{n-2} p^2|_{t=0}=n(n-1)p^2\\)\n\\(V[X]=E[X^2]-(E[X])^2=n(n-1)p^2-(np)^2????\\)\n\\(V[X]=E[X^2]-(E[X])^2=E[X(X-1)]+E[X]-(E[X])^2=n(n-1)p^2+np-(np)^2=np(1-p)\\)"
-  },
-  {
-    "objectID": "post/1.html#ベルヌーイ分布",
-    "href": "post/1.html#ベルヌーイ分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "ベルヌーイ分布",
-    "text": "ベルヌーイ分布\n\\(X \\sim Ber(p)\\) のとき、\\(E[X]=p\\) , \\(V[X]=p(1-p)\\) である。"
-  },
-  {
-    "objectID": "post/1.html#幾何分布",
-    "href": "post/1.html#幾何分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "幾何分布",
-    "text": "幾何分布\n\\(X \\sim Geo(p)\\) のとき、\\(E[X]=\\frac{q}{p}\\) , \\(V[X]=\\frac{q}{p^2}\\) である。"
-  },
-  {
-    "objectID": "post/1.html#ポアソン分布",
-    "href": "post/1.html#ポアソン分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "ポアソン分布",
-    "text": "ポアソン分布\n\\(X \\sim Po(\\lambda)\\) のとき、\\(E[X]=\\lambda\\) , \\(V[X]=\\lambda\\) である。\n\\(E[X]=\\sum_{k=0}^{\\infty}k \\frac{\\lambda^k}{k!} e^{-\\lambda}=\\sum_{k=1}^{\\infty} \\frac{\\lambda \\lambda^{k-1}}{(k-1)!} e^{-\\lambda}=\\sum_{k'=0}^{\\infty} \\frac{\\lambda \\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda  \\sum_{k'=0}^{\\infty} \\frac{\\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda\\)\n\\(E[X(X-1)]=\\sum_{k=0}^{\\infty}k(k-1) \\frac{\\lambda^k}{k!} e^{-\\lambda}=\\sum_{k=2}^{\\infty} \\frac{\\lambda^2 \\lambda^{k-2}}{(k-2)!} e^{-\\lambda}=\\sum_{k'=0}^{\\infty} \\frac{\\lambda^2 \\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda^2  \\sum_{k'=0}^{\\infty} \\frac{\\lambda^{k'}}{(k')!} e^{-\\lambda}=\\lambda^2\\)\n\\(V[X]=E[X^2]-\\{E[X]\\}^2=E[X(X-1)]+E[X]-\\{E[X]\\}^2= \\lambda^2 + \\lambda - \\lambda^2 =\\lambda\\)\n確率母関数、積率母関数からも求めれそうです。\nポアソン分布の確率母関数\\(G_X(s)=\\exp\\{s\\lambda-\\lambda\\}\\),積率母関数は\\(M_X(t)=\\exp\\{e^t\\lambda-\\lambda\\}\\)である。\n\\(E[X]=\\frac{d}{ds}G_X(s)|_{s=1}= \\{\\lambda \\exp\\{s\\lambda-\\lambda\\}\\}|_{s=1} = \\lambda\\)\n\\(E[X]=\\frac{d}{dt}M_X(t)|_{t=0}= e^t\\lambda \\exp\\{e^t\\lambda-\\lambda\\}|_{t=0} = \\lambda\\)\n\\(E[X(X-1)]=\\frac{d^2}{ds^2}G_X(s)|_{s=1}= \\frac{d}{ds}\\{\\lambda \\exp\\{s\\lambda-\\lambda\\}\\}|_{s=1} =\\{\\lambda^2 \\exp\\{s\\lambda-\\lambda\\}\\}|_{s=1} = \\lambda^2\\)\n\\(E[X^2]=\\frac{d^2}{dt^2}M_X(t)|_{t=0}= \\frac{d}{dt} \\{e^t\\lambda \\exp\\{e^t\\lambda-\\lambda\\}\\}|_{t=0}\\)"
-  },
-  {
-    "objectID": "post/1.html#離散一様分布",
-    "href": "post/1.html#離散一様分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "離散一様分布",
-    "text": "離散一様分布\n\\(f(x)=\\frac{1}{N}\\) より、\\(E[X]=\\frac{N+1}{2}\\)、\\(V[X]=\\frac{N^2-1}{12}\\)\n\n\\(E[X]=\\frac{N+1}{2}\\) の求め方\n\\[\nE[X]=\\sum_{k=1}^{N} k \\frac{1}{N} = \\frac{1}{N} \\sum_{k=1}^{N} k =  \\frac{1}{N} \\frac{N(N+1)}{2} = \\frac{N+1}{2}\n\\]\n\n\n\\(V[X]=\\frac{N^2-1}{12}\\) の求め方\n\\[\nE[X^2]=\\sum_{k=1}^{N} k^2 \\frac{1}{N} = \\frac{1}{N} \\sum_{k=1}^{N} k^2 =  \\frac{1}{N} \\frac{N(N+1)(2N+1)}{6} = \\frac{(N+1)(2N+1)}{6}\n\\]\n\\[\nV[X]=E[X^2]-(E[X])^2 = \\frac{(N+1)(2N+1)}{6} - \\frac{(N+1)^2}{4} =\\frac{4N+2-3N-3}{12} = \\frac{(N+1)(N-1)}{12}\n\\]"
-  },
-  {
-    "objectID": "post/1.html#ガンマ分布",
-    "href": "post/1.html#ガンマ分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "ガンマ分布",
-    "text": "ガンマ分布\n\\(X \\sim Ga(\\alpha, \\beta)\\) のとき、\\(E[X]=\\alpha\\beta\\), \\(V[X]=\\alpha\\beta^2\\)\n\n\\(E[X]=\\alpha\\beta\\) の求め方\n\\[\n\\begin{aligned}\nE[X]&=\\int_{0}^{\\infty} x \\frac{x^{\\alpha-1}e^{-\\frac{x}{\\beta}}}{\\Gamma(\\alpha)\\beta^{\\alpha}} dx \\\\\n&=\\int_{0}^{\\infty} \\frac{x^{(\\alpha+1)-1}e^{-\\frac{x}{\\beta}}}{\\Gamma(\\alpha)\\beta^{\\alpha}} dx \\\\\n&=\\int_{0}^{\\infty} \\frac{x^{(\\alpha+1)-1}e^{-\\frac{x}{\\beta}}}{\\frac{1}{\\alpha}\\Gamma(\\alpha+1)\\frac{1}{\\beta}\\beta^{\\alpha+1}} dx \\\\\n&= \\alpha\\beta\n\\end{aligned}\n\\]\n\n\n\\(V[X]=\\alpha\\beta^2\\) の求め方\n\\[\n\\begin{aligned}\nE[X^2]&=\\int_{0}^{\\infty} x^2 \\frac{x^{\\alpha-1}e^{-\\frac{x}{\\beta}}}{\\Gamma(\\alpha)\\beta^{\\alpha}} dx \\\\\n&=\\int_{0}^{\\infty} \\frac{x^{(\\alpha+2)-1}e^{-\\frac{x}{\\beta}}}{\\Gamma(\\alpha)\\beta^{\\alpha}} dx \\\\\n&=\\int_{0}^{\\infty} \\frac{x^{(\\alpha+2)-1}e^{-\\frac{x}{\\beta}}}{\\frac{1}{\\alpha(\\alpha+1)}\\Gamma(\\alpha+2)\\frac{1}{\\beta^2}\\beta^{\\alpha+2}} dx \\\\\n&= \\alpha(\\alpha+1)\\beta^2\n\\end{aligned}\n\\]\n\\[\nV[X]=E[X^2]-(E[X])^2 = \\alpha(\\alpha+1)\\beta^2 -\\alpha^2 \\beta^2 = \\alpha\\beta^2\n\\]"
-  },
-  {
-    "objectID": "post/1.html#ベータ分布",
-    "href": "post/1.html#ベータ分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "ベータ分布",
-    "text": "ベータ分布\n\\(X \\sim B(a,b)\\) のとき、\\(E[X]=\\frac{a}{a+b}\\)、\\(V[X]=\\frac{ab}{(a+b)^2(a+b+1)}\\)\n\n\\(E[X]=\\frac{a}{a+b}\\) の求め方\n\\[\n\\begin{aligned}\nE[X]&=\\int_{0}^1 x \\frac{x^{a-1}(1-x)^{b-1}}{B(a,b)} dx  \\\\\n&=\\int_{0}^1 x \\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}x^{a-1}(1-x)^{b-1} dx \\\\\n&=\\int_{0}^1  \\frac{\\Gamma(a+b)}{\\Gamma(a+1+b)}\\frac{\\Gamma(a+1)}{\\Gamma(a)}\\frac{\\Gamma(a+1+b)}{\\Gamma(a+1)\\Gamma(b)}x^{a+1-1}(1-x)^{b-1} dx \\\\\n&=\\frac{\\Gamma(a+b)}{(a+b)\\Gamma(a+b)}\\frac{a\\Gamma(a)}{\\Gamma(a)} \\int_{0}^1  \\frac{\\Gamma(a+1+b)}{\\Gamma(a+1)\\Gamma(b)}x^{a+1-1}(1-x)^{b-1} dx \\\\\n&= \\frac{a}{a+b}\n\\end{aligned}\n\\]\n\n\n\\(V[X]=\\frac{ab}{(a+b)^2(a+b+1)}\\) の求め方\n\\[\n\\begin{aligned}\nE[X^2]&=\\int_{0}^1 x^2 \\frac{x^{a-1}(1-x)^{b-1}}{B(a,b)} dx  \\\\\n&=\\int_{0}^1 x^2 \\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}x^{a-1}(1-x)^{b-1} dx \\\\\n&=\\int_{0}^1  \\frac{\\Gamma(a+b)}{\\Gamma(a+2+b)}\\frac{\\Gamma(a+2)}{\\Gamma(a)}\\frac{\\Gamma(a+2+b)}{\\Gamma(a+2)\\Gamma(b)}x^{a+2-1}(1-x)^{b-1} dx \\\\\n&=\\frac{\\Gamma(a+b)}{(a+b+1)(a+b)\\Gamma(a+b)}\\frac{a(a+1)\\Gamma(a)}{\\Gamma(a)} \\int_{0}^1  \\frac{\\Gamma(a+1+b)}{\\Gamma(a+1)\\Gamma(b)}x^{a+1-1}(1-x)^{b-1} dx \\\\\n&= \\frac{a(a+1)}{(a+b+1)(a+b)}\n\\end{aligned}\n\\]\n\\[\nV[X]=E[X^2]-(E[X])^2 =\\frac{a(a+1)}{(a+b+1)(a+b)} -\\frac{a^2}{(a+b)^2} = \\frac{a(a+1)(a+b)-a^2(a+b+1)}{(a+b+1)(a+b)^2} = \\frac{ab}{(a+b)^2(a+b+1)}\n\\]"
-  },
-  {
-    "objectID": "post/1.html#標準正規分布",
-    "href": "post/1.html#標準正規分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "標準正規分布",
-    "text": "標準正規分布\n\\(X \\sim N(0, 1)\\) のとき\\(E[X]=0\\),\\(V[X]=1\\) である。"
-  },
-  {
-    "objectID": "post/1.html#正規分布",
-    "href": "post/1.html#正規分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "正規分布",
-    "text": "正規分布\n\\(X \\sim N(\\mu, \\sigma^2)\\) のとき\\(E[X]=\\mu\\),\\(V[X]=\\sigma^2\\) である。\n\n\\(E[X]=\\mu\\) の求め方\n\\[\n\\begin{aligned}\nE[X] = \\int^{\\infty}_{-\\infty} x \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} \\exp{(\\frac{-(x-\\mu)^2}{2 \\sigma^2})}\n\\end{aligned}\n\\]\n標準正規分布から変換する方法も簡単そう。"
-  },
-  {
-    "objectID": "post/1.html#指数分布",
-    "href": "post/1.html#指数分布",
-    "title": "各確率分布の期待値・分散の求め方(制作途中)",
-    "section": "指数分布",
-    "text": "指数分布\n\\(X \\sim Ex(\\lambda)\\)のとき\\(E[X]=\\frac{1}{\\lambda}\\),\\(V[X]=\\frac{1}{\\lambda^2}\\) である。"
   },
   {
     "objectID": "solve/data_math1_quest/index.html",
@@ -882,331 +805,289 @@
     "text": "正規分布\n次に正規分布の母平均\\(\\mu\\)の推定において標本平均\\(\\bar{X}\\) がUMVUであることを示す。\nまず、\\(\\mu\\) に関するフィッシャー情報量を求める。\n\\[\n\\ell(\\mu,x)= - \\frac{(x-\\mu)^2}{2\\sigma^2} - \\frac{1}{2} \\log(2\\pi \\sigma^2)\n\\]\nを\\(\\mu\\) で偏微分すると\\(\\displaystyle \\ell'(\\mu,x)=\\frac{x-\\mu}{\\sigma^2}\\) を得る。したがって、\n\\[\nI(\\mu)=\\frac{E[(X-\\mu)^2]}{\\sigma^4} = \\frac{1}{\\sigma^2}\n\\]\nとなり、\\(\\bar{X}\\) がUMVUであることが示された。\n\\(E[(X-\\mu)^2]\\)もテクニカル！"
   },
   {
-    "objectID": "post/spotify.html",
-    "href": "post/spotify.html",
-    "title": "SpotifyをPythonで分析",
-    "section": "",
-    "text": "それぞれの楽曲に対して、danceabilityやenergyなど独特の指標を持ったspotifyAPIを利用して、興味のある曲の分析を行ってみたい。\n例えば。。。\n\n名探偵コナンの主題歌\n\n主題歌歌手\n\n倉木麻衣・B’z・愛内里菜・BREAKERZ が多い印象。歌手の割合。４者で独占されているのでは？\n期間とかもわかるのかな？\n\n曲調の変遷　\n\n昔は切ないラブソング系が多かった印象・最近はパキパキ系が多い印象\n差はあるのか？\n\nアニメ歌手と映画歌手の違い\n\n映画歌手に関しては当時話題の歌手が多い印象。\nアニメ歌手は変遷なく、上で述べた歌手で占めている印象がある。\n\nOPとEDの曲調の違い\n\n\n\n\nK-POPのeasy-listening傾向(特にNew Jeans)\n\nNew Jeansからこの傾向が始まったように思われる。\neasy-listeningって本当にNew Jeansから始まったのかな？→曲調のところで分析できそう\nNew JeansとSpeedって本当に似てるのかな？\nNew Jeansとillitに関しても！\n\n\n\n\n自分のお気に入り曲を操作\n\nお気に入りを抽出して操作が可能なよう。\n曲の雰囲気でソートして、自分が飽きないような配置が作れるかも！（分析とは少し違うけど。）→レコメンドで使われる類似度の指標を自分で作るとか！\nhttps://speakerdeck.com/takemikami/spotify-api-woshi-tutaaimasule-qu-nole-simifang　これみたいな。"
-  },
-  {
-    "objectID": "post/spotify.html#まずは必要なものをimport",
-    "href": "post/spotify.html#まずは必要なものをimport",
-    "title": "SpotifyをPythonで分析",
-    "section": "まずは必要なものをimport!",
-    "text": "まずは必要なものをimport!\n\nimport pandas as pd\nimport spotipy\nfrom spotipy.oauth2 import SpotifyClientCredentials\nimport json\nimport os\nfrom dotenv import load_dotenv"
-  },
-  {
-    "objectID": "post/spotify.html#section",
-    "href": "post/spotify.html#section",
-    "title": "SpotifyをPythonで分析",
-    "section": "",
-    "text": "client_id = os.getenv('SPOTIFY_CLIENT_ID')\nclient_secret = os.getenv('SPOTIFY_CLIENT_SECRET')\nclient_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)\nspotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)\nplaylist_url = 'https://open.spotify.com/playlist/6KfKvkN7YEUFTwJHkczxdb?si=5d285aa4dade4002'\nplaylist_id = playlist_url.split('/')[-1].split('?')[0]  #プレイリストIDを取得\n\n# プレイリストの楽曲一覧を取得\nresults = spotify.playlist(playlist_id)\n\n\n# プレイリストから曲を取得\ndef get_to_playlist(playlist_id):\n    playlist = spotify.playlist(playlist_id)\n    track_ids = []\n    for item in playlist['tracks']['items']:\n        track = item['track']\n        if not track['id'] in track_ids:\n            track_ids.append(track['id'])\n        else:\n            for item in playlist['tracks']['items']:\n                track = item['track']\n                if not track['id'] in track_ids:\n                    track_ids.append(track['id'])\n    return track_ids\n\nget_to_playlist(playlist_url.split('/')[-1].split('?')[0])\n\n['2iXZA6Ecf9AZHw92tZBNLv',\n '6NbN52o3yrm9YATy26qALq',\n '2he2DlglI9qP4ouQc1bLoU',\n '5fnZAPIZZbyM0Az0VBYbB4',\n '158ZIi9QJ3jr6LQtPwOnve',\n '16DWmFk1XU0WkhwGlO3Epm',\n '75WKINePeVTeiINVjuGfQN',\n '0mf2l317Gqar2mS1ynEdbd',\n '745ARHLcXTciceuJnpULZz',\n '5VCsbxir29FtbKxQDF1yU9',\n '5OqRZWOCJIbN3owrBDsQXy',\n '7Fwj8A43T7aBKhad9OGBGF',\n '3u924ZVORBYBPETTj6P12m',\n '3d9OJ1YOYegvImn6KSs2zi',\n '3hjHUf3frPoh9jcYDkqXUV',\n '7ml70oBISAOjKyw7wrueI0',\n '2eBIaTAW8i8Q7GMotWojdH',\n '5QAZVZA3FN1s368XgijXHZ',\n '7ah8In0z478pctQnoFvW1L',\n '3doATATHVivzB3EJqZS1eG',\n '5wfKPYODAr3aCGpOAopNZK',\n '1U2eK2hq5rKBWVeyJ3ToV9',\n '23atyJacJVHvB9RHBNhr35',\n '2ZDMVAO7dARwQXnxyxnDsN',\n '6WyjbxHU8cxZnePxuFC79e',\n '2z5hzRdYdxsaiMv5giiDG7',\n '1SlnuvPLppYWh3WWZ0wYT0',\n '1WHEDvZr1RuDR0QdFF5Nx8',\n '6CVOXT79mSNWlahndeRtpq',\n '1C6mGgM8tx4tf7Lofcy92S',\n '5JKxpF4vAhvLNhXDoMfxhs',\n '4R3ew5gcnrrcBBxW5v3E2f',\n '33lzgeuVrql37WmGfVcVp5',\n '6aLnEfXkfdMCIJjxdG7RsC',\n '5zxOkA6L5DJpS0Ajb0Qx2t',\n '67vojPHKOri59M5ZT7I9ar',\n '0CATStPGs7sxXxM7CJLdPa',\n '5Fw07rxmvCU97W1ffx2LaI',\n '0c8zEXqNao1FRqSa022QgV',\n '0SI0Te2JQTMe05NEmNbje6',\n '3w3Fn4KHIQUsQQYFajdMkd',\n '5d2geD5Lin69gQ3xRV86Ty',\n '2nV2YtI6YrE49bmwXa8D51',\n '1jv8fStBVa5PTklNdKltXl',\n '2I8iJxZ6lPcc16EciRCgaO',\n '3g42JFCX8s4SXZ5El3DdFQ',\n '5IwRgi599tbwNi9wqPYyIX',\n '5Qw9zrdPMjZISaWhfpQ6Ro',\n '7zue8Ylpf2O1THzYTBInnj',\n '28NV7pexaSrgQqxize1rav',\n '76fc73uRAcp0psxMuFJHGF',\n '6OitPk0ZtxFg2ixRKV6Y1h',\n '5YgU6ARH4iWPfodTMkHTbR',\n '6MfNf7SLjnJc6lFZrGWg6X',\n '6cDicS4d4wxi6to2nddk9X',\n '2wWXJOOP19PMSShh5TqLFH',\n '4iQXwYTAU3gb60tM8DNjEr',\n '11iclnVVyFH4BarUyOATc1',\n '2ejEiTFhes7jypzKAAvlA6',\n '2j9HruvwFeatEWeHRnEzPI',\n '1j6Zt3I6vwy9L7koZCPqUu',\n '0p5BGKgpW6UPopcUQSo5yn',\n '6Qq8UOS6QzeSYFUVXC5wEB',\n '5mSDLmHru7tWn56FcJQ62M',\n '69lyoI73JEsQr93FXs9CE1',\n '0SKZjKXaUHFIAhHLtAETVM',\n '0ZNcLtK3qkKqzH27ytXyp4',\n '5Q6z8rqbH1CfYaUOqktJbE',\n '3L66hEyARGzUuK97ugVUyy',\n '7fMVp7XPgcIpWOKFlR5LNQ',\n '3JZOw8aQDMeByFTeTIe6Qu',\n '76HZg4s6yjRSfkVAtnI4NW',\n '4aXi3FgnHDF7GxoJEbJLfg',\n '0HO0vfo0CKu3WeCfLZA5iM',\n '0Ns63lt28epRgED3Tnhmth',\n '2EXBFaQXJhHyROLc1ROINt',\n '5ROSTSAuEHPc1fp5SzV4y5',\n '7CKNIPYunPhupoNZXdi4GS',\n '3Y8lx5gWASi8JvQRd1PnNF',\n '4kWPNCY1JZEqJq9Vcjrfpz',\n '10G6iBGzoMi9qXgDV9qyBy',\n '0IaeDUPwt7JGGSKBdVF49Q',\n '7cWujxmEVy0ru9y1uGCs4N',\n '3oTmlZTvrjg9Px3tQq9Rey',\n '2bzdhN6Y5AP1zRRf12QwJq',\n '770OfNzKAmIB086QKEZ0Lz',\n '3r6Am8NvUDbuS2Yqv76ivi',\n '1Rvh5RimhF3ndpclBmIdeJ',\n '1fbnFLdnspYiaQ02nXaiBt',\n '582HjAJ7coEKSYVirUZyqK',\n '2j1ATXoWlhISjUUBeLna87',\n '0vciFgccaS4HTPNGSttKbU',\n '2X0pcKFdtkbjKxtZlyZCkZ',\n '7DAO2wHaB7VFOPioHKxWyT',\n '4WiVQ0PLTYjHiNYUbWpJO9',\n '4KFQ43lyjYoCtaIaeY21VQ',\n '0SGYLDQO06AB2VkGDoAjxW',\n '55kt4XuHNQthnlpnwVRl2J',\n '5lXJfdSxPIvKAO5s903Crr',\n '4zdXDTExh06duqfnyhNx6S']\n\n\n\nmusic_id = \"4zdXDTExh06duqfnyhNx6S\"\nresult = spotify.audio_features(music_id)\nresult\n\n[{'danceability': 0.393,\n  'energy': 0.715,\n  'key': 8,\n  'loudness': -4.105,\n  'mode': 1,\n  'speechiness': 0.0344,\n  'acousticness': 0.343,\n  'instrumentalness': 0,\n  'liveness': 0.112,\n  'valence': 0.374,\n  'tempo': 159.548,\n  'type': 'audio_features',\n  'id': '4zdXDTExh06duqfnyhNx6S',\n  'uri': 'spotify:track:4zdXDTExh06duqfnyhNx6S',\n  'track_href': 'https://api.spotify.com/v1/tracks/4zdXDTExh06duqfnyhNx6S',\n  'analysis_url': 'https://api.spotify.com/v1/audio-analysis/4zdXDTExh06duqfnyhNx6S',\n  'duration_ms': 289867,\n  'time_signature': 4}]"
-  },
-  {
-    "objectID": "post/spotify.html#やりたいこと",
-    "href": "post/spotify.html#やりたいこと",
-    "title": "SpotifyをPythonで分析",
-    "section": "",
-    "text": "それぞれの楽曲に対して、danceabilityやenergyなど独特の指標を持ったspotifyAPIを利用して、興味のある曲の分析を行ってみたい。\n例えば。。。\n\n名探偵コナンの主題歌\n\n主題歌歌手\n\n倉木麻衣・B’z・愛内里菜・BREAKERZ が多い印象。歌手の割合。４者で独占されているのでは？\n期間とかもわかるのかな？\n\n曲調の変遷　\n\n昔は切ないラブソング系が多かった印象・最近はパキパキ系が多い印象\n差はあるのか？\n\nアニメ歌手と映画歌手の違い\n\n映画歌手に関しては当時話題の歌手が多い印象。\nアニメ歌手は変遷なく、上で述べた歌手で占めている印象がある。\n\nOPとEDの曲調の違い\n\n\n\n\nK-POPのeasy-listening傾向(特にNew Jeans)\n\nNew Jeansからこの傾向が始まったように思われる。\neasy-listeningって本当にNew Jeansから始まったのかな？→曲調のところで分析できそう\nNew JeansとSpeedって本当に似てるのかな？\nNew Jeansとillitに関しても！\n\n\n\n\n自分のお気に入り曲を操作\n\nお気に入りを抽出して操作が可能なよう。\n曲の雰囲気でソートして、自分が飽きないような配置が作れるかも！（分析とは少し違うけど。）→レコメンドで使われる類似度の指標を自分で作るとか！\nhttps://speakerdeck.com/takemikami/spotify-api-woshi-tutaaimasule-qu-nole-simifang　これみたいな。"
-  },
-  {
-    "objectID": "post/spotify.html#前準備",
-    "href": "post/spotify.html#前準備",
-    "title": "SpotifyをPythonで分析",
-    "section": "前準備",
-    "text": "前準備\n\nimport pandas as pd\nimport spotipy\nfrom spotipy.oauth2 import SpotifyClientCredentials\nimport json\nimport os\nfrom dotenv import load_dotenv"
-  },
-  {
-    "objectID": "post/spotify.html#どうしよっかな",
-    "href": "post/spotify.html#どうしよっかな",
-    "title": "SpotifyをPythonで分析",
-    "section": "どうしよっかな〜",
-    "text": "どうしよっかな〜\n\nclient_id = os.getenv('SPOTIFY_CLIENT_ID')\nclient_secret = os.getenv('SPOTIFY_CLIENT_SECRET')\nclient_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)\nspotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)\nplaylist_url = 'https://open.spotify.com/playlist/6KfKvkN7YEUFTwJHkczxdb?si=5d285aa4dade4002'\nplaylist_id = playlist_url.split('/')[-1].split('?')[0]  #プレイリストIDを取得\n\n# プレイリストの楽曲一覧を取得\nresults = spotify.playlist(playlist_id)\n\n\n# プレイリストから曲を取得\ndef get_to_playlist(playlist_id):\n    playlist = spotify.playlist(playlist_id)\n    track_ids = []\n    for item in playlist['tracks']['items']:\n        track = item['track']\n        if not track['id'] in track_ids:\n            track_ids.append(track['id'])\n        else:\n            for item in playlist['tracks']['items']:\n                track = item['track']\n                if not track['id'] in track_ids:\n                    track_ids.append(track['id'])\n    return track_ids\n\nget_to_playlist(playlist_url.split('/')[-1].split('?')[0])\n\n['2iXZA6Ecf9AZHw92tZBNLv',\n '6NbN52o3yrm9YATy26qALq',\n '2he2DlglI9qP4ouQc1bLoU',\n '5fnZAPIZZbyM0Az0VBYbB4',\n '158ZIi9QJ3jr6LQtPwOnve',\n '16DWmFk1XU0WkhwGlO3Epm',\n '75WKINePeVTeiINVjuGfQN',\n '0mf2l317Gqar2mS1ynEdbd',\n '745ARHLcXTciceuJnpULZz',\n '5VCsbxir29FtbKxQDF1yU9',\n '5OqRZWOCJIbN3owrBDsQXy',\n '7Fwj8A43T7aBKhad9OGBGF',\n '3u924ZVORBYBPETTj6P12m',\n '3d9OJ1YOYegvImn6KSs2zi',\n '3hjHUf3frPoh9jcYDkqXUV',\n '7ml70oBISAOjKyw7wrueI0',\n '2eBIaTAW8i8Q7GMotWojdH',\n '5QAZVZA3FN1s368XgijXHZ',\n '7ah8In0z478pctQnoFvW1L',\n '3doATATHVivzB3EJqZS1eG',\n '5wfKPYODAr3aCGpOAopNZK',\n '1U2eK2hq5rKBWVeyJ3ToV9',\n '23atyJacJVHvB9RHBNhr35',\n '2ZDMVAO7dARwQXnxyxnDsN',\n '6WyjbxHU8cxZnePxuFC79e',\n '2z5hzRdYdxsaiMv5giiDG7',\n '1SlnuvPLppYWh3WWZ0wYT0',\n '1WHEDvZr1RuDR0QdFF5Nx8',\n '6CVOXT79mSNWlahndeRtpq',\n '1C6mGgM8tx4tf7Lofcy92S',\n '5JKxpF4vAhvLNhXDoMfxhs',\n '4R3ew5gcnrrcBBxW5v3E2f',\n '33lzgeuVrql37WmGfVcVp5',\n '6aLnEfXkfdMCIJjxdG7RsC',\n '5zxOkA6L5DJpS0Ajb0Qx2t',\n '67vojPHKOri59M5ZT7I9ar',\n '0CATStPGs7sxXxM7CJLdPa',\n '5Fw07rxmvCU97W1ffx2LaI',\n '0c8zEXqNao1FRqSa022QgV',\n '0SI0Te2JQTMe05NEmNbje6',\n '3w3Fn4KHIQUsQQYFajdMkd',\n '5d2geD5Lin69gQ3xRV86Ty',\n '2nV2YtI6YrE49bmwXa8D51',\n '1jv8fStBVa5PTklNdKltXl',\n '2I8iJxZ6lPcc16EciRCgaO',\n '3g42JFCX8s4SXZ5El3DdFQ',\n '5IwRgi599tbwNi9wqPYyIX',\n '5Qw9zrdPMjZISaWhfpQ6Ro',\n '7zue8Ylpf2O1THzYTBInnj',\n '28NV7pexaSrgQqxize1rav',\n '76fc73uRAcp0psxMuFJHGF',\n '6OitPk0ZtxFg2ixRKV6Y1h',\n '5YgU6ARH4iWPfodTMkHTbR',\n '6MfNf7SLjnJc6lFZrGWg6X',\n '6cDicS4d4wxi6to2nddk9X',\n '2wWXJOOP19PMSShh5TqLFH',\n '4iQXwYTAU3gb60tM8DNjEr',\n '11iclnVVyFH4BarUyOATc1',\n '2ejEiTFhes7jypzKAAvlA6',\n '2j9HruvwFeatEWeHRnEzPI',\n '1j6Zt3I6vwy9L7koZCPqUu',\n '0p5BGKgpW6UPopcUQSo5yn',\n '6Qq8UOS6QzeSYFUVXC5wEB',\n '5mSDLmHru7tWn56FcJQ62M',\n '69lyoI73JEsQr93FXs9CE1',\n '0SKZjKXaUHFIAhHLtAETVM',\n '0ZNcLtK3qkKqzH27ytXyp4',\n '5Q6z8rqbH1CfYaUOqktJbE',\n '3L66hEyARGzUuK97ugVUyy',\n '7fMVp7XPgcIpWOKFlR5LNQ',\n '3JZOw8aQDMeByFTeTIe6Qu',\n '76HZg4s6yjRSfkVAtnI4NW',\n '4aXi3FgnHDF7GxoJEbJLfg',\n '0HO0vfo0CKu3WeCfLZA5iM',\n '0Ns63lt28epRgED3Tnhmth',\n '2EXBFaQXJhHyROLc1ROINt',\n '5ROSTSAuEHPc1fp5SzV4y5',\n '7CKNIPYunPhupoNZXdi4GS',\n '3Y8lx5gWASi8JvQRd1PnNF',\n '4kWPNCY1JZEqJq9Vcjrfpz',\n '10G6iBGzoMi9qXgDV9qyBy',\n '0IaeDUPwt7JGGSKBdVF49Q',\n '7cWujxmEVy0ru9y1uGCs4N',\n '3oTmlZTvrjg9Px3tQq9Rey',\n '2bzdhN6Y5AP1zRRf12QwJq',\n '770OfNzKAmIB086QKEZ0Lz',\n '3r6Am8NvUDbuS2Yqv76ivi',\n '1Rvh5RimhF3ndpclBmIdeJ',\n '1fbnFLdnspYiaQ02nXaiBt',\n '582HjAJ7coEKSYVirUZyqK',\n '2j1ATXoWlhISjUUBeLna87',\n '0vciFgccaS4HTPNGSttKbU',\n '2X0pcKFdtkbjKxtZlyZCkZ',\n '7DAO2wHaB7VFOPioHKxWyT',\n '4WiVQ0PLTYjHiNYUbWpJO9',\n '4KFQ43lyjYoCtaIaeY21VQ',\n '0SGYLDQO06AB2VkGDoAjxW',\n '55kt4XuHNQthnlpnwVRl2J',\n '5lXJfdSxPIvKAO5s903Crr',\n '4zdXDTExh06duqfnyhNx6S']\n\n\n\nmusic_id = \"4zdXDTExh06duqfnyhNx6S\"\nresult = spotify.audio_features(music_id)\nresult\n\n[{'danceability': 0.393,\n  'energy': 0.715,\n  'key': 8,\n  'loudness': -4.105,\n  'mode': 1,\n  'speechiness': 0.0344,\n  'acousticness': 0.343,\n  'instrumentalness': 0,\n  'liveness': 0.112,\n  'valence': 0.374,\n  'tempo': 159.548,\n  'type': 'audio_features',\n  'id': '4zdXDTExh06duqfnyhNx6S',\n  'uri': 'spotify:track:4zdXDTExh06duqfnyhNx6S',\n  'track_href': 'https://api.spotify.com/v1/tracks/4zdXDTExh06duqfnyhNx6S',\n  'analysis_url': 'https://api.spotify.com/v1/audio-analysis/4zdXDTExh06duqfnyhNx6S',\n  'duration_ms': 289867,\n  'time_signature': 4}]\n\n\nうける"
-  },
-  {
     "objectID": "post/data_math_quest/index.html",
     "href": "post/data_math_quest/index.html",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "",
     "text": "タイピングが追いつかないので、途中からは気になった問題だけになってます！"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目",
     "href": "post/data_math_quest/index.html#問目",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "１問目",
     "text": "１問目\n\n問題\n大学生の就職活動に関して、ある企業にエントリーした学生は男性が60%を占めていたが、採用を内定された割合は、男性は男性応募者の40%、女性は女性応募者の30%であった。\n\n\n\n⑴この企業の男女合わせた全体の応募者に対する男性の採用内定率、女性の採用内定率を求めよ。\n⑵この企業の男女合わせた全体の採用内定率を求めよ。\n⑶この企業の採用内定者の名簿から一人をランダムに選んだ場合、それが女性である確率を求めよ。\n\n\n\n\n\n解答\n\n⑴\nある企業にエントリーした学生全体を\\(\\Omega\\)とし、男性である事象を\\(A\\)とする。また男性である確率は\\(P(A)\\)と表します。\nこの場合女性である事象は\\(A^c\\)で表され、女性である確率は\\(P(A)\\)となります。\n男性の割合は60%なので、\\(P(A)=0.6\\)である。 女性の割合は、\\(P(A^c)=1-0.6=0.4\\)である。\n\n\n\nまた採用される事象は\\(B\\)と表し、採用されない事象は\\(B^c\\)となります。\n男性は男性応募者の40%、女性は女性応募者の30%が採用内定である。これは条件付き確率で表される。40%とは、男性である条件のもとで採用した確率なので、\\(P(B|A)=0.4\\)。同様に、\\(P(B|A^c)=0.3\\)\n\n\n\n⑴で聞かれているのは、男性の採用内定率つまり\\(P(A \\cap B)\\)と、女性の採用内定率つまり\\(P(A^c \\cap B)\\)である。\n\n\n\n\\(P(A \\cap B)=P(B|A) \\times P(A) = 0.4 \\times  0.6 = 0.24\\)\n\\(P(A^c \\cap B)=P(B|A^c) \\times P(A^c) = 0.3 \\times  0.4 = 0.12\\)\n\n\n\n\n\n⑵\n⑵で聞かれているのは、全体の採用内定率つまり\\(P(B)\\)である。\n\\(A+A^c=\\Omega\\)で、\\(A\\)と\\(A^c\\)は排反より、全確率の公式を用いると、以下の式が成り立つ。\n\\(P(B) = P(B|A) \\times P(A) + P(B|A^c) \\times P(A^c) = 0.24+0.12=0.36\\)\n\n\n\n\n\n⑶\n⑶は条件付き確率の問題で、採用内定者のもとで女性である確率つまり\\(P(A^c|B)\\)である。\n\\(P(A^c|B)=\\frac{P(A^c \\cap B)}{P(B)}= \\frac{0.12}{0.36} =\\frac{1}{3}\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-1",
     "href": "post/data_math_quest/index.html#問目-1",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "2問目",
     "text": "2問目\n\n問題\n週の天気予報によると、土曜日に雨の降る確率は25%、日曜日に雨の降る確率も25%である。 週末の土日のどこかに雨が降る確率は25+25=50%になると考えた。これは正しいかどうか。\n\n\n解答\n正しくない。\n土曜日に雨が降る事象を\\(A\\)とし、確率は\\(P(A)\\)で表される。\n日曜日に雨が降る事象を\\(B\\)とし、確率は\\(P(B)\\)で表される。\n\n\n\nこの問題が言っていることは\\(P(A \\cup B) = P(A)+P(B)\\)になるということである。しかし、これが成り立つのは、\\(A\\)と\\(B\\)が排反の時である。\n事象\\(A\\)と\\(B\\)はどう考えても排反ではないので、成り立たない。\n\n\n\n\n\n\nノート\n\n\n\n事象\\(A\\)と\\(B\\)が排反とは、\\(A\\)と\\(B\\)が同時に起こり得ないということです。\n\n\n\\(P(A \\cup B) = P(A)+P(B)-P(A \\cap B)\\)なので、確率は50%より低くなることが考えられる。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-2",
     "href": "post/data_math_quest/index.html#問目-2",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "3問目",
     "text": "3問目\n\n問題\nある大学のある学部はA学科とB学科の２つからなり、それぞれの志願者数と合格率が男女別に次の表で与えられたとする。学部全体の男女の合格率に関して、シンプソンのパラドクスが生ずるような\\(a\\)の条件を考えよ。\n\n\n\n\n\n\n\n\n\nA 学科\n志願者\n合格率\n\n\n\n\n男性\n500\n60%\n\n\n女性\n30\n70%\n\n\n\n\n\n\n\n\nB 学科\n志願者\n合格率\n\n\n\n\n男性\n400\n10%\n\n\n女性\n300\na%\n\n\n\n\n\n\n\n\n解答\nA学科を見ると女性の方が合格率が高い。\n男女の合格率に関してシンプソンのパラドクスが生じるようにという問題です。つまり、B学科もA学科同様に学科単体では女性の合格率が高いが、A学科とB学科を合計すると男性の合格率のほうが高くなるような\\(a\\)を求める問題です。\n\n\n\nまず、学科単体では女性の合格率が高くなるので、\\(a&gt;10\\)です。\n\n\n\n次に、男女別の学科合計の合格率を考えます。\n男性の合格率\n\\(\\frac{500 \\times 0.6 + 400 \\times 0.1}{500+400}=\\frac{340}{900}\\)\n女性の合格率\n\\(\\frac{30 \\times 0.7 + 300 \\times a/100}{500+400} = \\frac{21+3a}{330}\\)\n男性の合格率&gt;女性の合格率となればいいので、以下の式が成り立ちます。\n\\(\\frac{340}{900}&gt;\\frac{21+3a}{330}\\)\n\\(a &lt; \\frac{340}{900} \\times 110 -7\\fallingdotseq 34.6\\)\nよって\\(a\\)の条件とは \\(10&lt;a&lt;34.6\\) である。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-3",
     "href": "post/data_math_quest/index.html#問目-3",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "4問目",
     "text": "4問目\n\n問題\n両親と二人の子供がいる4人家族において、同じ誕生日の人がいる確率を求めよ。\n\n\n解答\n誕生日問題は補集合で考えるとわかりやすい。\n同じ誕生日の人がいない事象を\\(A\\)とすると、求めたい事象は\\(A^c\\)であり、求めたい確率は\\(P(A^c)\\)である。\n\\(P(A)=\\frac{365}{365} \\cdot \\frac{364}{365} \\cdot \\frac{363}{365} \\cdot \\frac{362}{365} = \\frac{364\\cdot 363\\cdot 362}{365^3}\\)\n\\(P(A^c)=1-P(A)=1-\\frac{364\\cdot 363\\cdot 362}{365^3} = 0.016\\)\nよって約1.6%である。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-4",
     "href": "post/data_math_quest/index.html#問目-4",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "5問目",
     "text": "5問目\nここに書いてあるので、省略します。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-5",
     "href": "post/data_math_quest/index.html#問目-5",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "6問目",
     "text": "6問目\n\n問題\n条件付き確率について不等式\\(P(A|D) \\geq P(B|D)\\),\\(P(A|D^c) \\geq P(B|D^c)\\)が成り立つならば、\\(P(A) \\geq P(B)\\)であることを示せ。\n\n\n解答\n\\(P(A|D^c)\\)のような補集合の条件付き確率が出てきていることから、全確率の公式を用いることが推察できます。\n\\(P(A|D)P(D) + P(A|D^c)P(D^c) =P(A)\\)\n\\(P(B|D)P(D) + P(B|D^c)P(D^c) =P(B)\\)\nこの２つを用いれば解くことができそうですね。\n\n\n\n\\(P(A|D) \\geq P(B|D)\\)の両辺に\\(P(D)\\)をかけても不等式は成り立ちます。\n\\(P(A|D)P(D) \\geq P(B|D)P(D)\\)\n\\(P(A|D^c) \\geq P(B|D^c)\\)の両辺に\\(P(D^c)\\)をかけても不等式は成り立ちます。\n\\(P(A|D^c)P(D^c) \\geq P(B|D^c)P(D^c)\\)\n不等式同士を辺々足しても大小関係は変わらないため、以下の式が成り立つ。\n\\(P(A|D)P(D)+P(A|D^c)P(D^c) \\geq P(B|D)P(D)+ P(B|D^c)P(D^c)\\)\n全確率の公式より\n\\(P(A) \\geq P(B)\\)である。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-6",
     "href": "post/data_math_quest/index.html#問目-6",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "7問目",
     "text": "7問目\n\n問題\n次の多項式の係数を求めよ。\n⑴\\((x+y)^6\\)における\\(x^3y^3\\)の係数\n⑵\\((x+y+z)^6\\)における\\(x^2y^2z^2\\)の係数\n\n\n解答\n⑴\n\\(\\begin{pmatrix}\n6 \\\\\n3\n\\end{pmatrix} =\\frac{6!}{3!3!}=20\\)\n⑵\n\\(\\begin{pmatrix}\n& 6 & \\\\\n2 & 2 & 2\n\\end{pmatrix} =\\frac{6!}{2!2!2!}=90\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-7",
     "href": "post/data_math_quest/index.html#問目-7",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "8問目",
     "text": "8問目\n\n問題\n正しいコインを３回投げる時次の確率を求めよ\n⑴少なくとも１回は表が出るという条件のもとで２回以上表の出る確率\n⑵少なくとも１回は裏が出るという条件のもとで２回以上表の出る確率\n\n\n解答\n正しいコインの意味はおそらく裏表が1/2の確率になるという意味だと思います。\n⑴\n条件付き確率ですね。\n少なくとも１回は表が出るという事象を\\(A\\)として、2回以上表が出る事象を\\(B\\)とする。\n求めるのは\\(P(B|A)\\)である。\n\n\n\n\\(P(B|A)=\\frac{P(A \\cap B)}{P(A)}\\)となるので、それぞれの確率を求めれば良い。\n\n\n\n\\(P(A)\\)は余事象ですぐ求めることができる。\n\\(P(A)=1-P(A^c)=1-(\\frac{1}{2})^3=\\frac{7}{8}\\)\n\n\n\n\\(P(A \\cap B)\\) は\\(B \\subset A\\)より\\(P(A \\cap B)=P(B)\\)である。 また、表が２回出る確率は\\({}_3 C_1(\\frac{1}{2})^3\\)です。\n\\(P(A \\cap B)=P(B)=\\frac{1}{8}+\\frac{3}{8}=\\frac{1}{2}\\)\n\n\n\nよって、\n\\(P(B|A)=\\frac{P(A \\cap B)}{P(A)}= \\frac{P(1/2)}{7/8}=\\frac{4}{7}\\)\n⑵\n⑴と同様に求めます。\n少なくとも１回は裏が出るという事象を\\(A\\)として、2回以上表が出る事象を\\(B\\)とする。\n\\(P(A)=1-P(A^c)=1-(\\frac{1}{2})^3=\\frac{7}{8}\\)\n少なくとも１回は裏が出るかつ２回以上表が出る事象は、表が２回（裏が１回）の事象のみである。\n\\(P(A \\cap B)={}_3 C_1(\\frac{1}{2})^3=\\frac{3}{8}\\)\nよって、\n\\(P(B|A)=\\frac{P(A \\cap B)}{P(A)}= \\frac{P(3/8)}{7/8}=\\frac{3}{7}\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-8",
     "href": "post/data_math_quest/index.html#問目-8",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "9問目",
     "text": "9問目\n\n問題\n2人の子供がいる夫婦について、第一子が女の子であるという条件のもとで二人とも女の子であるという確率を求めよ。また子供の一人が女子であるという条件のもとで二人とも女子である確率を求めよ。\n\n\n解答\nこれも条件付き確率の問題と考えることができます。\n1つ目について。\nA：第一子が女の子である\nB：二人とも女の子である\n一つ目で求められているのは\\(P(B|A)\\)である。\n\\(P(A)=1/2\\)\n\\(P(A \\cap B)=1/2 \\times 1/2 =1/4\\)\n\\(P(B|A)= \\frac{1/4}{1/2} = 1/2\\)\n2つ目について。\nC：子供の一人が女子である\nD：二人とも女子である\n\\(P(C)=1- (\\frac{1}{2})^2 = 3/4\\)\n\\(P(D \\cap C)=1/4\\)\n\\(P(D|C)= \\frac{1/4}{3/4} = 1/3\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-9",
     "href": "post/data_math_quest/index.html#問目-9",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "10問目",
     "text": "10問目\n\n問題\n独立性に関して次の問いに答えよ\n⑴\\(A\\)と\\(B\\)が独立ならば、\\(A\\)と\\(B^c\\)も独立になり、\\(A^c\\)と\\(B^c\\)も独立になるか。\n⑵\\(A\\)と\\(B\\)が独立で、\\(B\\)と\\(C\\)が独立であるとき、\\(A\\)と\\(C\\)は独立になるか。\n⑶\\(A\\)と\\(B\\)が排反であれば常に\\(A\\)と\\(B\\)は独立であるか。\n⑷\\(A \\subset B\\)であるとき、\\(A\\)と\\(B\\)は独立になるか。\n\n\n解答\n\n\n\n\n\n\nノート\n\n\n\n\\(A\\)と\\(B\\)が独立であるとは、\\(P(A \\cap B)=P(A) \\cdot P(B)\\)であること。\n\n\n\nこの式は条件付き確率からわかる。\n\\[\nP(A | B)=\\frac{P(A \\cap B)}{P(B)}\n\\]\n式を移行すると、\n\\[\nP(A \\cap B)=P(A | B) \\cdot P(B)\n\\]\nこの\\(B\\)という事象の元で\\(A\\)という事象が起こる確率が\\(B\\)に依存しない時、\\(P(A | B)=P(A)\\)となる。\n\n\n⑴\n\\(A\\)と\\(B\\)が独立であるとは、\\(P(A \\cap B)=P(A) \\cdot P(B)\\)であることである。\n\n\n\n\\(A\\)と\\(B^c\\)が独立であることを示したいときは\\(P(A \\cap B^c)=P(A) \\cdot P(B^c)\\)を示せば良い。\nまた\\(P(A \\cap B)=P(A) \\cdot P(B)\\)という条件があるので、\\(A \\cap B\\)の形を出せると使えそうなことがわかる。\n\\[\\begin{align}\nP(A \\cap B^c)&=P(A)-P(A\\cap B) \\\\\n&=P(A)-P(A)\\cdot P(B)\\\\\n&=P(A)\\cdot(1-P(B))\\\\\n&=P(A)\\cdot P(B^c)\n\\end{align}\\]\nこれで\\(P(A \\cap B^c)=P(A) \\cdot P(B^c)\\)が示せたので、\\(A\\)と\\(B\\)が独立なとき、\\(A\\)と\\(B^c\\)が独立であることを示せた。\n⑵\n\\(P(A \\cap B)=P(A) \\cdot P(B)\\)\n\\(P(B \\cap C)=P(B) \\cdot P(C)\\)\nこの２つから\\(P(A \\cap C)=P(A) \\cdot P(C)\\)を求めることができれば、独立が成り立つと言えそうだが、明らかに言えなそうなので反例を探していく。\n例えば、\\(P(B)=0\\)の時を考える。上２式は\\(B\\)の事象が \\(\\emptyset\\)より0の等式が成り立つ。\n\\(P(A \\cap C)=P(A) \\cdot P(C)\\)の式は上2式で定まらないので、単独で考えると、独立でない時もあるので成り立たない。\n⑶\n\n\n\n\n\n\nノート\n\n\n\n\\(A\\)と\\(B\\)が排反であるとは、\\(A\\cap B = \\emptyset\\)であるということ。\n\n\n\\[\nP(A \\cap B)=P(\\emptyset) =0\n\\]\nである。\\(P(A)\\)と\\(P(B)\\)は1/3と1/3とかもあり得るので、\\(P(A)\\cdot P(B)\\)は常に0ではない。\nよって、常に独立にはならない。\n⑷\n\\[\nP(A \\cap B)=P(A) \\ne P(A) \\cdot P(B)\n\\]\nよって常に独立にはならない。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-10",
     "href": "post/data_math_quest/index.html#問目-10",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "11問目",
     "text": "11問目\n\n問題\nベイズの定理により事前確率は事後確率の取り方に依存する。 例1.6のウイルス検査において、発熱という症状が出ている患者群を母集団として考えた場合、ウイルスに感染している確率が高くなるので事前確率は高くなる。 例えば、発熱している患者の半数が感染していて、半数が感染していないという設定では事前確率が\\(P(A_1)=0.5\\)、\\(P(A_2)=0.5\\)となる。 このとき陽性反応が出たという条件のもとで、感染している確率はどうなるか。\n\n\n解答\n感染している割合が0.1から0.5に上がった時（母集団を変えた時）にどうなるかということです。\n\\[\nP(A_1)=0.5\n\\]\n\\[\nP(A_2)=0.5\n\\]\n以下の条件は変わらない。\n\\[\\begin{align}\nP(B_1|A_1)=0.9\nP(B_2|A_1)=0.1\nP(B_1|A_2)=0.01\nP(B_1|A_2)=0.99\n\\end{align}\\]\n陽性反応が出たという条件のもとで、感染している確率\\(P(A_1|B_1)\\)を求める。\n\\[\\begin{align}\nP(A_1|B_1)&=\\frac{P(A_1 \\cap B_1)}{P(B_1)} \\\\\n&=\\frac{P(B_1|A_1)\\cdot P(A_1)}{P(B_1|A_1)\\cdot P(A_1)+P(B_1|A_2)\\cdot P(A_2)}\\\\\n&=\\frac{0.9 \\cdot 0.5}{0.9 \\cdot 0.5 + 0.01 \\cdot 0.5}\\\\\n&=\\frac{0.45}{0.455}\\\\\n&=0.989\n\\end{align}\\]\n確率結構上がりましたね。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-11",
     "href": "post/data_math_quest/index.html#問目-11",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "12問目",
     "text": "12問目\n\n問題\n正しいコインを２回投げる時、１回目に表が出る事象を\\(A\\)、２回目に表の出る事象を\\(B\\)、２回のうちに１回だけ表の出る事象を\\(C\\)とする。\n⑴\\(A,B,C\\)はペアワイズ独立であることを示せ。\n⑵\\(A,B,C\\)は互いに独立でないことを示せ。\n\n\n解答\n\n\n\n\n\n\nノート\n\n\n\n\\(A,B,C\\)はペアワイズ独立であるとは、\\(P(A\\cap B)=P(A) \\cdot P(B)\\)かつ\\(P(B\\cap C)=P(B) \\cdot P(C)\\)かつ\\(P(A\\cap C)=P(A) \\cdot P(C)\\)が成り立つこと。\n\n\n⑴\n正しいコインを投げる時表が出る事象を\\(H\\),裏が出る事象を\\(T\\)とする。\nすると２回投げる時,\\(\\{HH,HT,TH,TT\\}\\)の４パターンになる。\n\\[\\begin{align}\nA=\\{HH,HT\\} ,P(A)=1/2\\\\\nB=\\{HH,TH\\},P(B)=1/2 \\\\\nC=\\{HT,TH\\} ,P(C)=1/2\\\\\n\\end{align}\\]\n\\[\\begin{align}\nA \\cap B=\\{HH\\} ,P(A \\cap B)=1/4\\\\\nB \\cap C=\\{TH\\},P(A \\cap B)=1/4 \\\\\nA \\cap C=\\{HT\\} ,P(A \\cap B)=1/4\\\\\n\\end{align}\\]\n\\(P(A\\cap B)=P(A) \\cdot P(B)\\)かつ\\(P(B\\cap C)=P(B) \\cdot P(C)\\)かつ\\(P(A\\cap C)=P(A) \\cdot P(C)\\)が成り立つので、ペアワイズ独立である。\n⑵\n\n\n\n\n\n\nノート\n\n\n\n三つの事象が互いに独立であるとは、\n\\[\\begin{align}\nP(A\\cap B)=P(A) \\cdot P(B) \\\\\nP(B\\cap C)=P(B) \\cdot P(C)\\\\\nP(A\\cap C)=P(A) \\cdot P(C)\\\\\nP(A\\cap B \\cap C)=P(A)\\cdot P(B) \\cdot P(C)\\\\\n\\end{align}\\]\nすべてが成り立つことである。\n\n\n\\[\nA \\cap B \\cap C= \\emptyset,P(A \\cap B\\cap C)=0\n\\]\n\\(P(A)\\cdot P(B) \\cdot P(C)=1/8\\)より\\(P(A\\cap B \\cap C)=P(A)\\cdot P(B) \\cdot P(C)\\)が成り立たないため、\\(A,B,C\\)は互いに独立ではない。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-12",
     "href": "post/data_math_quest/index.html#問目-12",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "13問目",
     "text": "13問目\n\n問題\nモンティ・ホール問題を説明せよ。\n\n\n解答\n後でシミュレーションとか作って丁寧にやります。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問目-13",
     "href": "post/data_math_quest/index.html#問目-13",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "14問目",
     "text": "14問目\n\n問題\n２項係数の関係式を示し、これを用いて２項定理を証明せよ。 また、パスカルの３角形が成り立つことを証明せよ。\n\n\n解答\n一つ目は\n\\[\n\\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right)\n=\n\\left(\n\\begin{matrix}\nn-1 \\\\\nk-1\n\\end{matrix}\n\\right) +\n\\left(\n\\begin{matrix}\nn-1 \\\\\nk\n\\end{matrix}\n\\right)\n\\]\n\\[\\begin{align}\n\\left(\n\\begin{matrix}\nn-1 \\\\\nk-1\n\\end{matrix}\n\\right)\n+\\left(\n\\begin{matrix}\nn-1 \\\\\nk\n\\end{matrix}\n\\right) &=\\frac{(n-1)!}{(k-1)!(n-1-(k-1))!}+\\frac{(n-1)!}{k!(n-1-k)!} \\\\\n&= \\frac{(n-1)! \\cdot k}{(k)!(n-k)!}+\\frac{(n-1)! \\cdot (n-k)}{k!(n-k)!} \\\\\n&=\\frac{(n-1)! \\cdot (k+n-k)}{(k)!(n-k)!} \\\\\n&=\\frac{(n)!}{(k)!(n-k)!} \\\\\n&=\\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right)\n\n\n\\end{align}\\]\n二つ目は\n\\[\n(a+b)^n = \\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^k b^{n-k}\n\\tag{1}\\]\nこの二項定理が成り立つことを示せということです。\n感覚的に(a+b)がたくさんある中で\\(a^kb^{n-k}\\)の組み合わせは何個だからみたいな方法もわかりやすくていいと思うんですが、帰納法で示します。\n\\(n=1\\)のとき、\n\\[\na+b=\\sum_{k=0}^1 \\left(\n\\begin{matrix}\n1 \\\\\nk\n\\end{matrix}\n\\right) a^k b^{1-k}\n=\\left(\n\\begin{matrix}\n1 \\\\\n0\n\\end{matrix}\n\\right) a^0 b^{1}+\\left(\n\\begin{matrix}\n1 \\\\\n1\n\\end{matrix}\n\\right) a^1 b^{0}\n=a+b\n\\]\nよって\\(n=1\\)の時成り立つ。\n\\(n=k\\)のとき 式 2 が成り立つと仮定する。\n\\(n=k+1\\)のとき\n\\[\\begin{align}\n(a+b)^{k+1} &= (a+b)\\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^k b^{n-k}\\\\\n&=  \\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k+1} b^{n-k}\n+\\sum_{k=0}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n\\\\\n\n\n\n&=a^{n+1} +\\sum_{k=0}^{n-1} \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k+1} b^{n-k}\n+\\sum_{k=1}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n\n\n&=a^{n+1} +\\sum_{k=1}^{n} \\left(\n\\begin{matrix}\nn \\\\\nk-1\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n+\\sum_{k=1}^n \\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right) a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n\n\n&=a^{n+1} +\\sum_{k=1}^{n} (\\left(\n\\begin{matrix}\nn \\\\\nk-1\n\\end{matrix}\n\\right)+\\left(\n\\begin{matrix}\nn \\\\\nk\n\\end{matrix}\n\\right)) a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n&=a^{n+1} +\\sum_{k=1}^{n} \\left(\n\\begin{matrix}\nn+1 \\\\\nk\n\\end{matrix}\n\\right)a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n&=\\sum_{k=1}^{n+1} \\left(\n\\begin{matrix}\nn+1 \\\\\nk\n\\end{matrix}\n\\right)a^{k} b^{n-k+1}\n+b^{n+1}\n\n\\\\\n\n&=\\sum_{k=0}^{n+1} \\left(\n\\begin{matrix}\nn+1 \\\\\nk\n\\end{matrix}\n\\right)a^{k} b^{n-k+1}\n\\end{align}\\]\n\\(n=k+1\\)の時 式 2 が成り立つので、二項定理が示された。\n三つ目\nパスカルの三角形が成り立つことを証明せよ。\n問題の意味がわからなかったのですが、おそらく「パスカルの三角形が二項定理の係数に相当することを示せ」ということだと解釈しました。\n\n\\(n\\)列目の\\(k\\)行目の数を\\({}_n C_k\\)とすると、\\({}_n C_k={}_{n-1}+ C_{k-1}{}_{n-1} C_{k}\\)が成り立つことを示せという問題なんですかね。\nこれは一つ目で示したものと同じになります。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題-13",
     "href": "post/data_math_quest/index.html#問題-13",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題",
     "text": "問題\n二項分布\\(Bin(n,p)\\)の確率関数を\\(p_k=P(X=k)\\),\\(k=0, \\ldots, n\\)とする。\n⑴\\(p_k\\)を\\(p_{k-1}\\)を用いて表せ。\\(\\{p_0,\\ldots,p_n\\}\\)の中で最大を与える\\(k\\)を求めよ\n⑵\\(p=1/2\\)のとき、\\(n=10,k=9\\)の時の確率と\\(n=20,k=18\\)の時の確率ではどちらが大きいか。"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-13",
     "href": "post/data_math_quest/index.html#解答-13",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n\n\n\n\n\n\nNote 1\n\n\n\n確率変数\\(X\\)が二項分布\\(Bin(n,p)\\)に従う時、\\(X=k\\)となる確率は\\(q=1-p\\)に対して次のようになる。\n\\[\np(k)=\\binom{n}{k}p^k q^{n-k}\n\\]\n\n\n\n⑴\n\\(p_k=\\binom{n}{k}p^k q^{n-k}\\)と\\(p_{k-1}=\\binom{n}{k-1}p^{k-1} q^{n-(k-1)}\\)の関係を示したいです。\nカッコのままだとわかりにくかったので、階乗に直します。\n\\(p_k=\\frac{n!}{k!(n-k)!} p^k q^{n-k}\\) を　\\(p_{k-1}=\\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\\)の関係を示す問題です。\n式変形していきます。\n\\[\\begin{align}\np_{k}\n&=\n\\binom{n}{k}p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!}{k!(n-k)!} p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!(n-(k-1))}{k(k-1)! \\cdot (n-(k-1))!} p^k q^{n-k}\n\\\\\n\n&=\n\\frac{n!(n-(k-1))}{k(k-1)! \\cdot (n-(k-1))!} p^{k-1} q^{n-(k-1)} \\frac{p}{q}\n\\\\\n\n&=\n\\frac{n!}{(k-1)!(n-(k-1))!} p^{k-1} q^{n-(k-1)}\\frac{p(n-(k-1))}{kq}\n\\\\\n&=\n\\frac{p(n-(k-1))}{kq} p_{k-1}\n\\\\\n&=\n\\frac{p(n-(k-1))}{k(1-p)} p_{k-1}\n\n\\end{align}\\]\nきれいに治すと、 \\[\np_k=\\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1}\n\\tag{2}\\]\nとなります。\n\\(\\{p_0,\\ldots,p_n\\}\\)の中で最大を与える\\(k\\)を求める問題です。\\(p_k \\ge p_{k-1}\\)かつ\\(p_k \\ge p_{k+1}\\)となるような\\(k\\)の確率が最大となります。式 2 が誘導になってることがわかりますね。\n\\[\np_k = \\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1} \\ge p_{k-1}\n\\]\nかつ\n\\[\np_{k+1} = \\frac{p}{1-p} \\frac{n-k}{k+1} p_{k} \\le p_{k}\n\\]\nが成り立つことである。\n1つ目の式は確率は0以上であるため、下のように変形できる。\n\\[\\begin{align}\np_k = \\frac{p}{1-p} \\frac{n-(k-1)}{k} p_{k-1} &\\ge p_{k-1}　 \\\\\n\\Longleftrightarrow p(n-k+1) &\\ge (1-p)k \\\\\n\\Longleftrightarrow p(n+1) \\ge k\n\\end{align}\\]\n2つ目の式も同様に変形できる。\n\n\\[\\begin{align}\np_{k+1} = \\frac{p}{1-p} \\frac{n-k}{k+1} p_{k} &\\le p_{k} \\\\\n\\Longleftrightarrow p(n-k) &\\le (1-p)(k+1) \\\\\n\\Longleftrightarrow pn \\le k-p+1 \\\\\n\\Longleftrightarrow p(n+1) \\le k+1\n\\end{align}\\]\nよって\\(k\\)について以下の不等式を解くと確率が最大になる時の\\(k\\)がもとまる。\n\\[\np(n+1)-1 \\le k \\le p(n+1)\n\\]\nこれを満たす整数\\(k\\)は\\(p(n+1)\\)が整数かどうかで変わる。\n\\(p(n+1)\\)が整数のとき、\\(k=p(n+1),p(n+1)-1\\)である。\n\\(p(n+1)\\)が整数ではないとき、\\(k=[p(n+1)]\\)となる。\n\n\n\n\\(p(n+1)\\)が整数の時のグラフ！\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import binom\nimport japanize_matplotlib\n\n# 複数のn, p値を定義\nparams = [(9, 0.2), (9, 0.5), (19, 0.7), (19, 0.5), (19, 0.7)]\n\n# x の範囲を定義\nx = np.arange(0, 21)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor n, p in params:\n    pmf = binom.pmf(x, n, p)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('nとpを変動させた二項分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('binom_distribution.png')\nplt.show()\n\n\n\n\n\n\n\n\n\n\\(p(n+1)\\)が整数の時のグラフ！\n\n\nコード\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import binom\nimport japanize_matplotlib\n\n# 複数のn, p値を定義\nparams = [(10, 0.2), (10, 0.5), (10, 0.7), (20, 0.5), (20, 0.7)]\n\n# x の範囲を定義\nx = np.arange(0, 21)\n\n# グラフのプロット\nplt.figure(figsize=(10, 6))\n\nfor n, p in params:\n    pmf = binom.pmf(x, n, p)\n    plt.plot(x, pmf, marker='o', linestyle='-', label=f'n = {n}, p = {p}')\n\n# x軸の目盛りを整数に設定\nplt.xticks(np.arange(0, 21, 1))\n\nplt.xlabel('x')\nplt.ylabel('確率')\nplt.title('nとpを変動させた二項分布')\nplt.legend()\nplt.grid(True)\nplt.savefig('binom_distribution.png')\nplt.show()\n\n\n\n\n\n\n\n\n\nグラフで見てみるとわかりやすいですね！\n\n\n⑵\n\\(n=10,k=9\\)のとき Note 2　より\n\\[\np_9=\\binom{10}{9} (\\frac{1}{2})^{10}\n\\]\n\\[\np_{18}=\\binom{20}{18} (\\frac{1}{2})^{20}\n\\]\n\\[\n\\binom{10}{9}={}_{10} C_9={}_{10} C_1=10,  \n\\binom{20}{18}={}_{20} C_{18}={}_{20} C_2=190\n\\]\nよって　\\(p_9=\\binom{10}{9} (\\frac{1}{2})^{10} &gt; p_{18}=\\binom{20}{18} (\\frac{1}{2})^{20}\\)\n\\(p_{9}\\)の方が確率は大きい。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題-14",
     "href": "post/data_math_quest/index.html#問題-14",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題",
     "text": "問題\nポアソン分布\\(Po(\\lambda)\\)の確率関数を\\(p_k=P(X=k)\\),\\(k=0, \\ldots,\\)とする。\n⑴\\(p_k\\)を\\(p_{k-1}\\)を用いて表せ。\\(\\{p_0,\\ldots,\\}\\)の中で最大を与える\\(k\\)を求めよ\n⑵少なくとも１回以上起こる確率が90%以上になる\\(\\lambda\\)の条件を求めよ"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-14",
     "href": "post/data_math_quest/index.html#解答-14",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n\n⑴\n問１と同じですね。\n\n\n\n\n\n\nNote 2\n\n\n\n確率変数\\(X\\)ポアソン分布\\(Po(\\lambda)\\)に従う時、\\(X=k\\)となる確率は下のようになる。\nここに詳しく書いてある。\n\\[\np(k) = P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}, k = 0,1,2,3, \\ldots\n\\]\n\n\n\\(p_k= \\frac{\\lambda^k}{k!}e^{-\\lambda}\\) を、\\(p_{k-1}= \\frac{\\lambda^{k-1}}{(k-1)!}e^{-\\lambda}\\) を用いて表す。\n\\[\np(k) = \\frac{\\lambda^k}{k!}e^{-\\lambda} = \\frac{\\lambda \\lambda^{k-1} }{k(k-1)!}e^{-\\lambda} =\\frac{\\lambda}{k}p_{k-1}\n\\]\n\\(p_k \\ge p_{k-1}\\)かつ\\(p_k \\ge p_{k+1}\\)となるような\\(k\\)の確率が最大となります。\n\\[\np_k = \\frac{\\lambda}{k}p_{k-1} \\ge p_{k-1} \\Longleftrightarrow \\lambda \\ge k\n\\]\n\\[\np_{k+1} = \\frac{\\lambda}{k+1}p_{k} \\le p_{k} \\Longleftrightarrow \\lambda \\le k+1\n\\]\nよって\\(\\lambda-1 \\le k \\le \\lambda\\) となります。\n\\(\\lambda\\)が整数の時、\\(k=\\lambda-1,\\lambda\\)。\n\\(\\lambda\\)が整数ではない時、\\(k=[\\lambda]\\)となります。\n\n\n⑵\n少なくとも１回以上起こる確率は\n\\[\nP(X \\le 1)=1-P(X=0)=1-\\frac{\\lambda^0}{0!}e^{-\\lambda}=1-e^{-\\lambda} \\ge 0.9\n\\]\n\\[\ne^{-\\lambda} \\le 0.1\n\\]\n両辺\\(e\\)を底数とする対数を取ると、 \\[\n-\\lambda \\le \\log 0.1 = - \\log 10\n\\]\n\\[\n\\lambda \\ge \\log 10\n\\]"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題-15",
     "href": "post/data_math_quest/index.html#問題-15",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題",
     "text": "問題\n３個の正しいコインを同時に投げ、３枚とも表か３枚とも裏が出るまで投げ続ける実験を行い、投げ続けた回数を\\(X+1\\)で表すことにする。このとき、\\(X\\)の確率分布を求めよ。また\\(P(X \\le k) \\ge 0.9\\)を満たす最小の\\(k\\)を求めよ。"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-15",
     "href": "post/data_math_quest/index.html#解答-15",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n求めているものが出るまでやり続ける回数は幾何分布に従う。\n注意する点として失敗する回数が幾何分布に従うことである。なのでこの問題で成功した時を\\(X+1\\)としているのは、\\(X\\)が幾何分布に従うことを意味する。\n\n\n\n\n\n\n\n\n\nNote 3: 幾何分布(\\(Geo(p)\\))\n\n\n\n確率変数\\(X\\)が幾何分布に従う時、\\(p\\)を成功確率、\\(k\\)を失敗確率として、\\(k\\)回失敗した時の$Xの確率関数は\n\\[\np(k)=q^k p, k=0,1,2 \\ldots\n\\]\n\n\n成功確率\\(p=(1/2)^3 \\times 2 = 1/4\\),\\(q=3/4\\)\nよって確率変数\\(X\\)は\\(Geo(3/4)\\)の幾何分布に従う。←確率分布を求めよの答えかなあ\n\\(X\\)の確率関数は\n\\[\np(k)=(3/4)^k (1/4)\n\\]\nとなる。\n累積分布関数が0.9を越す最小の\\(k\\)を求めます。\n\\[\nF(k)=P(X \\le k) = \\sum_{x=0}^k p(x) = \\sum_{x=0}^k (3/4)^x (1/4)=1/4+\\sum_{x=1}^k (3/4)^{x-1} (3/4)(1/4)=1/4+\\frac{3/16(1-(3/4)^{k})}{1-3/4}=1-(3/4)^{k+1} \\ge 0.9\n\\]\n\\[\n1-(3/4)^{k+1} \\ge 0.9\n\\]\n\\[\n(k+1) \\log (3/4) \\le - \\log 10\n\\]\n\\[\nk \\le -1 -  \\frac{\\log 10}{\\log (3/4)}\n\\]\nである。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題-16",
     "href": "post/data_math_quest/index.html#問題-16",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題",
     "text": "問題\n\\(U\\)を一様分布\\(U(0,1)\\)に従う確率変数とし、自然数\\(n\\)に対して\\(X=[nU]\\)とおく。\\(X\\)の確率分布を与えよ。"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-16",
     "href": "post/data_math_quest/index.html#解答-16",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n\\([nU]=k\\)とすると\\(k \\le nU &lt; k+1\\)となる。\n\\[\n\\frac{k}{n} \\le U &lt; \\frac{k+1}{n}\n\\]\n\\[\nP(X=k) = P(k \\le nU &lt; k+1) = P(\\frac{k}{n} \\le U &lt; \\frac{k+1}{n} ) = \\frac{1}{n}\n\\]"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要",
     "href": "post/data_math_quest/index.html#問題概要",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(Y \\sim Ex(\\lambda)\\) のとき、\\(X=[Y]\\) とおく。\\(X\\) はどういう確率分布に従うか。"
   },
   {
     "objectID": "post/data_math_quest/index.html#回答",
     "href": "post/data_math_quest/index.html#回答",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "回答",
     "text": "回答\nといてない"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-1",
     "href": "post/data_math_quest/index.html#問題概要-1",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(X \\sim N(\\mu, \\sigma^2)\\)\n⑴ \\(P(\\mu - c \\leq X \\leq \\mu + c)=0.95\\) となる\\(c\\)\n⑵ \\(P(\\mu - 2\\sigma \\leq X \\leq \\mu + \\sigma)\\) の確率。\\(P(X \\leq d)=0.05\\) となる\\(d\\)。\n⑶ \\(Y=aX+b\\), \\(Y\\) の確率分布は？"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-17",
     "href": "post/data_math_quest/index.html#解答-17",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n⑴\n\\(X\\) を標準化した確率変数 \\(Z=\\frac{X-\\mu}{\\sigma}\\) を使い、標準正規分布表を用いて考える。\n\\(Z \\sim N(0,1)\\) であり、\\(P(-1.96 \\leq Z \\leq 1.96) = 0.95\\) である。\n\\[\n\\begin{aligned}\nP(\\mu - c \\leq X \\leq \\mu + c)\n&= P(\\frac{\\mu - c-\\mu}{\\sigma} \\leq \\frac{X-\\mu}{\\sigma} \\leq \\frac{\\mu + c-\\mu}{\\sigma}) \\\\\n&=P(\\frac{ - c}{\\sigma} \\leq \\frac{X-\\mu}{\\sigma} \\leq \\frac{c}{\\sigma}) \\\\\n&= P(-1.96 \\leq Z \\leq 1.96) \\\\\n\\end{aligned}\n\\]\nよって \\(\\frac{c}{\\sigma}=1.96\\) であり、\\(c=1.96\\sigma\\)\n⑵\n同じく標準化して考える。\n\\[\n\\begin{aligned}\nP(\\mu - 2\\sigma \\leq X \\leq \\mu + \\sigma)\n&= P( \\frac{\\mu - 2\\sigma -\\mu}{ \\sigma} \\leq \\frac{X-\\mu}{\\sigma} \\leq \\frac{\\mu + \\sigma -\\mu}{ \\sigma}) \\\\\n&= P(-2 \\leq Z \\leq 1) \\\\\n&= \\Phi(1) - \\Phi(-2) \\\\\n&= 1 - 0.1587 - 0.0228 \\\\\n&= 0.82\n\\end{aligned}\n\\]\n二つ目の問題も同じ解き方である。\n\\[\n\\begin{aligned}\nP(X \\leq d)=P(\\frac{X - \\mu}{\\sigma} \\leq \\frac{d - \\mu}{\\sigma})\n=P(Z \\leq \\frac{d - \\mu}{\\sigma})\n\\end{aligned}\n\\]\n標準正規分布表で累積確率が0.05となる値は-1.64である。\n\\(\\frac{d - \\mu}{\\sigma} = -1.64\\) より \\(d = \\mu - 1.64 \\sigma\\)\n⑶\n(命題) \\(X \\sim N(\\mu,\\sigma)\\) を\\(Y=aX+b\\)という変換をすると、 \\(N(a \\mu + b, a^2 \\sigma^2)\\) 。\n一応１から書く！\n変数変換の公式から, \\(X\\) の確率関数を\\(f_X(x)\\)とすると、\\(Y=aX+b\\)の確率関数は\n\\[\nf_Y(y)=\\frac{1}{|a|} f_X(\\frac{y-b}{a})\n\\]\nである。\nよって、\n\\[\n\\begin{aligned}\nf_Y(y) &= \\frac{1}{|a|} f_X(\\frac{y-b}{a}) \\\\\n&=  \\frac{1}{\\sqrt{2 \\pi \\sigma^2}|a|} \\exp\\left\\{ - \\frac{(\\frac{y-b}{a} - \\mu)^2}{2 \\sigma^2}\\right\\} \\\\\n&= \\frac{1}{\\sqrt{2 \\pi \\sigma^2}|a|} \\exp\\left\\{ - \\frac{(y-b - a\\mu)^2}{2 a^2\\sigma^2}\\right\\} \\\\\n\\end{aligned}\n\\]\nとなる。この確率密度関数は\\(E[Y]= a \\mu + b\\),\\(Var(Y)= a^2 \\sigma^2\\) の正規分布に従う確率密度関数と一致するため、\\(Y \\sim N(a \\mu + b ,a^2 \\sigma^2)\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-2",
     "href": "post/data_math_quest/index.html#問題概要-2",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(X \\sim Geo(\\frac{\\theta}{n})\\), \\(\\lim_{n \\to \\infty}P(X \\leq n)\\) を求める問題"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-18",
     "href": "post/data_math_quest/index.html#解答-18",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n幾何分布の確率関数は、\\(p(x)= \\frac{\\theta}{n} (1 - \\frac{\\theta}{n})^x\\)\n\\[\n\\begin{aligned}\nP(X \\leq n) &= \\sum_{x=0}^n \\frac{\\theta}{n} (1 - \\frac{\\theta}{n})^x \\\\\n&= \\frac{\\theta}{n} \\frac{1-(1 - \\frac{\\theta}{n})^{n+1}}{1-(1 - \\frac{\\theta}{n})} \\\\\n&= 1-(1 - \\frac{\\theta}{n})^{n+1}\n\\end{aligned}\n\\]\nである。これの極限を求める。\n\\[\n\\begin{aligned}\n\\lim_{n \\to \\infty}P(X \\leq n) = \\lim_{n \\to \\infty}1-(1 - \\frac{\\theta}{n})^{n+1}\n= 1 - e^{-\\theta}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-3",
     "href": "post/data_math_quest/index.html#問題概要-3",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(X,Y\\)が確率変数で、1~4を２回やるときの和と差に対応。\n\n小問1\n\\(f(4,0), f(5,3)\\) を求める。\n\n\n小問2\n\\(f_X(6),f_Y(2)\\) を求める。\n\n\n小問3\n\\(f_{Y|X}(2|4),f_{X|Y}(5|1)\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-19",
     "href": "post/data_math_quest/index.html#解答-19",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n⑴\n期待値の定義から求める。\n\\[\n\\begin{aligned}\nE[\\frac{1}{X+1}] &= \\sum_{x=0}^\\infty \\frac{1}{x+1} \\frac{\\lambda^x}{x!} e^{-\\lambda} \\\\\n&= \\sum_{x=0}^\\infty  \\frac{\\lambda^{x+1}}{(x+1)!} e^{-\\lambda} \\times \\frac{1}{\\lambda} \\\\\n&= \\sum_{x'=1}^\\infty  \\frac{\\lambda^{x'}}{x'!} e^{-\\lambda} \\times \\frac{1}{\\lambda} \\\\\n&= \\frac{1}{\\lambda}(e^{\\lambda}-1)e^{\\lambda} \\\\\n&= \\frac{1}{\\lambda} (1-e^{-\\lambda})\n\\end{aligned}\n\\]\n\\(1-e^{-\\lambda}\\) の補足。\n\\[\n\\begin{aligned}\ne^\\lambda = 1 + \\lambda + \\frac{\\lambda^2}{2!}+ \\frac{\\lambda^3}{3!} + \\dots = \\sum_{x=0}^{\\infty} \\frac{\\lambda^x}{x!}\n\\end{aligned}\n\\]\nを用いて、\\(\\sum_{x'=1}^\\infty  \\frac{\\lambda^{x'}}{x'!}\\) を求めたい。これは\\(\\sum_{x=0}^{\\infty} \\frac{\\lambda^x}{x!}\\) から\\(x=0\\) の時を引けば良い。\\(x=0\\) のときは1であり, \\(\\sum_{x'=1}^\\infty  \\frac{\\lambda^{x'}}{x'!} = e^{\\lambda}-1\\)　であり、\\(\\sum_{x'=1}^\\infty  \\frac{\\lambda^{x'}}{x'!}e^{-\\lambda} = (e^{\\lambda}-1)e^{\\lambda} = 1-e^{-\\lambda}\\)\nになるってことだと思ってる。\n⑵\n階乗を利用して同じようにときたいので、\\(E[\\frac{1}{(X+2)(X+1)}]\\) をまず求める。⑴で求めた\\(E[\\frac{1}{X+1}]\\) と合わせて計算すると求めれるはず。\n\\[\n\\begin{aligned}\nE[\\frac{1}{(X+2)(X+1)}] &= \\sum_{x=0}^\\infty \\frac{1}{(x+1)(x+1)} \\frac{\\lambda^x}{x!} e^{-\\lambda} \\\\\n&= \\sum_{x=0}^\\infty  \\frac{\\lambda^{x+2}}{(x+2)!} e^{-\\lambda} \\times \\frac{1}{\\lambda^2} \\\\\n&= \\sum_{x'=2}^\\infty  \\frac{\\lambda^{x'}}{x'!} e^{-\\lambda} \\times \\frac{1}{\\lambda^2} \\\\\n&= \\frac{1}{\\lambda^2} (e^\\lambda -1 - \\lambda) e^{-\\lambda} \\\\\n&= \\frac{1}{\\lambda^2} (1- e^{-\\lambda} - \\lambda e^{-\\lambda} )\n\\end{aligned}\n\\]\n\\(e^\\lambda -1 - \\lambda\\) の補足。\n⑴と同じで、x=0,1の時の1と\\(\\lambda\\) を引いてる。\n\\[\n\\begin{aligned}\nE[\\frac{1}{X+2}] &= E[\\frac{X+1}{(X+2)(X+1)}] \\\\\n&=E[\\frac{X+2-1}{(X+2)(X+1)}] \\\\\n&=E[\\frac{1}{X+1}]-E[\\frac{1}{(X+2)(X+1)}]\\\\\n&= \\frac{1}{\\lambda} (1-e^{-\\lambda}) -\\frac{1}{\\lambda^2} (1- e^{-\\lambda} - \\lambda e^{-\\lambda} ) \\\\\n&= \\frac{1}{\\lambda^2} (-1 + \\lambda + e^{-\\lambda})\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-4",
     "href": "post/data_math_quest/index.html#問題概要-4",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n多項分布について。\n\n小問1\n多項分布の周辺分布は二項分布か、周辺分布の和の分布はどうなるか。\n\n\n小問2\n\\(X_1\\) を与えた時の、\\(X_2\\)の条件付き確率。\n\n\n小問3\n\\(X_1+X_2\\) を与えた時の\\(X_2\\) の条件付き確率。"
   },
   {
     "objectID": "post/data_math_quest/index.html#回答-1",
     "href": "post/data_math_quest/index.html#回答-1",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "回答",
     "text": "回答\n\n小問1\n\\[\nf(4,0)=P(X=4,Y=0) = \\frac{1}{16}\n\\]\n\\[\nf(5,3)=P(X=5,Y=3) = \\frac{2}{16} = \\frac{1}{8}\n\\]\n\n\n小問2\n\\[\nf_X(6)= f(6,0)+f(6,1)+f(6,2)+f(6,3)= \\frac{1}{16} + 0 + \\frac{2}{16} + 0 =\\frac{3}{16}\n\\]\n\\[\nf_Y(2)= f(2,2)+f(3,2)+f(4,2)+f(5,2)+f(6,2)+f(7,2)+f(8,2)= 0+ 0+ \\frac{2}{16}+0+\\frac{2}{16}+0+0=\\frac{1}{4}\n\\]\n\n\n小問3\n\\[\nf_{Y|X}(2|4)=\\frac{f(4,2)}{f_X(4)}=\\frac{f(4,2)}{f(4,0)+f(4,1)+f(4,2)+f(4,3)} =\\frac{2/16}{1/16+2/16}=\\frac{2}{3}\n\\]\n\\[\nf_{X|Y}(5|1) = \\frac{f(5,1)}{f_Y(1)}= \\frac{f(5,1)}{f(2,1)+f(3,1)+f(4,1)+f(5,1)+f(6,1)+f(7,1)+f(8,1)} = \\frac{2/16}{2/16+2/16+2/16}= \\frac{1}{3}\n\\]"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-5",
     "href": "post/data_math_quest/index.html#問題概要-5",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(X,Y\\) がそれぞれポアソン分布に従う。\n\n小問1\n\\(Z=X+Y\\) の分布を求めよ。\n\n\n小問2\n\\(X+Y=n\\)に固定した時、\\(X\\) の条件付き分布を求める。"
   },
   {
     "objectID": "post/data_math_quest/index.html#回答-2",
     "href": "post/data_math_quest/index.html#回答-2",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "回答",
     "text": "回答\n\n小問1\n多項分布は多次元の確率変数で、\\(1\\)から\\(m\\) の番号が書かれた多面体を\\(n\\) 回投げる時に、それぞれの面が出る確率を\\(p_1,p_2,\\dots,p_m=1\\) とし、\\(X_1+X_2+ \\dots + X_m=n\\) である分布。\n\\(X_i\\) の周辺分布は\\(i\\)　番目が出るか出ないかであり、\\(Bin(n,p_i)\\)となるし、\\(X_i+X_j\\) の周辺分布は\\(i\\)番目もしくは\\(j\\)　番目が出るか出ないかなので\\(Bin(n,p_i+p_j)\\) である。\nサイコロで考えてみるとわかりやすいかも。\n\n\n小問2\n求めたいのは\\(\\frac{P(X_1=x_1,X_2=x_2)}{P(X_1=x_1)}\\) である。それぞれ、\n\\[\nP(X=x_1)= \\frac{n!}{x_1!(n-x_1)!} p_1^{x_1}(1-p_1)^{n-x_1}\n\\]\n\\[\nP(X_1=x_1,X_2=x_2)= \\frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_2}\n\\]\nよって\n\\[\n\\begin{aligned}\n\\frac{P(X_1=x_1,X_2=x_2)}{P(X_1=x_1)}\n=\\frac{\\frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_2}}{\\frac{n!}{x_1!(n-x_1)!} p_1^{x_1}(1-p_1)^{n-x_1}} \\\\\n= \\frac{(n-x_1)!}{x_2!(n-x_1-x_2)!} (\\frac{p_2}{1-p_1})^{x_2} (\\frac{1-p_1-p_2}{1-p_1})^{n-x_1-x_2}\n\\end{aligned}\n\\]\nこれによって条件付き確率は二項分布\\(Bin(n-x_1,\\frac{p_2}{1-p_1})\\) に従う。\n直感的にも、例えばサイコロを１０回投げるとして1の目が２回出たことを知っていたら、2の目が出る確率は試行回数が8回で2~6の1/5の確率で出る二項分布というのはしっくりきます。\n\n\n小問3\n求めたいのは\\(\\frac{P(X_2=x_2)}{P(X_1+X_2=z)}=\\frac{P(X_2=x_2)}{P(X_1+X_2=x_1+x_2)}\\) である。\n(変数\\(x_2\\)が与えられれば\\(x_1\\)は自ずと決まるので、\\(x_1\\)を使う。)\nそれぞれ\n\\[\nP(X_1+X_2=x_1+x_2)=\\frac{n!}{(x_1+x_2)!(n-x_1-x_2)!}(p_1+p_2)^{x_1+x_2}(1-p_1-p_2)^{n-x_1-x_2}\n\\]\n\\[\nP(X_2=x_2,X_1+X_2=x_1+x_2)=P(X_1=x_1,X_2=x_2)= \\frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_2}\n\\]\n\\[\n\\begin{aligned}\n\\frac{P(X_2=x_2)}{P(X_1+X_2=x_1+x_2)}=\\frac{\\frac{n!}{x_1!x_2!(n-x_1-x_2)!}p_1^{x_1} p_2^{x_2}(1-p_1-p_2)^{n-x_1-x_2}}{\\frac{n!}{(x_1+x_2)!(n-x_1-x_2)!}(p_1+p_2)^{x_1+x_2}(1-p_1-p_2)^{n-x_1-x_2}} \\\\\n=\\frac{(x_1+x_2)!}{x_1!x_2!} (\\frac{p_2}{p_1+p_2})^{x_2}(\\frac{p_1}{p_1+p_2})^{x_1}\n\\end{aligned}\n\\]\nよって条件付き分布は二項分布\\(Bin(z,\\frac{p_2}{p_1+p_2})\\) に従う。\nこれもサイコロで例えると、１の目が出た回数と2の目が出た回数が合計4回だと知っているとき、2の目が出る確率は試行回数4回で1/2の二項分布の確率になりそうですよね。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-6",
     "href": "post/data_math_quest/index.html#問題概要-6",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(f(x,y)=xe^{-x(y+1)} I(x &gt; 0,y&gt;0)\\) の周辺確率、条件確率、\\(P(XY &gt; 1)\\) を計算。"
   },
   {
     "objectID": "post/data_math_quest/index.html#回答-3",
     "href": "post/data_math_quest/index.html#回答-3",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "回答",
     "text": "回答\n\n小問1\n再生性からと言いたいところですが、誘導に乗ってみます。（離散確率の変数変換の方法ってどこかに載ってたかな）\n\\(X=x\\) という実現値を取る時、\\(Y\\) は自ずと\\(n-x\\) という実現時をとる。\\(X\\) と\\(Y\\) は独立であり、同時確率は積であらわすことができるため、\n\\[\nP(X+Y=n) = \\sum_{x=0}^n P(X=x)P(Y=n-x)\n\\]\nと表せる。これを計算すると\n\\[\n\\begin{aligned}\n\\sum_{x=0}^n P(X=x)P(Y=n-x) &= \\sum_{x=0}^n\\frac{\\lambda_1^x}{x!}e^{-\\lambda_1}\\frac{\\lambda_2^{n-x}}{(n-x)!}e^{-\\lambda_2} \\\\\n&=\\frac{(\\lambda_1+\\lambda_2)^n}{n!} e^{-(\\lambda_1+\\lambda_2)} \\sum_{x=0}^n\\frac{n!}{x!(n-x)!} \\left(\\frac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)^x \\left(\\frac{\\lambda_2}{\\lambda_1+\\lambda_2}\\right)^{n-x} \\\\\n&=\\frac{(\\lambda_1+\\lambda_2)^n}{n!} e^{-(\\lambda_1+\\lambda_2)}\n\\end{aligned}\n\\]\n\\(\\displaystyle \\sum_{x=0}^n\\frac{n!}{x!(n-x)!} \\left(\\frac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)^x \\left(\\frac{\\lambda_2}{\\lambda_1+\\lambda_2}\\right)^{n-x}\\) は嬉しいことに、二項分布\\(\\displaystyle Bin(n,\\frac{\\lambda_1}{\\lambda_1+\\lambda_2})\\) に従う分布の全確率？（用語があっているかわからない）なので1になります。\n\\(X+Y=n\\) という確率変数が従う分布は\\(Po(\\lambda_1+\\lambda_2)\\) になります。\n例えば\\(X \\sim Po(2)\\),\\(Y \\sim Po(3)\\) なら\\(X+Y \\sim Po(5)\\) になるみたいなことですね。\n\n\n小問2\n求めたいのは\\(\\displaystyle \\frac{P(X+Y=n,X=x)}{P(X+Y=n)}\\) である。\nまた\\(P(X+Y=n,X=x)=P(X=x,Y=n-x)\\) とも表せれるので、\n\\[\n\\begin{aligned}\n  \\frac{P(X=x,Y=n-x)}{P(X+Y=n)} &=\\frac{\\frac{\\lambda_1^x}{x!}e^{-\\lambda_1}\\frac{\\lambda_2^{n-x}}{(n-x)!}e^{-\\lambda_2}}{\\frac{(\\lambda_1+\\lambda_2)^n}{n!} e^{-(\\lambda_1+\\lambda_2)}} \\\\\n  &=\\frac{n!}{x!(n-x)!} \\left(\\frac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)^x \\left(\\frac{\\lambda_2}{\\lambda_1+\\lambda_2}\\right)^{n-x}\n\\end{aligned}\n\\]\n綺麗に二項分布\\(\\displaystyle Bin(n,\\frac{\\lambda_1}{\\lambda_1+\\lambda_2})\\)に従います！\nちなみに統計検定準１級の勉強でも出てきました。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-7",
     "href": "post/data_math_quest/index.html#問題概要-7",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n\\(X \\sim Po(\\lambda)\\)\n⑴ \\(E[\\frac{1}{X+1}]\\)\n⑵ \\(E[\\frac{1}{X+2}]\\)"
   },
   {
     "objectID": "post/data_math_quest/index.html#回答-4",
     "href": "post/data_math_quest/index.html#回答-4",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "回答",
     "text": "回答\n\\[\n\\begin{aligned}\n  f_X(x)\n  &= \\int^{\\infty}_{0} xe^{-x(y+1)} dy \\\\\n  &= xe^{-x} \\int^{\\infty}_{0} e^{-xy} dy \\\\\n  &= xe^{-x} \\left[-\\frac{1}{x}e^{-xy}\\right]^{\\infty}_{y=0} \\\\\n  &= e^{-x}\n\\end{aligned}\n\\]\n\\[\n\\begin{aligned}\n  f_Y(y)\n  &= \\int^{\\infty}_{0} xe^{-x(y+1)} dx \\\\\n  &= \\frac{1}{(y+1)^2} \\int^{\\infty}_{0} \\frac{1}{\\Gamma(2) (y+1)^{-2}} xe^{-x(y+1)} dx \\\\\n  &= \\frac{1}{(y+1)^2}\n\\end{aligned}\n\\]\n\\(xe^{-x}\\) みたいな形を見つけたら、ガンマ関数の式に持っていくのがよくある計算だと感じてきた。\n\\(xe^{-x(y+1)}\\)から\\(\\alpha=2,\\beta=(y+1)^{-1}\\) にしたら都合がよさそうなことから、この変形をしている。\n\\[\n\\begin{aligned}\nf_{X|Y}(x|y)\n&= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{xe^{-x(y+1)} }{(y+1)^{-2} } \\\\\n&= \\frac{1}{\\Gamma(2)(y+1)^2} x^{2-1} e^{-(y+1)x}\n\\end{aligned}\n\\]\n３つ目の等式はガンマ分布に落ち着きそうな気配を察して、\\(\\Gamma(2)=1\\)を入れている。\nよって\n\\[\nX|Y=y \\sim Ga(2,(y+1)^{-1})\n\\]\nとなる。\n\\[\n\\begin{aligned}\nf_{Y|X}(y|x)\n&= \\frac{f(x,y)}{f_X(x)} \\\\\n&= \\frac{xe^{-x(y+1)} }{e^{-x}} \\\\\n&= xe^{-xy}\n\\end{aligned}\n\\]\n一瞬見慣れないと思いきや、\\(y\\) の関数で\\(x\\)はすでに与えられているパラメーターです。すると指数分布\\(Ex(x)\\)に従うことがわかります。\n\\[\n\\begin{aligned}\n  P(XY&gt;1) &= \\int^{\\infty}_{0} \\int^{\\infty}_{\\frac{1}{x}} xe^{-x(y+1)} dy dx \\\\\n  &= \\int^{\\infty}_{0} x e^{-x} \\\\\n  &= \\frac{1}{e}\n\\end{aligned}\n\\]\n\\(\\int^{\\infty}_{0} \\int^{\\infty}_{\\frac{1}{x}}\\) がしっくりきてない。なんとなくそうな気はするけど、\\(\\int^{\\infty}_{\\frac{1}{y}} \\int^{\\infty}_{\\frac{1}{x}}\\) じゃだめなのかがわからない。"
   },
   {
     "objectID": "post/data_math_quest/index.html#問題概要-8",
     "href": "post/data_math_quest/index.html#問題概要-8",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "問題概要",
     "text": "問題概要\n連続確率変数\\(X\\) の分布関数が以下。\n\\[\nF(x) =\n\\begin{cases}\n0  & (- \\infty \\leq x \\leq 0)\\\\\n1-\\frac{(x-2)^2}{4} & (0 \\leq x \\leq 2)\\\\\n1 &(2 \\leq x)\n\\end{cases}\n\\]\n⑴ 確率密度関数を求める。\n⑵ \\(E[X], V(X)\\) を求める。\n⑶ メディアン、モードを求める。"
   },
   {
     "objectID": "post/data_math_quest/index.html#解答-20",
     "href": "post/data_math_quest/index.html#解答-20",
-    "title": "「データ解析のための数理統計入門」第1章 演習問題 解答",
+    "title": "「データ解析のための数理統計入門」回答",
     "section": "解答",
     "text": "解答\n⑴ \\(0 \\leq x \\leq 2\\) のとき、\n\\[\nf(x)= F'(x)= -2 \\frac{x-2}{4} = \\frac{2-x}{2}\n\\]\n\\[\nF(x) =\n\\begin{cases}\n0  & (- \\infty \\leq x \\leq 0)\\\\\n\\frac{2-x}{2} & (0 \\leq x \\leq 2)\\\\\n0 &(2 \\leq x)\n\\end{cases}\n\\]\n⑵\n\\[\n\\begin{aligned}\nE[X^k]&=  \\int^{2}_{0} x^k \\frac{2-x}{2}dx \\\\\n&=  \\int^{2}_{0} x^kdx - \\frac{1}{2} \\int^{2}_{0} x^{k+1}dx \\\\\n&= [\\frac{1}{k+1}x^{k+1}]^2_0-\\frac{1}{2}[\\frac{1}{k+2}x^{k+2}]^2_0 \\\\\n&= \\frac{2^{k+1}}{k+1} - \\frac{2^{k+1}}{k+2} \\\\\n&= \\frac{2^{k+1}}{(k+1)(k+2)}\n\\end{aligned}\n\\]\n\\(E[X]=\\frac{2^2}{(2)(3)}=\\frac{2}{3}\\),\\(E[X^2]=\\frac{2^3}{(3)(4)}=\\frac{2}{3}\\)である。\n\\(V[X]=\\frac{2}{3}-\\frac{4}{9}=\\frac{2}{9}\\)\n⑶\nメディアンを\\(x_{med}\\) とする。モードは\\(x_{mode}\\) とする。\nメディアンは累積確率が0.5になるところなので、\n\\[\n\\begin{aligned}\n1 - \\frac{(x_{med}-2)^2}{4} = \\frac{1}{2} \\\\\nx_{med} = 2 \\pm \\sqrt{2}\n\\end{aligned}\n\\]\n\\(0 \\leq x \\leq 2\\) より\\(x_{med}= 2-\\sqrt{2}\\)\nモードは\\(f(x)\\)が最大となる値なので、\\(f'(x)\\) からわかる。\\(0 \\leq x \\leq 2\\) のとき\\(f'(x)=-1\\) より\\(x=0\\) がモードとなる。"
   },
@@ -1244,5 +1125,12 @@
     "title": "11月5日　7-4",
     "section": "",
     "text": "\\[\nE_\\theta[\\hat{\\theta}(X)] = \\theta, \\quad \\delta\\theta\n\\]\nが成り立つことである。"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "やってみたいことなどなど、メモ・雑記。\n\n\n\n『データ解析のための数理統計入門』の問題を解く→ゆっくり進行中（タイピングが追いつかないので、気になったのだけ書くことに。）\n関連した『現代数理統計学の基礎』の問題も解きたい\n\n\n\n\n\nWebサイト上で、tikzのように図を可視化する方法を探索→tikzのやり方はわからなかった😭\n面白そうなデータセットを見つけて、Pythonで分析！→spotifyをやってみてる。\n\n\n\n\n\nこのサイトの見た目を揃える→進行中\nこのサイトのページ構成を決める→about seminar postの３つにまとめた。"
   }
 ]

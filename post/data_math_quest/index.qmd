@@ -1,5 +1,5 @@
 ---
-title: "「データ解析のための数理統計入門」第1章 演習問題 解答"
+title: "「データ解析のための数理統計入門」回答"
 format: html
 code-fold: true
 date: last-modified
