@@ -1,0 +1,179 @@
+---
+title: "SpotifyをPythonで分析 前準備"
+format: html
+code-fold: false
+date: last-modified
+toc: true
+toc-location: left
+lang: ja
+---
+
+## やりたいこと
+
+
+それぞれの楽曲に対して、danceabilityやenergyなど独特の指標を持ったspotifyAPIを利用して、興味のある曲の分析を行ってみたい。
+
+例えば。。。
+
+* **Twiceの曲変遷**
+    + Twiceの可愛い調→綺麗調への変遷
+        - 曲調が変わったタイミングがデータからわかるのか？（Yes Or Yesあたり）
+        - クラスターで分けた時に、時系列で綺麗に別れるのか？
+
+
+<br/>
+
+* **名探偵コナンの主題歌**
+    + 主題歌歌手
+        - 倉木麻衣・B'z・愛内里菜・BREAKERZ が多い印象。歌手の割合。４者で独占されているのでは？
+        - 期間とかもわかるのかな？
+    + 曲調の変遷　
+        - 昔は切ないラブソング系が多かった印象・最近はパキパキ系が多い印象
+        - 差はあるのか？
+    + アニメ歌手と映画歌手の違い
+        - 映画歌手に関しては当時話題の歌手が多い印象。 
+        - アニメ歌手は変遷なく、上で述べた歌手で占めている印象がある。
+    + OPとEDの曲調の違い
+
+
+<br/>
+
+* **K-POPのeasy-listening傾向(特にNew Jeans)**
+    + New Jeansからこの傾向が始まったように思われる。
+    + easy-listeningって本当にNew Jeansから始まったのかな？→曲調のところで分析できそう
+    + New JeansとSpeedって本当に似てるのかな？
+    + New Jeansとillitに関しても！
+
+<br/>
+  
+* **自分のお気に入り曲を操作**
+    + お気に入りを抽出して操作が可能なよう。
+    + 曲の雰囲気でソートして、自分が飽きないような配置が作れるかも！（分析とは少し違うけど。）→レコメンドで使われる類似度の指標を自分で作るとか！
+    + https://speakerdeck.com/takemikami/spotify-api-woshi-tutaaimasule-qu-nole-simifang　これみたいな。
+
+<br/>
+
+## 前準備
+
+### Create APP
+
+
+[https://developer.spotify.com/](https://developer.spotify.com/) でcreate appをして、事前にAPIキーを手に入れておきます。
+
+
+<br/>
+
+### インストール・インポート
+
+spotify APIをpythonで使えるようにするために、`spotipy`（かわいい）をインストールしておきます。
+
+
+
+```default
+!pip install spotipy
+```
+
+::: {.callout-note}
+
+[https://spotipy.readthedocs.io/en/2.24.0/](https://spotipy.readthedocs.io/en/2.24.0/) 
+
+`spotipy`　ライブラリサポートページです。
+
+:::
+
+必要そうなライブラリをimportしておきます。
+
+```{python}
+import pandas as pd
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+import json
+import os
+from dotenv import load_dotenv
+from pprint import pprint
+```
+
+
+
+<br/>
+
+### APIキーを読み取る
+
+`quarto`上でAPIキーを読み取るために、`_environment.local`を作っています。そこからAPIキーを読み取ります。（APIキーを守るため）
+
+自分の実行環境でする場合は直接書き込んでもいいと思います。
+
+```{python}
+client_id = os.getenv('SPOTIFY_CLIENT_ID')
+client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
+```
+
+::: {.callout-note}
+
+詳しくはこちら。
+
+[https://quarto.org/docs/projects/environment.html](https://quarto.org/docs/projects/environment.html) 
+
+:::
+
+
+<br/>
+
+### APIキーからspotifyデータにアクセス
+
+`_environment.local`から読み込んだAPIキーを使って、spotifyデータにアクセスします。
+
+```{python}
+client_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+```
+
+
+これで準備は完了です！
+
+## お試し！
+
+お試しで何か一つ曲を取ってこようと思います。
+
+```{python}
+# トラック情報の取得
+track = sp.track('spotify:track:1ZRscSkL9Kj4wsyIyAqh6t')
+print(track)
+```
+
+取れてますね！
+
+```{python}
+# トラック情報の取得
+track = sp.track('https://open.spotify.com/intl-ja/track/1ZRscSkL9Kj4wsyIyAqh6t?si=84b13af717934edc')
+pprint(track)
+```
+
+
+書き方の違いなのですが、URLでも取ってこれます。
+
+またPythonでは`pprint`を利用すると、実行結果の階層がわかりやすいのでおすすめです。
+
+::: {.callout-note}
+
+私はspotifyのデスクトップアプリを使用しており、曲の３点リーダーから`シェア`→`曲のリンクをコピー`によりURLが取得できます。
+
+:::
+
+
+
+```{python}
+track["name"]
+```
+
+曲名がわかります。
+
+```{python}
+track["artists"][0]["name"]
+```
+
+歌手名「二階堂和美」さんですね。
+
+階層構造を見るだけである程度とってくる方法はわかると思います。
+
+このようにspotify APIを活用してデータ分析をしていきたいと思います！
