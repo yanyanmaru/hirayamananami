@@ -1,0 +1,8 @@
+PWD /Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1105
+INPUT /usr/local/texlive/2024/texmf.cnf
+INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2024/texmf.cnf
+INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2024/texmf-var/web2c/euptex/platex.fmt
+INPUT /Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1105/index.tex
+OUTPUT out/index.log

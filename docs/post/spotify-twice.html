@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.47">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SpotifyをPythonで分析 Twice編 – Hirayama Nanami</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Hirayama Nanami</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="サーチ"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../seminar.html"> 
+<span class="menu-text">Seminar</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../post.html"> 
+<span class="menu-text">Post</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#前回までの前準備" id="toc-前回までの前準備" class="nav-link active" data-scroll-target="#前回までの前準備">前回までの前準備</a></li>
+  <li><a href="#やりたいこと" id="toc-やりたいこと" class="nav-link" data-scroll-target="#やりたいこと">やりたいこと</a></li>
+  <li><a href="#読み込む" id="toc-読み込む" class="nav-link" data-scroll-target="#読み込む">読み込む！</a>
+  <ul class="collapse">
+  <li><a href="#属性取得" id="toc-属性取得" class="nav-link" data-scroll-target="#属性取得">属性取得</a></li>
+  </ul></li>
+  <li><a href="#いざ分析" id="toc-いざ分析" class="nav-link" data-scroll-target="#いざ分析">いざ分析</a>
+  <ul class="collapse">
+  <li><a href="#データフレームを整理" id="toc-データフレームを整理" class="nav-link" data-scroll-target="#データフレームを整理">データフレームを整理</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">SpotifyをPythonで分析 Twice編</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> コード</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">公開</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024年11月10日</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="前回までの前準備" class="level2">
+<h2 class="anchored" data-anchor-id="前回までの前準備">前回までの前準備</h2>
+<p><a href="../spotify-basis.html">前回</a> 前準備はここに載っています。</p>
+<div id="37a93192" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spotipy</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spotipy.oauth2 <span class="im">import</span> SpotifyClientCredentials</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>client_id <span class="op">=</span> os.getenv(<span class="st">'SPOTIFY_CLIENT_ID'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>client_secret <span class="op">=</span> os.getenv(<span class="st">'SPOTIFY_CLIENT_SECRET'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>client_credentials_manager <span class="op">=</span> spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> spotipy.Spotify(client_credentials_manager<span class="op">=</span>client_credentials_manager)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="やりたいこと" class="level2">
+<h2 class="anchored" data-anchor-id="やりたいこと">やりたいこと</h2>
+<ul>
+<li>Twiceの曲調の変遷（アルバムタイトル曲）・時期的な変わり方
+<ul>
+<li>予測：Yes or Yesを境にガラッと変わっているのではないか</li>
+</ul></li>
+<li>クラスター分析
+<ul>
+<li>予測：３クラスタで可愛い曲調（TT・What is Love）、クール曲調（Cry for me, SET ME Free）、元気系（Cheer up, LIKE OHH AHH）におおまかには別れるのでは？</li>
+</ul></li>
+</ul>
+</section>
+<section id="読み込む" class="level2">
+<h2 class="anchored" data-anchor-id="読み込む">読み込む！</h2>
+<p>twiceのタイトル曲を比較するには、有名度合いで調べればいいと思います。</p>
+<div id="3b2f20bc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>twice_url <span class="op">=</span> <span class="st">'https://open.spotify.com/intl-ja/artist/7n2Ycct7Beij7Dj7meI4X0?si=wpbUsAFKTz634tK-rLZenA'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> sp.artist_top_tracks(twice_url)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="251db37a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> track <span class="kw">in</span> results[<span class="st">'tracks'</span>][:<span class="dv">10</span>]:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'track    : '</span> <span class="op">+</span> track[<span class="st">'name'</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>track    : What is Love?
+
+track    : The Feels
+
+track    : FANCY
+
+track    : Mamushi (Remix) [feat. TWICE]
+
+track    : I CAN'T STOP ME
+
+track    : Feel Special
+
+track    : Talk that Talk
+
+track    : ONE SPARK
+
+track    : MOONLIGHT SUNRISE
+
+track    : LOOK AT ME
+</code></pre>
+</div>
+</div>
+<p>良い調べ方だと思ったのですが、<code>artist_top_tracks</code>は10個のみだそうです😭</p>
+<p>他の方法も試してみたのですが、Playlistを活用するのが一番良さそうです。</p>
+<div id="f3022908" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>twice_playlist_url <span class="op">=</span> <span class="st">'https://open.spotify.com/playlist/394Th9t58FlwC3ElNlqGye?si=e18959b04e0c4b48'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>twice_playlist_id <span class="op">=</span> twice_playlist_url.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">'?'</span>)[<span class="dv">0</span>]  <span class="co">#プレイリストIDを取得</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># プレイリストの楽曲一覧を取得</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>twice_playlist <span class="op">=</span> sp.playlist(twice_playlist_id)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="7a7fc229" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>twice_playlist[<span class="st">"tracks"</span>][<span class="st">"items"</span>][<span class="dv">2</span>][<span class="st">"track"</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="307">
+<pre><code>{'preview_url': 'https://p.scdn.co/mp3-preview/988dc3a9f3093d3616cb84b95b591603bd4f87e9?cid=8bf84c47eec64cb98d76c5914ce1c9d4',
+ 'available_markets': ['JP'],
+ 'explicit': False,
+ 'type': 'track',
+ 'episode': False,
+ 'track': True,
+ 'album': {'available_markets': ['JP'],
+  'type': 'album',
+  'album_type': 'single',
+  'href': 'https://api.spotify.com/v1/albums/2REinwcdJxiNaCyhHQjqEO',
+  'id': '2REinwcdJxiNaCyhHQjqEO',
+  'images': [{'url': 'https://i.scdn.co/image/a719f2b95fba90d3f65933c9f53066295c42ff8e',
+    'width': 640,
+    'height': 640},
+   {'url': 'https://i.scdn.co/image/f330aa2431ea9e781b4da9c41d75f5ddb62cc458',
+    'width': 300,
+    'height': 300},
+   {'url': 'https://i.scdn.co/image/84b01ec919f2b40e1507aa82c863adc7a080077a',
+    'width': 64,
+    'height': 64}],
+  'name': "WHAT'S TWICE?",
+  'release_date': '2017-02-24',
+  'release_date_precision': 'day',
+  'uri': 'spotify:album:2REinwcdJxiNaCyhHQjqEO',
+  'artists': [{'external_urls': {'spotify': 'https://open.spotify.com/artist/7n2Ycct7Beij7Dj7meI4X0'},
+    'href': 'https://api.spotify.com/v1/artists/7n2Ycct7Beij7Dj7meI4X0',
+    'id': '7n2Ycct7Beij7Dj7meI4X0',
+    'name': 'TWICE',
+    'type': 'artist',
+    'uri': 'spotify:artist:7n2Ycct7Beij7Dj7meI4X0'}],
+  'external_urls': {'spotify': 'https://open.spotify.com/album/2REinwcdJxiNaCyhHQjqEO'},
+  'total_tracks': 4},
+ 'artists': [{'external_urls': {'spotify': 'https://open.spotify.com/artist/7n2Ycct7Beij7Dj7meI4X0'},
+   'href': 'https://api.spotify.com/v1/artists/7n2Ycct7Beij7Dj7meI4X0',
+   'id': '7n2Ycct7Beij7Dj7meI4X0',
+   'name': 'TWICE',
+   'type': 'artist',
+   'uri': 'spotify:artist:7n2Ycct7Beij7Dj7meI4X0'}],
+ 'disc_number': 1,
+ 'track_number': 2,
+ 'duration_ms': 208862,
+ 'external_ids': {'isrc': 'US5TA1600021'},
+ 'external_urls': {'spotify': 'https://open.spotify.com/track/6ShgT71C0JcZcy7RqAcdAf'},
+ 'href': 'https://api.spotify.com/v1/tracks/6ShgT71C0JcZcy7RqAcdAf',
+ 'id': '6ShgT71C0JcZcy7RqAcdAf',
+ 'name': 'CHEER UP',
+ 'popularity': 49,
+ 'uri': 'spotify:track:6ShgT71C0JcZcy7RqAcdAf',
+ 'is_local': False}</code></pre>
+</div>
+</div>
+<div id="bae7920d" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># プレイリストの曲情報を格納するリスト</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>playlist_tracks <span class="op">=</span> []</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 各トラックの情報を取得</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> twice_playlist[<span class="st">'tracks'</span>][<span class="st">'items'</span>]:</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    track <span class="op">=</span> item[<span class="st">'track'</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    track_info <span class="op">=</span> {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'曲名'</span>: track[<span class="st">'name'</span>],</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'アーティスト'</span>: <span class="st">', '</span>.join([artist[<span class="st">'name'</span>] <span class="cf">for</span> artist <span class="kw">in</span> track[<span class="st">'artists'</span>]]),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'アルバム'</span>: track[<span class="st">'album'</span>][<span class="st">'name'</span>],</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'リリース日'</span>: track[<span class="st">'album'</span>][<span class="st">'release_date'</span>]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    playlist_tracks.append(track_info)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="eeeaddeb" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームに変換</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(playlist_tracks)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="309">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">曲名</th>
+<th data-quarto-table-cell-role="th">アーティスト</th>
+<th data-quarto-table-cell-role="th">アルバム</th>
+<th data-quarto-table-cell-role="th">リリース日</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Dance The Night Away</td>
+<td>TWICE</td>
+<td>Summer Nights</td>
+<td>2018-07-09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>What is Love?</td>
+<td>TWICE</td>
+<td>Summer Nights</td>
+<td>2018-07-09</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>CHEER UP</td>
+<td>TWICE</td>
+<td>WHAT'S TWICE?</td>
+<td>2017-02-24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>TT</td>
+<td>TWICE</td>
+<td>TWICEcoaster : LANE2</td>
+<td>2017-02-21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Heart Shaker</td>
+<td>TWICE</td>
+<td>Merry &amp; Happy</td>
+<td>2017-12-11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>BDZ</td>
+<td>TWICE</td>
+<td>BDZ</td>
+<td>2017-10-31</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>FANCY</td>
+<td>TWICE</td>
+<td>FANCY YOU</td>
+<td>2019-04-22</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Feel Special</td>
+<td>TWICE</td>
+<td>Feel Special</td>
+<td>2019-09-23</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Like OOH-AHH</td>
+<td>TWICE</td>
+<td>THE STORY BEGINS</td>
+<td>2015</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>YES or YES</td>
+<td>TWICE</td>
+<td>YES or YES</td>
+<td>2018-11-05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>MORE &amp; MORE</td>
+<td>TWICE</td>
+<td>MORE &amp; MORE</td>
+<td>2020-06-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>KNOCK KNOCK</td>
+<td>TWICE</td>
+<td>TWICEcoaster : LANE2</td>
+<td>2017-02-21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>I CAN'T STOP ME</td>
+<td>TWICE</td>
+<td>Eyes wide open</td>
+<td>2020-10-26</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Fanfare</td>
+<td>TWICE</td>
+<td>Perfect World</td>
+<td>2021-07-28</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>CRY FOR ME</td>
+<td>TWICE</td>
+<td>CRY FOR ME</td>
+<td>2020-12-18</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>The Feels</td>
+<td>TWICE</td>
+<td>The Feels</td>
+<td>2021-10-01</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>SCIENTIST</td>
+<td>TWICE</td>
+<td>Formula of Love: O+T=&lt;3</td>
+<td>2021-11-12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Perfect World</td>
+<td>TWICE</td>
+<td>Perfect World</td>
+<td>2021-07-28</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Kura Kura</td>
+<td>TWICE</td>
+<td>Perfect World</td>
+<td>2021-07-28</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Talk that Talk</td>
+<td>TWICE</td>
+<td>BETWEEN 1&amp;2</td>
+<td>2022-08-26</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Celebrate</td>
+<td>TWICE</td>
+<td>Celebrate</td>
+<td>2022-07-15</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Candy Pop</td>
+<td>TWICE</td>
+<td>BDZ</td>
+<td>2017-10-31</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>SIGNAL</td>
+<td>TWICE</td>
+<td>SIGNAL</td>
+<td>2017-05-15</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>POP!</td>
+<td>NAYEON</td>
+<td>IM NAYEON</td>
+<td>2022-06-24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>MOONLIGHT SUNRISE</td>
+<td>TWICE</td>
+<td>MOONLIGHT SUNRISE</td>
+<td>2023-01-20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>SET ME FREE</td>
+<td>TWICE</td>
+<td>READY TO BE</td>
+<td>2023-03-10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Bouquet</td>
+<td>MISAMO</td>
+<td>Bouquet</td>
+<td>2023-01-25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Hare Hare</td>
+<td>TWICE</td>
+<td>Hare Hare</td>
+<td>2023-05-12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Do not touch</td>
+<td>MISAMO</td>
+<td>Do not touch</td>
+<td>2023-07-14</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Marshmallow</td>
+<td>MISAMO</td>
+<td>Marshmallow</td>
+<td>2023-06-16</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>LIKEY</td>
+<td>TWICE</td>
+<td>twicetagram</td>
+<td>2017-11-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>LOVE COUNTDOWN (feat. Wonstein)</td>
+<td>NAYEON, Wonstein</td>
+<td>IM NAYEON</td>
+<td>2022-06-24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>ONE SPARK</td>
+<td>TWICE</td>
+<td>With YOU-th</td>
+<td>2024-02-23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>I GOT YOU</td>
+<td>TWICE</td>
+<td>I GOT YOU (Voyage ver.)</td>
+<td>2024-02-06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Alcohol-Free</td>
+<td>TWICE</td>
+<td>Alcohol-Free</td>
+<td>2021-06-09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>DIVE</td>
+<td>TWICE</td>
+<td>DIVE</td>
+<td>2024-07-17</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Here I am</td>
+<td>TWICE</td>
+<td>DIVE</td>
+<td>2024-07-17</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>NEW LOOK</td>
+<td>MISAMO</td>
+<td>NEW LOOK</td>
+<td>2024-10-09</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>Identity</td>
+<td>MISAMO</td>
+<td>Identity</td>
+<td>2024-10-28</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>このデータフレームをいつでも活用できるようcsvファイルに変換します！</p>
+<div id="c952f7e3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'twice.csv'</span>) </span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ここから、それぞれの楽曲の<code>danceability</code>などの属性を取得したいのですが、よい記事があったのでこれを参考にしながら進めていきます！</p>
+<section id="属性取得" class="level3">
+<h3 class="anchored" data-anchor-id="属性取得">属性取得</h3>
+<p>参考にする記事：<a href="https://qiita.com/sayuyuyu/items/4ca06a851fca41f6b270">https://qiita.com/sayuyuyu/items/4ca06a851fca41f6b270</a></p>
+<p>やりたいことを気合いでやってくれてる人がいました！！！</p>
+<div id="5637c777" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># プレイリストから曲を取得</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_to_playlist(playlist_id):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    playlist <span class="op">=</span> sp.playlist(playlist_id)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    track_ids <span class="op">=</span> []</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> playlist[<span class="st">'tracks'</span>][<span class="st">'items'</span>]:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        track <span class="op">=</span> item[<span class="st">'track'</span>]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> track[<span class="st">'id'</span>] <span class="kw">in</span> track_ids:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            track_ids.append(track[<span class="st">'id'</span>])</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> item <span class="kw">in</span> playlist[<span class="st">'tracks'</span>][<span class="st">'items'</span>]:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                track <span class="op">=</span> item[<span class="st">'track'</span>]</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> track[<span class="st">'id'</span>] <span class="kw">in</span> track_ids:</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                    track_ids.append(track[<span class="st">'id'</span>])</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> track_ids</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="881e3dbd" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getTrackFeatures(<span class="bu">id</span>):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> sp.track(<span class="bu">id</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> sp.audio_features(<span class="bu">id</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> meta[<span class="st">'name'</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    album <span class="op">=</span> meta[<span class="st">'album'</span>][<span class="st">'name'</span>]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    artist <span class="op">=</span> meta[<span class="st">'album'</span>][<span class="st">'artists'</span>][<span class="dv">0</span>][<span class="st">'name'</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    release_date <span class="op">=</span> meta[<span class="st">'album'</span>][<span class="st">'release_date'</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    length <span class="op">=</span> meta[<span class="st">'duration_ms'</span>]</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    popularity <span class="op">=</span> meta[<span class="st">'popularity'</span>]</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    key <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'key'</span>]</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    mode <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'mode'</span>]</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    danceability <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'danceability'</span>]</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    acousticness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'acousticness'</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    energy <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'energy'</span>]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    instrumentalness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'instrumentalness'</span>]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    liveness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'liveness'</span>]</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    loudness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'loudness'</span>]</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    speechiness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'speechiness'</span>]</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    tempo <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'tempo'</span>]</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    time_signature <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'time_signature'</span>]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    valence <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'valence'</span>]</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    track <span class="op">=</span> [name, album, artist, release_date, length, popularity, key, mode, danceability, acousticness,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>             energy, instrumentalness, liveness, loudness, speechiness, tempo, time_signature, valence]</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> track</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c54f15e1" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> id_to_csv(track_ids):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    tracks <span class="op">=</span> []</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> track_id <span class="kw">in</span> track_ids:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        track <span class="op">=</span> getTrackFeatures(track_id)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        tracks.append(track)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(tracks, columns<span class="op">=</span>[<span class="st">'name'</span>, <span class="st">'album'</span>, <span class="st">'artist'</span>, <span class="st">'release_date'</span>, <span class="st">'length'</span>, <span class="st">'popularity'</span>, <span class="st">'key'</span>, <span class="st">'mode'</span>, <span class="st">'danceability'</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'acousticness'</span>, <span class="st">'energy'</span>, <span class="st">'instrumentalness'</span>, <span class="st">'liveness'</span>, <span class="st">'loudness'</span>, <span class="st">'speechiness'</span>, <span class="st">'tempo'</span>, <span class="st">'time_signature'</span>, <span class="st">'valence'</span>])</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    df.head()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    df.to_csv(<span class="st">'myplaylist.csv'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"CSVファイルが作成されました。"</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    ids <span class="op">=</span> get_to_playlist(<span class="st">"394Th9t58FlwC3ElNlqGye"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    id_to_csv(ids)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="いざ分析" class="level2">
+<h2 class="anchored" data-anchor-id="いざ分析">いざ分析</h2>
+<div id="3ba11283" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>twice_df <span class="op">=</span> pd.read_csv(<span class="st">"myplaylist.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>twice_df.head()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="314">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">album</th>
+<th data-quarto-table-cell-role="th">artist</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">length</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">key</th>
+<th data-quarto-table-cell-role="th">mode</th>
+<th data-quarto-table-cell-role="th">danceability</th>
+<th data-quarto-table-cell-role="th">acousticness</th>
+<th data-quarto-table-cell-role="th">energy</th>
+<th data-quarto-table-cell-role="th">instrumentalness</th>
+<th data-quarto-table-cell-role="th">liveness</th>
+<th data-quarto-table-cell-role="th">loudness</th>
+<th data-quarto-table-cell-role="th">speechiness</th>
+<th data-quarto-table-cell-role="th">tempo</th>
+<th data-quarto-table-cell-role="th">time_signature</th>
+<th data-quarto-table-cell-role="th">valence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Dance The Night Away</td>
+<td>Summer Nights</td>
+<td>TWICE</td>
+<td>2018-07-09</td>
+<td>180809</td>
+<td>54</td>
+<td>0</td>
+<td>1</td>
+<td>0.711</td>
+<td>0.1060</td>
+<td>0.861</td>
+<td>0.000044</td>
+<td>0.1120</td>
+<td>-2.905</td>
+<td>0.0924</td>
+<td>118.004</td>
+<td>4</td>
+<td>0.780</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>What is Love?</td>
+<td>Summer Nights</td>
+<td>TWICE</td>
+<td>2018-07-09</td>
+<td>208238</td>
+<td>56</td>
+<td>8</td>
+<td>1</td>
+<td>0.573</td>
+<td>0.0846</td>
+<td>0.910</td>
+<td>0.000000</td>
+<td>0.2660</td>
+<td>-1.578</td>
+<td>0.0640</td>
+<td>169.982</td>
+<td>4</td>
+<td>0.602</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>CHEER UP</td>
+<td>WHAT'S TWICE?</td>
+<td>TWICE</td>
+<td>2017-02-24</td>
+<td>208862</td>
+<td>49</td>
+<td>6</td>
+<td>1</td>
+<td>0.548</td>
+<td>0.1390</td>
+<td>0.885</td>
+<td>0.000000</td>
+<td>0.0716</td>
+<td>-1.480</td>
+<td>0.1250</td>
+<td>172.946</td>
+<td>4</td>
+<td>0.509</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>TT</td>
+<td>TWICEcoaster : LANE2</td>
+<td>TWICE</td>
+<td>2017-02-21</td>
+<td>212990</td>
+<td>50</td>
+<td>2</td>
+<td>1</td>
+<td>0.708</td>
+<td>0.0525</td>
+<td>0.853</td>
+<td>0.000173</td>
+<td>0.3990</td>
+<td>-4.398</td>
+<td>0.0844</td>
+<td>129.946</td>
+<td>4</td>
+<td>0.399</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Heart Shaker</td>
+<td>Merry &amp; Happy</td>
+<td>TWICE</td>
+<td>2017-12-11</td>
+<td>186895</td>
+<td>51</td>
+<td>8</td>
+<td>1</td>
+<td>0.563</td>
+<td>0.0949</td>
+<td>0.945</td>
+<td>0.000000</td>
+<td>0.2160</td>
+<td>-0.387</td>
+<td>0.0635</td>
+<td>164.079</td>
+<td>4</td>
+<td>0.865</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>まずデータフレームを整理していきます。</p>
+<section id="データフレームを整理" class="level3">
+<h3 class="anchored" data-anchor-id="データフレームを整理">データフレームを整理</h3>
+<section id="日付を整理" class="level4">
+<h4 class="anchored" data-anchor-id="日付を整理">日付を整理</h4>
+<p>まず、<code>release_date</code>順に並び替えます。</p>
+<p>その前に型がちゃんと日付になっているかを確かめます。</p>
+<div id="da56c4ac" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(twice_df[<span class="st">"release_date"</span>][<span class="dv">0</span>])</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="315">
+<pre><code>str</code></pre>
+</div>
+</div>
+<p>列単位で型を見る方法ってあるのかな？？→<a href="https://pyhoo.jp/pandas-astype">https://pyhoo.jp/pandas-astype</a> によると、pandasの機能でdtypesっていうのがあるそう。</p>
+<div id="64862e07" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>twice_df.dtypes</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="316">
+<pre><code>name                 object
+album                object
+artist               object
+release_date         object
+length                int64
+popularity            int64
+key                   int64
+mode                  int64
+danceability        float64
+acousticness        float64
+energy              float64
+instrumentalness    float64
+liveness            float64
+loudness            float64
+speechiness         float64
+tempo               float64
+time_signature        int64
+valence             float64
+dtype: object</code></pre>
+</div>
+</div>
+<p>全部の型が見れて便利！</p>
+<p>やっぱり<code>object</code>になっていたので、<code>datetime</code>型に変換します。</p>
+<div id="b1a4dd9f" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>twice_df[<span class="st">"release_date"</span>] <span class="op">=</span> pd.to_datetime(twice_df[<span class="st">"release_date"</span>])</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[317], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> twice_df[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">release_date</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>to_datetime(twice_df[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">release_date</span><span style="color:rgb(175,0,0)">"</span>])
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.11/site-packages/pandas/core/tools/datetimes.py:1067</span>, in <span class="ansi-cyan-fg">to_datetime</span><span class="ansi-blue-fg">(arg, errors, dayfirst, yearfirst, utc, format, exact, unit, infer_datetime_format, origin, cache)</span>
+<span class="ansi-green-fg ansi-bold">   1065</span>         result <span style="color:rgb(98,98,98)">=</span> arg<span style="color:rgb(98,98,98)">.</span>map(cache_array)
+<span class="ansi-green-fg ansi-bold">   1066</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; 1067</span>         values <span style="color:rgb(98,98,98)">=</span> convert_listlike(arg<span style="color:rgb(98,98,98)">.</span>_values, <span style="color:rgb(0,135,0)">format</span>)
+<span class="ansi-green-fg ansi-bold">   1068</span>         result <span style="color:rgb(98,98,98)">=</span> arg<span style="color:rgb(98,98,98)">.</span>_constructor(values, index<span style="color:rgb(98,98,98)">=</span>arg<span style="color:rgb(98,98,98)">.</span>index, name<span style="color:rgb(98,98,98)">=</span>arg<span style="color:rgb(98,98,98)">.</span>name)
+<span class="ansi-green-fg ansi-bold">   1069</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> <span style="color:rgb(0,135,0)">isinstance</span>(arg, (ABCDataFrame, abc<span style="color:rgb(98,98,98)">.</span>MutableMapping)):
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.11/site-packages/pandas/core/tools/datetimes.py:433</span>, in <span class="ansi-cyan-fg">_convert_listlike_datetimes</span><span class="ansi-blue-fg">(arg, format, name, utc, unit, errors, dayfirst, yearfirst, exact)</span>
+<span class="ansi-green-fg ansi-bold">    431</span> <span style="font-style:italic;color:rgb(95,135,135)"># `format` could be inferred, or user didn't ask for mixed-format parsing.</span>
+<span class="ansi-green-fg ansi-bold">    432</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">format</span> <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span> <span style="font-weight:bold;color:rgb(175,0,255)">and</span> <span style="color:rgb(0,135,0)">format</span> <span style="color:rgb(98,98,98)">!=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">mixed</span><span style="color:rgb(175,0,0)">"</span>:
+<span class="ansi-green-fg">--&gt; 433</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> _array_strptime_with_fallback(arg, name, utc, <span style="color:rgb(0,135,0)">format</span>, exact, errors)
+<span class="ansi-green-fg ansi-bold">    435</span> result, tz_parsed <span style="color:rgb(98,98,98)">=</span> objects_to_datetime64(
+<span class="ansi-green-fg ansi-bold">    436</span>     arg,
+<span class="ansi-green-fg ansi-bold">    437</span>     dayfirst<span style="color:rgb(98,98,98)">=</span>dayfirst,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">    441</span>     allow_object<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">True</span>,
+<span class="ansi-green-fg ansi-bold">    442</span> )
+<span class="ansi-green-fg ansi-bold">    444</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> tz_parsed <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg ansi-bold">    445</span>     <span style="font-style:italic;color:rgb(95,135,135)"># We can take a shortcut since the datetime64 numpy array</span>
+<span class="ansi-green-fg ansi-bold">    446</span>     <span style="font-style:italic;color:rgb(95,135,135)"># is in UTC</span>
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.11/site-packages/pandas/core/tools/datetimes.py:467</span>, in <span class="ansi-cyan-fg">_array_strptime_with_fallback</span><span class="ansi-blue-fg">(arg, name, utc, fmt, exact, errors)</span>
+<span class="ansi-green-fg ansi-bold">    456</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">_array_strptime_with_fallback</span>(
+<span class="ansi-green-fg ansi-bold">    457</span>     arg,
+<span class="ansi-green-fg ansi-bold">    458</span>     name,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">    462</span>     errors: <span style="color:rgb(0,135,0)">str</span>,
+<span class="ansi-green-fg ansi-bold">    463</span> ) <span style="color:rgb(98,98,98)">-</span><span style="color:rgb(98,98,98)">&gt;</span> Index:
+<span class="ansi-green-fg ansi-bold">    464</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">    465</span> <span style="font-style:italic;color:rgb(175,0,0)">    Call array_strptime, with fallback behavior depending on 'errors'.</span>
+<span class="ansi-green-fg ansi-bold">    466</span> <span style="font-style:italic;color:rgb(175,0,0)">    """</span>
+<span class="ansi-green-fg">--&gt; 467</span>     result, tz_out <span style="color:rgb(98,98,98)">=</span> array_strptime(arg, fmt, exact<span style="color:rgb(98,98,98)">=</span>exact, errors<span style="color:rgb(98,98,98)">=</span>errors, utc<span style="color:rgb(98,98,98)">=</span>utc)
+<span class="ansi-green-fg ansi-bold">    468</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> tz_out <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg ansi-bold">    469</span>         unit <span style="color:rgb(98,98,98)">=</span> np<span style="color:rgb(98,98,98)">.</span>datetime_data(result<span style="color:rgb(98,98,98)">.</span>dtype)[<span style="color:rgb(98,98,98)">0</span>]
+
+File <span class="ansi-green-fg">strptime.pyx:501</span>, in <span class="ansi-cyan-fg">pandas._libs.tslibs.strptime.array_strptime</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">strptime.pyx:451</span>, in <span class="ansi-cyan-fg">pandas._libs.tslibs.strptime.array_strptime</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">strptime.pyx:583</span>, in <span class="ansi-cyan-fg">pandas._libs.tslibs.strptime._parse_with_format</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">ValueError</span>: time data "2015" doesn't match format "%Y-%m-%d", at position 8. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.</pre>
+</div>
+</div>
+</div>
+<p>ところがどっこい、エラーが出ますね。 エラーを見てみると、一つだけ<code>2015</code>という年だけわかっており、 <code>%Y-%m-%d</code>の形に沿っていないということだと思います。</p>
+<div id="bc39fa0d" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(twice_df[<span class="st">"release_date"</span>] <span class="op">==</span> <span class="st">'2015'</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="318">
+<pre><code>1</code></pre>
+</div>
+</div>
+<p>2015になっているのは一つだけですね。 どれかを特定します。</p>
+<div id="503486b1" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>twice_df[twice_df[<span class="st">"release_date"</span>] <span class="op">==</span> <span class="st">'2015'</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="319">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">album</th>
+<th data-quarto-table-cell-role="th">artist</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">length</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">key</th>
+<th data-quarto-table-cell-role="th">mode</th>
+<th data-quarto-table-cell-role="th">danceability</th>
+<th data-quarto-table-cell-role="th">acousticness</th>
+<th data-quarto-table-cell-role="th">energy</th>
+<th data-quarto-table-cell-role="th">instrumentalness</th>
+<th data-quarto-table-cell-role="th">liveness</th>
+<th data-quarto-table-cell-role="th">loudness</th>
+<th data-quarto-table-cell-role="th">speechiness</th>
+<th data-quarto-table-cell-role="th">tempo</th>
+<th data-quarto-table-cell-role="th">time_signature</th>
+<th data-quarto-table-cell-role="th">valence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Like OOH-AHH</td>
+<td>THE STORY BEGINS</td>
+<td>TWICE</td>
+<td>2015</td>
+<td>215091</td>
+<td>49</td>
+<td>6</td>
+<td>1</td>
+<td>0.72</td>
+<td>0.241</td>
+<td>0.876</td>
+<td>0.000101</td>
+<td>0.381</td>
+<td>-1.166</td>
+<td>0.0776</td>
+<td>141.997</td>
+<td>4</td>
+<td>0.694</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>LIKE OHH AHHのようですね。 このデータのみ、<code>2015-10-20</code>に直接変換します。（調べました！）</p>
+<div id="23b4de88" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>twice_df.loc[<span class="dv">8</span>, <span class="st">'release_date'</span>] <span class="op">=</span> <span class="st">'2015-10-20'</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2cbf343b" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(twice_df[<span class="st">"release_date"</span>] <span class="op">==</span> <span class="st">'2015'</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="321">
+<pre><code>0</code></pre>
+</div>
+</div>
+<p>2015のものがなくなったので、変換できるはずです！再度<code>to_datetime</code>を実行します。</p>
+<div id="9f8eb850" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>twice_df[<span class="st">"release_date"</span>] <span class="op">=</span> pd.to_datetime(twice_df[<span class="st">"release_date"</span>])</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="209cbf2a" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>twice_df.dtypes</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="323">
+<pre><code>name                        object
+album                       object
+artist                      object
+release_date        datetime64[ns]
+length                       int64
+popularity                   int64
+key                          int64
+mode                         int64
+danceability               float64
+acousticness               float64
+energy                     float64
+instrumentalness           float64
+liveness                   float64
+loudness                   float64
+speechiness                float64
+tempo                      float64
+time_signature               int64
+valence                    float64
+dtype: object</code></pre>
+</div>
+</div>
+<p>型を見ると変換できてますね。</p>
+<div id="c0cfd09f" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>twice_df.sort_values(<span class="st">'release_date'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="324">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">album</th>
+<th data-quarto-table-cell-role="th">artist</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">length</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">key</th>
+<th data-quarto-table-cell-role="th">mode</th>
+<th data-quarto-table-cell-role="th">danceability</th>
+<th data-quarto-table-cell-role="th">acousticness</th>
+<th data-quarto-table-cell-role="th">energy</th>
+<th data-quarto-table-cell-role="th">instrumentalness</th>
+<th data-quarto-table-cell-role="th">liveness</th>
+<th data-quarto-table-cell-role="th">loudness</th>
+<th data-quarto-table-cell-role="th">speechiness</th>
+<th data-quarto-table-cell-role="th">tempo</th>
+<th data-quarto-table-cell-role="th">time_signature</th>
+<th data-quarto-table-cell-role="th">valence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Like OOH-AHH</td>
+<td>THE STORY BEGINS</td>
+<td>TWICE</td>
+<td>2015-10-20</td>
+<td>215091</td>
+<td>49</td>
+<td>6</td>
+<td>1</td>
+<td>0.720</td>
+<td>0.2410</td>
+<td>0.876</td>
+<td>0.000101</td>
+<td>0.3810</td>
+<td>-1.166</td>
+<td>0.0776</td>
+<td>141.997</td>
+<td>4</td>
+<td>0.694</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>TT</td>
+<td>TWICEcoaster : LANE2</td>
+<td>TWICE</td>
+<td>2017-02-21</td>
+<td>212990</td>
+<td>50</td>
+<td>2</td>
+<td>1</td>
+<td>0.708</td>
+<td>0.0525</td>
+<td>0.853</td>
+<td>0.000173</td>
+<td>0.3990</td>
+<td>-4.398</td>
+<td>0.0844</td>
+<td>129.946</td>
+<td>4</td>
+<td>0.399</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">11</td>
+<td>KNOCK KNOCK</td>
+<td>TWICEcoaster : LANE2</td>
+<td>TWICE</td>
+<td>2017-02-21</td>
+<td>195753</td>
+<td>47</td>
+<td>1</td>
+<td>0</td>
+<td>0.673</td>
+<td>0.0242</td>
+<td>0.968</td>
+<td>0.000000</td>
+<td>0.0586</td>
+<td>-2.636</td>
+<td>0.1310</td>
+<td>129.972</td>
+<td>4</td>
+<td>0.476</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>CHEER UP</td>
+<td>WHAT'S TWICE?</td>
+<td>TWICE</td>
+<td>2017-02-24</td>
+<td>208862</td>
+<td>49</td>
+<td>6</td>
+<td>1</td>
+<td>0.548</td>
+<td>0.1390</td>
+<td>0.885</td>
+<td>0.000000</td>
+<td>0.0716</td>
+<td>-1.480</td>
+<td>0.1250</td>
+<td>172.946</td>
+<td>4</td>
+<td>0.509</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>SIGNAL</td>
+<td>SIGNAL</td>
+<td>TWICE</td>
+<td>2017-05-15</td>
+<td>196687</td>
+<td>46</td>
+<td>0</td>
+<td>1</td>
+<td>0.615</td>
+<td>0.2190</td>
+<td>0.762</td>
+<td>0.000000</td>
+<td>0.1430</td>
+<td>-2.746</td>
+<td>0.3310</td>
+<td>207.811</td>
+<td>4</td>
+<td>0.636</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>BDZ</td>
+<td>BDZ</td>
+<td>TWICE</td>
+<td>2017-10-31</td>
+<td>197800</td>
+<td>55</td>
+<td>10</td>
+<td>0</td>
+<td>0.715</td>
+<td>0.0113</td>
+<td>0.862</td>
+<td>0.000000</td>
+<td>0.1080</td>
+<td>-2.718</td>
+<td>0.0444</td>
+<td>137.930</td>
+<td>4</td>
+<td>0.668</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Candy Pop</td>
+<td>BDZ</td>
+<td>TWICE</td>
+<td>2017-10-31</td>
+<td>202010</td>
+<td>50</td>
+<td>0</td>
+<td>1</td>
+<td>0.599</td>
+<td>0.1770</td>
+<td>0.943</td>
+<td>0.000026</td>
+<td>0.1410</td>
+<td>-1.457</td>
+<td>0.0894</td>
+<td>174.059</td>
+<td>4</td>
+<td>0.840</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">30</td>
+<td>LIKEY</td>
+<td>twicetagram</td>
+<td>TWICE</td>
+<td>2017-11-01</td>
+<td>207824</td>
+<td>49</td>
+<td>4</td>
+<td>0</td>
+<td>0.723</td>
+<td>0.4310</td>
+<td>0.898</td>
+<td>0.001490</td>
+<td>0.1360</td>
+<td>-1.081</td>
+<td>0.0354</td>
+<td>131.957</td>
+<td>4</td>
+<td>0.394</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Heart Shaker</td>
+<td>Merry &amp; Happy</td>
+<td>TWICE</td>
+<td>2017-12-11</td>
+<td>186895</td>
+<td>51</td>
+<td>8</td>
+<td>1</td>
+<td>0.563</td>
+<td>0.0949</td>
+<td>0.945</td>
+<td>0.000000</td>
+<td>0.2160</td>
+<td>-0.387</td>
+<td>0.0635</td>
+<td>164.079</td>
+<td>4</td>
+<td>0.865</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Dance The Night Away</td>
+<td>Summer Nights</td>
+<td>TWICE</td>
+<td>2018-07-09</td>
+<td>180809</td>
+<td>54</td>
+<td>0</td>
+<td>1</td>
+<td>0.711</td>
+<td>0.1060</td>
+<td>0.861</td>
+<td>0.000044</td>
+<td>0.1120</td>
+<td>-2.905</td>
+<td>0.0924</td>
+<td>118.004</td>
+<td>4</td>
+<td>0.780</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>What is Love?</td>
+<td>Summer Nights</td>
+<td>TWICE</td>
+<td>2018-07-09</td>
+<td>208238</td>
+<td>56</td>
+<td>8</td>
+<td>1</td>
+<td>0.573</td>
+<td>0.0846</td>
+<td>0.910</td>
+<td>0.000000</td>
+<td>0.2660</td>
+<td>-1.578</td>
+<td>0.0640</td>
+<td>169.982</td>
+<td>4</td>
+<td>0.602</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>YES or YES</td>
+<td>YES or YES</td>
+<td>TWICE</td>
+<td>2018-11-05</td>
+<td>237685</td>
+<td>55</td>
+<td>11</td>
+<td>1</td>
+<td>0.702</td>
+<td>0.0514</td>
+<td>0.913</td>
+<td>0.000004</td>
+<td>0.1660</td>
+<td>-2.977</td>
+<td>0.0374</td>
+<td>137.982</td>
+<td>4</td>
+<td>0.735</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>FANCY</td>
+<td>FANCY YOU</td>
+<td>TWICE</td>
+<td>2019-04-22</td>
+<td>213885</td>
+<td>56</td>
+<td>5</td>
+<td>0</td>
+<td>0.697</td>
+<td>0.0122</td>
+<td>0.874</td>
+<td>0.000000</td>
+<td>0.6270</td>
+<td>-2.150</td>
+<td>0.0450</td>
+<td>132.022</td>
+<td>4</td>
+<td>0.775</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Feel Special</td>
+<td>Feel Special</td>
+<td>TWICE</td>
+<td>2019-09-23</td>
+<td>206868</td>
+<td>58</td>
+<td>1</td>
+<td>1</td>
+<td>0.709</td>
+<td>0.0296</td>
+<td>0.959</td>
+<td>0.001880</td>
+<td>0.1070</td>
+<td>-1.339</td>
+<td>0.0603</td>
+<td>128.983</td>
+<td>4</td>
+<td>0.644</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>MORE &amp; MORE</td>
+<td>MORE &amp; MORE</td>
+<td>TWICE</td>
+<td>2020-06-01</td>
+<td>199653</td>
+<td>49</td>
+<td>5</td>
+<td>1</td>
+<td>0.739</td>
+<td>0.0312</td>
+<td>0.841</td>
+<td>0.000000</td>
+<td>0.1730</td>
+<td>-4.162</td>
+<td>0.0600</td>
+<td>106.990</td>
+<td>4</td>
+<td>0.562</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>I CAN'T STOP ME</td>
+<td>Eyes wide open</td>
+<td>TWICE</td>
+<td>2020-10-26</td>
+<td>205493</td>
+<td>54</td>
+<td>10</td>
+<td>0</td>
+<td>0.657</td>
+<td>0.1210</td>
+<td>0.880</td>
+<td>0.000000</td>
+<td>0.4630</td>
+<td>-3.672</td>
+<td>0.1020</td>
+<td>150.084</td>
+<td>4</td>
+<td>0.769</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>CRY FOR ME</td>
+<td>CRY FOR ME</td>
+<td>TWICE</td>
+<td>2020-12-18</td>
+<td>204167</td>
+<td>48</td>
+<td>10</td>
+<td>1</td>
+<td>0.702</td>
+<td>0.0542</td>
+<td>0.692</td>
+<td>0.000000</td>
+<td>0.0877</td>
+<td>-5.405</td>
+<td>0.0539</td>
+<td>144.896</td>
+<td>4</td>
+<td>0.419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Alcohol-Free</td>
+<td>Alcohol-Free</td>
+<td>TWICE</td>
+<td>2021-06-09</td>
+<td>210573</td>
+<td>46</td>
+<td>8</td>
+<td>1</td>
+<td>0.688</td>
+<td>0.0474</td>
+<td>0.909</td>
+<td>0.000001</td>
+<td>0.0674</td>
+<td>-1.992</td>
+<td>0.0624</td>
+<td>97.097</td>
+<td>4</td>
+<td>0.702</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Fanfare</td>
+<td>Perfect World</td>
+<td>TWICE</td>
+<td>2021-07-28</td>
+<td>220240</td>
+<td>46</td>
+<td>6</td>
+<td>1</td>
+<td>0.669</td>
+<td>0.0302</td>
+<td>0.956</td>
+<td>0.000010</td>
+<td>0.0764</td>
+<td>-2.490</td>
+<td>0.1260</td>
+<td>114.922</td>
+<td>4</td>
+<td>0.810</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Perfect World</td>
+<td>Perfect World</td>
+<td>TWICE</td>
+<td>2021-07-28</td>
+<td>182680</td>
+<td>55</td>
+<td>3</td>
+<td>0</td>
+<td>0.684</td>
+<td>0.0477</td>
+<td>0.877</td>
+<td>0.000000</td>
+<td>0.3440</td>
+<td>-2.322</td>
+<td>0.0611</td>
+<td>134.980</td>
+<td>4</td>
+<td>0.599</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Kura Kura</td>
+<td>Perfect World</td>
+<td>TWICE</td>
+<td>2021-07-28</td>
+<td>227746</td>
+<td>48</td>
+<td>7</td>
+<td>1</td>
+<td>0.734</td>
+<td>0.1660</td>
+<td>0.714</td>
+<td>0.000000</td>
+<td>0.0648</td>
+<td>-4.351</td>
+<td>0.0986</td>
+<td>130.999</td>
+<td>4</td>
+<td>0.761</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>The Feels</td>
+<td>The Feels</td>
+<td>TWICE</td>
+<td>2021-10-01</td>
+<td>198053</td>
+<td>47</td>
+<td>9</td>
+<td>1</td>
+<td>0.808</td>
+<td>0.0899</td>
+<td>0.903</td>
+<td>0.000000</td>
+<td>0.0816</td>
+<td>-2.179</td>
+<td>0.0729</td>
+<td>120.044</td>
+<td>4</td>
+<td>0.922</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>SCIENTIST</td>
+<td>Formula of Love: O+T=&lt;3</td>
+<td>TWICE</td>
+<td>2021-11-12</td>
+<td>194600</td>
+<td>47</td>
+<td>11</td>
+<td>1</td>
+<td>0.786</td>
+<td>0.0487</td>
+<td>0.858</td>
+<td>0.000000</td>
+<td>0.1260</td>
+<td>-3.740</td>
+<td>0.0675</td>
+<td>112.999</td>
+<td>4</td>
+<td>0.649</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>LOVE COUNTDOWN (feat. Wonstein)</td>
+<td>IM NAYEON</td>
+<td>NAYEON</td>
+<td>2022-06-24</td>
+<td>197613</td>
+<td>47</td>
+<td>11</td>
+<td>0</td>
+<td>0.689</td>
+<td>0.2350</td>
+<td>0.845</td>
+<td>0.000000</td>
+<td>0.0588</td>
+<td>-2.459</td>
+<td>0.2010</td>
+<td>159.945</td>
+<td>4</td>
+<td>0.863</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23</td>
+<td>POP!</td>
+<td>IM NAYEON</td>
+<td>NAYEON</td>
+<td>2022-06-24</td>
+<td>168106</td>
+<td>57</td>
+<td>2</td>
+<td>1</td>
+<td>0.793</td>
+<td>0.0356</td>
+<td>0.859</td>
+<td>0.000000</td>
+<td>0.0343</td>
+<td>-2.998</td>
+<td>0.0544</td>
+<td>97.001</td>
+<td>4</td>
+<td>0.392</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Celebrate</td>
+<td>Celebrate</td>
+<td>TWICE</td>
+<td>2022-07-15</td>
+<td>188433</td>
+<td>54</td>
+<td>7</td>
+<td>1</td>
+<td>0.776</td>
+<td>0.0628</td>
+<td>0.890</td>
+<td>0.000000</td>
+<td>0.0634</td>
+<td>-2.678</td>
+<td>0.0573</td>
+<td>111.998</td>
+<td>4</td>
+<td>0.864</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Talk that Talk</td>
+<td>BETWEEN 1&amp;2</td>
+<td>TWICE</td>
+<td>2022-08-26</td>
+<td>177466</td>
+<td>56</td>
+<td>3</td>
+<td>0</td>
+<td>0.774</td>
+<td>0.1430</td>
+<td>0.905</td>
+<td>0.000000</td>
+<td>0.3320</td>
+<td>-2.432</td>
+<td>0.1220</td>
+<td>119.964</td>
+<td>4</td>
+<td>0.768</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">24</td>
+<td>MOONLIGHT SUNRISE</td>
+<td>MOONLIGHT SUNRISE</td>
+<td>TWICE</td>
+<td>2023-01-20</td>
+<td>180320</td>
+<td>46</td>
+<td>1</td>
+<td>1</td>
+<td>0.747</td>
+<td>0.3840</td>
+<td>0.782</td>
+<td>0.000002</td>
+<td>0.0862</td>
+<td>-3.255</td>
+<td>0.0622</td>
+<td>125.062</td>
+<td>4</td>
+<td>0.600</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Bouquet</td>
+<td>Bouquet</td>
+<td>MISAMO</td>
+<td>2023-01-25</td>
+<td>264389</td>
+<td>51</td>
+<td>5</td>
+<td>1</td>
+<td>0.611</td>
+<td>0.1390</td>
+<td>0.594</td>
+<td>0.000000</td>
+<td>0.1140</td>
+<td>-5.194</td>
+<td>0.0295</td>
+<td>91.014</td>
+<td>4</td>
+<td>0.431</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>SET ME FREE</td>
+<td>READY TO BE</td>
+<td>TWICE</td>
+<td>2023-03-10</td>
+<td>181680</td>
+<td>53</td>
+<td>5</td>
+<td>0</td>
+<td>0.754</td>
+<td>0.0897</td>
+<td>0.831</td>
+<td>0.000000</td>
+<td>0.0505</td>
+<td>-2.536</td>
+<td>0.1570</td>
+<td>113.019</td>
+<td>4</td>
+<td>0.707</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Hare Hare</td>
+<td>Hare Hare</td>
+<td>TWICE</td>
+<td>2023-05-12</td>
+<td>203546</td>
+<td>57</td>
+<td>9</td>
+<td>0</td>
+<td>0.707</td>
+<td>0.1710</td>
+<td>0.830</td>
+<td>0.000000</td>
+<td>0.1760</td>
+<td>-5.331</td>
+<td>0.0642</td>
+<td>128.106</td>
+<td>4</td>
+<td>0.758</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Marshmallow</td>
+<td>Marshmallow</td>
+<td>MISAMO</td>
+<td>2023-06-16</td>
+<td>182321</td>
+<td>52</td>
+<td>1</td>
+<td>0</td>
+<td>0.753</td>
+<td>0.4470</td>
+<td>0.651</td>
+<td>0.000000</td>
+<td>0.1870</td>
+<td>-6.546</td>
+<td>0.0458</td>
+<td>90.022</td>
+<td>4</td>
+<td>0.809</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Do not touch</td>
+<td>Do not touch</td>
+<td>MISAMO</td>
+<td>2023-07-14</td>
+<td>185600</td>
+<td>59</td>
+<td>3</td>
+<td>0</td>
+<td>0.720</td>
+<td>0.1370</td>
+<td>0.787</td>
+<td>0.000000</td>
+<td>0.0418</td>
+<td>-4.540</td>
+<td>0.1880</td>
+<td>149.972</td>
+<td>4</td>
+<td>0.842</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>I GOT YOU</td>
+<td>I GOT YOU (Voyage ver.)</td>
+<td>TWICE</td>
+<td>2024-02-06</td>
+<td>173240</td>
+<td>50</td>
+<td>8</td>
+<td>1</td>
+<td>0.523</td>
+<td>0.0467</td>
+<td>0.805</td>
+<td>0.000000</td>
+<td>0.0670</td>
+<td>-3.734</td>
+<td>0.0521</td>
+<td>176.090</td>
+<td>4</td>
+<td>0.523</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>ONE SPARK</td>
+<td>With YOU-th</td>
+<td>TWICE</td>
+<td>2024-02-23</td>
+<td>183559</td>
+<td>57</td>
+<td>4</td>
+<td>0</td>
+<td>0.590</td>
+<td>0.0139</td>
+<td>0.772</td>
+<td>0.000000</td>
+<td>0.6930</td>
+<td>-4.927</td>
+<td>0.0700</td>
+<td>168.992</td>
+<td>4</td>
+<td>0.404</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>DIVE</td>
+<td>DIVE</td>
+<td>TWICE</td>
+<td>2024-07-17</td>
+<td>181860</td>
+<td>58</td>
+<td>1</td>
+<td>1</td>
+<td>0.796</td>
+<td>0.1460</td>
+<td>0.702</td>
+<td>0.000000</td>
+<td>0.1190</td>
+<td>-3.413</td>
+<td>0.0377</td>
+<td>114.992</td>
+<td>4</td>
+<td>0.893</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Here I am</td>
+<td>DIVE</td>
+<td>TWICE</td>
+<td>2024-07-17</td>
+<td>170640</td>
+<td>54</td>
+<td>7</td>
+<td>1</td>
+<td>0.723</td>
+<td>0.2380</td>
+<td>0.786</td>
+<td>0.000000</td>
+<td>0.0428</td>
+<td>-4.466</td>
+<td>0.0729</td>
+<td>93.528</td>
+<td>4</td>
+<td>0.667</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>NEW LOOK</td>
+<td>NEW LOOK</td>
+<td>MISAMO</td>
+<td>2024-10-09</td>
+<td>196680</td>
+<td>73</td>
+<td>2</td>
+<td>1</td>
+<td>0.516</td>
+<td>0.1770</td>
+<td>0.830</td>
+<td>0.000002</td>
+<td>0.0921</td>
+<td>-4.114</td>
+<td>0.1340</td>
+<td>136.033</td>
+<td>4</td>
+<td>0.433</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>Identity</td>
+<td>Identity</td>
+<td>MISAMO</td>
+<td>2024-10-28</td>
+<td>140466</td>
+<td>69</td>
+<td>0</td>
+<td>1</td>
+<td>0.873</td>
+<td>0.1210</td>
+<td>0.804</td>
+<td>0.000000</td>
+<td>0.1870</td>
+<td>-2.648</td>
+<td>0.0571</td>
+<td>112.000</td>
+<td>4</td>
+<td>0.587</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="000ce2a0" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>twice_df<span class="op">=</span>twice_df.sort_values(<span class="st">'release_date'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>artistがTwiceのメンバーのものもあるので、それはのぞきます。</p>
+<div id="1cb73cb1" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>twice_df <span class="op">=</span> twice_df[twice_df[<span class="st">"artist"</span>] <span class="op">==</span> <span class="st">'TWICE'</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>うけんね</p>
+
+
+<!-- -->
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "コピーしました");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "コピーしました");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "SpotifyをPythonで分析 Twice編"</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> false</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="an">toc-location:</span><span class="co"> left</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ja</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 前回までの前準備</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">前回</span><span class="co">](/spotify-basis.html)</span> 前準備はここに載っています。</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spotipy</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spotipy.oauth2 <span class="im">import</span> SpotifyClientCredentials</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>client_id <span class="op">=</span> os.getenv(<span class="st">'SPOTIFY_CLIENT_ID'</span>)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>client_secret <span class="op">=</span> os.getenv(<span class="st">'SPOTIFY_CLIENT_SECRET'</span>)</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>client_credentials_manager <span class="op">=</span> spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> spotipy.Spotify(client_credentials_manager<span class="op">=</span>client_credentials_manager)</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## やりたいこと</span></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Twiceの曲調の変遷（アルバムタイトル曲）・時期的な変わり方</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>予測：Yes or Yesを境にガラッと変わっているのではないか</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>クラスター分析</span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>予測：３クラスタで可愛い曲調（TT・What is Love）、クール曲調（Cry for me, SET ME Free）、元気系（Cheer up, LIKE OHH AHH）におおまかには別れるのでは？</span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## 読み込む！</span></span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a>twiceのタイトル曲を比較するには、有名度合いで調べればいいと思います。</span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a>twice_url <span class="op">=</span> <span class="st">'https://open.spotify.com/intl-ja/artist/7n2Ycct7Beij7Dj7meI4X0?si=wpbUsAFKTz634tK-rLZenA'</span></span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> sp.artist_top_tracks(twice_url)</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> track <span class="kw">in</span> results[<span class="st">'tracks'</span>][:<span class="dv">10</span>]:</span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'track    : '</span> <span class="op">+</span> track[<span class="st">'name'</span>])</span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span>
+<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a>良い調べ方だと思ったのですが、<span class="in">`artist_top_tracks`</span>は10個のみだそうです😭</span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a>他の方法も試してみたのですが、Playlistを活用するのが一番良さそうです。</span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a>twice_playlist_url <span class="op">=</span> <span class="st">'https://open.spotify.com/playlist/394Th9t58FlwC3ElNlqGye?si=e18959b04e0c4b48'</span></span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a>twice_playlist_id <span class="op">=</span> twice_playlist_url.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">'?'</span>)[<span class="dv">0</span>]  <span class="co">#プレイリストIDを取得</span></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="co"># プレイリストの楽曲一覧を取得</span></span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a>twice_playlist <span class="op">=</span> sp.playlist(twice_playlist_id)</span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a>twice_playlist[<span class="st">"tracks"</span>][<span class="st">"items"</span>][<span class="dv">2</span>][<span class="st">"track"</span>]</span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a><span class="co"># プレイリストの曲情報を格納するリスト</span></span>
+<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a>playlist_tracks <span class="op">=</span> []</span>
+<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a><span class="co"># 各トラックの情報を取得</span></span>
+<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> twice_playlist[<span class="st">'tracks'</span>][<span class="st">'items'</span>]:</span>
+<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a>    track <span class="op">=</span> item[<span class="st">'track'</span>]</span>
+<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a>    track_info <span class="op">=</span> {</span>
+<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a>        <span class="st">'曲名'</span>: track[<span class="st">'name'</span>],</span>
+<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a>        <span class="st">'アーティスト'</span>: <span class="st">', '</span>.join([artist[<span class="st">'name'</span>] <span class="cf">for</span> artist <span class="kw">in</span> track[<span class="st">'artists'</span>]]),</span>
+<span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a>        <span class="st">'アルバム'</span>: track[<span class="st">'album'</span>][<span class="st">'name'</span>],</span>
+<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a>        <span class="st">'リリース日'</span>: track[<span class="st">'album'</span>][<span class="st">'release_date'</span>]</span>
+<span id="cb33-96"><a href="#cb33-96" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a>    playlist_tracks.append(track_info)</span>
+<span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームに変換</span></span>
+<span id="cb33-104"><a href="#cb33-104" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(playlist_tracks)</span>
+<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a>このデータフレームをいつでも活用できるようcsvファイルに変換します！</span>
+<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-112"><a href="#cb33-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'twice.csv'</span>) </span>
+<span id="cb33-114"><a href="#cb33-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-115"><a href="#cb33-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-116"><a href="#cb33-116" aria-hidden="true" tabindex="-1"></a>ここから、それぞれの楽曲の<span class="in">`danceability`</span>などの属性を取得したいのですが、よい記事があったのでこれを参考にしながら進めていきます！</span>
+<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-118"><a href="#cb33-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### 属性取得</span></span>
+<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-120"><a href="#cb33-120" aria-hidden="true" tabindex="-1"></a>参考にする記事：<span class="co">[</span><span class="ot">https://qiita.com/sayuyuyu/items/4ca06a851fca41f6b270</span><span class="co">](https://qiita.com/sayuyuyu/items/4ca06a851fca41f6b270)</span></span>
+<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-122"><a href="#cb33-122" aria-hidden="true" tabindex="-1"></a>やりたいことを気合いでやってくれてる人がいました！！！</span>
+<span id="cb33-123"><a href="#cb33-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-126"><a href="#cb33-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a><span class="co"># プレイリストから曲を取得</span></span>
+<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_to_playlist(playlist_id):</span>
+<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a>    playlist <span class="op">=</span> sp.playlist(playlist_id)</span>
+<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a>    track_ids <span class="op">=</span> []</span>
+<span id="cb33-131"><a href="#cb33-131" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> playlist[<span class="st">'tracks'</span>][<span class="st">'items'</span>]:</span>
+<span id="cb33-132"><a href="#cb33-132" aria-hidden="true" tabindex="-1"></a>        track <span class="op">=</span> item[<span class="st">'track'</span>]</span>
+<span id="cb33-133"><a href="#cb33-133" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> track[<span class="st">'id'</span>] <span class="kw">in</span> track_ids:</span>
+<span id="cb33-134"><a href="#cb33-134" aria-hidden="true" tabindex="-1"></a>            track_ids.append(track[<span class="st">'id'</span>])</span>
+<span id="cb33-135"><a href="#cb33-135" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb33-136"><a href="#cb33-136" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> item <span class="kw">in</span> playlist[<span class="st">'tracks'</span>][<span class="st">'items'</span>]:</span>
+<span id="cb33-137"><a href="#cb33-137" aria-hidden="true" tabindex="-1"></a>                track <span class="op">=</span> item[<span class="st">'track'</span>]</span>
+<span id="cb33-138"><a href="#cb33-138" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> track[<span class="st">'id'</span>] <span class="kw">in</span> track_ids:</span>
+<span id="cb33-139"><a href="#cb33-139" aria-hidden="true" tabindex="-1"></a>                    track_ids.append(track[<span class="st">'id'</span>])</span>
+<span id="cb33-140"><a href="#cb33-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> track_ids</span>
+<span id="cb33-141"><a href="#cb33-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-142"><a href="#cb33-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-145"><a href="#cb33-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-146"><a href="#cb33-146" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getTrackFeatures(<span class="bu">id</span>):</span>
+<span id="cb33-147"><a href="#cb33-147" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> sp.track(<span class="bu">id</span>)</span>
+<span id="cb33-148"><a href="#cb33-148" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> sp.audio_features(<span class="bu">id</span>)</span>
+<span id="cb33-149"><a href="#cb33-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-150"><a href="#cb33-150" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> meta[<span class="st">'name'</span>]</span>
+<span id="cb33-151"><a href="#cb33-151" aria-hidden="true" tabindex="-1"></a>    album <span class="op">=</span> meta[<span class="st">'album'</span>][<span class="st">'name'</span>]</span>
+<span id="cb33-152"><a href="#cb33-152" aria-hidden="true" tabindex="-1"></a>    artist <span class="op">=</span> meta[<span class="st">'album'</span>][<span class="st">'artists'</span>][<span class="dv">0</span>][<span class="st">'name'</span>]</span>
+<span id="cb33-153"><a href="#cb33-153" aria-hidden="true" tabindex="-1"></a>    release_date <span class="op">=</span> meta[<span class="st">'album'</span>][<span class="st">'release_date'</span>]</span>
+<span id="cb33-154"><a href="#cb33-154" aria-hidden="true" tabindex="-1"></a>    length <span class="op">=</span> meta[<span class="st">'duration_ms'</span>]</span>
+<span id="cb33-155"><a href="#cb33-155" aria-hidden="true" tabindex="-1"></a>    popularity <span class="op">=</span> meta[<span class="st">'popularity'</span>]</span>
+<span id="cb33-156"><a href="#cb33-156" aria-hidden="true" tabindex="-1"></a>    key <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'key'</span>]</span>
+<span id="cb33-157"><a href="#cb33-157" aria-hidden="true" tabindex="-1"></a>    mode <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'mode'</span>]</span>
+<span id="cb33-158"><a href="#cb33-158" aria-hidden="true" tabindex="-1"></a>    danceability <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'danceability'</span>]</span>
+<span id="cb33-159"><a href="#cb33-159" aria-hidden="true" tabindex="-1"></a>    acousticness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'acousticness'</span>]</span>
+<span id="cb33-160"><a href="#cb33-160" aria-hidden="true" tabindex="-1"></a>    energy <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'energy'</span>]</span>
+<span id="cb33-161"><a href="#cb33-161" aria-hidden="true" tabindex="-1"></a>    instrumentalness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'instrumentalness'</span>]</span>
+<span id="cb33-162"><a href="#cb33-162" aria-hidden="true" tabindex="-1"></a>    liveness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'liveness'</span>]</span>
+<span id="cb33-163"><a href="#cb33-163" aria-hidden="true" tabindex="-1"></a>    loudness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'loudness'</span>]</span>
+<span id="cb33-164"><a href="#cb33-164" aria-hidden="true" tabindex="-1"></a>    speechiness <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'speechiness'</span>]</span>
+<span id="cb33-165"><a href="#cb33-165" aria-hidden="true" tabindex="-1"></a>    tempo <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'tempo'</span>]</span>
+<span id="cb33-166"><a href="#cb33-166" aria-hidden="true" tabindex="-1"></a>    time_signature <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'time_signature'</span>]</span>
+<span id="cb33-167"><a href="#cb33-167" aria-hidden="true" tabindex="-1"></a>    valence <span class="op">=</span> features[<span class="dv">0</span>][<span class="st">'valence'</span>]</span>
+<span id="cb33-168"><a href="#cb33-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-169"><a href="#cb33-169" aria-hidden="true" tabindex="-1"></a>    track <span class="op">=</span> [name, album, artist, release_date, length, popularity, key, mode, danceability, acousticness,</span>
+<span id="cb33-170"><a href="#cb33-170" aria-hidden="true" tabindex="-1"></a>             energy, instrumentalness, liveness, loudness, speechiness, tempo, time_signature, valence]</span>
+<span id="cb33-171"><a href="#cb33-171" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> track</span>
+<span id="cb33-172"><a href="#cb33-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-173"><a href="#cb33-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-176"><a href="#cb33-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-177"><a href="#cb33-177" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> id_to_csv(track_ids):</span>
+<span id="cb33-178"><a href="#cb33-178" aria-hidden="true" tabindex="-1"></a>    tracks <span class="op">=</span> []</span>
+<span id="cb33-179"><a href="#cb33-179" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> track_id <span class="kw">in</span> track_ids:</span>
+<span id="cb33-180"><a href="#cb33-180" aria-hidden="true" tabindex="-1"></a>        track <span class="op">=</span> getTrackFeatures(track_id)</span>
+<span id="cb33-181"><a href="#cb33-181" aria-hidden="true" tabindex="-1"></a>        tracks.append(track)</span>
+<span id="cb33-182"><a href="#cb33-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-183"><a href="#cb33-183" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(tracks, columns<span class="op">=</span>[<span class="st">'name'</span>, <span class="st">'album'</span>, <span class="st">'artist'</span>, <span class="st">'release_date'</span>, <span class="st">'length'</span>, <span class="st">'popularity'</span>, <span class="st">'key'</span>, <span class="st">'mode'</span>, <span class="st">'danceability'</span>,</span>
+<span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'acousticness'</span>, <span class="st">'energy'</span>, <span class="st">'instrumentalness'</span>, <span class="st">'liveness'</span>, <span class="st">'loudness'</span>, <span class="st">'speechiness'</span>, <span class="st">'tempo'</span>, <span class="st">'time_signature'</span>, <span class="st">'valence'</span>])</span>
+<span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a>    df.head()</span>
+<span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a>    df.to_csv(<span class="st">'myplaylist.csv'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"CSVファイルが作成されました。"</span>)</span>
+<span id="cb33-189"><a href="#cb33-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-190"><a href="#cb33-190" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
+<span id="cb33-191"><a href="#cb33-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-192"><a href="#cb33-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a>    ids <span class="op">=</span> get_to_playlist(<span class="st">"394Th9t58FlwC3ElNlqGye"</span>)</span>
+<span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a>    id_to_csv(ids)</span>
+<span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-199"><a href="#cb33-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-200"><a href="#cb33-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-201"><a href="#cb33-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## いざ分析</span></span>
+<span id="cb33-202"><a href="#cb33-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-205"><a href="#cb33-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-206"><a href="#cb33-206" aria-hidden="true" tabindex="-1"></a>twice_df <span class="op">=</span> pd.read_csv(<span class="st">"myplaylist.csv"</span>)</span>
+<span id="cb33-207"><a href="#cb33-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-208"><a href="#cb33-208" aria-hidden="true" tabindex="-1"></a>twice_df.head()</span>
+<span id="cb33-209"><a href="#cb33-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-210"><a href="#cb33-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-211"><a href="#cb33-211" aria-hidden="true" tabindex="-1"></a>まずデータフレームを整理していきます。</span>
+<span id="cb33-212"><a href="#cb33-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-213"><a href="#cb33-213" aria-hidden="true" tabindex="-1"></a><span class="fu">### データフレームを整理</span></span>
+<span id="cb33-214"><a href="#cb33-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-215"><a href="#cb33-215" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 日付を整理</span></span>
+<span id="cb33-216"><a href="#cb33-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-217"><a href="#cb33-217" aria-hidden="true" tabindex="-1"></a>まず、<span class="in">`release_date`</span>順に並び替えます。</span>
+<span id="cb33-218"><a href="#cb33-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-219"><a href="#cb33-219" aria-hidden="true" tabindex="-1"></a>その前に型がちゃんと日付になっているかを確かめます。</span>
+<span id="cb33-220"><a href="#cb33-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-223"><a href="#cb33-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-224"><a href="#cb33-224" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(twice_df[<span class="st">"release_date"</span>][<span class="dv">0</span>])</span>
+<span id="cb33-225"><a href="#cb33-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-226"><a href="#cb33-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-227"><a href="#cb33-227" aria-hidden="true" tabindex="-1"></a>列単位で型を見る方法ってあるのかな？？→<span class="co">[</span><span class="ot">https://pyhoo.jp/pandas-astype</span><span class="co">](https://pyhoo.jp/pandas-astype)</span> によると、pandasの機能でdtypesっていうのがあるそう。</span>
+<span id="cb33-228"><a href="#cb33-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-231"><a href="#cb33-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-232"><a href="#cb33-232" aria-hidden="true" tabindex="-1"></a>twice_df.dtypes</span>
+<span id="cb33-233"><a href="#cb33-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-235"><a href="#cb33-235" aria-hidden="true" tabindex="-1"></a>全部の型が見れて便利！</span>
+<span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a>やっぱり<span class="in">`object`</span>になっていたので、<span class="in">`datetime`</span>型に変換します。</span>
+<span id="cb33-238"><a href="#cb33-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-241"><a href="#cb33-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-242"><a href="#cb33-242" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb33-243"><a href="#cb33-243" aria-hidden="true" tabindex="-1"></a>twice_df[<span class="st">"release_date"</span>] <span class="op">=</span> pd.to_datetime(twice_df[<span class="st">"release_date"</span>])</span>
+<span id="cb33-244"><a href="#cb33-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a>ところがどっこい、エラーが出ますね。</span>
+<span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a>エラーを見てみると、一つだけ<span class="in">`2015`</span>という年だけわかっており、 <span class="in">`%Y-%m-%d`</span>の形に沿っていないということだと思います。</span>
+<span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-249"><a href="#cb33-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-250"><a href="#cb33-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-254"><a href="#cb33-254" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(twice_df[<span class="st">"release_date"</span>] <span class="op">==</span> <span class="st">'2015'</span>)</span>
+<span id="cb33-255"><a href="#cb33-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-256"><a href="#cb33-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-257"><a href="#cb33-257" aria-hidden="true" tabindex="-1"></a>2015になっているのは一つだけですね。</span>
+<span id="cb33-258"><a href="#cb33-258" aria-hidden="true" tabindex="-1"></a>どれかを特定します。</span>
+<span id="cb33-259"><a href="#cb33-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-262"><a href="#cb33-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-263"><a href="#cb33-263" aria-hidden="true" tabindex="-1"></a>twice_df[twice_df[<span class="st">"release_date"</span>] <span class="op">==</span> <span class="st">'2015'</span>]</span>
+<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a>LIKE OHH AHHのようですね。</span>
+<span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a>このデータのみ、<span class="in">`2015-10-20`</span>に直接変換します。（調べました！）</span>
+<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-271"><a href="#cb33-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a>twice_df.loc[<span class="dv">8</span>, <span class="st">'release_date'</span>] <span class="op">=</span> <span class="st">'2015-10-20'</span></span>
+<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(twice_df[<span class="st">"release_date"</span>] <span class="op">==</span> <span class="st">'2015'</span>)</span>
+<span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-281"><a href="#cb33-281" aria-hidden="true" tabindex="-1"></a>2015のものがなくなったので、変換できるはずです！再度<span class="in">`to_datetime`</span>を実行します。</span>
+<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-285"><a href="#cb33-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-286"><a href="#cb33-286" aria-hidden="true" tabindex="-1"></a>twice_df[<span class="st">"release_date"</span>] <span class="op">=</span> pd.to_datetime(twice_df[<span class="st">"release_date"</span>])</span>
+<span id="cb33-287"><a href="#cb33-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-288"><a href="#cb33-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-291"><a href="#cb33-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-292"><a href="#cb33-292" aria-hidden="true" tabindex="-1"></a>twice_df.dtypes</span>
+<span id="cb33-293"><a href="#cb33-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-294"><a href="#cb33-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a>型を見ると変換できてますね。</span>
+<span id="cb33-296"><a href="#cb33-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-297"><a href="#cb33-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a>twice_df.sort_values(<span class="st">'release_date'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-307"><a href="#cb33-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-308"><a href="#cb33-308" aria-hidden="true" tabindex="-1"></a>twice_df<span class="op">=</span>twice_df.sort_values(<span class="st">'release_date'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb33-309"><a href="#cb33-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-310"><a href="#cb33-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-311"><a href="#cb33-311" aria-hidden="true" tabindex="-1"></a>artistがTwiceのメンバーのものもあるので、それはのぞきます。</span>
+<span id="cb33-312"><a href="#cb33-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-315"><a href="#cb33-315" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-316"><a href="#cb33-316" aria-hidden="true" tabindex="-1"></a>twice_df <span class="op">=</span> twice_df[twice_df[<span class="st">"artist"</span>] <span class="op">==</span> <span class="st">'TWICE'</span>]</span>
+<span id="cb33-317"><a href="#cb33-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-318"><a href="#cb33-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-319"><a href="#cb33-319" aria-hidden="true" tabindex="-1"></a>うけんね</span>
+<span id="cb33-320"><a href="#cb33-320" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

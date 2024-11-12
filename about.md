@@ -5,7 +5,7 @@ date: last-modified
 toc: true
 toc-location: left
 lang: ja
-page-layout: full
+page-layout: article
 ---
 
 ## Memo

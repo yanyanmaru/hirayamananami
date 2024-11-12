@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.47">
 
-  <meta name="dcterms.date" content="2024-11-05">
+  <meta name="dcterms.date" content="2024-11-12">
   <title>Hirayama Nanami – 11月12日　7.4不偏推定の問題点</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -334,11 +334,71 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-11-05</p>
+  <p class="date">2024-11-12</p>
 </section>
 <section class="slide level2">
 
-<p>以上で述べてきた、一様最小分散不偏推定量の理論は、標本平均のように</p>
+<h3 id="不偏推定の問題点">不偏推定の問題点</h3>
+<p>以上で述べてきた、一様最小分散不偏推定量(UMVU)の理論は、標本平均のように直感的にもっともらしい推定量を理論的に義務付けるための有効な理論である。</p>
+<p>もしUMVUが存在すればUMVUを用いることは説得性のあることと思われる。</p>
+<p>しかしながら、一様最小分散不偏推定量が存在しなかったり不合理な推定量となる例がある。</p>
+<p>これらの例は必ずしも特殊な例とは言えず、不偏推定量の理論に疑問を投げかけるものとなっている。</p>
+<p>不偏推定量の理論は点推定論の中でも伝統的に大きな位置を占めてきたが、このような事情から不偏推定という考え方を重視しない学者も多い。</p>
+<p>不偏推定の問題点として、母数の変換に対して不変ではないということがあげられる。</p>
+<p>つまり<span class="math inline">\(\hat{\theta}\)</span>が<span class="math inline">\(\theta\)</span>の不偏推定量であったとしても、<span class="math inline">\(\gamma(\hat{\theta})\)</span>は<span class="math inline">\(\gamma(\theta)\)</span>の不偏推定量ではないのである。この例として、母分散・母標準偏差の推定を考えてみよう。</p>
+</section>
+<section class="slide level2">
+
+<h3 id="不偏推定の問題点を示す例①">不偏推定の問題点を示す例①</h3>
+<p><span class="math inline">\(\displaystyle s^2=\sum^{n}_{i=1}\frac{(X_i - \bar{X})^2}{n-1}\)</span> は<span class="math inline">\(\sigma^2\)</span>の不偏推定量であるが、<span class="math inline">\(s=\sqrt{s^2}\)</span>は<span class="math inline">\(\sigma\)</span>の不偏推定量にはならない。</p>
+<p>実際ジェンセンの不等式より、<span class="math inline">\(E[s] &lt; \sigma\)</span>となることが容易に示される。</p>
+<p><span class="math inline">\(f(x)=\sqrt{x}\)</span>　は厳密に上に凸なので</p>
+<p><span class="math display">\[
+E[s] = E[\sqrt{s^2}] &lt; \sqrt{E[s^2]} = \sqrt{\sigma^2} = \sigma
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="補足ジェンセンの不等式">補足：ジェンセンの不等式</h3>
+<div id="thm-line" class="theorem">
+<p><span class="theorem-title"><strong>定理 1</strong></span> <br></p>
+<p><span class="math inline">\(f(x)\)</span>を１変数の凸関数とする。このとき</p>
+<p><span class="math display">\[
+f(E[X]) \leq E[f(X)]
+\]</span></p>
+<p>が成り立つ。ただし<span class="math inline">\(E[X]\)</span>は存在するものとする。</p>
+</div>
+<p>証明</p>
+<p><span class="math inline">\(\mu = E[X]\)</span> とする。<span class="math inline">\((\mu, f(\mu))\)</span> における<span class="math inline">\(f(x)\)</span>の接線を<span class="math inline">\(y=a+bx\)</span>とする。<span class="math inline">\(f(x)\)</span>は凸関数であるから</p>
+<p><span class="math display">\[
+f(x) \geq a  + bx , \quad x
+\]</span></p>
+<p>が成り立つ。ここで両辺の期待値をとれば<span class="math inline">\(E[f(X)] \geq  a+b\mu=f(\mu)=f(E[X])\)</span>である。</p>
+<p>もしfが厳密な凸関数で、<span class="math inline">\(P(X \neq \mu) &gt; 0\)</span> ならば強い不等式が成り立つ。</p>
+</section>
+<section class="slide level2">
+
+<h3 id="不偏推定の問題点を示す例②">不偏推定の問題点を示す例②</h3>
+<p>また正規母集団からの標本の場合に</p>
+<p><span class="math display">\[
+\tilde{\sigma} = s \frac{\sqrt{n-1} \Gamma(\frac{n-1}{2})}{\sqrt{2} \Gamma(\frac{n}{2})}
+\]</span></p>
+<p>が<span class="math inline">\(\sigma\)</span>の不偏推定量であることも示される。</p>
+</section>
+<section class="slide level2">
+
+<p><span class="math inline">\(X \sim Ga(\alpha,\beta)\)</span> のとき</p>
+<p><span class="math display">\[
+E[X^a]= \int^{\infty}_0 x^a \frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma(\alpha) \beta^\alpha} = \beta^a \frac{\Gamma(\alpha+a)}{\Gamma(\alpha)}
+\]</span></p>
+<p><span class="math inline">\(\alpha=\frac{n-1}{2}, \quad \beta = 2\)</span> の場合に応用すると、<span class="math inline">\(\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}\)</span> が<span class="math inline">\(\sigma\)</span>の不偏推定量であることがわかる。</p>
+</section>
+<section class="slide level2">
+
+<h3 id="不偏推定の問題点を示す例③">不偏推定の問題点を示す例③</h3>
+<p>したがって、もし不偏推定の考え方にこだわるのであれば<span class="math inline">\(\sigma^2\)</span>の推定には<span class="math inline">\(s^2\)</span> を用いるが、<span class="math inline">\(\sigma\)</span>の推定には<span class="math inline">\(\tilde{\sigma}\)</span>を用いなければならなくなる。</p>
+<p>しかしこれは明らかに不自然な推定方法であろう。</p>
+<p>したがってこの場合不偏推定の基準を厳密に適用することは不合理である。</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

@@ -1,0 +1,273 @@
+---
+title: "SpotifyをPythonで分析 Twice編"
+format: html
+code-fold: false
+date: last-modified
+toc: true
+toc-location: left
+lang: ja
+---
+
+## 前回までの前準備
+
+[前回](/spotify-basis.html) 前準備はここに載っています。
+
+```{python}
+import pandas as pd
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+import json
+import os
+from dotenv import load_dotenv
+from pprint import pprint
+
+client_id = os.getenv('SPOTIFY_CLIENT_ID')
+client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
+
+client_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+```
+
+## やりたいこと
+
+- Twiceの曲調の変遷（アルバムタイトル曲）・時期的な変わり方
+  - 予測：Yes or Yesを境にガラッと変わっているのではないか
+- クラスター分析
+  - 予測：３クラスタで可愛い曲調（TT・What is Love）、クール曲調（Cry for me, SET ME Free）、元気系（Cheer up, LIKE OHH AHH）におおまかには別れるのでは？
+
+## 読み込む！
+
+twiceのタイトル曲を比較するには、有名度合いで調べればいいと思います。
+
+```{python}
+twice_url = 'https://open.spotify.com/intl-ja/artist/7n2Ycct7Beij7Dj7meI4X0?si=wpbUsAFKTz634tK-rLZenA'
+results = sp.artist_top_tracks(twice_url)
+```
+
+```{python}
+for track in results['tracks'][:10]:
+    print('track    : ' + track['name'])
+    print()
+```
+
+良い調べ方だと思ったのですが、`artist_top_tracks`は10個のみだそうです😭
+
+
+他の方法も試してみたのですが、Playlistを活用するのが一番良さそうです。
+
+
+```{python}
+twice_playlist_url = 'https://open.spotify.com/playlist/394Th9t58FlwC3ElNlqGye?si=e18959b04e0c4b48'
+twice_playlist_id = twice_playlist_url.split('/')[-1].split('?')[0]  #プレイリストIDを取得
+
+# プレイリストの楽曲一覧を取得
+twice_playlist = sp.playlist(twice_playlist_id)
+```
+
+```{python}
+twice_playlist["tracks"]["items"][2]["track"]
+```
+
+
+```{python}
+# プレイリストの曲情報を格納するリスト
+playlist_tracks = []
+
+# 各トラックの情報を取得
+for item in twice_playlist['tracks']['items']:
+    track = item['track']
+    track_info = {
+        '曲名': track['name'],
+        'アーティスト': ', '.join([artist['name'] for artist in track['artists']]),
+        'アルバム': track['album']['name'],
+        'リリース日': track['album']['release_date']
+    }
+    playlist_tracks.append(track_info)
+```
+
+```{python}
+# データフレームに変換
+df = pd.DataFrame(playlist_tracks)
+df
+```
+
+このデータフレームをいつでも活用できるようcsvファイルに変換します！
+
+```{python}
+df.to_csv('twice.csv') 
+```
+
+ここから、それぞれの楽曲の`danceability`などの属性を取得したいのですが、よい記事があったのでこれを参考にしながら進めていきます！
+
+### 属性取得
+
+参考にする記事：[https://qiita.com/sayuyuyu/items/4ca06a851fca41f6b270](https://qiita.com/sayuyuyu/items/4ca06a851fca41f6b270)
+
+やりたいことを気合いでやってくれてる人がいました！！！
+
+```{python}
+# プレイリストから曲を取得
+def get_to_playlist(playlist_id):
+    playlist = sp.playlist(playlist_id)
+    track_ids = []
+    for item in playlist['tracks']['items']:
+        track = item['track']
+        if not track['id'] in track_ids:
+            track_ids.append(track['id'])
+        else:
+            for item in playlist['tracks']['items']:
+                track = item['track']
+                if not track['id'] in track_ids:
+                    track_ids.append(track['id'])
+    return track_ids
+```
+
+```{python}
+def getTrackFeatures(id):
+    meta = sp.track(id)
+    features = sp.audio_features(id)
+
+    name = meta['name']
+    album = meta['album']['name']
+    artist = meta['album']['artists'][0]['name']
+    release_date = meta['album']['release_date']
+    length = meta['duration_ms']
+    popularity = meta['popularity']
+    key = features[0]['key']
+    mode = features[0]['mode']
+    danceability = features[0]['danceability']
+    acousticness = features[0]['acousticness']
+    energy = features[0]['energy']
+    instrumentalness = features[0]['instrumentalness']
+    liveness = features[0]['liveness']
+    loudness = features[0]['loudness']
+    speechiness = features[0]['speechiness']
+    tempo = features[0]['tempo']
+    time_signature = features[0]['time_signature']
+    valence = features[0]['valence']
+
+    track = [name, album, artist, release_date, length, popularity, key, mode, danceability, acousticness,
+             energy, instrumentalness, liveness, loudness, speechiness, tempo, time_signature, valence]
+    return track
+```
+
+```{python}
+def id_to_csv(track_ids):
+    tracks = []
+    for track_id in track_ids:
+        track = getTrackFeatures(track_id)
+        tracks.append(track)
+
+    df = pd.DataFrame(tracks, columns=['name', 'album', 'artist', 'release_date', 'length', 'popularity', 'key', 'mode', 'danceability',
+                      'acousticness', 'energy', 'instrumentalness', 'liveness', 'loudness', 'speechiness', 'tempo', 'time_signature', 'valence'])
+    df.head()
+
+    df.to_csv('myplaylist.csv', encoding='utf-8', index=False)
+    print("CSVファイルが作成されました。")
+
+    return df
+```
+
+```python
+if __name__ == '__main__':
+    ids = get_to_playlist("394Th9t58FlwC3ElNlqGye")
+    id_to_csv(ids)
+```
+
+
+
+## いざ分析
+
+```{python}
+twice_df = pd.read_csv("myplaylist.csv")
+
+twice_df.head()
+```
+
+まずデータフレームを整理していきます。
+
+### データフレームを整理
+
+#### 日付を整理
+
+まず、`release_date`順に並び替えます。
+
+その前に型がちゃんと日付になっているかを確かめます。
+
+```{python}
+type(twice_df["release_date"][0])
+```
+
+列単位で型を見る方法ってあるのかな？？→[https://pyhoo.jp/pandas-astype](https://pyhoo.jp/pandas-astype) によると、pandasの機能でdtypesっていうのがあるそう。
+
+```{python}
+twice_df.dtypes
+```
+
+全部の型が見れて便利！
+
+やっぱり`object`になっていたので、`datetime`型に変換します。
+
+```{python}
+#| error: true
+twice_df["release_date"] = pd.to_datetime(twice_df["release_date"])
+```
+
+ところがどっこい、エラーが出ますね。
+エラーを見てみると、一つだけ`2015`という年だけわかっており、 `%Y-%m-%d`の形に沿っていないということだと思います。
+
+
+
+```{python}
+sum(twice_df["release_date"] == '2015')
+```
+
+2015になっているのは一つだけですね。
+どれかを特定します。
+
+```{python}
+twice_df[twice_df["release_date"] == '2015']
+```
+
+LIKE OHH AHHのようですね。
+このデータのみ、`2015-10-20`に直接変換します。（調べました！）
+
+```{python}
+twice_df.loc[8, 'release_date'] = '2015-10-20'
+```
+
+```{python}
+sum(twice_df["release_date"] == '2015')
+```
+
+2015のものがなくなったので、変換できるはずです！再度`to_datetime`を実行します。
+
+```{python}
+twice_df["release_date"] = pd.to_datetime(twice_df["release_date"])
+```
+
+```{python}
+twice_df.dtypes
+```
+
+型を見ると変換できてますね。
+
+
+
+```{python}
+twice_df.sort_values('release_date', ascending=True)
+```
+
+```{python}
+twice_df=twice_df.sort_values('release_date', ascending=True)
+```
+
+artistがTwiceのメンバーのものもあるので、それはのぞきます。
+
+```{python}
+twice_df = twice_df[twice_df["artist"] == 'TWICE']
+```
+
+うけんね
+
+

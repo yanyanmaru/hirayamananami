@@ -1,0 +1,18 @@
+# Fdb version 4
+["dvipdf"] 0 "out/index.dvi" "out/index.pdf" "out/index" 0 -1
+  "out/index.dvi" 0 -1 0 "latex"
+  (generated)
+  "out/index.pdf"
+  (rewritten before read)
+["latex"] 1731236258.28548 "/Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1105/index.tex" "out/index.dvi" "index" 1731236260.81787 2
+  "/Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1105/index.tex" 1730723790.10009 8270 d41d8cd98f00b204e9800998ecf8427e ""
+  "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1713064664 41983 7ec6bfd6bf34339a61f0f08f42298e60 ""
+  "/usr/local/texlive/2024/texmf-var/web2c/euptex/platex.fmt" 1714925836 8159863 d6c0cb71b7caed658c1e2b3bff887000 ""
+  "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
+  "index.tex" 1730723790.10009 8270 d41d8cd98f00b204e9800998ecf8427e ""
+  "out/index.aux" 0 -1 0 "latex"
+  (generated)
+  "out/index.aux"
+  "out/index.dvi"
+  "out/index.log"
+  (rewritten before read)
