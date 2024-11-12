@@ -82,7 +82,7 @@ $$
 $\mu = E[X]$ とする。$(\mu, f(\mu))$ における$f(x)$の接線を$y=a+bx$とする。$f(x)$は凸関数であるから
 
 $$
-f(x) \geq a  + bx , \quad x 
+f(x) \geq a  + bx , \quad \forall x 
 $$
 
 が成り立つ。ここで両辺の期待値をとれば$E[f(X)] \geq  a+b\mu=f(\mu)=f(E[X])$である。
@@ -102,9 +102,33 @@ $$
 
 が$\sigma$の不偏推定量であることも示される。
 
+<br/>
 
+不偏推定量であるということは、$E[\tilde{\sigma}] = E[s \frac{\sqrt{n-1} \Gamma(\frac{n-1}{2})}{\sqrt{2} \Gamma(\frac{n}{2})}] = \sigma$ である。つまり、
+
+
+$$
+E[s] = \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2})}
+$$
+
+であることを示したい。（次のページへ）
 
 ---
+
+$\displaystyle \frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2} = \frac{(n-1)s^2}{\sigma^2} \sim \chi^{2}_{n-1}$
+
+を用いる。
+
+$Y=\frac{(n-1)s^2}{\sigma^2}$ とおいて、$Y \sim \chi^{2}_{n-1}$ から、期待値を求めれる。
+
+$$
+E[s] = \int^{\infty}_0 \sqrt{\frac{\sigma^2}{n-1}y} \frac{y^{\frac{n-1}{2} - 1} e^{- \frac{y}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} dy = \sqrt{\frac{\sigma^2}{n-1}} \frac{\Gamma(\frac{n}{2}) 2^{\frac{n}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} =  \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2})}
+$$
+
+---
+
+
+教科書サポートサイトの説明
 
 $X \sim Ga(\alpha,\beta)$ のとき
 
@@ -112,7 +136,8 @@ $$
 E[X^a]= \int^{\infty}_0 x^a \frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma(\alpha) \beta^\alpha} = \beta^a \frac{\Gamma(\alpha+a)}{\Gamma(\alpha)}
 $$
 
-$\alpha=\frac{n-1}{2}, \quad \beta = 2$ の場合に応用すると、$\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}$ が$\sigma$の不偏推定量であることがわかる。
+$\alpha=\frac{n-1}{2}, \quad \beta = 2$ の場合に応用すると、$\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}$ が$\sigma$の不偏推定量であることが容易にわかる。（容易にはわからなかった。。。）
+
 
 
 ---

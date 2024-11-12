@@ -371,7 +371,7 @@ f(E[X]) \leq E[f(X)]
 <p>証明</p>
 <p><span class="math inline">\(\mu = E[X]\)</span> とする。<span class="math inline">\((\mu, f(\mu))\)</span> における<span class="math inline">\(f(x)\)</span>の接線を<span class="math inline">\(y=a+bx\)</span>とする。<span class="math inline">\(f(x)\)</span>は凸関数であるから</p>
 <p><span class="math display">\[
-f(x) \geq a  + bx , \quad x
+f(x) \geq a  + bx , \quad\forall x
 \]</span></p>
 <p>が成り立つ。ここで両辺の期待値をとれば<span class="math inline">\(E[f(X)] \geq  a+b\mu=f(\mu)=f(E[X])\)</span>である。</p>
 <p>もしfが厳密な凸関数で、<span class="math inline">\(P(X \neq \mu) &gt; 0\)</span> ならば強い不等式が成り立つ。</p>
@@ -384,14 +384,30 @@ f(x) \geq a  + bx , \quad x
 \tilde{\sigma} = s \frac{\sqrt{n-1} \Gamma(\frac{n-1}{2})}{\sqrt{2} \Gamma(\frac{n}{2})}
 \]</span></p>
 <p>が<span class="math inline">\(\sigma\)</span>の不偏推定量であることも示される。</p>
+<p><br></p>
+<p>不偏推定量であるということは、<span class="math inline">\(E[\tilde{\sigma}] = E[s \frac{\sqrt{n-1} \Gamma(\frac{n-1}{2})}{\sqrt{2} \Gamma(\frac{n}{2})}] = \sigma\)</span> である。つまり、</p>
+<p><span class="math display">\[
+E[s] = \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2})}
+\]</span></p>
+<p>であることを示したい。（次のページへ）</p>
 </section>
 <section class="slide level2">
 
+<p><span class="math inline">\(\displaystyle \frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2} = \frac{(n-1)s^2}{\sigma^2} \sim \chi^{2}_{n-1}\)</span></p>
+<p>を用いる。</p>
+<p><span class="math inline">\(Y=\frac{(n-1)s^2}{\sigma^2}\)</span> とおいて、<span class="math inline">\(Y \sim \chi^{2}_{n-1}\)</span> から、期待値を求めれる。</p>
+<p><span class="math display">\[
+E[s] = \int^{\infty}_0 \sqrt{\frac{\sigma^2}{n-1}y} \frac{y^{\frac{n-1}{2} - 1} e^{- \frac{y}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} dy = \sqrt{\frac{\sigma^2}{n-1}} \frac{\Gamma(\frac{n}{2}) 2^{\frac{n}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} =  \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2})}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>教科書サポートサイトの説明</p>
 <p><span class="math inline">\(X \sim Ga(\alpha,\beta)\)</span> のとき</p>
 <p><span class="math display">\[
 E[X^a]= \int^{\infty}_0 x^a \frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma(\alpha) \beta^\alpha} = \beta^a \frac{\Gamma(\alpha+a)}{\Gamma(\alpha)}
 \]</span></p>
-<p><span class="math inline">\(\alpha=\frac{n-1}{2}, \quad \beta = 2\)</span> の場合に応用すると、<span class="math inline">\(\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}\)</span> が<span class="math inline">\(\sigma\)</span>の不偏推定量であることがわかる。</p>
+<p><span class="math inline">\(\alpha=\frac{n-1}{2}, \quad \beta = 2\)</span> の場合に応用すると、<span class="math inline">\(\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}\)</span> が<span class="math inline">\(\sigma\)</span>の不偏推定量であることが容易にわかる。（容易にはわからなかった。。。）</p>
 </section>
 <section class="slide level2">
 
