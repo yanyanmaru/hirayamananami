@@ -24,7 +24,7 @@ status: "作成中"
 
 ### 不偏推定の問題点
 
-以上で述べてきた、一様最小分散不偏推定量(UMVU)の理論は、標本平均のように直感的にもっともらしい推定量を理論的に義務付けるための有効な理論である。
+以上で述べてきた、一様最小分散不偏推定量(UMVU)の理論は、標本平均のように直感的にもっともらしい推定量を理論的に裏付けるための有効な理論である。
 
 もしUMVUが存在すればUMVUを用いることは説得性のあることと思われる。
 
@@ -40,21 +40,16 @@ status: "作成中"
 
 ---
 
-### 不偏推定の問題点を示す例①
+### 不偏推定の問題点を示す例
 
 
 $\displaystyle s^2=\sum^{n}_{i=1}\frac{(X_i - \bar{X})^2}{n-1}$ は$\sigma^2$の不偏推定量であるが、$s=\sqrt{s^2}$は$\sigma$の不偏推定量にはならない。
 
+<br/>
+
 実際ジェンセンの不等式より、$E[s] < \sigma$となることが容易に示される。
 
-$f(x)=\sqrt{x}$　は厳密に上に凸なので
-
-
-$$
-E[s] = E[\sqrt{s^2}] < \sqrt{E[s^2]} = \sqrt{\sigma^2} = \sigma
-$$
-
-
+<br/>
 
 ---
 
@@ -90,11 +85,31 @@ $$
 もしfが厳密な凸関数で、$P(X \neq \mu) > 0$ ならば強い不等式が成り立つ。
 
 
+
 ---
 
-### 不偏推定の問題点を示す例②
+### 不偏推定の問題点を示す例
 
-また正規母集団からの標本の場合に
+$f(x)=\sqrt{x}$　は厳密に上に凸である。
+
+ジェンセンの不等式より、$(E[s])^2 < E[s^2]$ である。両辺に平方根をとっても大小関係は変わらないため、$\sqrt{(E[s])^2 }< \sqrt{E[s^2]}$　である。これを用いて、
+
+
+
+
+
+$$
+E[s] = E[\sqrt{s^2}] < \sqrt{E[s^2]} = \sqrt{\sigma^2} = \sigma
+$$
+
+
+となる。$E[s] \neq \sigma$ であるため、不偏推定量ではない。
+
+---
+
+### 不偏推定の問題点を示す例
+
+また**正規母集団**からの標本の場合に
 
 $$
 \tilde{\sigma} = s \frac{\sqrt{n-1} \Gamma(\frac{n-1}{2})}{\sqrt{2} \Gamma(\frac{n}{2})}
@@ -115,34 +130,31 @@ $$
 
 ---
 
-$\displaystyle \frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2} = \frac{(n-1)s^2}{\sigma^2} \sim \chi^{2}_{n-1}$
+### 不偏推定の問題点を示す例
 
-を用いる。
+$\displaystyle \frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2} = \frac{(n-1)s^2}{\sigma^2} \sim \chi^{2}_{n-1}$を用いる。（**正規母集団**のため）
 
-$Y=\frac{(n-1)s^2}{\sigma^2}$ とおいて、$Y \sim \chi^{2}_{n-1}$ から、期待値を求めれる。
+<br/>
+
+$\displaystyle Y=\frac{(n-1)s^2}{\sigma^2}$ とおいて、$Y \sim \chi^{2}_{n-1}$ から、$E[s]= \int^{\infty}_0 \sqrt{\frac{\sigma^2}{n-1}y} f(y) dy$ より期待値を求めれる。
+
+<br/>
+
+
 
 $$
 E[s] = \int^{\infty}_0 \sqrt{\frac{\sigma^2}{n-1}y} \frac{y^{\frac{n-1}{2} - 1} e^{- \frac{y}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} dy = \sqrt{\frac{\sigma^2}{n-1}} \frac{\Gamma(\frac{n}{2}) 2^{\frac{n}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} =  \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2})}
 $$
 
----
+<br/>
 
-
-教科書サポートサイトの説明
-
-$X \sim Ga(\alpha,\beta)$ のとき
-
-$$
-E[X^a]= \int^{\infty}_0 x^a \frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma(\alpha) \beta^\alpha} = \beta^a \frac{\Gamma(\alpha+a)}{\Gamma(\alpha)}
-$$
-
-$\alpha=\frac{n-1}{2}, \quad \beta = 2$ の場合に応用すると、$\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}$ が$\sigma$の不偏推定量であることが容易にわかる。（容易にはわからなかった。。。）
-
+補足：自由度$n$のカイ二乗分布に従う時、$Ga(\frac{n}{2},2)$ に従う。
 
 
 ---
 
-### 不偏推定の問題点を示す例③
+
+### 不偏推定の問題点を示す例
 
 
 したがって、もし不偏推定の考え方にこだわるのであれば$\sigma^2$の推定には$s^2$ を用いるが、$\sigma$の推定には$\tilde{\sigma}$を用いなければならなくなる。

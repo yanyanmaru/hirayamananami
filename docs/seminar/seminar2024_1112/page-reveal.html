@@ -339,7 +339,7 @@
 <section class="slide level2">
 
 <h3 id="不偏推定の問題点">不偏推定の問題点</h3>
-<p>以上で述べてきた、一様最小分散不偏推定量(UMVU)の理論は、標本平均のように直感的にもっともらしい推定量を理論的に義務付けるための有効な理論である。</p>
+<p>以上で述べてきた、一様最小分散不偏推定量(UMVU)の理論は、標本平均のように直感的にもっともらしい推定量を理論的に裏付けるための有効な理論である。</p>
 <p>もしUMVUが存在すればUMVUを用いることは説得性のあることと思われる。</p>
 <p>しかしながら、一様最小分散不偏推定量が存在しなかったり不合理な推定量となる例がある。</p>
 <p>これらの例は必ずしも特殊な例とは言えず、不偏推定量の理論に疑問を投げかけるものとなっている。</p>
@@ -349,13 +349,11 @@
 </section>
 <section class="slide level2">
 
-<h3 id="不偏推定の問題点を示す例①">不偏推定の問題点を示す例①</h3>
+<h3 id="不偏推定の問題点を示す例">不偏推定の問題点を示す例</h3>
 <p><span class="math inline">\(\displaystyle s^2=\sum^{n}_{i=1}\frac{(X_i - \bar{X})^2}{n-1}\)</span> は<span class="math inline">\(\sigma^2\)</span>の不偏推定量であるが、<span class="math inline">\(s=\sqrt{s^2}\)</span>は<span class="math inline">\(\sigma\)</span>の不偏推定量にはならない。</p>
+<p><br></p>
 <p>実際ジェンセンの不等式より、<span class="math inline">\(E[s] &lt; \sigma\)</span>となることが容易に示される。</p>
-<p><span class="math inline">\(f(x)=\sqrt{x}\)</span>　は厳密に上に凸なので</p>
-<p><span class="math display">\[
-E[s] = E[\sqrt{s^2}] &lt; \sqrt{E[s^2]} = \sqrt{\sigma^2} = \sigma
-\]</span></p>
+<p><br></p>
 </section>
 <section class="slide level2">
 
@@ -371,15 +369,25 @@ f(E[X]) \leq E[f(X)]
 <p>証明</p>
 <p><span class="math inline">\(\mu = E[X]\)</span> とする。<span class="math inline">\((\mu, f(\mu))\)</span> における<span class="math inline">\(f(x)\)</span>の接線を<span class="math inline">\(y=a+bx\)</span>とする。<span class="math inline">\(f(x)\)</span>は凸関数であるから</p>
 <p><span class="math display">\[
-f(x) \geq a  + bx , \quad\forall x
+f(x) \geq a  + bx , \quad \forall x
 \]</span></p>
 <p>が成り立つ。ここで両辺の期待値をとれば<span class="math inline">\(E[f(X)] \geq  a+b\mu=f(\mu)=f(E[X])\)</span>である。</p>
 <p>もしfが厳密な凸関数で、<span class="math inline">\(P(X \neq \mu) &gt; 0\)</span> ならば強い不等式が成り立つ。</p>
 </section>
 <section class="slide level2">
 
-<h3 id="不偏推定の問題点を示す例②">不偏推定の問題点を示す例②</h3>
-<p>また正規母集団からの標本の場合に</p>
+<h3 id="不偏推定の問題点を示す例-1">不偏推定の問題点を示す例</h3>
+<p><span class="math inline">\(f(x)=\sqrt{x}\)</span>　は厳密に上に凸である。</p>
+<p>ジェンセンの不等式より、<span class="math inline">\((E[s])^2 &lt; E[s^2]\)</span> である。両辺に平方根をとっても大小関係は変わらないため、<span class="math inline">\(\sqrt{(E[s])^2 }&lt; \sqrt{E[s^2]}\)</span>　である。これを用いて、</p>
+<p><span class="math display">\[
+E[s] = E[\sqrt{s^2}] &lt; \sqrt{E[s^2]} = \sqrt{\sigma^2} = \sigma
+\]</span></p>
+<p>となる。<span class="math inline">\(E[s] \neq \sigma\)</span> であるため、不偏推定量ではない。</p>
+</section>
+<section class="slide level2">
+
+<h3 id="不偏推定の問題点を示す例-2">不偏推定の問題点を示す例</h3>
+<p>また<strong>正規母集団</strong>からの標本の場合に</p>
 <p><span class="math display">\[
 \tilde{\sigma} = s \frac{\sqrt{n-1} \Gamma(\frac{n-1}{2})}{\sqrt{2} \Gamma(\frac{n}{2})}
 \]</span></p>
@@ -393,25 +401,20 @@ E[s] = \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2
 </section>
 <section class="slide level2">
 
-<p><span class="math inline">\(\displaystyle \frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2} = \frac{(n-1)s^2}{\sigma^2} \sim \chi^{2}_{n-1}\)</span></p>
-<p>を用いる。</p>
-<p><span class="math inline">\(Y=\frac{(n-1)s^2}{\sigma^2}\)</span> とおいて、<span class="math inline">\(Y \sim \chi^{2}_{n-1}\)</span> から、期待値を求めれる。</p>
+<h3 id="不偏推定の問題点を示す例-3">不偏推定の問題点を示す例</h3>
+<p><span class="math inline">\(\displaystyle \frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2} = \frac{(n-1)s^2}{\sigma^2} \sim \chi^{2}_{n-1}\)</span>を用いる。（<strong>正規母集団</strong>のため）</p>
+<p><br></p>
+<p><span class="math inline">\(\displaystyle Y=\frac{(n-1)s^2}{\sigma^2}\)</span> とおいて、<span class="math inline">\(Y \sim \chi^{2}_{n-1}\)</span> から、<span class="math inline">\(E[s]= \int^{\infty}_0 \sqrt{\frac{\sigma^2}{n-1}y} f(y) dy\)</span> より期待値を求めれる。</p>
+<p><br></p>
 <p><span class="math display">\[
 E[s] = \int^{\infty}_0 \sqrt{\frac{\sigma^2}{n-1}y} \frac{y^{\frac{n-1}{2} - 1} e^{- \frac{y}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} dy = \sqrt{\frac{\sigma^2}{n-1}} \frac{\Gamma(\frac{n}{2}) 2^{\frac{n}{2}}}{\Gamma(\frac{n-1}{2}) 2^{\frac{n-1}{2}}} =  \sigma \frac{\sqrt{2} \Gamma(\frac{n}{2})}{\sqrt{n-1} \Gamma(\frac{n-1}{2})}
 \]</span></p>
+<p><br></p>
+<p>補足：自由度<span class="math inline">\(n\)</span>のカイ二乗分布に従う時、<span class="math inline">\(Ga(\frac{n}{2},2)\)</span> に従う。</p>
 </section>
 <section class="slide level2">
 
-<p>教科書サポートサイトの説明</p>
-<p><span class="math inline">\(X \sim Ga(\alpha,\beta)\)</span> のとき</p>
-<p><span class="math display">\[
-E[X^a]= \int^{\infty}_0 x^a \frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma(\alpha) \beta^\alpha} = \beta^a \frac{\Gamma(\alpha+a)}{\Gamma(\alpha)}
-\]</span></p>
-<p><span class="math inline">\(\alpha=\frac{n-1}{2}, \quad \beta = 2\)</span> の場合に応用すると、<span class="math inline">\(\displaystyle s \sqrt{n-1} \frac{\Gamma(\frac{n-1}{2})}{\sqrt{2}\Gamma(\frac{n}{2})}\)</span> が<span class="math inline">\(\sigma\)</span>の不偏推定量であることが容易にわかる。（容易にはわからなかった。。。）</p>
-</section>
-<section class="slide level2">
-
-<h3 id="不偏推定の問題点を示す例③">不偏推定の問題点を示す例③</h3>
+<h3 id="不偏推定の問題点を示す例-4">不偏推定の問題点を示す例</h3>
 <p>したがって、もし不偏推定の考え方にこだわるのであれば<span class="math inline">\(\sigma^2\)</span>の推定には<span class="math inline">\(s^2\)</span> を用いるが、<span class="math inline">\(\sigma\)</span>の推定には<span class="math inline">\(\tilde{\sigma}\)</span>を用いなければならなくなる。</p>
 <p>しかしこれは明らかに不自然な推定方法であろう。</p>
 <p>したがってこの場合不偏推定の基準を厳密に適用することは不合理である。</p>

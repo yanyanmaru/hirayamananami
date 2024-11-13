@@ -6,6 +6,7 @@ date: last-modified
 toc: true
 toc-location: left
 lang: ja
+draft: true
 ---
 
 ## 前回までの前準備
@@ -268,6 +269,12 @@ artistがTwiceのメンバーのものもあるので、それはのぞきます
 twice_df = twice_df[twice_df["artist"] == 'TWICE']
 ```
 
-うけんね
+```{python}
+import matplotlib.pyplot as plt
 
+plt.plot(twice_df["release_date"], twice_df["valence"], marker="o")
+plt.plot(twice_df["release_date"], twice_df["energy"], marker="o")
+plt.show()
+```
 
+ここからどうにかしていきたいですね
