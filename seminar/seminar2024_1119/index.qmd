@@ -1,0 +1,16 @@
+---
+title: "11月19日「データ解析のための数理統計入門」第9章 "
+code-fold: true
+format:
+  html: default
+date: 2024/11/19
+toc: true
+lang: ja
+categories:
+  - データ解析のための数理統計入門
+status: "作成中"
+---
+
+今回はtexファイルからpdfを作ってみました。
+
+[pdfだよ](/seminar/seminar2024_1119/out/wara.pdf)

@@ -19,8 +19,9 @@ toc: true
 lang: ja
 categories:
   - 現代数理統計学
-status: "作成中"
+status: "完了"
 ---
+
 
 ### 不偏推定の問題点
 
