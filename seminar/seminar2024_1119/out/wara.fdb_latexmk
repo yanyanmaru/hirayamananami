@@ -1,11 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1731961629.31015 "out/wara.dvi" "out/wara.pdf" "out/wara" 1731961629.84216 0
-  "out/wara.dvi" 1731961629.27728 17756 2d39001c7ad36567813ce330eb6e6e14 "latex"
+["dvipdf"] 1732002962.48937 "out/wara.dvi" "out/wara.pdf" "out/wara" 1732002963.02065 0
+  "out/wara.dvi" 1732002962.45499 19496 8859d4e0018f756263db540634ba9791 "latex"
   (generated)
   "out/wara.pdf"
   (rewritten before read)
-["latex"] 1731961628.85461 "/Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1119/wara.tex" "out/wara.dvi" "wara" 1731961629.84115 0
-  "/Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1119/wara.tex" 1731961628.19628 10736 35eea1076df755aa7b2618ec3993a27a ""
+["latex"] 1732002961.96624 "/Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1119/wara.tex" "out/wara.dvi" "wara" 1732002963.01958 0
+  "/Users/hirayamananakai/Desktop/hirayama/seminar/seminar2024_1119/wara.tex" 1732002961.19013 11790 a94f6537a33ea0b8e0a6b65b1d71c075 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm" 1463434352 1196 5981e79c37b2cfd27b3612a6783cd4b6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm" 1463434352 1196 1be730212205a270378fba11a44765dc ""
@@ -70,14 +70,18 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1667332637 2885 9c645d672ae17285bba324998918efd8 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty" 1654720880 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-dvips.def" 1714507368 35454 e6342481ed7341e30cc5da18666b16fa ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg" 1710360531 1831 72b544e9621cbb4ed6a5d73bd2c73642 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty" 1710360531 81323 a0a3018bb79e823e0195dba6749ec560 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty" 1710360531 77023 48b5adf5086dac991587916788887607 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty" 1710360531 353 9024412f43e92cd5b21fe9ded82d0610 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/tools/bm.sty" 1698869629 13231 2c742011581e2bf297e33520567d9464 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1713064664 41983 7ec6bfd6bf34339a61f0f08f42298e60 ""
   "/usr/local/texlive/2024/texmf-var/web2c/euptex/platex.fmt" 1714925836 8159863 d6c0cb71b7caed658c1e2b3bff887000 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "out/wara.aux" 1731961629.27652 827 9c43b304fa894eb95dcc52f465e65849 "latex"
-  "wara.tex" 1731961628.19628 10736 35eea1076df755aa7b2618ec3993a27a ""
+  "out/wara.aux" 1732002962.45416 731 5ca68e87daf986b802f7a3815518c712 "latex"
+  "wara.tex" 1732002961.19013 11790 a94f6537a33ea0b8e0a6b65b1d71c075 ""
   (generated)
   "out/wara.aux"
   "out/wara.dvi"
