@@ -285,6 +285,7 @@ L(p(\theta)\mid X)=\frac{n!}{X_1!\dots X_m!} \left\{p_1(\theta) \right\}^{X_i} \
   -2 \log \Lambda(\mathbf{X}) &amp;= 2n\sum_{i=1}^m \hat{p_i} \log \left(\frac{\hat{p_i}}{p_i(\hat{\theta})}\right) \\
   &amp;\approx 2n\sum_{i=1}^m \left\{(\hat{p_i}-p_i(\hat{\theta}))+ \frac{1}{2p_i(\hat{\theta})}(\hat{p_i}-p_i(\hat{\theta}))^2 \right\}\\
   &amp;= 2n\sum_{i=1}^m (\hat{p_i}-p_i(\hat{\theta}))+ n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})} \\
+  &amp;= 2n\sum_{i=1}^m \hat{p_i}-2n\sum_{i=1}^m  p_i(\hat{\theta})+ n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})} \\
   &amp;= n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})}
 \end{aligned}
 \]</span></p>
@@ -896,35 +897,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>  -2 \log \Lambda(\mathbf{X}) &amp;= 2n\sum_{i=1}^m \hat{p_i} \log \left(\frac{\hat{p_i}}{p_i(\hat{\theta})}\right) <span class="sc">\\</span></span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>  &amp;\approx 2n\sum_{i=1}^m \left<span class="sc">\{</span>(\hat{p_i}-p_i(\hat{\theta}))+ \frac{1}{2p_i(\hat{\theta})}(\hat{p_i}-p_i(\hat{\theta}))^2 \right<span class="sc">\}\\</span></span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>  &amp;= 2n\sum_{i=1}^m (\hat{p_i}-p_i(\hat{\theta}))+ n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})} <span class="sc">\\</span></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  &amp;= n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})}</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  &amp;= 2n\sum_{i=1}^m \hat{p_i}-2n\sum_{i=1}^m  p_i(\hat{\theta})+ n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})} <span class="sc">\\</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  &amp;= n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>となり、カイ2乗適合度検定が現れる。あらためて$O_i=X_i, E_i=np_i(\hat{\theta})$とおくと、$H_0$のもとで次のような関係が成り立つことになる。</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>となり、カイ2乗適合度検定が現れる。あらためて$O_i=X_i, E_i=np_i(\hat{\theta})$とおくと、$H_0$のもとで次のような関係が成り立つことになる。</span>
 <span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>  -2 \log \Lambda(\mathbf{X}) &amp;= 2\sum_{i=1}^m O_i \log \left(\frac{O_i}{E_i}\right)\approx  \sum_{i=1}^m  \frac{(O_i-E_i)^2}{E_i}</span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>制約無しの時のパラメーター数は$m-1$,$H_0$のもとでのパラメーター数は$k$であることを注意すると、定理9.3より尤度比検定は$H_0$のもとで$\chi^2_{m-k-1}$に収束することがわかる。</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  -2 \log \Lambda(\mathbf{X}) &amp;= 2\sum_{i=1}^m O_i \log \left(\frac{O_i}{E_i}\right)\approx  \sum_{i=1}^m  \frac{(O_i-E_i)^2}{E_i}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>したがってカイ2乗適合度検定は自由度$m-k-1$のカイ二乗分布から棄却限界を求めることができる。</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>制約無しの時のパラメーター数は$m-1$,$H_0$のもとでのパラメーター数は$k$であることを注意すると、定理9.3より尤度比検定は$H_0$のもとで$\chi^2_{m-k-1}$に収束することがわかる。</span>
 <span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>&lt;br /&gt;</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>したがってカイ2乗適合度検定は自由度$m-k-1$のカイ二乗分布から棄却限界を求めることができる。</span>
 <span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### 10.1.1、10.1.2に当てはめると...</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>&lt;br /&gt;</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>例えば、10.1.1項の帰無仮説は$k=0$なので自由度は$m-1$となる。</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### 10.1.1、10.1.2に当てはめると...</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>10.1.2項の$r\times c$のクロス表については$m=cr,k=c+r-2$に対応するので、自由度は$m-k-1=cr-(c+r-2)-1=cr-c-r+1=(c-1)(r-1)$となる。</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>例えば、10.1.1項の帰無仮説は$k=0$なので自由度は$m-1$となる。</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>10.1.2項の$r\times c$のクロス表については$m=cr,k=c+r-2$に対応するので、自由度は$m-k-1=cr-(c+r-2)-1=cr-c-r+1=(c-1)(r-1)$となる。</span></code><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

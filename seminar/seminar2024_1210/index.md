@@ -113,12 +113,14 @@ $$
   -2 \log \Lambda(\mathbf{X}) &= 2n\sum_{i=1}^m \hat{p_i} \log \left(\frac{\hat{p_i}}{p_i(\hat{\theta})}\right) \\
   &\approx 2n\sum_{i=1}^m \left\{(\hat{p_i}-p_i(\hat{\theta}))+ \frac{1}{2p_i(\hat{\theta})}(\hat{p_i}-p_i(\hat{\theta}))^2 \right\}\\
   &= 2n\sum_{i=1}^m (\hat{p_i}-p_i(\hat{\theta}))+ n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})} \\
+  &= 2n\sum_{i=1}^m \hat{p_i}-2n\sum_{i=1}^m  p_i(\hat{\theta})+ n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})} \\
   &= n\sum_{i=1}^m \frac{(\hat{p_i}-p_i(\hat{\theta}))^2}{p_i(\hat{\theta})}
 \end{aligned}
 $$
 
 
 となり、カイ2乗適合度検定が現れる。あらためて$O_i=X_i, E_i=np_i(\hat{\theta})$とおくと、$H_0$のもとで次のような関係が成り立つことになる。
+
 
 
 
