@@ -12,7 +12,7 @@ toc: true
 lang: ja
 categories:
   - データ解析のための数理統計入門
-status: "作成中"
+status: "完了"
 ---
 
 
@@ -23,7 +23,7 @@ status: "作成中"
 
 ## 最尤推定量に基づいた検定
 
-$X_1,\dots,X_n$を独立にそれぞれパラメトリックな確率（密度）関数$f(x|\theta)$に従うとし、$\theta$を１次元のパラメーターとする。$\theta$のMLEを$\hat{\theta}$とすると、定理8.15より適当な正則条件のもとで$n \to \infty$のとき$\sqrt{n}(\hat{\theta}-\theta) \to _d N(0, \frac{1}{I(\theta)})$が成り立つ。
+$X_1,\dots,X_n$を独立にそれぞれパラメトリックな確率（密度）関数$f(x\mid \theta)$に従うとし、$\theta$を１次元のパラメーターとする。$\theta$のMLEを$\hat{\theta}$とすると、定理8.15より適当な正則条件のもとで$n \to \infty$のとき$\sqrt{n}(\hat{\theta}-\theta) \to _d N(0, \frac{1}{I(\theta)})$が成り立つ。
 
 $\hat{\theta}$(MLE)の一致性により、$I(\hat{\theta}) \to_p I(\theta)$ に確率収束します。
 
@@ -46,7 +46,7 @@ U_n V_n &\to_d \alpha U
 したがって、定数$\theta_0$に対して$H_0:\theta = \theta_0 \quad vs. H_1: \theta \neq \theta_0$のような両側検定については、有意水準$\alpha$の近似的な棄却域は
 
 \begin{equation}
-  R=\left\{x|\sqrt{n}\sqrt{I(\hat{\theta})}|\hat{\theta}-\theta_0|>z_{\frac{\alpha}{2}}\right\}
+  R=\left\{x\mid \sqrt{n}\sqrt{I(\hat{\theta})}\mid \hat{\theta}-\theta_0\mid >z_{\frac{\alpha}{2}}\right\}
 \end{equation}
 
 となる。このような検定をワルド検定と呼ぶ。
@@ -62,7 +62,7 @@ $X_1,\dots,X_n$が独立にベルヌーイ分布$Ber(\theta)$に従う時、両�
 のように近似できる。したがってワルド検定の近似的な棄却域は
 
 \begin{equation*}
-  R=\left\{x|\sqrt{n}|\bar{x}-\theta_0|> \sqrt{\bar{x}(1-\bar{x})}z_{\frac{\alpha}{2}}\right\}
+  R=\left\{x\mid \sqrt{n}\mid \bar{x}-\theta_0\mid > \sqrt{\bar{x}(1-\bar{x})}z_{\frac{\alpha}{2}}\right\}
 \end{equation*}
 
 とかける。
@@ -85,7 +85,7 @@ $X_1,\dots,X_n$が独立にベルヌーイ分布$Ber(\theta)$に従う時、両�
 
 
 \begin{equation*}
-  R=\left\{x|\sqrt{n}|\bar{x}-\mu_0|> S z_{\frac{\alpha}{2}}\right\}
+  R=\left\{x\mid \sqrt{n}\mid \bar{x}-\mu_0\mid > S z_{\frac{\alpha}{2}}\right\}
 \end{equation*}
 
 ### 例9.7 対のあるデータの同等性検定
@@ -132,7 +132,7 @@ $\bar{Z}=n^{-1} \sum_{i=1}^{n} Z_i$、$S^2=n^{-1} \sum_{i=1}^{n} (Z_i-\bar{Z})^2
 
 
 \begin{equation*}
-  R=\left\{(x,y)|\sqrt{n}|\bar{x}-\bar{y}|> S z_{\frac{\alpha}{2}}\right\}
+  R=\left\{(x,y)\mid \sqrt{n}\mid \bar{x}-\bar{y}\mid > S z_{\frac{\alpha}{2}}\right\}
 \end{equation*}
 
 
