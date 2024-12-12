@@ -1,8 +1,6 @@
 ---
 title: "12月10日　10.1.3"
 code-fold: true
-header-includes:
-    - \usepackage{bm}
 format:
   html:
     grid:
