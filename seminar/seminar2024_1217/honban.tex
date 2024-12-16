@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage[a4paper,margin=1.0in]{geometry} % 余白を設定
+\usepackage{listings}
+
+% このコードで行間を1.5倍にしている　教科書に近くしようと思った。
+\renewcommand{\baselinestretch}{1.5}
+
+\title{ゼミ12月17日分}
+\author{平山 奈々海}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+教科書の説明：黒色
+
+\textcolor{blue}{補足：青色}
+
+\textcolor{red}{わからなかったところ、気になったところ：赤色}
+
+\section{最小２乗推定量の性質}
+
+さて、最小2乗推定量 $\bm{\hat{\beta}}$ の平均と共分散行列を求めよう。（命題12.2）
+これは確率変数のベクトルについての平均と共分散行列を扱うことになるのでその定義から始める。
+$\bm{Z} = (Z_1, \ldots, Z_n)^\top$ を $n$ 個の確率変数を縦に並べたベクトルとし、これを確率ベクトルと呼ぶ。
+
+その平均は $\bm{\mu} = E[\bm{Z}]$、共分散行列は$\bm{\Sigma} = \mathrm{Cov}(\bm{Z}) = E[(\bm{Z} - \bm{\mu})(\bm{Z} - \bm{\mu})^\top]$
+で定義される。
+平均（$\bm{\mu} = E[\bm{Z}]$）を成分で表示すると
+
+\begin{equation*}
+  \bm{\mu} =
+  \begin{pmatrix}
+  \mu_1 \\
+  \vdots \\
+  \mu_n
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  E[Z_1] \\
+  \vdots \\
+  E[Z_n]
+  \end{pmatrix}
+\end{equation*}
+共分散行列は$\sigma_{ij} = E[(Z_i - \mu_i)(Z_j - \mu_j)]$とおくと、
+
+
+\begin{equation*}
+  \bm{\Sigma} = (\sigma_{ij}) =
+  \begin{pmatrix}
+  E[(Z_1 - \mu_1)^2] & \cdots & E[(Z_1 - \mu_1)(Z_n - \mu_n)] \\
+  \vdots & \ddots & \vdots \\
+  E[(Z_n - \mu_n)(Z_1 - \mu_1)] & \cdots & E[(Z_n - \mu_n)^2]
+  \end{pmatrix}
+\end{equation*}
+と書けることになる。次の補題は期待値や共分散行列の計算に役立つ。
+
+\bigskip
+
+\newpage
+
+\textbf{補題 12.1} $\bm{Z}$ を $n$ 次元の確率ベクトルで、その平均と共分散行列を $E[\bm{Z}] = \bm{\mu}$, $\mathrm{Cov}(\bm{Z}) = \bm{\Sigma}$ とする。$\bm{A}$ を $r \times n$ 行列, $\bm{b}$ を $r$ 次元ベクトル, $\bm{C}$ を $n \times n$ 行列とすると、次の性質が成り立つ。
+
+\begin{enumerate}
+    \item $\bm{A}\bm{Z} + \bm{b}$ の平均は $E[\bm{A}\bm{Z} + \bm{b}] = \bm{A}\bm{\mu} + \bm{b}$ である。
+    \item $\bm{A}\bm{Z} + \bm{b}$ の共分散行列は $\mathrm{Cov}(\bm{A}\bm{Z} + \bm{b}) = \bm{A}\bm{\Sigma}\bm{A}^\top$ である。
+    \item $E[\bm{Z}^\top \bm{C} \bm{Z}] = \mathrm{tr}(\bm{C}\bm{\Sigma}) + \bm{\mu}^\top \bm{C} \bm{\mu}$ である。ただし $n \times n$ 行列 $\bm{D} = (d_{ij})$ に対して $\mathrm{tr}(\bm{D}) = \sum_{i=1}^n d_{ii}$ で定義される。
+\end{enumerate}
+
+\bigskip
+
+
+\textbf{
