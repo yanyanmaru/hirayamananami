@@ -12,7 +12,7 @@ toc: true
 lang: ja
 categories:
   - データ解析のための数理統計入門
-status: "作成中"
+status: "完了"
 ---
 
 # 10.1.3 尤度比検定とカイ2乗適合度検定
