@@ -1,0 +1,38 @@
+---
+title: "数式に適したスタイル作成"
+format: html
+code-fold: false
+date: last-modified
+toc: true
+toc-location: left
+lang: ja
+---
+
+
+### WEBサイト上で数式を表示
+
+
+定理や証明を示す時のフォーマットを作っておきたい。
+
+
+
+::: {#thm-line}
+
+## なんとかの定理
+
+The equation of any straight line, called a linear equation, can be written as:
+
+$$
+y = mx + b
+$$
+:::
+
+See @thm-line.
+
+
+::: {#lem-line}
+
+# なんとかの補題
+
+:::
+

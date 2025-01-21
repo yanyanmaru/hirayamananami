@@ -3,18 +3,10 @@ title: "Post"
 description: "何でも気になったことをやる場所。"
 lang: ja
 code-tools: false
-toc: false
+toc: true
 page-layout: full
-listing:
-  contents: post
-  type: grid
 ---
 
-### やってみたいこと
+### 統計学
 
-- [ ] 各確率分布の期待値・分散の求め方を確認
-- [ ] 各確率分布の積率母関数・確率母関数の求め方を確認
-- [ ] WEB上で図を表現する方法を探索
-- [ ] 面白そうなデータセットを探索
-- [ ] Pythonでデータ可視化の方法を探索
-- [ ] 教科書の問題を解く
+

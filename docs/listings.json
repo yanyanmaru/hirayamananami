@@ -2,8 +2,12 @@
   {
     "listing": "/post.html",
     "items": [
+      "/post/spotify-twice.html",
       "/post/spotify-basis.html",
-      "/post/data_math_quest/index.html"
+      "/post/data_math_quest/index.html",
+      "/post/statistics/2024_11_14.html",
+      "/post/statistics/tamesi.html",
+      "/post/1.html"
     ]
   },
   {
@@ -25,7 +29,8 @@
       "/seminar/seminar2024_0702/index.html",
       "/seminar/seminar2024_0625/index.html",
       "/seminar/seminar2024_0618/index.html",
-      "/seminar/seminar2024_0611/index.html"
+      "/seminar/seminar2024_0611/index.html",
+      "/seminar/seminar2025_0106/index.html"
     ]
   }
 ]
